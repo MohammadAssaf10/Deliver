@@ -10,3 +10,12 @@ abstract class ChangePasswordState extends RegisterEvent
           [void Function(ChangePasswordStateBuilder) updates]) =
       _$ChangePasswordState;
 }
+
+abstract class Register extends RegisterEvent
+    implements Built<Register, RegisterBuilder> {
+  RegisterRequest get registerRequest;
+
+  Register._();
+
+  factory Register([void Function(RegisterBuilder) updates]) = _$Register;
+}

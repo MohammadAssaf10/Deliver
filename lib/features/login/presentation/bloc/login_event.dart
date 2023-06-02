@@ -10,3 +10,11 @@ abstract class ChangePasswordState extends LoginEvent
           [void Function(ChangePasswordStateBuilder) updates]) =
       _$ChangePasswordState;
 }
+
+abstract class Login extends LoginEvent implements Built<Login, LoginBuilder> {
+  LoginRequest get loginRequest;
+
+  Login._();
+
+  factory Login([void Function(LoginBuilder) updates]) = _$Login;
+}

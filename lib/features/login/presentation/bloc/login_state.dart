@@ -5,6 +5,8 @@ abstract class LoginState
     implements Built<LoginState, LoginStateBuilder> {
   bool get passwordVisible;
 
+  bool get isLogin;
+
   LoginState._();
 
   factory LoginState([void Function(LoginStateBuilder) updates]) = _$LoginState;
@@ -13,5 +15,6 @@ abstract class LoginState
     ..isLoading = false
     ..error = false
     ..errorMessage = ''
-    ..passwordVisible = true);
+    ..passwordVisible = true
+    ..isLogin = false);
 }

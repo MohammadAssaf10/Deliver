@@ -66,9 +66,95 @@ class ChangePasswordStateBuilder
   }
 }
 
+class _$Register extends Register {
+  @override
+  final RegisterRequest registerRequest;
+
+  factory _$Register([void Function(RegisterBuilder)? updates]) =>
+      (new RegisterBuilder()..update(updates))._build();
+
+  _$Register._({required this.registerRequest}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        registerRequest, r'Register', 'registerRequest');
+  }
+
+  @override
+  Register rebuild(void Function(RegisterBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RegisterBuilder toBuilder() => new RegisterBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is Register && registerRequest == other.registerRequest;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, registerRequest.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'Register')
+          ..add('registerRequest', registerRequest))
+        .toString();
+  }
+}
+
+class RegisterBuilder implements Builder<Register, RegisterBuilder> {
+  _$Register? _$v;
+
+  RegisterRequest? _registerRequest;
+  RegisterRequest? get registerRequest => _$this._registerRequest;
+  set registerRequest(RegisterRequest? registerRequest) =>
+      _$this._registerRequest = registerRequest;
+
+  RegisterBuilder();
+
+  RegisterBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _registerRequest = $v.registerRequest;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(Register other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$Register;
+  }
+
+  @override
+  void update(void Function(RegisterBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  Register build() => _build();
+
+  _$Register _build() {
+    final _$result = _$v ??
+        new _$Register._(
+            registerRequest: BuiltValueNullFieldError.checkNotNull(
+                registerRequest, r'Register', 'registerRequest'));
+    replace(_$result);
+    return _$result;
+  }
+}
+
 class _$RegisterState extends RegisterState {
   @override
   final bool passwordVisible;
+  @override
+  final bool isRegister;
   @override
   final bool isLoading;
   @override
@@ -81,12 +167,15 @@ class _$RegisterState extends RegisterState {
 
   _$RegisterState._(
       {required this.passwordVisible,
+      required this.isRegister,
       required this.isLoading,
       required this.error,
       required this.errorMessage})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         passwordVisible, r'RegisterState', 'passwordVisible');
+    BuiltValueNullFieldError.checkNotNull(
+        isRegister, r'RegisterState', 'isRegister');
     BuiltValueNullFieldError.checkNotNull(
         isLoading, r'RegisterState', 'isLoading');
     BuiltValueNullFieldError.checkNotNull(error, r'RegisterState', 'error');
@@ -106,6 +195,7 @@ class _$RegisterState extends RegisterState {
     if (identical(other, this)) return true;
     return other is RegisterState &&
         passwordVisible == other.passwordVisible &&
+        isRegister == other.isRegister &&
         isLoading == other.isLoading &&
         error == other.error &&
         errorMessage == other.errorMessage;
@@ -115,6 +205,7 @@ class _$RegisterState extends RegisterState {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, passwordVisible.hashCode);
+    _$hash = $jc(_$hash, isRegister.hashCode);
     _$hash = $jc(_$hash, isLoading.hashCode);
     _$hash = $jc(_$hash, error.hashCode);
     _$hash = $jc(_$hash, errorMessage.hashCode);
@@ -126,6 +217,7 @@ class _$RegisterState extends RegisterState {
   String toString() {
     return (newBuiltValueToStringHelper(r'RegisterState')
           ..add('passwordVisible', passwordVisible)
+          ..add('isRegister', isRegister)
           ..add('isLoading', isLoading)
           ..add('error', error)
           ..add('errorMessage', errorMessage))
@@ -141,6 +233,10 @@ class RegisterStateBuilder
   bool? get passwordVisible => _$this._passwordVisible;
   set passwordVisible(bool? passwordVisible) =>
       _$this._passwordVisible = passwordVisible;
+
+  bool? _isRegister;
+  bool? get isRegister => _$this._isRegister;
+  set isRegister(bool? isRegister) => _$this._isRegister = isRegister;
 
   bool? _isLoading;
   bool? get isLoading => _$this._isLoading;
@@ -160,6 +256,7 @@ class RegisterStateBuilder
     final $v = _$v;
     if ($v != null) {
       _passwordVisible = $v.passwordVisible;
+      _isRegister = $v.isRegister;
       _isLoading = $v.isLoading;
       _error = $v.error;
       _errorMessage = $v.errorMessage;
@@ -187,6 +284,8 @@ class RegisterStateBuilder
         new _$RegisterState._(
             passwordVisible: BuiltValueNullFieldError.checkNotNull(
                 passwordVisible, r'RegisterState', 'passwordVisible'),
+            isRegister: BuiltValueNullFieldError.checkNotNull(
+                isRegister, r'RegisterState', 'isRegister'),
             isLoading: BuiltValueNullFieldError.checkNotNull(
                 isLoading, r'RegisterState', 'isLoading'),
             error: BuiltValueNullFieldError.checkNotNull(
