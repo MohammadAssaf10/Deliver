@@ -24,17 +24,17 @@ jobs:
           flutter-version: "3.19.3"
           channel: stable
 
+      - name: Add platform to bundle lockfile
+        run: |
+          bundle lock --add-platform x86_64-linux
+        working-directory: android
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: "3.2.3"
           bundler-cache: true
           working-directory: android
-
-      - name: Add platform to bundle lockfile
-        run: |
-            bundle lock --add-platform x86_64-linux
-        working-directory: android
 
       - name: Build and Distribute App
         env:
