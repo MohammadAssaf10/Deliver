@@ -4,10 +4,10 @@ platform :android do
   desc "Lane for Android Firebase App Distribution"
   lane :firebase_distribution do
     sh "flutter clean"
-    sh "flutter build apk"
+    sh "flutter build apk --no-tree-shake-icons"
     firebase_app_distribution(
         app: "1:855422049492:android:9f51e70785e3a18d922f41",
-        firebase_cli_token: "1//09wSi_9I3M4e-CgYIARAAGAkSNwF-L9Ir1pe_kyFk5-4PiUCXIuuwy7knyd2U6pZWc4aK4nOHYy5rULOcZIG0rAd6bGD-528t8zA",
+        firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
         android_artifact_type: "APK",
         android_artifact_path: "../build/app/outputs/flutter-apk/app-release.apk",
         testers: "mehsen2222@gmail.com",
