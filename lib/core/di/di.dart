@@ -1,7 +1,6 @@
 import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
-import 'package:pretty_dio_logger/pretty_dio_logger.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -47,10 +46,9 @@ Dio getDio() {
   if (kDebugMode) {
     // its debug mode so print app logs
     dio.interceptors.add(
-      PrettyDioLogger(
-        requestHeader: true,
+      LogInterceptor(
         requestBody: true,
-        responseHeader: true,
+        responseBody: true,
       ),
     );
   }

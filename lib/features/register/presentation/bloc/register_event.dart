@@ -1,7 +1,5 @@
 import 'package:built_value/built_value.dart';
 
-import '../../data/models/register_request.dart';
-
 part 'register_event.g.dart';
 
 abstract class RegisterEvent {}

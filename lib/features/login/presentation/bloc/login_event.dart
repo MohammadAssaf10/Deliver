@@ -1,7 +1,5 @@
 import 'package:built_value/built_value.dart';
 
-import '../../data/models/login_request.dart';
-
 part 'login_event.g.dart';
 
 abstract class LoginEvent {}
