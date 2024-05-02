@@ -4,11 +4,9 @@ class IconsAssets {}
 
 class JsonAssets {}
 
-class AppFontFamilies {
-  static const String almaraiFamily = "Almarai";
-}
+class AppFontFamilies {}
 
-class SharedPreferencesKeys{
+class SharedPreferencesKeys {
   static const String appLanguage = 'app_language';
 }
 
