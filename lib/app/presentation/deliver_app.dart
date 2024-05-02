@@ -4,7 +4,6 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import '../../core/routing/app_router.dart';
 import '../../core/routing/routes.dart';
 import '../../core/theming/colors_manager.dart';
-import '../../core/utils/constant.dart';
 import '../../generated/l10n.dart';
 import 'bloc/app_cubit.dart';
 import 'bloc/app_state.dart';
@@ -24,7 +23,7 @@ class DeliverApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Deliver',
-          initialRoute: Routes.loginPage,
+          initialRoute: Routes.mainPage,
           onGenerateRoute: appRouter.generateRoute,
           localizationsDelegates: const [
             S.delegate,
@@ -36,7 +35,6 @@ class DeliverApp extends StatelessWidget {
           locale:
               state.isEnglishLanguage ? const Locale("en") : const Locale("ar"),
           theme: ThemeData(
-            fontFamily: AppFontFamilies.almaraiFamily,
             scaffoldBackgroundColor: ColorsManager.backgroundColor,
           ),
         );
