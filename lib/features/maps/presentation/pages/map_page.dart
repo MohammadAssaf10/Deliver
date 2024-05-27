@@ -1,7 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_map/flutter_map.dart';
-import 'package:latlong2/latlong.dart';
-import 'package:flutter_map_cancellable_tile_provider/flutter_map_cancellable_tile_provider.dart';
+
+import '../../../../core/di/di.dart';
+import '../bloc/map_bloc.dart';
+import '../bloc/map_state.dart';
+import '../widgets/deliver_map.dart';
+import '../widgets/map_app_bar.dart';
+import '../widgets/map_floating_action_button.dart';
+
 class MapPage extends StatefulWidget {
   const MapPage({super.key});
 
@@ -10,30 +17,34 @@ class MapPage extends StatefulWidget {
 }
 
 class _MapPageState extends State<MapPage> {
+  final MapController mapController = getIt<MapController>();
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: FlutterMap(
-        options: MapOptions(
-          initialCenter: const LatLng(51.5, -0.09),
-          initialZoom: 5,
-          cameraConstraint: CameraConstraint.contain(
-            bounds: LatLngBounds(
-              const LatLng(-90, -180),
-              const LatLng(90, 180),
-            ),
-          ),
+    return Stack(
+      children: [
+        const DeliverMap(),
+        const MapAppBar(),
+        BlocBuilder<MapBloc, MapState>(
+          builder: (context, state) {
+            return MapFloatingActionButton(
+              onPress: state.isLoading
+                  ? null
+                  : () {
+                      context.read<MapBloc>().addGetCurrentLocation();
+                    },
+              icon: Icons.location_on_outlined,
+              bottomPosition: 20,
+              isLoading: state.isLoading,
+            );
+          },
         ),
-        children: [
-          TileLayer(
-            urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-            userAgentPackageName: 'com.example.deliver',
-            // Use the recommended flutter_map_cancellable_tile_provider package to
-            // support the cancellation of loading tiles.
-            tileProvider: CancellableNetworkTileProvider(),
-          ),
-        ],
-      ),
+        MapFloatingActionButton(
+          onPress: () {},
+          icon: Icons.add,
+          bottomPosition: 90,
+        ),
+      ],
     );
   }
 }

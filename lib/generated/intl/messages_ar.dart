@@ -62,6 +62,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "passwordShouldAtLeast8Character": MessageLookupByLibrary.simpleMessage(
             "يجب أن لا تقل كلمة المرور عن 8 أحرف"),
+        "pleaseAllowAppToAccessYourCurrentLocationAndTryAgain":
+            MessageLookupByLibrary.simpleMessage(
+                "الرجاء السماح للتطبيق بالوصول إلى موقعك الحالي ثم حاول مرة أخرى"),
         "pleaseCompleteField":
             MessageLookupByLibrary.simpleMessage("الرجاء إكمال الحقل"),
         "pleaseEnterEmail": MessageLookupByLibrary.simpleMessage(
@@ -72,6 +75,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الرجاء إدخال كلمة المرور"),
         "pleaseEnterUserName":
             MessageLookupByLibrary.simpleMessage("الرجاء إدخال اسم المستخدم"),
+        "pleaseTurnOnLocationServiceAndTryAgain":
+            MessageLookupByLibrary.simpleMessage(
+                "الرجاء تشغيل خدمة الموقع ثم المحاولة مرة أخرى"),
         "register": MessageLookupByLibrary.simpleMessage("التسجيل"),
         "registerYourAccount":
             MessageLookupByLibrary.simpleMessage("سجل حسابك"),
@@ -81,6 +87,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("حدث خطأ ما"),
         "userName": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
         "usernameShort":
-            MessageLookupByLibrary.simpleMessage("اسم المستخدم قصير")
+            MessageLookupByLibrary.simpleMessage("اسم المستخدم قصير"),
+        "welcome": MessageLookupByLibrary.simpleMessage("مرحباً بك ")
       };
 }

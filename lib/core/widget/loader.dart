@@ -4,14 +4,22 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import '../theming/colors_manager.dart';
 
 class Loader extends StatelessWidget {
-  const Loader({super.key});
+  final Color? color;
+  final double size;
+
+  const Loader({
+    super.key,
+    this.color = ColorsManager.primary,
+    this.size = 30,
+  });
 
   @override
   Widget build(BuildContext context) {
-    return const Center(
-      child:SpinKitFadingCircle(
-        color: ColorsManager.primary,
-      )
+    return Center(
+      child: SpinKitFadingCircle(
+        color: color,
+        size: size,
+      ),
     );
   }
 }

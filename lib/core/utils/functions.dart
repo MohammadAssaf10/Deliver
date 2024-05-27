@@ -54,26 +54,13 @@ dismissDialog(BuildContext context) {
 
 void showCustomToast({
   required String toastMessage,
-  required BuildContext context,
   bool isError = false,
 }) {
-  FToast().init(context);
-  FToast().showToast(
+  Fluttertoast.showToast(
     gravity: ToastGravity.BOTTOM,
-    child: Container(
-      decoration: ShapeDecoration(
-        shape: OutlineInputBorder(
-          borderSide: BorderSide.none,
-          borderRadius: BorderRadius.circular(8),
-        ),
-        color: isError ? ColorsManager.error : ColorsManager.primary,
-      ),
-      padding: const EdgeInsets.all(8),
-      child: Text(
-        toastMessage,
-        textAlign: TextAlign.center,
-        style: TextStyles.font16WhiteRegular,
-      ),
-    ),
+    msg: toastMessage,
+    backgroundColor: isError ? ColorsManager.error : ColorsManager.primary,
+    fontSize: 16,
+    textColor: ColorsManager.white,
   );
 }

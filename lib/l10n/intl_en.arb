@@ -35,5 +35,8 @@
  "done":"Done",
  "onBoarding1":"Welcome! Take a trip to your destination with the cheapest fare",
  "myTrip":"My Trip",
- "addTrip":"Add trip"
+ "addTrip":"Add trip",
+ "welcome":"Welcome ",
+ "pleaseTurnOnLocationServiceAndTryAgain":"Please turn on location service and try again",
+ "pleaseAllowAppToAccessYourCurrentLocationAndTryAgain":"Please allow app to access your current location and try again"
 }

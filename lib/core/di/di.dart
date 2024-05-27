@@ -2,9 +2,11 @@ import 'package:dio/dio.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter_map/flutter_map.dart';
 import 'package:get_it/get_it.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:injectable/injectable.dart';
+import 'package:location/location.dart';
 
 import 'di.config.dart';
 
@@ -28,6 +30,10 @@ abstract class RegisterModule {
 
   @lazySingleton
   FirebaseAuth get firebaseAuth => FirebaseAuth.instance;
+  @lazySingleton
+  MapController get mapController => MapController();
+  @lazySingleton
+  Location  get location => Location();
 }
 
 Dio getDio() {

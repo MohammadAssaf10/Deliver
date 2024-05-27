@@ -16,10 +16,11 @@ class MainBottomNavigationBar extends StatelessWidget {
         color: ColorsManager.textFieldBackgroundColor,
         boxShadow: [
           BoxShadow(
-              color: ColorsManager.grey,
-              spreadRadius: 4,
-              blurRadius: 4,
-              offset: Offset(0, 4)),
+            color: ColorsManager.grey,
+            spreadRadius: 4,
+            blurRadius: 4,
+            offset: Offset(0, 4),
+          ),
         ],
       ),
       child: Row(
@@ -37,12 +38,12 @@ class MainBottomNavigationBar extends StatelessWidget {
           ),
           BottomNavigationBarIcon(
             onPress: () {},
-            title: 'Home',
+            title: "",
             icon: Icons.home,
           ),
           BottomNavigationBarIcon(
             onPress: () {},
-            title: 'Home',
+            title: '',
             icon: Icons.home,
           ),
           BottomNavigationBarIcon(
