@@ -17,7 +17,7 @@ jobs:
       - name: Setup JDK
         uses: actions/setup-java@v2
         with:
-          java-version: '17.0.9'
+          java-version: '19.0.1'
           distribution: 'temurin'
 
       - name: Install Flutter
