@@ -1,7 +1,9 @@
+import 'dart:async';
+
 import 'package:bloc/bloc.dart';
-import 'package:flutter_map/flutter_map.dart' as flutter_map;
+import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:injectable/injectable.dart';
-import 'package:latlong2/latlong.dart';
 import 'package:location/location.dart';
 
 import '../../../../core/utils/functions.dart';
@@ -11,15 +13,15 @@ import 'map_state.dart';
 
 @injectable
 class MapBloc extends Bloc<MapEvent, MapState> {
-  final flutter_map.MapController mapController;
   final Location location;
+  final Completer<GoogleMapController> mapCompleter =
+      Completer<GoogleMapController>();
 
   void addGetCurrentLocation() {
     add(GetCurrentLocation());
   }
 
   MapBloc(
-    this.mapController,
     this.location,
   ) : super(MapState.initial()) {
     on<GetCurrentLocation>((event, emit) async {
@@ -53,12 +55,36 @@ class MapBloc extends Bloc<MapEvent, MapState> {
 
       final LocationData locationData = await location.getLocation();
       if (locationData.latitude != null && locationData.longitude != null) {
-        mapController.moveAndRotate(
-          LatLng(locationData.latitude!, locationData.longitude!),
-          16,
-          0,
+        final GoogleMapController googleMapController =
+            await mapCompleter.future;
+        await googleMapController.animateCamera(
+          CameraUpdate.newCameraPosition(
+            CameraPosition(
+              target: LatLng(locationData.latitude!, locationData.longitude!),
+              zoom: 16,
+            ),
+          ),
+        );
+        state.markers.toSet().clear();
+        final String markerId =
+            DateTime.now().microsecondsSinceEpoch.toString();
+        emit(
+          state.rebuild(
+            (b) => b
+              ..markers.clear()
+              ..markers.add(
+                Marker(
+                  markerId: MarkerId(markerId),
+                  position: LatLng(
+                    locationData.latitude!,
+                    locationData.longitude!,
+                  ),
+                ),
+              ),
+          ),
         );
       }
+      debugPrint('Marker Length: ${state.markers.length}');
       emit(state.rebuild(
         (b) => b..isLoading = false,
       ));
