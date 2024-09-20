@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import '../../generated/l10n.dart';
 import '../theming/colors_manager.dart';
-import '../theming/styles_manager.dart';
-import 'constant.dart';
+import '../widget/loader.dart';
+import 'app_regex.dart';
 import 'extensions.dart';
 
 String? usernameValidator(String? name) {
@@ -54,26 +54,24 @@ dismissDialog(BuildContext context) {
 
 void showCustomToast({
   required String toastMessage,
-  required BuildContext context,
   bool isError = false,
 }) {
-  FToast().init(context);
-  FToast().showToast(
+  Fluttertoast.showToast(
     gravity: ToastGravity.BOTTOM,
-    child: Container(
-      decoration: ShapeDecoration(
-        shape: OutlineInputBorder(
-          borderSide: BorderSide.none,
-          borderRadius: BorderRadius.circular(8),
-        ),
-        color: isError ? ColorsManager.error : ColorsManager.primary,
-      ),
-      padding: const EdgeInsets.all(8),
-      child: Text(
-        toastMessage,
-        textAlign: TextAlign.center,
-        style: TextStyles.font16WhiteRegular,
-      ),
+    msg: toastMessage,
+    backgroundColor: isError ? ColorsManager.error : ColorsManager.primary,
+    fontSize: 16,
+    textColor: ColorsManager.white,
+  );
+}
+
+void showLoadingDialog(BuildContext context, {Color? backgroundDialog}) {
+  showDialog(
+    context: context,
+    barrierDismissible: false,
+    barrierColor: backgroundDialog,
+    builder: (context) => const Loader(
+      size: 50,
     ),
   );
 }

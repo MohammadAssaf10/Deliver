@@ -1,7 +1,7 @@
 import 'package:injectable/injectable.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import '../../../../core/utils/constant.dart';
+import '../../../../core/constants/constant.dart';
 import 'app_local_data_source.dart';
 
 @LazySingleton(as: AppLocalDataSource)
@@ -12,12 +12,12 @@ class AppLocalDataSourceImpl extends AppLocalDataSource {
 
   @override
   String get appLanguage =>
-      sharedPreferences.getString(SharedPreferencesKeys.appLanguage) ?? 'en';
+      sharedPreferences.getString(LocalStorageKeys.appLanguage) ?? 'en';
 
   @override
   Future<void> setAppLanguage(String language) async {
     await sharedPreferences.setString(
-      SharedPreferencesKeys.appLanguage,
+      LocalStorageKeys.appLanguage,
       language,
     );
   }

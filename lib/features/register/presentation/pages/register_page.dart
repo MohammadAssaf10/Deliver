@@ -26,7 +26,6 @@ class RegisterPage extends StatelessWidget {
       listener: (context, state) {
         if (state.error) {
           showCustomToast(
-            context: context,
             toastMessage: state.message,
             isError: state.error,
           );

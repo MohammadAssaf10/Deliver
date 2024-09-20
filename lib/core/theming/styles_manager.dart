@@ -54,17 +54,27 @@ class TextStyles {
     fontWeight: FontWeightHelper.regular,
     color: ColorsManager.grey,
   );
+  static TextStyle font18WhiteSemiBold = const TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeightHelper.semiBold,
+    color: ColorsManager.white,
+  );
   static TextStyle font20WhiteRegular = const TextStyle(
     fontSize: 20,
     fontWeight: FontWeightHelper.regular,
     color: ColorsManager.white,
+  );
+  static TextStyle font20BlackSemiBold = const TextStyle(
+    fontSize: 20,
+    fontWeight: FontWeightHelper.semiBold,
+    color: ColorsManager.black,
   );
   static TextStyle font21WhiteBold = const TextStyle(
     fontSize: 21,
     fontWeight: FontWeightHelper.bold,
     color: ColorsManager.white,
   );
-  static TextStyle font22BlackBold = const TextStyle(
+  static const TextStyle font22BlackBold = TextStyle(
     fontSize: 22,
     fontWeight: FontWeightHelper.bold,
     color: ColorsManager.black,

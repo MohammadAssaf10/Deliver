@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../../../../core/theming/colors_manager.dart';
+
 class BottomNavigationBarIcon extends StatelessWidget {
   final IconData icon;
   final String title;
@@ -21,9 +23,13 @@ class BottomNavigationBarIcon extends StatelessWidget {
           children: [
             Icon(
               icon,
+              color: title == 'Home'?ColorsManager.primary:ColorsManager.grey,
             ),
             Text(
               title,
+              style: TextStyle(
+                color: title == 'Home'?ColorsManager.primary:ColorsManager.grey,
+              ),
             )
           ],
         ),

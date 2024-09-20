@@ -419,6 +419,36 @@ class S {
       args: [],
     );
   }
+
+  /// `Welcome `
+  String get welcome {
+    return Intl.message(
+      'Welcome ',
+      name: 'welcome',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please turn on location service and try again`
+  String get pleaseTurnOnLocationServiceAndTryAgain {
+    return Intl.message(
+      'Please turn on location service and try again',
+      name: 'pleaseTurnOnLocationServiceAndTryAgain',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please allow app to access your current location and try again`
+  String get pleaseAllowAppToAccessYourCurrentLocationAndTryAgain {
+    return Intl.message(
+      'Please allow app to access your current location and try again',
+      name: 'pleaseAllowAppToAccessYourCurrentLocationAndTryAgain',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

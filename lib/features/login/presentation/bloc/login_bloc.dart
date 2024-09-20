@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 import '../../data/models/login_request.dart';
@@ -28,28 +29,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
   LoginBloc(
     this._loginRepository,
   ) : super(LoginState.initial()) {
-    on<LoginEvent>((event, emit) async {
-      if (event is ClearError) {
-        emit(
-          state.rebuild(
-            (b) => b
-              ..error = false
-              ..message = '',
-          ),
-        );
-      } else if (event is ChangePasswordVisibility) {
-        emit(
-          state.rebuild(
-            (b) => b
-              ..passwordVisible = !state.passwordVisible
-              ..error = false
-              ..message = '',
-          ),
-        );
-      } else if (event is Login) {
-        emit(
-          state.rebuild((b) => b..isLoading = true),
-        );
+    on<Login>(
+      (event, emit) async {
+        emit(state.rebuild((b) => b..isLoading = true));
         final LoginRequest loginRequest = LoginRequest(
           phoneNumber: phoneNumberController.text,
           password: passwordController.text,
@@ -72,7 +54,28 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
               ..isLogin = true,
           ));
         });
-      }
+      },
+      // ignore any events added while an event is processing
+      transformer: droppable(),
+    );
+    on<ChangePasswordVisibility>((event, emit) {
+      emit(
+        state.rebuild(
+          (b) => b
+            ..passwordVisible = !state.passwordVisible
+            ..error = false
+            ..message = '',
+        ),
+      );
+    });
+    on<ClearError>((event, emit) {
+      emit(
+        state.rebuild(
+          (b) => b
+            ..error = false
+            ..message = '',
+        ),
+      );
     });
   }
 }

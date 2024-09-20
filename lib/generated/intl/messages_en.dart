@@ -62,6 +62,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordShouldAtLeast8Character": MessageLookupByLibrary.simpleMessage(
             "Password should at least 8 character"),
+        "pleaseAllowAppToAccessYourCurrentLocationAndTryAgain":
+            MessageLookupByLibrary.simpleMessage(
+                "Please allow app to access your current location and try again"),
         "pleaseCompleteField":
             MessageLookupByLibrary.simpleMessage("Please complete field"),
         "pleaseEnterEmail":
@@ -72,6 +75,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Please enter password"),
         "pleaseEnterUserName":
             MessageLookupByLibrary.simpleMessage("Please enter username"),
+        "pleaseTurnOnLocationServiceAndTryAgain":
+            MessageLookupByLibrary.simpleMessage(
+                "Please turn on location service and try again"),
         "register": MessageLookupByLibrary.simpleMessage("Register"),
         "registerYourAccount":
             MessageLookupByLibrary.simpleMessage("Register your account"),
@@ -81,6 +87,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Something went wrong"),
         "userName": MessageLookupByLibrary.simpleMessage("Username"),
         "usernameShort":
-            MessageLookupByLibrary.simpleMessage("Username is short")
+            MessageLookupByLibrary.simpleMessage("Username is short"),
+        "welcome": MessageLookupByLibrary.simpleMessage("Welcome ")
       };
 }
