@@ -19,7 +19,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.2+1
 
 environment:
-  sdk: '>=3.3.1 <4.0.0'
+  sdk: ^3.5.3
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -43,22 +43,21 @@ dependencies:
   bloc_concurrency: ^0.2.5
   equatable: ^2.0.5
   dartz: ^0.10.1
-  dio: ^5.4.3+1
-  connectivity_plus: ^6.0.3
+  dio: ^5.7.0
+  connectivity_plus: ^6.0.5
   get_it: ^7.7.0
-  injectable: ^2.4.2
+  injectable: ^2.4.4
   built_value: ^8.9.2
   built_collection: ^5.1.1
   flutter_svg: ^2.0.10+1
-  fluttertoast: ^8.2.4
-  flutter_spinkit: ^5.2.0
+  fluttertoast: ^8.2.8
+  flutter_spinkit: ^5.2.1
   json_annotation: ^4.9.0
-  shared_preferences: ^2.2.3
-  cached_network_image: ^3.3.1
-  firebase_core: ^3.1.0
-  firebase_auth: ^5.1.0
-  flutter_map: ^7.0.1
-  location: ^6.0.1
+  shared_preferences: ^2.3.2
+  cached_network_image: ^3.4.1
+  firebase_core: ^3.5.0
+  firebase_auth: ^5.3.0
+  location: ^6.0.2
   animate_do: ^3.3.4
   flutter_animate: ^4.5.0
   google_maps_flutter: ^2.9.0
@@ -73,9 +72,9 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^4.0.0
-  build_runner: ^2.4.11
+  build_runner: ^2.4.12
   built_value_generator: ^8.9.2
-  injectable_generator: ^2.6.1
+  injectable_generator: ^2.6.2
   json_serializable: ^6.8.0
 
 # For information on the generic Dart part of this file, see the
