@@ -9,7 +9,6 @@ import 'register.dart';
 @injectable
 class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   final RegisterRepository _registerRepository;
-  final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final TextEditingController usernameController = TextEditingController();
   final TextEditingController mobileNumberController = TextEditingController();
@@ -33,22 +32,21 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
     on<RegisterEvent>((event, emit) async {
       if (event is ClearError) {
         emit(state.rebuild((b) => b
-          ..error = false
+          ..isError = false
           ..message = ','));
       } else if (event is ChangePasswordState) {
         emit(
           state.rebuild((b) => b
             ..passwordVisible = !state.passwordVisible
-            ..error = false
+            ..isError = false
             ..message = ''),
         );
       } else if (event is Register) {
         emit(state.rebuild((b) => b
           ..isLoading = true
-          ..error = false
+          ..isError = false
           ..message = ''));
         final RegisterRequest registerRequest = RegisterRequest(
-          email: emailController.text,
           password: passwordController.text,
           phoneNumber: mobileNumberController.text,
           username: usernameController.text,
@@ -57,18 +55,18 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
         result.fold((failure) {
           emit(state.rebuild(
             (b) => b
-              ..error = true
-              ..message = failure.message
+              ..isError = true
+              ..message = failure.error
               ..isLoading = false
-              ..isRegister = false,
+              ..isSuccess = false,
           ));
         }, (r) {
           emit(state.rebuild(
             (b) => b
-              ..error = false
+              ..isError = false
               ..message = ''
               ..isLoading = false
-              ..isRegister = true,
+              ..isSuccess = true,
           ));
         });
       }

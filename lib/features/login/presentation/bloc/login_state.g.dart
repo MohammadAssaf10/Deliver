@@ -10,11 +10,11 @@ class _$LoginState extends LoginState {
   @override
   final bool passwordVisible;
   @override
-  final bool isLogin;
-  @override
   final bool isLoading;
   @override
-  final bool error;
+  final bool isSuccess;
+  @override
+  final bool isError;
   @override
   final String message;
 
@@ -23,17 +23,18 @@ class _$LoginState extends LoginState {
 
   _$LoginState._(
       {required this.passwordVisible,
-      required this.isLogin,
       required this.isLoading,
-      required this.error,
+      required this.isSuccess,
+      required this.isError,
       required this.message})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         passwordVisible, r'LoginState', 'passwordVisible');
-    BuiltValueNullFieldError.checkNotNull(isLogin, r'LoginState', 'isLogin');
     BuiltValueNullFieldError.checkNotNull(
         isLoading, r'LoginState', 'isLoading');
-    BuiltValueNullFieldError.checkNotNull(error, r'LoginState', 'error');
+    BuiltValueNullFieldError.checkNotNull(
+        isSuccess, r'LoginState', 'isSuccess');
+    BuiltValueNullFieldError.checkNotNull(isError, r'LoginState', 'isError');
     BuiltValueNullFieldError.checkNotNull(message, r'LoginState', 'message');
   }
 
@@ -49,9 +50,9 @@ class _$LoginState extends LoginState {
     if (identical(other, this)) return true;
     return other is LoginState &&
         passwordVisible == other.passwordVisible &&
-        isLogin == other.isLogin &&
         isLoading == other.isLoading &&
-        error == other.error &&
+        isSuccess == other.isSuccess &&
+        isError == other.isError &&
         message == other.message;
   }
 
@@ -59,9 +60,9 @@ class _$LoginState extends LoginState {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, passwordVisible.hashCode);
-    _$hash = $jc(_$hash, isLogin.hashCode);
     _$hash = $jc(_$hash, isLoading.hashCode);
-    _$hash = $jc(_$hash, error.hashCode);
+    _$hash = $jc(_$hash, isSuccess.hashCode);
+    _$hash = $jc(_$hash, isError.hashCode);
     _$hash = $jc(_$hash, message.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -71,9 +72,9 @@ class _$LoginState extends LoginState {
   String toString() {
     return (newBuiltValueToStringHelper(r'LoginState')
           ..add('passwordVisible', passwordVisible)
-          ..add('isLogin', isLogin)
           ..add('isLoading', isLoading)
-          ..add('error', error)
+          ..add('isSuccess', isSuccess)
+          ..add('isError', isError)
           ..add('message', message))
         .toString();
   }
@@ -87,17 +88,17 @@ class LoginStateBuilder implements Builder<LoginState, LoginStateBuilder> {
   set passwordVisible(bool? passwordVisible) =>
       _$this._passwordVisible = passwordVisible;
 
-  bool? _isLogin;
-  bool? get isLogin => _$this._isLogin;
-  set isLogin(bool? isLogin) => _$this._isLogin = isLogin;
-
   bool? _isLoading;
   bool? get isLoading => _$this._isLoading;
   set isLoading(bool? isLoading) => _$this._isLoading = isLoading;
 
-  bool? _error;
-  bool? get error => _$this._error;
-  set error(bool? error) => _$this._error = error;
+  bool? _isSuccess;
+  bool? get isSuccess => _$this._isSuccess;
+  set isSuccess(bool? isSuccess) => _$this._isSuccess = isSuccess;
+
+  bool? _isError;
+  bool? get isError => _$this._isError;
+  set isError(bool? isError) => _$this._isError = isError;
 
   String? _message;
   String? get message => _$this._message;
@@ -109,9 +110,9 @@ class LoginStateBuilder implements Builder<LoginState, LoginStateBuilder> {
     final $v = _$v;
     if ($v != null) {
       _passwordVisible = $v.passwordVisible;
-      _isLogin = $v.isLogin;
       _isLoading = $v.isLoading;
-      _error = $v.error;
+      _isSuccess = $v.isSuccess;
+      _isError = $v.isError;
       _message = $v.message;
       _$v = null;
     }
@@ -137,12 +138,12 @@ class LoginStateBuilder implements Builder<LoginState, LoginStateBuilder> {
         new _$LoginState._(
             passwordVisible: BuiltValueNullFieldError.checkNotNull(
                 passwordVisible, r'LoginState', 'passwordVisible'),
-            isLogin: BuiltValueNullFieldError.checkNotNull(
-                isLogin, r'LoginState', 'isLogin'),
             isLoading: BuiltValueNullFieldError.checkNotNull(
                 isLoading, r'LoginState', 'isLoading'),
-            error: BuiltValueNullFieldError.checkNotNull(
-                error, r'LoginState', 'error'),
+            isSuccess: BuiltValueNullFieldError.checkNotNull(
+                isSuccess, r'LoginState', 'isSuccess'),
+            isError: BuiltValueNullFieldError.checkNotNull(
+                isError, r'LoginState', 'isError'),
             message: BuiltValueNullFieldError.checkNotNull(
                 message, r'LoginState', 'message'));
     replace(_$result);

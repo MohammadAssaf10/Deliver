@@ -40,18 +40,18 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         result.fold((failure) {
           emit(state.rebuild(
             (b) => b
-              ..error = true
-              ..message = failure.message
+              ..isError = true
+              ..message = failure.error
               ..isLoading = false
-              ..isLogin = false,
+              ..isSuccess = false,
           ));
         }, (_) {
           emit(state.rebuild(
             (b) => b
-              ..error = false
+              ..isError = false
               ..message = ''
               ..isLoading = false
-              ..isLogin = true,
+              ..isSuccess = true,
           ));
         });
       },
@@ -63,7 +63,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
         state.rebuild(
           (b) => b
             ..passwordVisible = !state.passwordVisible
-            ..error = false
+            ..isError = false
             ..message = '',
         ),
       );
@@ -72,7 +72,7 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       emit(
         state.rebuild(
           (b) => b
-            ..error = false
+            ..isError = false
             ..message = '',
         ),
       );

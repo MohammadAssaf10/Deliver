@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import '../../core/routing/app_router.dart';
-import '../../core/routing/routes.dart';
-import '../../core/theming/colors_manager.dart';
-import '../../generated/l10n.dart';
+import '../core/routing/app_router.dart';
+import '../core/routing/routes.dart';
+import '../core/theming/colors_manager.dart';
+import '../generated/l10n.dart';
 import 'bloc/app_cubit.dart';
 import 'bloc/app_state.dart';
 
@@ -32,8 +32,7 @@ class DeliverApp extends StatelessWidget {
             GlobalCupertinoLocalizations.delegate,
           ],
           supportedLocales: S.delegate.supportedLocales,
-          locale:
-              state.isEnglishLanguage ? const Locale("en") : const Locale("ar"),
+          locale: Locale(state.appLanguage.name),
           theme: ThemeData(
             scaffoldBackgroundColor: ColorsManager.backgroundColor,
           ),

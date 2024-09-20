@@ -1,7 +1,9 @@
 mixin BaseState {
   bool get isLoading;
 
-  bool get error;
+  bool get isSuccess;
+
+  bool get isError;
 
   String get message;
 }

@@ -4,8 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/colors_manager.dart';
 import '../../../../core/theming/styles_manager.dart';
-import '../../../../core/utils/functions.dart';
-import '../../../../core/utils/extensions.dart';
+import '../../../../core/utils/app_functions.dart';
+import '../../../../core/utils/app_extensions.dart';
+import '../../../../core/utils/app_validator.dart';
 import '../../../../core/widget/app_name.dart';
 import '../../../../core/widget/custom_button.dart';
 import '../../../../core/widget/custom_decorated_box.dart';
@@ -24,14 +25,14 @@ class RegisterPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocConsumer<RegisterBloc, RegisterState>(
       listener: (context, state) {
-        if (state.error) {
+        if (state.isError) {
           showCustomToast(
             toastMessage: state.message,
-            isError: state.error,
+            isError: state.isError,
           );
           context.read<RegisterBloc>().clearError();
         }
-        if (state.isRegister) {
+        if (state.isSuccess) {
           context.pushNamedAndRemoveUntil(
             Routes.homePage,
             predicate: (_) => false,
@@ -73,20 +74,12 @@ class RegisterPage extends StatelessWidget {
                             ),
                             const SizedBox(height: 30),
                             CustomTextField(
-                              controller:
-                                  context.read<RegisterBloc>().emailController,
-                              labelTitle: S.of(context).email,
-                              validator: (email) => null,
-                              prefixIcon: Icons.email,
-                              keyboardType: TextInputType.emailAddress,
-                            ),
-                            CustomTextField(
                               controller: context
                                   .read<RegisterBloc>()
                                   .usernameController,
                               labelTitle: S.of(context).userName,
                               validator: (userName) =>
-                                  usernameValidator(userName),
+                                  AppValidator.usernameValidator(userName),
                               prefixIcon: Icons.person,
                             ),
                             CustomTextField(
@@ -95,7 +88,8 @@ class RegisterPage extends StatelessWidget {
                                   .mobileNumberController,
                               labelTitle: S.of(context).mobileNumber,
                               validator: (mobileNumber) =>
-                                  mobileNumberValidator(mobileNumber),
+                                  AppValidator.mobileNumberValidator(
+                                      mobileNumber),
                               prefixIcon: Icons.call,
                               keyboardType: TextInputType.phone,
                             ),
@@ -106,7 +100,7 @@ class RegisterPage extends StatelessWidget {
                                   .passwordController,
                               labelTitle: S.of(context).password,
                               validator: (password) =>
-                                  passwordValidator(password),
+                                  AppValidator.passwordValidator(password),
                               prefixIcon: Icons.password,
                               suffixIcon: state.passwordVisible
                                   ? Icons.visibility_off

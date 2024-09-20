@@ -4,8 +4,9 @@ import 'package:flutter_animate/flutter_animate.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/colors_manager.dart';
 import '../../../../core/theming/styles_manager.dart';
-import '../../../../core/utils/extensions.dart';
-import '../../../../core/utils/functions.dart';
+import '../../../../core/utils/app_extensions.dart';
+import '../../../../core/utils/app_functions.dart';
+import '../../../../core/utils/app_validator.dart';
 import '../../../../core/widget/app_name.dart';
 import '../../../../core/widget/auth_option_text.dart';
 import '../../../../core/widget/custom_button.dart';
@@ -23,15 +24,15 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<LoginBloc, LoginState>(
       listener: (context, state) {
-        if (state.error) {
+        if (state.isError) {
           dismissDialog(context);
           showCustomToast(
             toastMessage: state.message,
-            isError: state.error,
+            isError: state.isError,
           );
           context.read<LoginBloc>().clearError();
         }
-        if (state.isLogin) {
+        if (state.isSuccess) {
           context.pushNamedAndRemoveUntil(
             Routes.homePage,
             predicate: (_) => false,
@@ -87,7 +88,7 @@ class LoginPage extends StatelessWidget {
                           controller:
                               context.read<LoginBloc>().passwordController,
                           labelTitle: S.of(context).password,
-                          validator: passwordValidator,
+                          validator: AppValidator.passwordValidator,
                           prefixIcon: Icons.password,
                           suffixIcon: state.passwordVisible
                               ? Icons.visibility_off

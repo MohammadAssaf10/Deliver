@@ -1,5 +1,4 @@
 import 'package:dio/dio.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:get_it/get_it.dart';
@@ -26,9 +25,6 @@ abstract class RegisterModule {
 
   @lazySingleton
   Connectivity get connectivity => Connectivity();
-
-  @lazySingleton
-  FirebaseAuth get firebaseAuth => FirebaseAuth.instance;
 
   @lazySingleton
   Location get location => Location();

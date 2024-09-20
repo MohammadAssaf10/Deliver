@@ -1,7 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../../core/error/exception_handler.dart';
 import '../../../../core/error/failure.dart';
 import '../../../../core/network/network_info.dart';
 import '../../domain/repositories/login_repository.dart';
@@ -21,10 +20,10 @@ class LoginRepositoryImpl extends LoginRepository {
       try {
         return Right(await remoteDataSource.login(loginRequest));
       } catch (e) {
-        return Left(ErrorHandler.handle(e).failure);
+        return Left(ServerFailure());
       }
     } else {
-      return Left(ErrorHandler.handle(InternetConnectionFailure()).failure);
+      return Left(ServerFailure());
     }
   }
 }

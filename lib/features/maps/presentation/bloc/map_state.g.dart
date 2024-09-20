@@ -12,7 +12,9 @@ class _$MapState extends MapState {
   @override
   final bool isLoading;
   @override
-  final bool error;
+  final bool isSuccess;
+  @override
+  final bool isError;
   @override
   final String message;
 
@@ -22,12 +24,14 @@ class _$MapState extends MapState {
   _$MapState._(
       {required this.markers,
       required this.isLoading,
-      required this.error,
+      required this.isSuccess,
+      required this.isError,
       required this.message})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(markers, r'MapState', 'markers');
     BuiltValueNullFieldError.checkNotNull(isLoading, r'MapState', 'isLoading');
-    BuiltValueNullFieldError.checkNotNull(error, r'MapState', 'error');
+    BuiltValueNullFieldError.checkNotNull(isSuccess, r'MapState', 'isSuccess');
+    BuiltValueNullFieldError.checkNotNull(isError, r'MapState', 'isError');
     BuiltValueNullFieldError.checkNotNull(message, r'MapState', 'message');
   }
 
@@ -44,7 +48,8 @@ class _$MapState extends MapState {
     return other is MapState &&
         markers == other.markers &&
         isLoading == other.isLoading &&
-        error == other.error &&
+        isSuccess == other.isSuccess &&
+        isError == other.isError &&
         message == other.message;
   }
 
@@ -53,7 +58,8 @@ class _$MapState extends MapState {
     var _$hash = 0;
     _$hash = $jc(_$hash, markers.hashCode);
     _$hash = $jc(_$hash, isLoading.hashCode);
-    _$hash = $jc(_$hash, error.hashCode);
+    _$hash = $jc(_$hash, isSuccess.hashCode);
+    _$hash = $jc(_$hash, isError.hashCode);
     _$hash = $jc(_$hash, message.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -64,7 +70,8 @@ class _$MapState extends MapState {
     return (newBuiltValueToStringHelper(r'MapState')
           ..add('markers', markers)
           ..add('isLoading', isLoading)
-          ..add('error', error)
+          ..add('isSuccess', isSuccess)
+          ..add('isError', isError)
           ..add('message', message))
         .toString();
   }
@@ -82,9 +89,13 @@ class MapStateBuilder implements Builder<MapState, MapStateBuilder> {
   bool? get isLoading => _$this._isLoading;
   set isLoading(bool? isLoading) => _$this._isLoading = isLoading;
 
-  bool? _error;
-  bool? get error => _$this._error;
-  set error(bool? error) => _$this._error = error;
+  bool? _isSuccess;
+  bool? get isSuccess => _$this._isSuccess;
+  set isSuccess(bool? isSuccess) => _$this._isSuccess = isSuccess;
+
+  bool? _isError;
+  bool? get isError => _$this._isError;
+  set isError(bool? isError) => _$this._isError = isError;
 
   String? _message;
   String? get message => _$this._message;
@@ -97,7 +108,8 @@ class MapStateBuilder implements Builder<MapState, MapStateBuilder> {
     if ($v != null) {
       _markers = $v.markers.toBuilder();
       _isLoading = $v.isLoading;
-      _error = $v.error;
+      _isSuccess = $v.isSuccess;
+      _isError = $v.isError;
       _message = $v.message;
       _$v = null;
     }
@@ -126,8 +138,10 @@ class MapStateBuilder implements Builder<MapState, MapStateBuilder> {
               markers: markers.build(),
               isLoading: BuiltValueNullFieldError.checkNotNull(
                   isLoading, r'MapState', 'isLoading'),
-              error: BuiltValueNullFieldError.checkNotNull(
-                  error, r'MapState', 'error'),
+              isSuccess: BuiltValueNullFieldError.checkNotNull(
+                  isSuccess, r'MapState', 'isSuccess'),
+              isError: BuiltValueNullFieldError.checkNotNull(
+                  isError, r'MapState', 'isError'),
               message: BuiltValueNullFieldError.checkNotNull(
                   message, r'MapState', 'message'));
     } catch (_) {

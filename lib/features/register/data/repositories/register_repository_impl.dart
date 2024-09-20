@@ -2,7 +2,6 @@ import 'package:dartz/dartz.dart';
 import 'package:deliver/core/network/network_info.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../../core/error/exception_handler.dart';
 import '../../../../core/error/failure.dart';
 import '../../domain/repositories/register_repository.dart';
 import '../data_sources/remote/register_remote_data_source.dart';
@@ -25,10 +24,10 @@ class RegisterRepositoryImpl extends RegisterRepository {
       try {
         return Right(await remoteDataSource.register(registerRequest));
       } catch (e) {
-        return Left(ErrorHandler.handle(e).failure);
+        return Left(ServerFailure());
       }
     } else {
-      return Left(ErrorHandler.handle(InternetConnectionFailure()).failure);
+      return Left(ServerFailure());
     }
   }
 }

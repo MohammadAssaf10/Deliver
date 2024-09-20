@@ -4,7 +4,7 @@ platform :android do
   desc "Lane for Android Firebase App Distribution"
   lane :firebase_distribution do
     sh "flutter clean"
-    sh "flutter build apk --no-tree-shake-icons"
+    sh "flutter build apk"
     firebase_app_distribution(
         app: "1:855422049492:android:9f51e70785e3a18d922f41",
         firebase_cli_token: ENV["FIREBASE_CLI_TOKEN"],
