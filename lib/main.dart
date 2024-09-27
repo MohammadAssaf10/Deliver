@@ -5,7 +5,6 @@ import 'app/presentation/bloc/app_cubit.dart';
 import 'app/presentation/deliver_app.dart';
 import 'core/di/di.dart';
 import 'core/routing/app_router.dart';
-import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

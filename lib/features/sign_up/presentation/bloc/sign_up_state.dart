@@ -1,9 +1,8 @@
 import 'package:built_value/built_value.dart';
 
-part 'register_state.g.dart';
+part 'sign_up_state.g.dart';
 
-abstract class RegisterState
-    implements Built<RegisterState, RegisterStateBuilder> {
+abstract class SignUpState implements Built<SignUpState, SignUpStateBuilder> {
   bool get passwordVisible;
 
   bool get isLoading;
@@ -12,12 +11,12 @@ abstract class RegisterState
 
   bool get isSuccess;
 
-  RegisterState._();
+  SignUpState._();
 
-  factory RegisterState([void Function(RegisterStateBuilder) updates]) =
-      _$RegisterState;
+  factory SignUpState([void Function(SignUpStateBuilder) updates]) =
+      _$SignUpState;
 
-  factory RegisterState.initial() => RegisterState(
+  factory SignUpState.initial() => SignUpState(
         (b) => b
           ..isLoading = false
           ..isError = false

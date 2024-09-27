@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import '../../../../core/routing/routes.dart';
@@ -37,7 +38,6 @@ class SignInPage extends StatelessWidget {
       },
       child: Scaffold(
         resizeToAvoidBottomInset: true,
-        // backgroundColor: Colors.black,
         body: Padding(
           padding: const EdgeInsets.all(20),
           child: Animate(
@@ -74,8 +74,11 @@ class SignInPage extends StatelessWidget {
                       prefixIcon: Icons.phone,
                       keyboardType: TextInputType.phone,
                       textInputAction: TextInputAction.next,
+                      textInputFormatter: LengthLimitingTextInputFormatter(10),
                     ),
                     BlocBuilder<SignInBloc, SignInState>(
+                      buildWhen: (previous, current) =>
+                          previous.passwordVisible != current.passwordVisible,
                       builder: (context, state) {
                         return CustomTextField(
                           obscureText: state.passwordVisible,
@@ -98,7 +101,7 @@ class SignInPage extends StatelessWidget {
                                 .formKey
                                 .currentState!
                                 .validate()) {
-                              context.read<SignInBloc>().login();
+                              context.read<SignInBloc>().signIn();
                             }
                           },
                         );
@@ -112,7 +115,7 @@ class SignInPage extends StatelessWidget {
                             .formKey
                             .currentState!
                             .validate()) {
-                          context.read<SignInBloc>().login();
+                          context.read<SignInBloc>().signIn();
                         }
                       },
                       buttonText: S.of(context).signIn,
@@ -124,7 +127,7 @@ class SignInPage extends StatelessWidget {
                       title: S.of(context).doNotHaveAnAccount,
                       subTitle: S.of(context).signUp,
                       subTitleOnPress: () {
-                        context.pushNamed(Routes.registerPage);
+                        context.pushNamed(Routes.signUpPage);
                         context
                             .read<SignInBloc>()
                             .phoneNumberController

@@ -63,12 +63,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseTurnOnLocationServiceAndTryAgain":
             MessageLookupByLibrary.simpleMessage(
                 "الرجاء تشغيل خدمة الموقع ثم المحاولة مرة أخرى"),
-        "registerYourAccount":
-            MessageLookupByLibrary.simpleMessage("سجل حسابك"),
         "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "signInToYourAccount":
             MessageLookupByLibrary.simpleMessage("تسجيل الدخول إلى حسابك"),
         "signUp": MessageLookupByLibrary.simpleMessage("التسجيل"),
+        "signUpYourAccount": MessageLookupByLibrary.simpleMessage("سجل حسابك"),
         "somethingWentWrong":
             MessageLookupByLibrary.simpleMessage("حدث خطأ ما"),
         "userName": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),

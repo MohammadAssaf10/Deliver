@@ -8,6 +8,6 @@ part of 'user_model.dart';
 
 UserModel _$UserModelFromJson(Map<String, dynamic> json) => UserModel(
       id: (json['id'] as num).toInt(),
-      isPhoneNumberVerified: json['isPhoneNumberVerified'] as bool?,
       token: json['token'] as String,
+      isPhoneNumberVerified: json['isPhoneNumberVerified'] as bool?,
     );

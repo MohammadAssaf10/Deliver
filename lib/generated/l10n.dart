@@ -250,11 +250,11 @@ class S {
     );
   }
 
-  /// `Register your account`
-  String get registerYourAccount {
+  /// `Sign Up your account`
+  String get signUpYourAccount {
     return Intl.message(
-      'Register your account',
-      name: 'registerYourAccount',
+      'Sign Up your account',
+      name: 'signUpYourAccount',
       desc: '',
       args: [],
     );

@@ -4,42 +4,48 @@ import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/utils/app_functions.dart';
-import '../../data/models/sign_in_request.dart';
-import '../../domain/repositories/sign_in_repository.dart';
-import 'sign_in_event.dart';
-import 'sign_in_state.dart';
+import '../../data/models/sign_up_request.dart';
+import '../../domain/repositories/sign_up_repository.dart';
+import 'sign_up_event.dart';
+import 'sign_up_state.dart';
 
 @injectable
-class SignInBloc extends Bloc<SignInEvent, SignInState> {
-  final TextEditingController phoneNumberController = TextEditingController();
+class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
+  final SignUpRepository _signUpRepository;
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController usernameController = TextEditingController();
+  final TextEditingController mobileNumberController = TextEditingController();
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
 
-  final SignInRepository _signInRepository;
-
-  void changePasswordVisibility() {
-    add(ChangePasswordVisibility());
+  void changePasswordState() {
+    add(ChangePasswordState());
   }
 
-  void signIn() {
-    add(SignIn());
+  void signUp() {
+    add(SignUp());
   }
 
-  SignInBloc(
-    this._signInRepository,
-  ) : super(SignInState.initial()) {
-    on<SignIn>(
+  SignUpBloc(
+    this._signUpRepository,
+  ) : super(SignUpState.initial()) {
+    on<ChangePasswordState>((event, emit) async {
+      emit(
+        state.rebuild((b) => b..passwordVisible = !state.passwordVisible),
+      );
+    });
+    on<SignUp>(
       (event, emit) async {
         emit(state.rebuild(
           (b) => b
             ..isLoading = true
             ..isError = false,
         ));
-        final SignInRequest signInRequest = SignInRequest(
-          phoneNumber: phoneNumberController.text,
+        final SignUpRequest signUpRequest = SignUpRequest(
           password: passwordController.text,
+          phoneNumber: mobileNumberController.text,
+          username: usernameController.text,
         );
-        final result = await _signInRepository.signIn(signInRequest);
+        final result = await _signUpRepository.signUp(signUpRequest);
         result.fold((failure) {
           showCustomToast(
             toastMessage: failure.errorMessage,
@@ -51,7 +57,7 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
               ..isLoading = false
               ..isSuccess = false,
           ));
-        }, (_) {
+        }, (r) {
           emit(state.rebuild(
             (b) => b
               ..isError = false
@@ -62,10 +68,5 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
       },
       transformer: droppable(),
     );
-    on<ChangePasswordVisibility>((event, emit) {
-      emit(
-        state.rebuild((b) => b..passwordVisible = !state.passwordVisible),
-      );
-    });
   }
 }

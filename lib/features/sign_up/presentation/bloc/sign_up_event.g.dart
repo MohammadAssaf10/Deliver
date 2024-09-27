@@ -1,6 +1,6 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'register_event.dart';
+part of 'sign_up_event.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
@@ -66,113 +66,57 @@ class ChangePasswordStateBuilder
   }
 }
 
-class _$Register extends Register {
-  factory _$Register([void Function(RegisterBuilder)? updates]) =>
-      (new RegisterBuilder()..update(updates))._build();
+class _$SignUp extends SignUp {
+  factory _$SignUp([void Function(SignUpBuilder)? updates]) =>
+      (new SignUpBuilder()..update(updates))._build();
 
-  _$Register._() : super._();
+  _$SignUp._() : super._();
 
   @override
-  Register rebuild(void Function(RegisterBuilder) updates) =>
+  SignUp rebuild(void Function(SignUpBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  RegisterBuilder toBuilder() => new RegisterBuilder()..replace(this);
+  SignUpBuilder toBuilder() => new SignUpBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Register;
+    return other is SignUp;
   }
 
   @override
   int get hashCode {
-    return 573469934;
+    return 662103819;
   }
 
   @override
   String toString() {
-    return newBuiltValueToStringHelper(r'Register').toString();
+    return newBuiltValueToStringHelper(r'SignUp').toString();
   }
 }
 
-class RegisterBuilder implements Builder<Register, RegisterBuilder> {
-  _$Register? _$v;
+class SignUpBuilder implements Builder<SignUp, SignUpBuilder> {
+  _$SignUp? _$v;
 
-  RegisterBuilder();
+  SignUpBuilder();
 
   @override
-  void replace(Register other) {
+  void replace(SignUp other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$Register;
+    _$v = other as _$SignUp;
   }
 
   @override
-  void update(void Function(RegisterBuilder)? updates) {
+  void update(void Function(SignUpBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  Register build() => _build();
+  SignUp build() => _build();
 
-  _$Register _build() {
-    final _$result = _$v ?? new _$Register._();
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$ClearError extends ClearError {
-  factory _$ClearError([void Function(ClearErrorBuilder)? updates]) =>
-      (new ClearErrorBuilder()..update(updates))._build();
-
-  _$ClearError._() : super._();
-
-  @override
-  ClearError rebuild(void Function(ClearErrorBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  ClearErrorBuilder toBuilder() => new ClearErrorBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is ClearError;
-  }
-
-  @override
-  int get hashCode {
-    return 507656265;
-  }
-
-  @override
-  String toString() {
-    return newBuiltValueToStringHelper(r'ClearError').toString();
-  }
-}
-
-class ClearErrorBuilder implements Builder<ClearError, ClearErrorBuilder> {
-  _$ClearError? _$v;
-
-  ClearErrorBuilder();
-
-  @override
-  void replace(ClearError other) {
-    ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ClearError;
-  }
-
-  @override
-  void update(void Function(ClearErrorBuilder)? updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  ClearError build() => _build();
-
-  _$ClearError _build() {
-    final _$result = _$v ?? new _$ClearError._();
+  _$SignUp _build() {
+    final _$result = _$v ?? new _$SignUp._();
     replace(_$result);
     return _$result;
   }

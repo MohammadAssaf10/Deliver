@@ -46,7 +46,8 @@ class BaseRemoteDataSourceImpl extends BaseRemoteDataSource {
     );
     if (response.data != null) {
       final BaseModel baseModel = BaseModel.fromJson(response.data!);
-      if (response.statusCode == 200 && baseModel.statusCode == 200) {
+      if ((response.statusCode == 200 || response.statusCode == 201) &&
+          (baseModel.statusCode == 200 || baseModel.statusCode == 201)) {
         return baseModel;
       } else {
         throw ServerException(error: baseModel.message);

@@ -1,11 +1,11 @@
 import 'package:equatable/equatable.dart';
 
-class RegisterRequest extends Equatable {
+class SignUpRequest extends Equatable {
   final String password;
   final String phoneNumber;
   final String username;
 
-  const RegisterRequest({
+  const SignUpRequest({
     required this.password,
     required this.phoneNumber,
     required this.username,
