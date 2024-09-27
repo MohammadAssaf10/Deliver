@@ -32,21 +32,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "emailFormatNotCorrect":
             MessageLookupByLibrary.simpleMessage("Email format not correct"),
         "english": MessageLookupByLibrary.simpleMessage("English"),
-        "error400": MessageLookupByLibrary.simpleMessage(
-            "The request that was sent is invalid"),
-        "error401": MessageLookupByLibrary.simpleMessage(
-            "Failed to authenticate with the server"),
-        "error403": MessageLookupByLibrary.simpleMessage(
-            "You do not have permission to access the requested resource"),
-        "error404": MessageLookupByLibrary.simpleMessage(
-            "The requested url was not found on the server"),
-        "error500": MessageLookupByLibrary.simpleMessage(
-            "A generic error occurred on the server"),
-        "error503": MessageLookupByLibrary.simpleMessage(
-            "The requested service is not available"),
         "haveAnAccount":
             MessageLookupByLibrary.simpleMessage("Have an account?"),
-        "login": MessageLookupByLibrary.simpleMessage("Login"),
         "mobileNumber": MessageLookupByLibrary.simpleMessage("Mobile number"),
         "mobileNumberFormatNotCorrect": MessageLookupByLibrary.simpleMessage(
             "Mobile number format not correct"),
@@ -57,8 +44,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoarding1": MessageLookupByLibrary.simpleMessage(
             "Welcome! Take a trip to your destination with the cheapest fare"),
         "or": MessageLookupByLibrary.simpleMessage("OR"),
-        "parseError": MessageLookupByLibrary.simpleMessage(
-            "Failed to parse model please check it"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordShouldAtLeast8Character": MessageLookupByLibrary.simpleMessage(
             "Password should at least 8 character"),
@@ -78,11 +63,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseTurnOnLocationServiceAndTryAgain":
             MessageLookupByLibrary.simpleMessage(
                 "Please turn on location service and try again"),
-        "register": MessageLookupByLibrary.simpleMessage("Register"),
         "registerYourAccount":
             MessageLookupByLibrary.simpleMessage("Register your account"),
+        "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
         "signInToYourAccount":
             MessageLookupByLibrary.simpleMessage("Sign in to your account"),
+        "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
         "somethingWentWrong":
             MessageLookupByLibrary.simpleMessage("Something went wrong"),
         "userName": MessageLookupByLibrary.simpleMessage("Username"),

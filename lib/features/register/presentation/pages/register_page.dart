@@ -59,7 +59,7 @@ class RegisterPage extends StatelessWidget {
                             const AppName(),
                             const SizedBox(height: 40),
                             Text(
-                              S.of(context).register,
+                              S.of(context).signUp,
                               textAlign: TextAlign.center,
                               style: TextStyles.font30BlackBold,
                             ),
@@ -119,12 +119,12 @@ class RegisterPage extends StatelessWidget {
                                   context.read<RegisterBloc>().register();
                                 }
                               },
-                              buttonText: S.of(context).register,
+                              buttonText: S.of(context).signUp,
                             ),
                             const OrBar(),
                             AuthOptionText(
                               title: S.of(context).haveAnAccount,
-                              subTitle: S.of(context).login,
+                              subTitle: S.of(context).signIn,
                               subTitleOnPress: () {
                                 context.pop();
                               },

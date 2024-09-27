@@ -55,7 +55,7 @@ class SignInPage extends StatelessWidget {
                     SizedBox(height: MediaQuery.of(context).size.height / 10),
                     const SizedBox(height: 40),
                     Text(
-                      S.of(context).login,
+                      S.of(context).signIn,
                       textAlign: TextAlign.center,
                       style: TextStyles.font30BlackBold,
                     ),
@@ -115,14 +115,14 @@ class SignInPage extends StatelessWidget {
                           context.read<SignInBloc>().login();
                         }
                       },
-                      buttonText: S.of(context).login,
+                      buttonText: S.of(context).signIn,
                       textStyle: TextStyles.font14WhiteRegular,
                       borderRadius: 10,
                     ),
                     const OrBar(),
                     AuthOptionText(
                       title: S.of(context).doNotHaveAnAccount,
-                      subTitle: S.of(context).register,
+                      subTitle: S.of(context).signUp,
                       subTitleOnPress: () {
                         context.pushNamed(Routes.registerPage);
                         context

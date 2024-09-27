@@ -32,20 +32,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "emailFormatNotCorrect": MessageLookupByLibrary.simpleMessage(
             "تنسيق البريد الإلكتروني غير صحيح"),
         "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
-        "error400":
-            MessageLookupByLibrary.simpleMessage("الطلب المرسل غير صحيح"),
-        "error401": MessageLookupByLibrary.simpleMessage(
-            "فشلت عملية المصادقة مع الخادمة"),
-        "error403": MessageLookupByLibrary.simpleMessage(
-            "ليس لديك اذن للوصول إلى المورد المطلوب"),
-        "error404": MessageLookupByLibrary.simpleMessage(
-            "لم يتم العثور على العنوان المطلوب"),
-        "error500":
-            MessageLookupByLibrary.simpleMessage("حدث خطأ عام في الخادم"),
-        "error503":
-            MessageLookupByLibrary.simpleMessage("الخدمة المطلوبة غير متاحة"),
         "haveAnAccount": MessageLookupByLibrary.simpleMessage("لديك حساب؟"),
-        "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "mobileNumber":
             MessageLookupByLibrary.simpleMessage("رقم الهاتف المحمول"),
         "mobileNumberFormatNotCorrect":
@@ -57,8 +44,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoarding1": MessageLookupByLibrary.simpleMessage(
             "مرحباً! انطلق في رحلة إلى وجهتك بأرخص الأسعار"),
         "or": MessageLookupByLibrary.simpleMessage("او"),
-        "parseError": MessageLookupByLibrary.simpleMessage(
-            "فشل في تحليل النموذج، يرجى التحقق منه"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "passwordShouldAtLeast8Character": MessageLookupByLibrary.simpleMessage(
             "يجب أن لا تقل كلمة المرور عن 8 أحرف"),
@@ -78,11 +63,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseTurnOnLocationServiceAndTryAgain":
             MessageLookupByLibrary.simpleMessage(
                 "الرجاء تشغيل خدمة الموقع ثم المحاولة مرة أخرى"),
-        "register": MessageLookupByLibrary.simpleMessage("التسجيل"),
         "registerYourAccount":
             MessageLookupByLibrary.simpleMessage("سجل حسابك"),
+        "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "signInToYourAccount":
             MessageLookupByLibrary.simpleMessage("تسجيل الدخول إلى حسابك"),
+        "signUp": MessageLookupByLibrary.simpleMessage("التسجيل"),
         "somethingWentWrong":
             MessageLookupByLibrary.simpleMessage("حدث خطأ ما"),
         "userName": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
