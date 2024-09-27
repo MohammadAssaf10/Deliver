@@ -22,9 +22,7 @@ class MapAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            AppName(
-              textStyle: TextStyles.font30PrimaryBold,
-            ),
+            const AppName(textStyle: TextStyles.font30BlackBold),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -36,7 +34,7 @@ class MapAppBar extends StatelessWidget implements PreferredSizeWidget {
                   child: Container(
                     padding: const EdgeInsets.all(4),
                     decoration: BoxDecoration(
-                      color: ColorsManager.primary,
+                      color: ColorsManager.black,
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Text(

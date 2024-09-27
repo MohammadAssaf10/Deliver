@@ -23,12 +23,13 @@ class BottomNavigationBarIcon extends StatelessWidget {
           children: [
             Icon(
               icon,
-              color: title == 'Home'?ColorsManager.primary:ColorsManager.grey,
+              color: title == 'Home' ? ColorsManager.black : ColorsManager.grey,
             ),
             Text(
               title,
               style: TextStyle(
-                color: title == 'Home'?ColorsManager.primary:ColorsManager.grey,
+                color:
+                    title == 'Home' ? ColorsManager.black : ColorsManager.grey,
               ),
             )
           ],

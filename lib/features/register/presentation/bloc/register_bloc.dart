@@ -31,21 +31,17 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
   ) : super(RegisterState.initial()) {
     on<RegisterEvent>((event, emit) async {
       if (event is ClearError) {
-        emit(state.rebuild((b) => b
-          ..isError = false
-          ..message = ','));
+        emit(state.rebuild((b) => b..isError = false));
       } else if (event is ChangePasswordState) {
         emit(
           state.rebuild((b) => b
             ..passwordVisible = !state.passwordVisible
-            ..isError = false
-            ..message = ''),
+            ..isError = false),
         );
       } else if (event is Register) {
         emit(state.rebuild((b) => b
           ..isLoading = true
-          ..isError = false
-          ..message = ''));
+          ..isError = false));
         final RegisterRequest registerRequest = RegisterRequest(
           password: passwordController.text,
           phoneNumber: mobileNumberController.text,
@@ -56,7 +52,6 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
           emit(state.rebuild(
             (b) => b
               ..isError = true
-              ..message = failure.error
               ..isLoading = false
               ..isSuccess = false,
           ));
@@ -64,7 +59,6 @@ class RegisterBloc extends Bloc<RegisterEvent, RegisterState> {
           emit(state.rebuild(
             (b) => b
               ..isError = false
-              ..message = ''
               ..isLoading = false
               ..isSuccess = true,
           ));

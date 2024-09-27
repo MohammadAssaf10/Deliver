@@ -1,0 +1,30 @@
+import 'package:dartz/dartz.dart';
+import 'package:deliver/core/error/failure.dart';
+import 'package:injectable/injectable.dart';
+
+import '../../generated/l10n.dart';
+import '../di/di.dart';
+import '../error/exception_handler.dart';
+import '../network/network_info.dart';
+import 'base_repository.dart';
+
+@LazySingleton(as: BaseRepository)
+class BaseRepositoryImpl implements BaseRepository {
+  final NetworkInfo _networkInfo = getIt<NetworkInfo>();
+
+  @override
+  Future<Either<Failure, T>> requestApi<T, TM>(
+      Future<TM> Function() apiRequest, T Function(TM) converter) async {
+    final bool isConnected = await _networkInfo.isConnected;
+    if (!isConnected) {
+      return Left(ServerFailure(errorMessage: S.current.networkError));
+    }
+    try {
+      final TM result = await apiRequest(); // apiRequest returns TM
+      return Right(converter(result)); // Convert TM to T
+    } catch (e) {
+      final Failure failure = ErrorHandler.handleError(e);
+      return Left(failure);
+    }
+  }
+}

@@ -24,10 +24,10 @@ class RegisterRepositoryImpl extends RegisterRepository {
       try {
         return Right(await remoteDataSource.register(registerRequest));
       } catch (e) {
-        return Left(ServerFailure());
+        return Left(ServerFailure(errorMessage: ''));
       }
     } else {
-      return Left(ServerFailure());
+      return Left(ServerFailure(errorMessage: ''));
     }
   }
 }

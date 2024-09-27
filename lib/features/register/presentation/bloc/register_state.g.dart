@@ -12,11 +12,9 @@ class _$RegisterState extends RegisterState {
   @override
   final bool isLoading;
   @override
-  final bool isSuccess;
-  @override
   final bool isError;
   @override
-  final String message;
+  final bool isSuccess;
 
   factory _$RegisterState([void Function(RegisterStateBuilder)? updates]) =>
       (new RegisterStateBuilder()..update(updates))._build();
@@ -24,18 +22,16 @@ class _$RegisterState extends RegisterState {
   _$RegisterState._(
       {required this.passwordVisible,
       required this.isLoading,
-      required this.isSuccess,
       required this.isError,
-      required this.message})
+      required this.isSuccess})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         passwordVisible, r'RegisterState', 'passwordVisible');
     BuiltValueNullFieldError.checkNotNull(
         isLoading, r'RegisterState', 'isLoading');
+    BuiltValueNullFieldError.checkNotNull(isError, r'RegisterState', 'isError');
     BuiltValueNullFieldError.checkNotNull(
         isSuccess, r'RegisterState', 'isSuccess');
-    BuiltValueNullFieldError.checkNotNull(isError, r'RegisterState', 'isError');
-    BuiltValueNullFieldError.checkNotNull(message, r'RegisterState', 'message');
   }
 
   @override
@@ -51,9 +47,8 @@ class _$RegisterState extends RegisterState {
     return other is RegisterState &&
         passwordVisible == other.passwordVisible &&
         isLoading == other.isLoading &&
-        isSuccess == other.isSuccess &&
         isError == other.isError &&
-        message == other.message;
+        isSuccess == other.isSuccess;
   }
 
   @override
@@ -61,9 +56,8 @@ class _$RegisterState extends RegisterState {
     var _$hash = 0;
     _$hash = $jc(_$hash, passwordVisible.hashCode);
     _$hash = $jc(_$hash, isLoading.hashCode);
-    _$hash = $jc(_$hash, isSuccess.hashCode);
     _$hash = $jc(_$hash, isError.hashCode);
-    _$hash = $jc(_$hash, message.hashCode);
+    _$hash = $jc(_$hash, isSuccess.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -73,9 +67,8 @@ class _$RegisterState extends RegisterState {
     return (newBuiltValueToStringHelper(r'RegisterState')
           ..add('passwordVisible', passwordVisible)
           ..add('isLoading', isLoading)
-          ..add('isSuccess', isSuccess)
           ..add('isError', isError)
-          ..add('message', message))
+          ..add('isSuccess', isSuccess))
         .toString();
   }
 }
@@ -93,17 +86,13 @@ class RegisterStateBuilder
   bool? get isLoading => _$this._isLoading;
   set isLoading(bool? isLoading) => _$this._isLoading = isLoading;
 
-  bool? _isSuccess;
-  bool? get isSuccess => _$this._isSuccess;
-  set isSuccess(bool? isSuccess) => _$this._isSuccess = isSuccess;
-
   bool? _isError;
   bool? get isError => _$this._isError;
   set isError(bool? isError) => _$this._isError = isError;
 
-  String? _message;
-  String? get message => _$this._message;
-  set message(String? message) => _$this._message = message;
+  bool? _isSuccess;
+  bool? get isSuccess => _$this._isSuccess;
+  set isSuccess(bool? isSuccess) => _$this._isSuccess = isSuccess;
 
   RegisterStateBuilder();
 
@@ -112,9 +101,8 @@ class RegisterStateBuilder
     if ($v != null) {
       _passwordVisible = $v.passwordVisible;
       _isLoading = $v.isLoading;
-      _isSuccess = $v.isSuccess;
       _isError = $v.isError;
-      _message = $v.message;
+      _isSuccess = $v.isSuccess;
       _$v = null;
     }
     return this;
@@ -141,12 +129,10 @@ class RegisterStateBuilder
                 passwordVisible, r'RegisterState', 'passwordVisible'),
             isLoading: BuiltValueNullFieldError.checkNotNull(
                 isLoading, r'RegisterState', 'isLoading'),
-            isSuccess: BuiltValueNullFieldError.checkNotNull(
-                isSuccess, r'RegisterState', 'isSuccess'),
             isError: BuiltValueNullFieldError.checkNotNull(
                 isError, r'RegisterState', 'isError'),
-            message: BuiltValueNullFieldError.checkNotNull(
-                message, r'RegisterState', 'message'));
+            isSuccess: BuiltValueNullFieldError.checkNotNull(
+                isSuccess, r'RegisterState', 'isSuccess'));
     replace(_$result);
     return _$result;
   }

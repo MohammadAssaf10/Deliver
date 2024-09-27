@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../app/bloc/app_cubit.dart';
-import '../../app/bloc/app_state.dart';
+import '../../app/presentation/bloc/app_cubit.dart';
+import '../../app/presentation/bloc/app_state.dart';
 import '../../generated/l10n.dart';
 import '../theming/styles_manager.dart';
 import '../utils/app_enums.dart';
@@ -26,15 +26,15 @@ class SelectLanguage extends StatelessWidget {
                 child: Text(
                   S.of(context).arabic,
                   textAlign: TextAlign.end,
-                  style: state.appLanguage == Language.en
-                      ? TextStyles.font14GreyRegular
-                      : TextStyles.font14PrimaryRegular,
+                  style: state.appLanguage == Language.ar
+                      ? TextStyles.font14BlackBold
+                      : TextStyles.font14GreyRegular,
                 ),
               ),
             ),
             Text(
               " / ",
-              style: TextStyles.font14GreyRegular,
+              style: TextStyles.font14BlackBold,
             ),
             Flexible(
               child: GestureDetector(
@@ -43,8 +43,8 @@ class SelectLanguage extends StatelessWidget {
                 },
                 child: Text(
                   S.of(context).english,
-                  style: state.appLanguage == Language.ar
-                      ? TextStyles.font14PrimaryRegular
+                  style: state.appLanguage == Language.en
+                      ? TextStyles.font14BlackBold
                       : TextStyles.font14GreyRegular,
                 ),
               ),

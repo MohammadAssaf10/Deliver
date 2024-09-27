@@ -5,9 +5,11 @@ abstract class GenericExceptions implements Exception {
 }
 
 class ServerException extends GenericExceptions {
-  const ServerException({String error = "Something went wrong"}) : super(error);
+  const ServerException({required String? error})
+      : super(error ?? "Something went wrong");
 }
 
 class CacheException extends GenericExceptions {
-  const CacheException({String error = "Something went wrong"}) : super(error);
+  const CacheException({required String? error})
+      : super(error ?? "Something went wrong");
 }

@@ -19,7 +19,7 @@ class MapFloatingActionButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       onPressed: onPress,
-      backgroundColor: ColorsManager.primary,
+      backgroundColor: ColorsManager.black,
       child: isLoading
           ? const Loader(
               color: ColorsManager.white,

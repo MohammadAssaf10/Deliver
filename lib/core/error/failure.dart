@@ -1,18 +1,28 @@
 import 'package:equatable/equatable.dart';
 
 abstract class Failure extends Equatable {
-  final String error;
+  final String errorMessage;
 
-  const Failure(this.error);
+  const Failure(this.errorMessage);
 
   @override
-  List<Object> get props => [error];
+  List<Object> get props => [errorMessage];
 }
 
 class ServerFailure extends Failure {
-  const ServerFailure({String error = "Something went wrong"}) : super(error);
+  const ServerFailure({
+    required String? errorMessage,
+  }) : super(errorMessage ?? "Something went wrong");
 }
 
 class CacheFailure extends Failure {
-  const CacheFailure({String error = "Something went wrong"}) : super(error);
+  const CacheFailure({
+    required String? errorMessage,
+  }) : super(errorMessage ?? "Something went wrong");
+}
+
+class GeneralFailure extends Failure {
+  const GeneralFailure({
+    String errorMessage = "Something went wrong",
+  }) : super(errorMessage);
 }

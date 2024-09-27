@@ -9,6 +9,7 @@ class AuthOptionText extends StatelessWidget {
     required this.subTitle,
     required this.subTitleOnPress,
   });
+
   final String title;
   final String subTitle;
   final Function subTitleOnPress;
@@ -25,6 +26,7 @@ class AuthOptionText extends StatelessWidget {
             style: TextStyles.font16GreyRegular,
           ),
         ),
+        const SizedBox(width: 2),
         Flexible(
           child: GestureDetector(
             onTap: () {
@@ -32,7 +34,7 @@ class AuthOptionText extends StatelessWidget {
             },
             child: Text(
               subTitle,
-              style: TextStyles.font16PrimaryRegular,
+              style: TextStyles.font16BlackRegular,
             ),
           ),
         ),

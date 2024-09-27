@@ -2,20 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/routing/routes.dart';
-import '../../../../core/theming/colors_manager.dart';
 import '../../../../core/theming/styles_manager.dart';
-import '../../../../core/utils/app_functions.dart';
 import '../../../../core/utils/app_extensions.dart';
 import '../../../../core/utils/app_validator.dart';
 import '../../../../core/widget/app_name.dart';
-import '../../../../core/widget/custom_button.dart';
-import '../../../../core/widget/custom_decorated_box.dart';
+import '../../../../core/widget/app_text_button.dart';
 import '../../../../core/widget/custom_text_field.dart';
 import '../../../../core/widget/auth_option_text.dart';
 import '../../../../core/widget/loader.dart';
 import '../../../../core/widget/select_language.dart';
 import '../../../../generated/l10n.dart';
-import '../../../login/presentation/widgets/or_bar.dart';
+import '../../../sign_in/presentation/widgets/or_bar.dart';
 import '../bloc/register.dart';
 
 class RegisterPage extends StatelessWidget {
@@ -26,15 +23,15 @@ class RegisterPage extends StatelessWidget {
     return BlocConsumer<RegisterBloc, RegisterState>(
       listener: (context, state) {
         if (state.isError) {
-          showCustomToast(
-            toastMessage: state.message,
-            isError: state.isError,
-          );
+          // showCustomToast(
+          //   toastMessage: state.message,
+          //   isError: state.isError,
+          // );
           context.read<RegisterBloc>().clearError();
         }
         if (state.isSuccess) {
           context.pushNamedAndRemoveUntil(
-            Routes.homePage,
+            Routes.mainPage,
             predicate: (_) => false,
           );
         }
@@ -64,7 +61,7 @@ class RegisterPage extends StatelessWidget {
                             Text(
                               S.of(context).register,
                               textAlign: TextAlign.center,
-                              style: TextStyles.font30PrimaryBold,
+                              style: TextStyles.font30BlackBold,
                             ),
                             const SizedBox(height: 10),
                             Text(
@@ -112,20 +109,17 @@ class RegisterPage extends StatelessWidget {
                               },
                             ),
                             const SizedBox(height: 10),
-                            CustomDecoratedBox(
-                              child: CustomButton(
-                                onPress: () {
-                                  if (context
-                                      .read<RegisterBloc>()
-                                      .formKey
-                                      .currentState!
-                                      .validate()) {
-                                    context.read<RegisterBloc>().register();
-                                  }
-                                },
-                                title: S.of(context).register,
-                                titleColor: ColorsManager.white,
-                              ),
+                            AppTextButton(
+                              onPressed: () {
+                                if (context
+                                    .read<RegisterBloc>()
+                                    .formKey
+                                    .currentState!
+                                    .validate()) {
+                                  context.read<RegisterBloc>().register();
+                                }
+                              },
+                              buttonText: S.of(context).register,
                             ),
                             const OrBar(),
                             AuthOptionText(

@@ -1,7 +1,6 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:injectable/injectable.dart';
 import 'package:location/location.dart';
@@ -15,13 +14,15 @@ import 'map_state.dart';
 class MapBloc extends Bloc<MapEvent, MapState> {
   final Location location;
   final Completer<GoogleMapController> mapCompleter =
-  Completer<GoogleMapController>();
+      Completer<GoogleMapController>();
 
   void addGetCurrentLocation() {
     add(GetCurrentLocation());
   }
 
-  MapBloc(this.location,) : super(MapState.initial()) {
+  MapBloc(
+    this.location,
+  ) : super(MapState.initial()) {
     on<GetCurrentLocation>((event, emit) async {
       bool serviceEnabled = await location.serviceEnabled();
       if (!serviceEnabled) {
@@ -41,20 +42,20 @@ class MapBloc extends Bloc<MapEvent, MapState> {
         if (permissionGranted != PermissionStatus.granted) {
           showCustomToast(
             toastMessage:
-            S.current.pleaseAllowAppToAccessYourCurrentLocationAndTryAgain,
+                S.current.pleaseAllowAppToAccessYourCurrentLocationAndTryAgain,
             isError: true,
           );
           return;
         }
       }
       emit(state.rebuild(
-            (b) => b..isLoading = true,
+        (b) => b..isLoading = true,
       ));
 
       final LocationData locationData = await location.getLocation();
       if (locationData.latitude != null && locationData.longitude != null) {
         final GoogleMapController googleMapController =
-        await mapCompleter.future;
+            await mapCompleter.future;
         await googleMapController.animateCamera(
           CameraUpdate.newCameraPosition(
             CameraPosition(
@@ -65,14 +66,10 @@ class MapBloc extends Bloc<MapEvent, MapState> {
         );
         state.markers.toSet().clear();
         final String markerId =
-        DateTime
-            .now()
-            .microsecondsSinceEpoch
-            .toString();
+            DateTime.now().microsecondsSinceEpoch.toString();
         emit(
           state.rebuild(
-                (b) =>
-            b
+            (b) => b
               ..markers.clear()
               ..markers.add(
                 Marker(
@@ -86,9 +83,8 @@ class MapBloc extends Bloc<MapEvent, MapState> {
           ),
         );
       }
-      debugPrint('Marker Length: ${state.markers.length}');
       emit(state.rebuild(
-            (b) => b..isLoading = false,
+        (b) => b..isLoading = false,
       ));
     });
   }
