@@ -6,6 +6,8 @@ import '../../generated/l10n.dart';
 import '../di/di.dart';
 import '../error/exception_handler.dart';
 import '../network/network_info.dart';
+import '../utils/app_enums.dart';
+import '../utils/app_functions.dart';
 import 'base_repository.dart';
 
 @LazySingleton(as: BaseRepository)
@@ -23,6 +25,7 @@ class BaseRepositoryImpl implements BaseRepository {
       final TM result = await apiRequest(); // apiRequest returns TM
       return Right(converter(result)); // Convert TM to T
     } catch (e) {
+      dPrint("Error From BaseRepository: $e", stringColor: StringColor.red);
       final Failure failure = ErrorHandler.handleError(e);
       return Left(failure);
     }

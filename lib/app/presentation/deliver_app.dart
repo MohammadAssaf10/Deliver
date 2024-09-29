@@ -23,7 +23,7 @@ class DeliverApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Deliver',
-          initialRoute: Routes.signInPage,
+          initialRoute: Routes.onBoardingPage,
           onGenerateRoute: appRouter.generateRoute,
           localizationsDelegates: const [
             S.delegate,

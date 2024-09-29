@@ -10,8 +10,8 @@ class UserModel {
 
   UserModel({
     required this.id,
-    this.isPhoneNumberVerified,
     required this.token,
+    this.isPhoneNumberVerified,
   });
 
   factory UserModel.fromJson(Map<String, dynamic> json) =>

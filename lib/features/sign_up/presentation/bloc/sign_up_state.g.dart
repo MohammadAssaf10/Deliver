@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'register_state.dart';
+part of 'sign_up_state.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-class _$RegisterState extends RegisterState {
+class _$SignUpState extends SignUpState {
   @override
   final bool passwordVisible;
   @override
@@ -16,35 +16,35 @@ class _$RegisterState extends RegisterState {
   @override
   final bool isSuccess;
 
-  factory _$RegisterState([void Function(RegisterStateBuilder)? updates]) =>
-      (new RegisterStateBuilder()..update(updates))._build();
+  factory _$SignUpState([void Function(SignUpStateBuilder)? updates]) =>
+      (new SignUpStateBuilder()..update(updates))._build();
 
-  _$RegisterState._(
+  _$SignUpState._(
       {required this.passwordVisible,
       required this.isLoading,
       required this.isError,
       required this.isSuccess})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        passwordVisible, r'RegisterState', 'passwordVisible');
+        passwordVisible, r'SignUpState', 'passwordVisible');
     BuiltValueNullFieldError.checkNotNull(
-        isLoading, r'RegisterState', 'isLoading');
-    BuiltValueNullFieldError.checkNotNull(isError, r'RegisterState', 'isError');
+        isLoading, r'SignUpState', 'isLoading');
+    BuiltValueNullFieldError.checkNotNull(isError, r'SignUpState', 'isError');
     BuiltValueNullFieldError.checkNotNull(
-        isSuccess, r'RegisterState', 'isSuccess');
+        isSuccess, r'SignUpState', 'isSuccess');
   }
 
   @override
-  RegisterState rebuild(void Function(RegisterStateBuilder) updates) =>
+  SignUpState rebuild(void Function(SignUpStateBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  RegisterStateBuilder toBuilder() => new RegisterStateBuilder()..replace(this);
+  SignUpStateBuilder toBuilder() => new SignUpStateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is RegisterState &&
+    return other is SignUpState &&
         passwordVisible == other.passwordVisible &&
         isLoading == other.isLoading &&
         isError == other.isError &&
@@ -64,7 +64,7 @@ class _$RegisterState extends RegisterState {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'RegisterState')
+    return (newBuiltValueToStringHelper(r'SignUpState')
           ..add('passwordVisible', passwordVisible)
           ..add('isLoading', isLoading)
           ..add('isError', isError)
@@ -73,9 +73,8 @@ class _$RegisterState extends RegisterState {
   }
 }
 
-class RegisterStateBuilder
-    implements Builder<RegisterState, RegisterStateBuilder> {
-  _$RegisterState? _$v;
+class SignUpStateBuilder implements Builder<SignUpState, SignUpStateBuilder> {
+  _$SignUpState? _$v;
 
   bool? _passwordVisible;
   bool? get passwordVisible => _$this._passwordVisible;
@@ -94,9 +93,9 @@ class RegisterStateBuilder
   bool? get isSuccess => _$this._isSuccess;
   set isSuccess(bool? isSuccess) => _$this._isSuccess = isSuccess;
 
-  RegisterStateBuilder();
+  SignUpStateBuilder();
 
-  RegisterStateBuilder get _$this {
+  SignUpStateBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _passwordVisible = $v.passwordVisible;
@@ -109,30 +108,30 @@ class RegisterStateBuilder
   }
 
   @override
-  void replace(RegisterState other) {
+  void replace(SignUpState other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$RegisterState;
+    _$v = other as _$SignUpState;
   }
 
   @override
-  void update(void Function(RegisterStateBuilder)? updates) {
+  void update(void Function(SignUpStateBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  RegisterState build() => _build();
+  SignUpState build() => _build();
 
-  _$RegisterState _build() {
+  _$SignUpState _build() {
     final _$result = _$v ??
-        new _$RegisterState._(
+        new _$SignUpState._(
             passwordVisible: BuiltValueNullFieldError.checkNotNull(
-                passwordVisible, r'RegisterState', 'passwordVisible'),
+                passwordVisible, r'SignUpState', 'passwordVisible'),
             isLoading: BuiltValueNullFieldError.checkNotNull(
-                isLoading, r'RegisterState', 'isLoading'),
+                isLoading, r'SignUpState', 'isLoading'),
             isError: BuiltValueNullFieldError.checkNotNull(
-                isError, r'RegisterState', 'isError'),
+                isError, r'SignUpState', 'isError'),
             isSuccess: BuiltValueNullFieldError.checkNotNull(
-                isSuccess, r'RegisterState', 'isSuccess'));
+                isSuccess, r'SignUpState', 'isSuccess'));
     replace(_$result);
     return _$result;
   }

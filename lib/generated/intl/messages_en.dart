@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addTrip": MessageLookupByLibrary.simpleMessage("Add trip"),
         "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
+        "continue1": MessageLookupByLibrary.simpleMessage("Continue"),
         "deliver": MessageLookupByLibrary.simpleMessage("Deliver"),
         "doNotHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
@@ -32,6 +33,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "emailFormatNotCorrect":
             MessageLookupByLibrary.simpleMessage("Email format not correct"),
         "english": MessageLookupByLibrary.simpleMessage("English"),
+        "getStartWithDeliver":
+            MessageLookupByLibrary.simpleMessage("Get Start With Deliver"),
         "haveAnAccount":
             MessageLookupByLibrary.simpleMessage("Have an account?"),
         "mobileNumber": MessageLookupByLibrary.simpleMessage("Mobile number"),
@@ -63,12 +66,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseTurnOnLocationServiceAndTryAgain":
             MessageLookupByLibrary.simpleMessage(
                 "Please turn on location service and try again"),
-        "registerYourAccount":
-            MessageLookupByLibrary.simpleMessage("Register your account"),
         "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
         "signInToYourAccount":
             MessageLookupByLibrary.simpleMessage("Sign in to your account"),
         "signUp": MessageLookupByLibrary.simpleMessage("Sign Up"),
+        "signUpYourAccount":
+            MessageLookupByLibrary.simpleMessage("Sign Up your account"),
         "somethingWentWrong":
             MessageLookupByLibrary.simpleMessage("Something went wrong"),
         "userName": MessageLookupByLibrary.simpleMessage("Username"),

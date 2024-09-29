@@ -4,10 +4,11 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../features/main/presentation/pages/main_page.dart';
 import '../../features/maps/presentation/bloc/map_bloc.dart';
 import '../../features/maps/presentation/pages/map_page.dart';
-import '../../features/register/presentation/bloc/register_bloc.dart';
-import '../../features/register/presentation/pages/register_page.dart';
+import '../../features/on_boarding/presentation/pages/on_boarding_page.dart';
 import '../../features/sign_in/presentation/bloc/sign_in_bloc.dart';
 import '../../features/sign_in/presentation/pages/sign_in_page.dart';
+import '../../features/sign_up/presentation/bloc/sign_up_bloc.dart';
+import '../../features/sign_up/presentation/pages/sign_up_page.dart';
 import '../di/di.dart';
 import 'routes.dart';
 
@@ -31,11 +32,11 @@ class AppRouter {
             child: const SignInPage(),
           ),
         );
-      case Routes.registerPage:
+      case Routes.signUpPage:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider<RegisterBloc>(
-            create: (context) => getIt<RegisterBloc>(),
-            child: const RegisterPage(),
+          builder: (_) => BlocProvider<SignUpBloc>(
+            create: (context) => getIt<SignUpBloc>(),
+            child: const SignUpPage(),
           ),
         );
       case Routes.mapPage:
@@ -44,6 +45,10 @@ class AppRouter {
             create: (_) => getIt<MapBloc>(),
             child: const MapPage(),
           ),
+        );
+      case Routes.onBoardingPage:
+        return MaterialPageRoute(
+          builder: (_) => const OnBoardingPage(),
         );
       default:
         return null;

@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addTrip": MessageLookupByLibrary.simpleMessage("إضافة رحلة"),
         "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
+        "continue1": MessageLookupByLibrary.simpleMessage("متابعة"),
         "deliver": MessageLookupByLibrary.simpleMessage("دليفر"),
         "doNotHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("لا تملك حساب؟"),
@@ -32,6 +33,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "emailFormatNotCorrect": MessageLookupByLibrary.simpleMessage(
             "تنسيق البريد الإلكتروني غير صحيح"),
         "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
+        "getStartWithDeliver":
+            MessageLookupByLibrary.simpleMessage("ابدأ مع Deliver"),
         "haveAnAccount": MessageLookupByLibrary.simpleMessage("لديك حساب؟"),
         "mobileNumber":
             MessageLookupByLibrary.simpleMessage("رقم الهاتف المحمول"),
@@ -63,12 +66,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseTurnOnLocationServiceAndTryAgain":
             MessageLookupByLibrary.simpleMessage(
                 "الرجاء تشغيل خدمة الموقع ثم المحاولة مرة أخرى"),
-        "registerYourAccount":
-            MessageLookupByLibrary.simpleMessage("سجل حسابك"),
         "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "signInToYourAccount":
             MessageLookupByLibrary.simpleMessage("تسجيل الدخول إلى حسابك"),
         "signUp": MessageLookupByLibrary.simpleMessage("التسجيل"),
+        "signUpYourAccount": MessageLookupByLibrary.simpleMessage("سجل حسابك"),
         "somethingWentWrong":
             MessageLookupByLibrary.simpleMessage("حدث خطأ ما"),
         "userName": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),

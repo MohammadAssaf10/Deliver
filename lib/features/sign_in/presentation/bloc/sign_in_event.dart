@@ -14,8 +14,9 @@ abstract class ChangePasswordVisibility extends SignInEvent
       _$ChangePasswordVisibility;
 }
 
-abstract class Login extends SignInEvent implements Built<Login, LoginBuilder> {
-  Login._();
+abstract class SignIn extends SignInEvent
+    implements Built<SignIn, SignInBuilder> {
+  SignIn._();
 
-  factory Login([void Function(LoginBuilder) updates]) = _$Login;
+  factory SignIn([void Function(SignInBuilder) updates]) = _$SignIn;
 }

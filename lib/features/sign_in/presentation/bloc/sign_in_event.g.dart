@@ -67,57 +67,57 @@ class ChangePasswordVisibilityBuilder
   }
 }
 
-class _$Login extends Login {
-  factory _$Login([void Function(LoginBuilder)? updates]) =>
-      (new LoginBuilder()..update(updates))._build();
+class _$SignIn extends SignIn {
+  factory _$SignIn([void Function(SignInBuilder)? updates]) =>
+      (new SignInBuilder()..update(updates))._build();
 
-  _$Login._() : super._();
+  _$SignIn._() : super._();
 
   @override
-  Login rebuild(void Function(LoginBuilder) updates) =>
+  SignIn rebuild(void Function(SignInBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  LoginBuilder toBuilder() => new LoginBuilder()..replace(this);
+  SignInBuilder toBuilder() => new SignInBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Login;
+    return other is SignIn;
   }
 
   @override
   int get hashCode {
-    return 884556870;
+    return 67077484;
   }
 
   @override
   String toString() {
-    return newBuiltValueToStringHelper(r'Login').toString();
+    return newBuiltValueToStringHelper(r'SignIn').toString();
   }
 }
 
-class LoginBuilder implements Builder<Login, LoginBuilder> {
-  _$Login? _$v;
+class SignInBuilder implements Builder<SignIn, SignInBuilder> {
+  _$SignIn? _$v;
 
-  LoginBuilder();
+  SignInBuilder();
 
   @override
-  void replace(Login other) {
+  void replace(SignIn other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$Login;
+    _$v = other as _$SignIn;
   }
 
   @override
-  void update(void Function(LoginBuilder)? updates) {
+  void update(void Function(SignInBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  Login build() => _build();
+  SignIn build() => _build();
 
-  _$Login _build() {
-    final _$result = _$v ?? new _$Login._();
+  _$SignIn _build() {
+    final _$result = _$v ?? new _$SignIn._();
     replace(_$result);
     return _$result;
   }

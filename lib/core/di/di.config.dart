@@ -21,13 +21,6 @@ import '../../app/data/repositories/base_repository_impl.dart' as _i111;
 import '../../app/domain/repositories/app_repository.dart' as _i350;
 import '../../app/presentation/bloc/app_cubit.dart' as _i571;
 import '../../features/maps/presentation/bloc/map_bloc.dart' as _i30;
-import '../../features/register/data/data_sources/remote/register_remote_data_source.dart'
-    as _i439;
-import '../../features/register/data/repositories/register_repository_impl.dart'
-    as _i68;
-import '../../features/register/domain/repositories/register_repository.dart'
-    as _i994;
-import '../../features/register/presentation/bloc/register_bloc.dart' as _i771;
 import '../../features/sign_in/data/data_sources/remote/sign_in_remote_data_source.dart'
     as _i533;
 import '../../features/sign_in/data/data_sources/remote/sign_in_remote_data_source_impl.dart'
@@ -37,6 +30,15 @@ import '../../features/sign_in/data/repositories/sign_in_repository_impl.dart'
 import '../../features/sign_in/domain/repositories/sign_in_repository.dart'
     as _i862;
 import '../../features/sign_in/presentation/bloc/sign_in_bloc.dart' as _i640;
+import '../../features/sign_up/data/data_sources/remote/sign_up_remote_data_source.dart'
+    as _i964;
+import '../../features/sign_up/data/data_sources/remote/sign_up_remote_data_source_impl.dart'
+    as _i42;
+import '../../features/sign_up/data/repositories/sign_up_repository_impl.dart'
+    as _i275;
+import '../../features/sign_up/domain/repositories/sign_up_repository.dart'
+    as _i578;
+import '../../features/sign_up/presentation/bloc/sign_up_bloc.dart' as _i148;
 import '../data_source/remote/base_remote_data_source.dart' as _i755;
 import '../data_source/remote/base_remote_data_source_impl.dart' as _i330;
 import '../network/network_info.dart' as _i932;
@@ -62,8 +64,8 @@ Future<_i174.GetIt> $initGetIt(
   );
   gh.lazySingleton<_i895.Connectivity>(() => registerModule.connectivity);
   gh.lazySingleton<_i645.Location>(() => registerModule.location);
-  gh.lazySingleton<_i439.RegisterRemoteDataSource>(
-      () => _i439.RegisterRemoteDataSource());
+  gh.lazySingleton<_i964.SignUpRemoteDataSource>(
+      () => _i42.SignUpRemoteDataSourceImpl());
   gh.lazySingleton<_i533.SignInRemoteDataSource>(
       () => _i1024.SignInRemoteDataSourceImpl());
   gh.lazySingleton<_i421.BaseRepository>(() => _i432.BaseRepositoryImpl());
@@ -77,17 +79,15 @@ Future<_i174.GetIt> $initGetIt(
       () => _i307.SignInRepositoryImpl(gh<_i533.SignInRemoteDataSource>()));
   gh.lazySingleton<_i571.AppCubit>(
       () => _i571.AppCubit(gh<_i350.AppRepository>()));
+  gh.lazySingleton<_i578.SignUpRepository>(
+      () => _i275.SignUpRepositoryImpl(gh<_i964.SignUpRemoteDataSource>()));
   gh.lazySingleton<_i932.NetworkInfo>(
       () => _i932.NetworkInfoImpl(gh<_i895.Connectivity>()));
-  gh.lazySingleton<_i994.RegisterRepository>(() => _i68.RegisterRepositoryImpl(
-        gh<_i932.NetworkInfo>(),
-        gh<_i439.RegisterRemoteDataSource>(),
-      ));
   gh.factory<_i30.MapBloc>(() => _i30.MapBloc(gh<_i645.Location>()));
   gh.factory<_i640.SignInBloc>(
       () => _i640.SignInBloc(gh<_i862.SignInRepository>()));
-  gh.factory<_i771.RegisterBloc>(
-      () => _i771.RegisterBloc(gh<_i994.RegisterRepository>()));
+  gh.factory<_i148.SignUpBloc>(
+      () => _i148.SignUpBloc(gh<_i578.SignUpRepository>()));
   return getIt;
 }
 

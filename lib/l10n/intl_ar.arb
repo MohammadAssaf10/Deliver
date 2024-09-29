@@ -20,7 +20,7 @@
   "signUp": "التسجيل",
   "signIn": "تسجيل الدخول",
   "signInToYourAccount": "تسجيل الدخول إلى حسابك",
-  "registerYourAccount": "سجل حسابك",
+  "signUpYourAccount": "سجل حسابك",
   "or": "او",
   "doNotHaveAnAccount": "لا تملك حساب؟",
   "haveAnAccount": "لديك حساب؟",
@@ -31,5 +31,7 @@
   "addTrip": "إضافة رحلة",
   "welcome": "مرحباً بك ",
   "pleaseTurnOnLocationServiceAndTryAgain": "الرجاء تشغيل خدمة الموقع ثم المحاولة مرة أخرى",
-  "pleaseAllowAppToAccessYourCurrentLocationAndTryAgain": "الرجاء السماح للتطبيق بالوصول إلى موقعك الحالي ثم حاول مرة أخرى"
+  "pleaseAllowAppToAccessYourCurrentLocationAndTryAgain": "الرجاء السماح للتطبيق بالوصول إلى موقعك الحالي ثم حاول مرة أخرى",
+  "getStartWithDeliver": "ابدأ مع Deliver",
+  "continue1": "متابعة"
 }

@@ -250,11 +250,11 @@ class S {
     );
   }
 
-  /// `Register your account`
-  String get registerYourAccount {
+  /// `Sign Up your account`
+  String get signUpYourAccount {
     return Intl.message(
-      'Register your account',
-      name: 'registerYourAccount',
+      'Sign Up your account',
+      name: 'signUpYourAccount',
       desc: '',
       args: [],
     );
@@ -375,6 +375,26 @@ class S {
     return Intl.message(
       'Please allow app to access your current location and try again',
       name: 'pleaseAllowAppToAccessYourCurrentLocationAndTryAgain',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get Start With Deliver`
+  String get getStartWithDeliver {
+    return Intl.message(
+      'Get Start With Deliver',
+      name: 'getStartWithDeliver',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue`
+  String get continue1 {
+    return Intl.message(
+      'Continue',
+      name: 'continue1',
       desc: '',
       args: [],
     );

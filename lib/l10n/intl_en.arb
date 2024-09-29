@@ -19,7 +19,7 @@
   "arabic": "Arabic",
   "signIn": "Sign In",
   "signInToYourAccount": "Sign in to your account",
-  "registerYourAccount": "Register your account",
+  "signUpYourAccount": "Sign Up your account",
   "signUp": "Sign Up",
   "or": "OR",
   "doNotHaveAnAccount": "Don't have an account?",
@@ -31,5 +31,7 @@
   "addTrip": "Add trip",
   "welcome": "Welcome ",
   "pleaseTurnOnLocationServiceAndTryAgain": "Please turn on location service and try again",
-  "pleaseAllowAppToAccessYourCurrentLocationAndTryAgain": "Please allow app to access your current location and try again"
+  "pleaseAllowAppToAccessYourCurrentLocationAndTryAgain": "Please allow app to access your current location and try again",
+  "getStartWithDeliver": "Get Start With Deliver",
+  "continue1": "Continue"
 }
