@@ -379,6 +379,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Get Start With Deliver`
+  String get getStartWithDeliver {
+    return Intl.message(
+      'Get Start With Deliver',
+      name: 'getStartWithDeliver',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue`
+  String get continue1 {
+    return Intl.message(
+      'Continue',
+      name: 'continue1',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
