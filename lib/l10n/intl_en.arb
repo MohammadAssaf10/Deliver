@@ -31,5 +31,7 @@
   "addTrip": "Add trip",
   "welcome": "Welcome ",
   "pleaseTurnOnLocationServiceAndTryAgain": "Please turn on location service and try again",
-  "pleaseAllowAppToAccessYourCurrentLocationAndTryAgain": "Please allow app to access your current location and try again"
+  "pleaseAllowAppToAccessYourCurrentLocationAndTryAgain": "Please allow app to access your current location and try again",
+  "getStartWithDeliver": "Get Start With Deliver",
+  "continue1": "Continue"
 }

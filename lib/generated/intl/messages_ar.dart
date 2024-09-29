@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addTrip": MessageLookupByLibrary.simpleMessage("إضافة رحلة"),
         "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
+        "continue1": MessageLookupByLibrary.simpleMessage("متابعة"),
         "deliver": MessageLookupByLibrary.simpleMessage("دليفر"),
         "doNotHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("لا تملك حساب؟"),
@@ -32,6 +33,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "emailFormatNotCorrect": MessageLookupByLibrary.simpleMessage(
             "تنسيق البريد الإلكتروني غير صحيح"),
         "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
+        "getStartWithDeliver":
+            MessageLookupByLibrary.simpleMessage("ابدأ مع Deliver"),
         "haveAnAccount": MessageLookupByLibrary.simpleMessage("لديك حساب؟"),
         "mobileNumber":
             MessageLookupByLibrary.simpleMessage("رقم الهاتف المحمول"),
