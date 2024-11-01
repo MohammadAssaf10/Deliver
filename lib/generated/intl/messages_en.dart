@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addTrip": MessageLookupByLibrary.simpleMessage("Add trip"),
         "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
+        "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
         "continue1": MessageLookupByLibrary.simpleMessage("Continue"),
         "deliver": MessageLookupByLibrary.simpleMessage("Deliver"),
         "doNotHaveAnAccount":
@@ -55,6 +56,8 @@ class MessageLookup extends MessageLookupByLibrary {
                 "Please allow app to access your current location and try again"),
         "pleaseCompleteField":
             MessageLookupByLibrary.simpleMessage("Please complete field"),
+        "pleaseCompleteVerificationCode": MessageLookupByLibrary.simpleMessage(
+            "Please complete verification code"),
         "pleaseEnterEmail":
             MessageLookupByLibrary.simpleMessage("Please enter email"),
         "pleaseEnterMobileNumber":
@@ -63,6 +66,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Please enter password"),
         "pleaseEnterUserName":
             MessageLookupByLibrary.simpleMessage("Please enter username"),
+        "pleaseEnterVerificationCode": MessageLookupByLibrary.simpleMessage(
+            "Please enter verification code"),
         "pleaseTurnOnLocationServiceAndTryAgain":
             MessageLookupByLibrary.simpleMessage(
                 "Please turn on location service and try again"),
@@ -77,6 +82,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "userName": MessageLookupByLibrary.simpleMessage("Username"),
         "usernameShort":
             MessageLookupByLibrary.simpleMessage("Username is short"),
+        "weSentOTPCodeToVerifyYourNumber": MessageLookupByLibrary.simpleMessage(
+            "We sent OTP code to verify your number"),
         "welcome": MessageLookupByLibrary.simpleMessage("Welcome ")
       };
 }

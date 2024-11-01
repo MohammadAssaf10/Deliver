@@ -1,6 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../core/network/dio_factory.dart';
 import '../data_sources/local/app_local_data_source.dart';
 import '../../../core/error/failure.dart';
 import '../../../core/utils/app_enums.dart';
@@ -18,6 +19,7 @@ class AppRepositoryImpl implements AppRepository {
   Future<Either<Failure, Language>> getAppLanguage() async {
     try {
       final Language result = await _baseLocalDataSource.getAppLanguage();
+      DioFactory.setNewLanguageAfterChanged(result);
       return Right(result);
     } catch (e) {
       return const Left(CacheFailure(errorMessage: "Can't get app language"));

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/colors_manager.dart';
 import '../../../../core/theming/styles_manager.dart';

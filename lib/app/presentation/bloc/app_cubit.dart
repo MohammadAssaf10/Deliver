@@ -1,9 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../core/network/dio_factory.dart';
-import '../../domain/repositories/app_repository.dart';
 import '../../../core/utils/app_enums.dart';
+import '../../domain/repositories/app_repository.dart';
 import 'app_state.dart';
 
 @lazySingleton
@@ -17,7 +16,6 @@ class AppCubit extends Cubit<AppState> {
   void getAppLanguage() async {
     final result = await _appRepository.getAppLanguage();
     result.fold((_) {}, (language) {
-      DioFactory.setNewLanguageAfterChanged(language);
       emit(state.rebuild((b) => b..appLanguage = language));
     });
   }

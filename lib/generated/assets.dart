@@ -3,5 +3,4 @@ class Assets {
   Assets._();
 
   static const String imagesOnBoarding = 'assets/images/on_boarding.jpg';
-
 }

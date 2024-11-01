@@ -33,5 +33,9 @@
   "pleaseTurnOnLocationServiceAndTryAgain": "الرجاء تشغيل خدمة الموقع ثم المحاولة مرة أخرى",
   "pleaseAllowAppToAccessYourCurrentLocationAndTryAgain": "الرجاء السماح للتطبيق بالوصول إلى موقعك الحالي ثم حاول مرة أخرى",
   "getStartWithDeliver": "ابدأ مع Deliver",
-  "continue1": "متابعة"
+  "continue1": "متابعة",
+  "weSentOTPCodeToVerifyYourNumber": "لقد أرسلنا لك رمز OTP للتحقق من رقمك",
+  "pleaseEnterVerificationCode": "الرجاء إدخال رمز التحقق",
+  "pleaseCompleteVerificationCode": "الرجاء إكمال رمز التحقق",
+  "confirm": "تأكيد"
 }

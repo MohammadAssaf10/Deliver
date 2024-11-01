@@ -9,6 +9,7 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:connectivity_plus/connectivity_plus.dart' as _i895;
+import 'package:flutter/material.dart' as _i409;
 import 'package:get_it/get_it.dart' as _i174;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:location/location.dart' as _i645;
@@ -39,6 +40,16 @@ import '../../features/sign_up/data/repositories/sign_up_repository_impl.dart'
 import '../../features/sign_up/domain/repositories/sign_up_repository.dart'
     as _i578;
 import '../../features/sign_up/presentation/bloc/sign_up_bloc.dart' as _i148;
+import '../../features/verification_code/data/data_sources/remote/verification_code_remote_data_source.dart'
+    as _i89;
+import '../../features/verification_code/data/data_sources/remote/verification_code_remote_data_source_impl.dart'
+    as _i673;
+import '../../features/verification_code/data/repositories/verification_code_repository_impl.dart'
+    as _i328;
+import '../../features/verification_code/domain/repositories/verification_code_repository.dart'
+    as _i314;
+import '../../features/verification_code/presentation/bloc/verification_code_bloc.dart'
+    as _i59;
 import '../data_source/remote/base_remote_data_source.dart' as _i755;
 import '../data_source/remote/base_remote_data_source_impl.dart' as _i330;
 import '../network/network_info.dart' as _i932;
@@ -64,6 +75,8 @@ Future<_i174.GetIt> $initGetIt(
   );
   gh.lazySingleton<_i895.Connectivity>(() => registerModule.connectivity);
   gh.lazySingleton<_i645.Location>(() => registerModule.location);
+  gh.lazySingleton<_i409.GlobalKey<_i409.State<_i409.StatefulWidget>>>(
+      () => registerModule.loadingDialogKey);
   gh.lazySingleton<_i964.SignUpRemoteDataSource>(
       () => _i42.SignUpRemoteDataSourceImpl());
   gh.lazySingleton<_i533.SignInRemoteDataSource>(
@@ -77,12 +90,19 @@ Future<_i174.GetIt> $initGetIt(
       () => _i111.AppRepositoryImpl(gh<_i212.AppLocalDataSource>()));
   gh.lazySingleton<_i862.SignInRepository>(
       () => _i307.SignInRepositoryImpl(gh<_i533.SignInRemoteDataSource>()));
+  gh.lazySingleton<_i89.VerificationCodeRemoteDataSource>(
+      () => _i673.VerificationCodeRemoteDataSourceImpl());
+  gh.lazySingleton<_i314.VerificationCodeRepository>(() =>
+      _i328.VerificationCodeRepositoryImpl(
+          gh<_i89.VerificationCodeRemoteDataSource>()));
   gh.lazySingleton<_i571.AppCubit>(
       () => _i571.AppCubit(gh<_i350.AppRepository>()));
   gh.lazySingleton<_i578.SignUpRepository>(
       () => _i275.SignUpRepositoryImpl(gh<_i964.SignUpRemoteDataSource>()));
   gh.lazySingleton<_i932.NetworkInfo>(
       () => _i932.NetworkInfoImpl(gh<_i895.Connectivity>()));
+  gh.factory<_i59.VerificationCodeBloc>(
+      () => _i59.VerificationCodeBloc(gh<_i314.VerificationCodeRepository>()));
   gh.factory<_i30.MapBloc>(() => _i30.MapBloc(gh<_i645.Location>()));
   gh.factory<_i640.SignInBloc>(
       () => _i640.SignInBloc(gh<_i862.SignInRepository>()));

@@ -23,13 +23,10 @@ class SignInPage extends StatelessWidget {
     return BlocListener<SignInBloc, SignInState>(
       listener: (context, state) {
         if (state.isError) {
-          dismissDialog(context);
+          closeLoadingDialogIfVisible();
         }
         if (state.isSuccess) {
-          context.pushNamedAndRemoveUntil(
-            Routes.mainPage,
-            predicate: (_) => false,
-          );
+          context.pushNamed(Routes.verificationCodePage);
         }
         if (state.isLoading) {
           showLoadingDialog(context);
@@ -40,122 +37,89 @@ class SignInPage extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.all(20),
           child: Form(
-            key: context
-                .read<SignInBloc>()
-                .formKey,
-            child: SingleChildScrollView(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: <Widget>[
-                  SizedBox(height: MediaQuery
-                      .of(context)
-                      .size
-                      .height / 10),
-                  const SizedBox(height: 40),
-                  Text(
-                    S
-                        .of(context)
-                        .signIn,
-                    textAlign: TextAlign.center,
-                    style: TextStyles.font30BlackBold,
-                  ),
-                  const SizedBox(height: 10),
-                  Text(
-                    S
-                        .of(context)
-                        .signInToYourAccount,
-                    textAlign: TextAlign.center,
-                    style: TextStyles.font16GreyBold,
-                  ),
-                  const SizedBox(height: 80),
-                  CustomTextField(
-                    controller:
-                    context
-                        .read<SignInBloc>()
-                        .phoneNumberController,
-                    labelTitle: S
-                        .of(context)
-                        .mobileNumber,
-                    validator: AppValidator.mobileNumberValidator,
-                    prefixIcon: Icons.phone,
-                    keyboardType: TextInputType.phone,
-                    textInputAction: TextInputAction.next,
-                    textInputFormatter: LengthLimitingTextInputFormatter(10),
-                  ),
-                  BlocBuilder<SignInBloc, SignInState>(
-                    buildWhen: (previous, current) =>
-                    previous.passwordVisible != current.passwordVisible,
-                    builder: (context, state) {
-                      return CustomTextField(
-                        obscureText: state.passwordVisible,
-                        controller:
-                        context
+            key: context.read<SignInBloc>().formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                const Spacer(flex: 2),
+                Text(
+                  S.of(context).signIn,
+                  textAlign: TextAlign.center,
+                  style: TextStyles.font30BlackBold,
+                ),
+                const SizedBox(height: 10),
+                Text(
+                  S.of(context).signInToYourAccount,
+                  textAlign: TextAlign.center,
+                  style: TextStyles.font16GreyBold,
+                ),
+                const Spacer(flex: 2),
+                CustomTextField(
+                  controller: context.read<SignInBloc>().phoneNumberController,
+                  labelTitle: S.of(context).mobileNumber,
+                  validator: AppValidator.mobileNumberValidator,
+                  prefixIcon: Icons.phone,
+                  keyboardType: TextInputType.phone,
+                  textInputAction: TextInputAction.next,
+                  textInputFormatter: LengthLimitingTextInputFormatter(10),
+                ),
+                BlocBuilder<SignInBloc, SignInState>(
+                  buildWhen: (previous, current) =>
+                      previous.passwordVisible != current.passwordVisible,
+                  builder: (context, state) {
+                    return CustomTextField(
+                      obscureText: state.passwordVisible,
+                      controller: context.read<SignInBloc>().passwordController,
+                      labelTitle: S.of(context).password,
+                      validator: AppValidator.passwordValidator,
+                      prefixIcon: Icons.password,
+                      suffixIcon: state.passwordVisible
+                          ? Icons.visibility_off
+                          : Icons.visibility,
+                      suffixIconAction: () {
+                        context.read<SignInBloc>().changePasswordVisibility();
+                      },
+                      onFieldSubmitted: (_) {
+                        if (context
                             .read<SignInBloc>()
-                            .passwordController,
-                        labelTitle: S
-                            .of(context)
-                            .password,
-                        validator: AppValidator.passwordValidator,
-                        prefixIcon: Icons.password,
-                        suffixIcon: state.passwordVisible
-                            ? Icons.visibility_off
-                            : Icons.visibility,
-                        suffixIconAction: () {
-                          context.read<SignInBloc>().changePasswordVisibility();
-                        },
-                        onFieldSubmitted: (_) {
-                          if (context
-                              .read<SignInBloc>()
-                              .formKey
-                              .currentState!
-                              .validate()) {
-                            context.read<SignInBloc>().signIn();
-                          }
-                        },
-                      );
-                    },
-                  ),
-                  const SizedBox(height: 10),
-                  AppTextButton(
-                    onPressed: () {
-                      if (context
-                          .read<SignInBloc>()
-                          .formKey
-                          .currentState!
-                          .validate()) {
-                        context.read<SignInBloc>().signIn();
-                      }
-                    },
-                    buttonText: S
-                        .of(context)
-                        .signIn,
-                    textStyle: TextStyles.font14WhiteRegular,
-                    borderRadius: 10,
-                  ),
-                  const OrBar(),
-                  AuthOptionText(
-                    title: S
-                        .of(context)
-                        .doNotHaveAnAccount,
-                    subTitle: S
-                        .of(context)
-                        .signUp,
-                    subTitleOnPress: () {
-                      context.pushNamed(Routes.signUpPage);
-                      context
-                          .read<SignInBloc>()
-                          .phoneNumberController
-                          .clear();
-                      context
-                          .read<SignInBloc>()
-                          .passwordController
-                          .clear();
-                    },
-                  ),
-                  const SizedBox(height: 80),
-                  const SelectLanguage(),
-                ],
-              ),
+                            .formKey
+                            .currentState!
+                            .validate()) {
+                          context.read<SignInBloc>().signIn();
+                        }
+                      },
+                    );
+                  },
+                ),
+                const SizedBox(height: 10),
+                AppTextButton(
+                  onPressed: () {
+                    if (context
+                        .read<SignInBloc>()
+                        .formKey
+                        .currentState!
+                        .validate()) {
+                      context.read<SignInBloc>().signIn();
+                    }
+                  },
+                  buttonText: S.of(context).signIn,
+                  textStyle: TextStyles.font14WhiteRegular,
+                  borderRadius: 10,
+                ),
+                const OrBar(),
+                AuthOptionText(
+                  title: S.of(context).doNotHaveAnAccount,
+                  subTitle: S.of(context).signUp,
+                  subTitleOnPress: () {
+                    context.pushNamed(Routes.signUpPage);
+                    context.read<SignInBloc>().phoneNumberController.clear();
+                    context.read<SignInBloc>().passwordController.clear();
+                  },
+                ),
+                const Spacer(flex: 2),
+                const SelectLanguage(),
+                const Spacer(),
+              ],
             ),
           ),
         ),
