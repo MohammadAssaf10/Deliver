@@ -2,11 +2,12 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/error/failure.dart';
+import '../../../../core/network/dio_factory.dart';
 import '../../../../core/repositories/base_repository_impl.dart';
 import '../../domain/repositories/sign_in_repository.dart';
 import '../data_sources/remote/sign_in_remote_data_source.dart';
 import '../models/sign_in_request.dart';
-import '../../../../core/models/user_model.dart';
+import '../models/user_model.dart';
 
 @LazySingleton(as: SignInRepository)
 class SignInRepositoryImpl extends BaseRepositoryImpl
@@ -20,7 +21,8 @@ class SignInRepositoryImpl extends BaseRepositoryImpl
     return await requestApi<void, UserModel>(
       <UserModel>() async =>
           await _signInRemoteDataSource.signIn(signInRequest),
-      (_) {
+      (userModel) {
+        DioFactory.setTokenIntoHeaderAfterLogin(userModel.token);
         return;
       },
     );

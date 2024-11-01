@@ -25,6 +25,13 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
     add(SignIn());
   }
 
+  @override
+  Future<void> close() {
+    phoneNumberController.dispose();
+    phoneNumberController.dispose();
+    return super.close();
+  }
+
   SignInBloc(
     this._signInRepository,
   ) : super(SignInState.initial()) {

@@ -60,6 +60,16 @@ class TextStyles {
     fontWeight: FontWeightHelper.bold,
     color: ColorsManager.grey,
   );
+  static TextStyle font16ErrorRegular = const TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeightHelper.regular,
+    color: ColorsManager.error,
+  );
+  static TextStyle font16BlackBold = const TextStyle(
+    fontSize: 16,
+    fontWeight: FontWeightHelper.bold,
+    color: ColorsManager.black,
+  );
   static TextStyle font18GreyRegular = const TextStyle(
     fontSize: 18,
     fontWeight: FontWeightHelper.regular,
@@ -69,6 +79,11 @@ class TextStyles {
     fontSize: 18,
     fontWeight: FontWeightHelper.semiBold,
     color: ColorsManager.white,
+  );
+  static TextStyle font18BlackBold = const TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeightHelper.bold,
+    color: ColorsManager.black,
   );
   static TextStyle font20WhiteRegular = const TextStyle(
     fontSize: 20,

@@ -25,6 +25,14 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
     add(SignUp());
   }
 
+  @override
+  Future<void> close() {
+    passwordController.dispose();
+    usernameController.dispose();
+    mobileNumberController.dispose();
+    return super.close();
+  }
+
   SignUpBloc(
     this._signUpRepository,
   ) : super(SignUpState.initial()) {

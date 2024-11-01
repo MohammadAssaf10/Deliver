@@ -399,6 +399,46 @@ class S {
       args: [],
     );
   }
+
+  /// `We sent OTP code to verify your number`
+  String get weSentOTPCodeToVerifyYourNumber {
+    return Intl.message(
+      'We sent OTP code to verify your number',
+      name: 'weSentOTPCodeToVerifyYourNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter verification code`
+  String get pleaseEnterVerificationCode {
+    return Intl.message(
+      'Please enter verification code',
+      name: 'pleaseEnterVerificationCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please complete verification code`
+  String get pleaseCompleteVerificationCode {
+    return Intl.message(
+      'Please complete verification code',
+      name: 'pleaseCompleteVerificationCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm`
+  String get confirm {
+    return Intl.message(
+      'Confirm',
+      name: 'confirm',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

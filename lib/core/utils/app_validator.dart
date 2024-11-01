@@ -34,4 +34,13 @@ class AppValidator {
     }
     return null;
   }
+
+  static String? verificationCodeValidator(String? verificationCode) {
+    if (verificationCode.nullOrEmpty()) {
+      return S.current.pleaseEnterVerificationCode;
+    } else if (verificationCode!.length != 6) {
+      return S.current.pleaseCompleteVerificationCode;
+    }
+    return null;
+  }
 }

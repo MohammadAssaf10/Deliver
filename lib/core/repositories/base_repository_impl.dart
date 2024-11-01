@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:deliver/core/error/failure.dart';
+import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../generated/l10n.dart';
@@ -12,6 +13,7 @@ import 'base_repository.dart';
 
 @LazySingleton(as: BaseRepository)
 class BaseRepositoryImpl implements BaseRepository {
+  @protected
   final NetworkInfo _networkInfo = getIt<NetworkInfo>();
 
   @override
@@ -19,6 +21,7 @@ class BaseRepositoryImpl implements BaseRepository {
       Future<TM> Function() apiRequest, T Function(TM) converter) async {
     final bool isConnected = await _networkInfo.isConnected;
     if (!isConnected) {
+      await Future.delayed(const Duration(milliseconds: 200));
       return Left(ServerFailure(errorMessage: S.current.networkError));
     }
     try {

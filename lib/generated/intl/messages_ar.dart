@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addTrip": MessageLookupByLibrary.simpleMessage("إضافة رحلة"),
         "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
+        "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
         "continue1": MessageLookupByLibrary.simpleMessage("متابعة"),
         "deliver": MessageLookupByLibrary.simpleMessage("دليفر"),
         "doNotHaveAnAccount":
@@ -55,6 +56,8 @@ class MessageLookup extends MessageLookupByLibrary {
                 "الرجاء السماح للتطبيق بالوصول إلى موقعك الحالي ثم حاول مرة أخرى"),
         "pleaseCompleteField":
             MessageLookupByLibrary.simpleMessage("الرجاء إكمال الحقل"),
+        "pleaseCompleteVerificationCode":
+            MessageLookupByLibrary.simpleMessage("الرجاء إكمال رمز التحقق"),
         "pleaseEnterEmail": MessageLookupByLibrary.simpleMessage(
             "الرجاء إدخال البريد الإلكتروني"),
         "pleaseEnterMobileNumber": MessageLookupByLibrary.simpleMessage(
@@ -63,6 +66,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الرجاء إدخال كلمة المرور"),
         "pleaseEnterUserName":
             MessageLookupByLibrary.simpleMessage("الرجاء إدخال اسم المستخدم"),
+        "pleaseEnterVerificationCode":
+            MessageLookupByLibrary.simpleMessage("الرجاء إدخال رمز التحقق"),
         "pleaseTurnOnLocationServiceAndTryAgain":
             MessageLookupByLibrary.simpleMessage(
                 "الرجاء تشغيل خدمة الموقع ثم المحاولة مرة أخرى"),
@@ -76,6 +81,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "userName": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
         "usernameShort":
             MessageLookupByLibrary.simpleMessage("اسم المستخدم قصير"),
+        "weSentOTPCodeToVerifyYourNumber": MessageLookupByLibrary.simpleMessage(
+            "لقد أرسلنا لك رمز OTP للتحقق من رقمك"),
         "welcome": MessageLookupByLibrary.simpleMessage("مرحباً بك ")
       };
 }
