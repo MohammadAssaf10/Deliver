@@ -27,6 +27,8 @@ class DioFactory {
     _dio?.options.headers = {
       'Accept': 'text/plain',
       'Content-Type': 'application/json',
+      'Authorization':
+          "Bearer ${await SharedPreferencesHelper.getSecuredString(LocalStorageKeys.userToken)}",
       'Accept-Language':
           SharedPreferencesHelper.getString(LocalStorageKeys.appLanguage),
     };

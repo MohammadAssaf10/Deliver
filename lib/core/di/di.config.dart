@@ -92,22 +92,24 @@ Future<_i174.GetIt> $initGetIt(
       () => _i307.SignInRepositoryImpl(gh<_i533.SignInRemoteDataSource>()));
   gh.lazySingleton<_i89.VerificationCodeRemoteDataSource>(
       () => _i673.VerificationCodeRemoteDataSourceImpl());
-  gh.lazySingleton<_i314.VerificationCodeRepository>(() =>
-      _i328.VerificationCodeRepositoryImpl(
-          gh<_i89.VerificationCodeRemoteDataSource>()));
   gh.lazySingleton<_i571.AppCubit>(
       () => _i571.AppCubit(gh<_i350.AppRepository>()));
   gh.lazySingleton<_i578.SignUpRepository>(
       () => _i275.SignUpRepositoryImpl(gh<_i964.SignUpRemoteDataSource>()));
   gh.lazySingleton<_i932.NetworkInfo>(
       () => _i932.NetworkInfoImpl(gh<_i895.Connectivity>()));
-  gh.factory<_i59.VerificationCodeBloc>(
-      () => _i59.VerificationCodeBloc(gh<_i314.VerificationCodeRepository>()));
   gh.factory<_i30.MapBloc>(() => _i30.MapBloc(gh<_i645.Location>()));
+  gh.lazySingleton<_i314.VerificationCodeRepository>(
+      () => _i328.VerificationCodeRepositoryImpl(
+            gh<_i89.VerificationCodeRemoteDataSource>(),
+            gh<_i862.SignInRepository>(),
+          ));
   gh.factory<_i640.SignInBloc>(
       () => _i640.SignInBloc(gh<_i862.SignInRepository>()));
   gh.factory<_i148.SignUpBloc>(
       () => _i148.SignUpBloc(gh<_i578.SignUpRepository>()));
+  gh.factory<_i59.VerificationCodeBloc>(
+      () => _i59.VerificationCodeBloc(gh<_i314.VerificationCodeRepository>()));
   return getIt;
 }
 

@@ -58,12 +58,13 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
               ..isLoading = false
               ..isSuccess = false,
           ));
-        }, (_) {
+        }, (data) {
           emit(state.rebuild(
             (b) => b
               ..isError = false
               ..isLoading = false
-              ..isSuccess = true,
+              ..isSuccess = true
+              ..isPhoneNumberVerified = data,
           ));
         });
       },

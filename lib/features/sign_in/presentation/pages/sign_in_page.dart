@@ -25,7 +25,12 @@ class SignInPage extends StatelessWidget {
         if (state.isError) {
           closeLoadingDialogIfVisible();
         }
-        if (state.isSuccess) {
+        if (state.isSuccess && state.isPhoneNumberVerified) {
+          context.pushNamedAndRemoveUntil(
+            Routes.mainPage,
+            predicate: (_) => false,
+          );
+        } else if (state.isSuccess && !state.isPhoneNumberVerified) {
           context.pushNamed(Routes.verificationCodePage);
         }
         if (state.isLoading) {

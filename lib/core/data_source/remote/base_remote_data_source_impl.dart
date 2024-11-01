@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../error/error_handler.dart';
 import '../../error/exceptions.dart';
 import '../../models/base_model.dart';
 import '../../network/dio_factory.dart';
@@ -18,19 +19,23 @@ class BaseRemoteDataSourceImpl extends BaseRemoteDataSource {
     Map<String, dynamic>? queryParameters,
     Map<String, dynamic>? body,
   }) async {
-    final Response<Map<String, dynamic>> response = await _dio.get(
-      endpoint,
-      queryParameters: queryParameters,
-    );
-    if (response.data != null) {
-      final BaseModel baseModel = BaseModel.fromJson(response.data!);
-      if (response.statusCode == 200 && baseModel.statusCode == 200) {
-        return baseModel;
+    try {
+      final Response<Map<String, dynamic>> response = await _dio.get(
+        endpoint,
+        queryParameters: queryParameters,
+      );
+      if (response.data != null) {
+        final BaseModel baseModel = BaseModel.fromJson(response.data!);
+        if (response.statusCode == 200 && baseModel.statusCode == 200) {
+          return baseModel;
+        } else {
+          throw ServerException(error: baseModel.message);
+        }
       } else {
-        throw ServerException(error: baseModel.message);
+        throw const ServerException(error: "Something went wrong");
       }
-    } else {
-      throw const ServerException(error: "Something went wrong");
+    } catch (e) {
+      throw ErrorHandler.handleExceptionError(e);
     }
   }
 
@@ -40,21 +45,25 @@ class BaseRemoteDataSourceImpl extends BaseRemoteDataSource {
     Map<String, dynamic>? body,
     Map<String, dynamic>? queryParameters,
   }) async {
-    final Response<Map<String, dynamic>> response = await _dio.post(
-      endpoint,
-      data: body,
-      queryParameters: queryParameters,
-    );
-    if (response.data != null) {
-      final BaseModel baseModel = BaseModel.fromJson(response.data!);
-      if ((response.statusCode == 200 || response.statusCode == 201) &&
-          (baseModel.statusCode == 200 || baseModel.statusCode == 201)) {
-        return baseModel;
+    try {
+      final Response<Map<String, dynamic>> response = await _dio.post(
+        endpoint,
+        data: body,
+        queryParameters: queryParameters,
+      );
+      if (response.data != null) {
+        final BaseModel baseModel = BaseModel.fromJson(response.data!);
+        if ((response.statusCode == 200 || response.statusCode == 201) &&
+            (baseModel.statusCode == 200 || baseModel.statusCode == 201)) {
+          return baseModel;
+        } else {
+          throw ServerException(error: baseModel.message);
+        }
       } else {
-        throw ServerException(error: baseModel.message);
+        throw const ServerException(error: "Something went wrong");
       }
-    } else {
-      throw const ServerException(error: "Something went wrong");
+    } catch (e) {
+      throw ErrorHandler.handleExceptionError(e);
     }
   }
 
@@ -64,21 +73,25 @@ class BaseRemoteDataSourceImpl extends BaseRemoteDataSource {
     Map<String, dynamic>? body,
     Map<String, dynamic>? queryParameters,
   }) async {
-    final Response<Map<String, dynamic>> response = await _dio.put(
-      endpoint,
-      data: body,
-      queryParameters: queryParameters,
-    );
-    if (response.data != null) {
-      final BaseModel baseModel = BaseModel.fromJson(response.data!);
-      if ((response.statusCode == 200 || response.statusCode == 204) &&
-          (baseModel.statusCode == 200 || baseModel.statusCode == 204)) {
-        return baseModel;
+    try {
+      final Response<Map<String, dynamic>> response = await _dio.put(
+        endpoint,
+        data: body,
+        queryParameters: queryParameters,
+      );
+      if (response.data != null) {
+        final BaseModel baseModel = BaseModel.fromJson(response.data!);
+        if ((response.statusCode == 200 || response.statusCode == 204) &&
+            (baseModel.statusCode == 200 || baseModel.statusCode == 204)) {
+          return baseModel;
+        } else {
+          throw ServerException(error: baseModel.message);
+        }
       } else {
-        throw ServerException(error: baseModel.message);
+        throw const ServerException(error: "Something went wrong");
       }
-    } else {
-      throw const ServerException(error: "Something went wrong");
+    } catch (e) {
+      throw ErrorHandler.handleExceptionError(e);
     }
   }
 }

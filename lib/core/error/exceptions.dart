@@ -13,3 +13,9 @@ class CacheException extends GenericExceptions {
   const CacheException({required String? error})
       : super(error ?? "Something went wrong");
 }
+
+class GeneralException extends GenericExceptions {
+  const GeneralException({
+    String errorMessage = "Something went wrong",
+  }) : super(errorMessage);
+}

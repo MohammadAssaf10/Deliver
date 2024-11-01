@@ -2,8 +2,10 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../core/network/dio_factory.dart';
+import '../../../core/utils/constant.dart';
+import '../../../core/utils/shared_preferences_helper.dart';
 import '../data_sources/local/app_local_data_source.dart';
-import '../../../core/error/failure.dart';
+import '../../../core/error/failures.dart';
 import '../../../core/utils/app_enums.dart';
 import '../../domain/repositories/app_repository.dart';
 
@@ -29,11 +31,25 @@ class AppRepositoryImpl implements AppRepository {
   @override
   Future<Either<Failure, void>> setAppLanguage(Language language) async {
     try {
-      await _baseLocalDataSource.setAppLanguage(language);
+      await SharedPreferencesHelper.setData(
+          LocalStorageKeys.appLanguage, language.name);
       return const Right(null);
     } catch (e) {
       return const Left(
         CacheFailure(errorMessage: "Save language in shared preferences fail"),
+      );
+    }
+  }
+
+  @override
+  Future<Either<Failure, bool>> isUserAuthenticated() async {
+    try {
+      final String userToken = await SharedPreferencesHelper.getSecuredString(
+          LocalStorageKeys.userToken);
+      return Right(userToken.isNotEmpty);
+    } catch (e) {
+      return const Left(
+        CacheFailure(errorMessage: "Can't get user token"),
       );
     }
   }

@@ -11,6 +11,8 @@ abstract class SignInState implements Built<SignInState, SignInStateBuilder> {
 
   bool get isError;
 
+  bool get isPhoneNumberVerified;
+
   SignInState._();
 
   factory SignInState([void Function(SignInStateBuilder) updates]) =
@@ -21,6 +23,7 @@ abstract class SignInState implements Built<SignInState, SignInStateBuilder> {
           ..isLoading = false
           ..isError = false
           ..isSuccess = false
-          ..passwordVisible = true,
+          ..passwordVisible = true
+          ..isPhoneNumberVerified = false,
       );
 }

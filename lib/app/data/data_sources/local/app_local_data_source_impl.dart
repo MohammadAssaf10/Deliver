@@ -14,7 +14,10 @@ class AppLocalDataSourceImpl implements AppLocalDataSource {
         SharedPreferencesHelper.getString(LocalStorageKeys.appLanguage);
     if (storedLanguage.isEmpty) {
       final Language deviceLanguage = AppLanguage.getDeviceLanguage();
-      await setAppLanguage(deviceLanguage);
+      await SharedPreferencesHelper.setData(
+        LocalStorageKeys.appLanguage,
+        deviceLanguage.name,
+      );
       return deviceLanguage;
     } else {
       if (storedLanguage == Language.en.name) {
@@ -23,11 +26,5 @@ class AppLocalDataSourceImpl implements AppLocalDataSource {
         return Language.ar;
       }
     }
-  }
-
-  @override
-  Future<void> setAppLanguage(Language language) async {
-    await SharedPreferencesHelper.setData(
-        LocalStorageKeys.appLanguage, language.name);
   }
 }
