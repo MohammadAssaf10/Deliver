@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+
 import '../../generated/l10n.dart';
-import '../theming/colors_manager.dart';
-import '../theming/styles_manager.dart';
-import 'constant.dart';
+import 'app_regex.dart';
 import 'extensions.dart';
 
 String? usernameValidator(String? name) {
@@ -44,23 +42,12 @@ String? cantBeEmpty(String? v) {
 }
 
 _isCurrentDialogShowing(BuildContext context) =>
-    ModalRoute.of(context)?.isCurrent != true;
+    ModalRoute
+        .of(context)
+        ?.isCurrent != true;
 
 dismissDialog(BuildContext context) {
   if (_isCurrentDialogShowing(context)) {
     Navigator.of(context, rootNavigator: true).pop(true);
   }
-}
-
-void showCustomToast({
-  required String toastMessage,
-  bool isError = false,
-}) {
-  Fluttertoast.showToast(
-    gravity: ToastGravity.BOTTOM,
-    msg: toastMessage,
-    backgroundColor: isError ? ColorsManager.error : ColorsManager.primary,
-    fontSize: 16,
-    textColor: ColorsManager.white,
-  );
 }
