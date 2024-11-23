@@ -1,4 +1,5 @@
-abstract class AppLocalDataSource{
-  String get appLanguage;
-  Future<void> setAppLanguage(String language);
+import '../../../../core/utils/app_enums.dart';
+
+abstract class AppLocalDataSource {
+  Future<Language> getAppLanguage();
 }

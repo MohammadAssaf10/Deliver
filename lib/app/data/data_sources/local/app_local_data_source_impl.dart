@@ -1,24 +1,30 @@
 import 'package:injectable/injectable.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../../core/utils/app_enums.dart';
+import '../../../../core/utils/app_language.dart';
 import '../../../../core/utils/constant.dart';
+import '../../../../core/utils/shared_preferences_helper.dart';
 import 'app_local_data_source.dart';
 
 @LazySingleton(as: AppLocalDataSource)
-class AppLocalDataSourceImpl extends AppLocalDataSource {
-  final SharedPreferences sharedPreferences;
-
-  AppLocalDataSourceImpl(this.sharedPreferences);
-
+class AppLocalDataSourceImpl implements AppLocalDataSource {
   @override
-  String get appLanguage =>
-      sharedPreferences.getString(SharedPreferencesKeys.appLanguage) ?? 'en';
-
-  @override
-  Future<void> setAppLanguage(String language) async {
-    await sharedPreferences.setString(
-      SharedPreferencesKeys.appLanguage,
-      language,
-    );
+  Future<Language> getAppLanguage() async {
+    final String storedLanguage =
+        SharedPreferencesHelper.getString(LocalStorageKeys.appLanguage);
+    if (storedLanguage.isEmpty) {
+      final Language deviceLanguage = AppLanguage.getDeviceLanguage();
+      await SharedPreferencesHelper.setData(
+        LocalStorageKeys.appLanguage,
+        deviceLanguage.name,
+      );
+      return deviceLanguage;
+    } else {
+      if (storedLanguage == Language.en.name) {
+        return Language.en;
+      } else {
+        return Language.ar;
+      }
+    }
   }
 }

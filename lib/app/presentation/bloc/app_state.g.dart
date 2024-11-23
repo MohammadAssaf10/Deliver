@@ -8,14 +8,17 @@ part of 'app_state.dart';
 
 class _$AppState extends AppState {
   @override
-  final bool isEnglishLanguage;
+  final Language appLanguage;
+  @override
+  final bool isAuth;
 
   factory _$AppState([void Function(AppStateBuilder)? updates]) =>
       (new AppStateBuilder()..update(updates))._build();
 
-  _$AppState._({required this.isEnglishLanguage}) : super._() {
+  _$AppState._({required this.appLanguage, required this.isAuth}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        isEnglishLanguage, r'AppState', 'isEnglishLanguage');
+        appLanguage, r'AppState', 'appLanguage');
+    BuiltValueNullFieldError.checkNotNull(isAuth, r'AppState', 'isAuth');
   }
 
   @override
@@ -28,13 +31,16 @@ class _$AppState extends AppState {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is AppState && isEnglishLanguage == other.isEnglishLanguage;
+    return other is AppState &&
+        appLanguage == other.appLanguage &&
+        isAuth == other.isAuth;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, isEnglishLanguage.hashCode);
+    _$hash = $jc(_$hash, appLanguage.hashCode);
+    _$hash = $jc(_$hash, isAuth.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -42,7 +48,8 @@ class _$AppState extends AppState {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'AppState')
-          ..add('isEnglishLanguage', isEnglishLanguage))
+          ..add('appLanguage', appLanguage)
+          ..add('isAuth', isAuth))
         .toString();
   }
 }
@@ -50,17 +57,21 @@ class _$AppState extends AppState {
 class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
   _$AppState? _$v;
 
-  bool? _isEnglishLanguage;
-  bool? get isEnglishLanguage => _$this._isEnglishLanguage;
-  set isEnglishLanguage(bool? isEnglishLanguage) =>
-      _$this._isEnglishLanguage = isEnglishLanguage;
+  Language? _appLanguage;
+  Language? get appLanguage => _$this._appLanguage;
+  set appLanguage(Language? appLanguage) => _$this._appLanguage = appLanguage;
+
+  bool? _isAuth;
+  bool? get isAuth => _$this._isAuth;
+  set isAuth(bool? isAuth) => _$this._isAuth = isAuth;
 
   AppStateBuilder();
 
   AppStateBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _isEnglishLanguage = $v.isEnglishLanguage;
+      _appLanguage = $v.appLanguage;
+      _isAuth = $v.isAuth;
       _$v = null;
     }
     return this;
@@ -83,8 +94,10 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
   _$AppState _build() {
     final _$result = _$v ??
         new _$AppState._(
-            isEnglishLanguage: BuiltValueNullFieldError.checkNotNull(
-                isEnglishLanguage, r'AppState', 'isEnglishLanguage'));
+            appLanguage: BuiltValueNullFieldError.checkNotNull(
+                appLanguage, r'AppState', 'appLanguage'),
+            isAuth: BuiltValueNullFieldError.checkNotNull(
+                isAuth, r'AppState', 'isAuth'));
     replace(_$result);
     return _$result;
   }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../theming/colors_manager.dart';
 import '../theming/styles_manager.dart';
 
 class AuthOptionText extends StatelessWidget {
@@ -9,6 +10,7 @@ class AuthOptionText extends StatelessWidget {
     required this.subTitle,
     required this.subTitleOnPress,
   });
+
   final String title;
   final String subTitle;
   final Function subTitleOnPress;
@@ -20,19 +22,32 @@ class AuthOptionText extends StatelessWidget {
       mainAxisSize: MainAxisSize.min,
       children: [
         Flexible(
+          flex: 2,
           child: Text(
             title,
             style: TextStyles.font16GreyRegular,
           ),
         ),
+        const SizedBox(width: 3),
         Flexible(
           child: GestureDetector(
             onTap: () {
               subTitleOnPress();
             },
-            child: Text(
-              subTitle,
-              style: TextStyles.font16PrimaryRegular,
+            child: IntrinsicWidth(
+              child: Column(
+                children: [
+                  Text(
+                    subTitle,
+                    style: TextStyles.font16BlackRegular,
+                  ),
+                  const Divider(
+                    height: 0,
+                    color: ColorsManager.black,
+                    thickness: 1.2,
+                  ),
+                ],
+              ),
             ),
           ),
         ),

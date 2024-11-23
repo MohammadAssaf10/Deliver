@@ -1,4 +1,5 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:flutter/foundation.dart';
 import 'package:injectable/injectable.dart';
 
 abstract class NetworkInfo {
@@ -13,7 +14,8 @@ class NetworkInfoImpl implements NetworkInfo {
 
   @override
   Future<bool> get isConnected async {
-    final connectivityResult = !(await _connectivity.checkConnectivity())
+    if (kIsWeb) return true;
+    final bool connectivityResult = !(await _connectivity.checkConnectivity())
         .contains(ConnectivityResult.none);
     return connectivityResult;
   }

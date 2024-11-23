@@ -23,7 +23,15 @@ class DeliverApp extends StatelessWidget {
         return MaterialApp(
           debugShowCheckedModeBanner: false,
           title: 'Deliver',
-          initialRoute: Routes.mainPage,
+          builder: (context, child) {
+            return MediaQuery(
+              data: MediaQuery.of(context).copyWith(
+                textScaler: const TextScaler.linear(1.0),
+              ),
+              child: child!,
+            );
+          },
+          initialRoute: Routes.splashPage,
           onGenerateRoute: appRouter.generateRoute,
           localizationsDelegates: const [
             S.delegate,
@@ -32,10 +40,13 @@ class DeliverApp extends StatelessWidget {
             GlobalCupertinoLocalizations.delegate,
           ],
           supportedLocales: S.delegate.supportedLocales,
-          locale:
-              state.isEnglishLanguage ? const Locale("en") : const Locale("ar"),
+          locale: Locale(state.appLanguage.name),
           theme: ThemeData(
             scaffoldBackgroundColor: ColorsManager.backgroundColor,
+            textSelectionTheme: TextSelectionThemeData(
+              selectionColor: ColorsManager.grey.withOpacity(0.5),
+              selectionHandleColor: ColorsManager.black,
+            ),
           ),
         );
       },

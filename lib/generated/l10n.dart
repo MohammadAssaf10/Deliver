@@ -80,76 +80,6 @@ class S {
     );
   }
 
-  /// `The request that was sent is invalid`
-  String get error400 {
-    return Intl.message(
-      'The request that was sent is invalid',
-      name: 'error400',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Failed to authenticate with the server`
-  String get error401 {
-    return Intl.message(
-      'Failed to authenticate with the server',
-      name: 'error401',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `You do not have permission to access the requested resource`
-  String get error403 {
-    return Intl.message(
-      'You do not have permission to access the requested resource',
-      name: 'error403',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `The requested url was not found on the server`
-  String get error404 {
-    return Intl.message(
-      'The requested url was not found on the server',
-      name: 'error404',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `A generic error occurred on the server`
-  String get error500 {
-    return Intl.message(
-      'A generic error occurred on the server',
-      name: 'error500',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `The requested service is not available`
-  String get error503 {
-    return Intl.message(
-      'The requested service is not available',
-      name: 'error503',
-      desc: '',
-      args: [],
-    );
-  }
-
-  /// `Failed to parse model please check it`
-  String get parseError {
-    return Intl.message(
-      'Failed to parse model please check it',
-      name: 'parseError',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `Email`
   String get email {
     return Intl.message(
@@ -300,11 +230,11 @@ class S {
     );
   }
 
-  /// `Login`
-  String get login {
+  /// `Sign In`
+  String get signIn {
     return Intl.message(
-      'Login',
-      name: 'login',
+      'Sign In',
+      name: 'signIn',
       desc: '',
       args: [],
     );
@@ -320,21 +250,21 @@ class S {
     );
   }
 
-  /// `Register your account`
-  String get registerYourAccount {
+  /// `Sign Up your account`
+  String get signUpYourAccount {
     return Intl.message(
-      'Register your account',
-      name: 'registerYourAccount',
+      'Sign Up your account',
+      name: 'signUpYourAccount',
       desc: '',
       args: [],
     );
   }
 
-  /// `Register`
-  String get register {
+  /// `Sign Up`
+  String get signUp {
     return Intl.message(
-      'Register',
-      name: 'register',
+      'Sign Up',
+      name: 'signUp',
       desc: '',
       args: [],
     );
@@ -445,6 +375,66 @@ class S {
     return Intl.message(
       'Please allow app to access your current location and try again',
       name: 'pleaseAllowAppToAccessYourCurrentLocationAndTryAgain',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Get Start With Deliver`
+  String get getStartWithDeliver {
+    return Intl.message(
+      'Get Start With Deliver',
+      name: 'getStartWithDeliver',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Continue`
+  String get continue1 {
+    return Intl.message(
+      'Continue',
+      name: 'continue1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `We sent OTP code to verify your number`
+  String get weSentOTPCodeToVerifyYourNumber {
+    return Intl.message(
+      'We sent OTP code to verify your number',
+      name: 'weSentOTPCodeToVerifyYourNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please enter verification code`
+  String get pleaseEnterVerificationCode {
+    return Intl.message(
+      'Please enter verification code',
+      name: 'pleaseEnterVerificationCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please complete verification code`
+  String get pleaseCompleteVerificationCode {
+    return Intl.message(
+      'Please complete verification code',
+      name: 'pleaseCompleteVerificationCode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Confirm`
+  String get confirm {
+    return Intl.message(
+      'Confirm',
+      name: 'confirm',
       desc: '',
       args: [],
     );

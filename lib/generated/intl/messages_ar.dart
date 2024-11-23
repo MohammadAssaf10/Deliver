@@ -24,6 +24,8 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addTrip": MessageLookupByLibrary.simpleMessage("إضافة رحلة"),
         "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
+        "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
+        "continue1": MessageLookupByLibrary.simpleMessage("متابعة"),
         "deliver": MessageLookupByLibrary.simpleMessage("دليفر"),
         "doNotHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("لا تملك حساب؟"),
@@ -32,20 +34,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "emailFormatNotCorrect": MessageLookupByLibrary.simpleMessage(
             "تنسيق البريد الإلكتروني غير صحيح"),
         "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
-        "error400":
-            MessageLookupByLibrary.simpleMessage("الطلب المرسل غير صحيح"),
-        "error401": MessageLookupByLibrary.simpleMessage(
-            "فشلت عملية المصادقة مع الخادمة"),
-        "error403": MessageLookupByLibrary.simpleMessage(
-            "ليس لديك اذن للوصول إلى المورد المطلوب"),
-        "error404": MessageLookupByLibrary.simpleMessage(
-            "لم يتم العثور على العنوان المطلوب"),
-        "error500":
-            MessageLookupByLibrary.simpleMessage("حدث خطأ عام في الخادم"),
-        "error503":
-            MessageLookupByLibrary.simpleMessage("الخدمة المطلوبة غير متاحة"),
+        "getStartWithDeliver":
+            MessageLookupByLibrary.simpleMessage("ابدأ مع Deliver"),
         "haveAnAccount": MessageLookupByLibrary.simpleMessage("لديك حساب؟"),
-        "login": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "mobileNumber":
             MessageLookupByLibrary.simpleMessage("رقم الهاتف المحمول"),
         "mobileNumberFormatNotCorrect":
@@ -57,8 +48,6 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoarding1": MessageLookupByLibrary.simpleMessage(
             "مرحباً! انطلق في رحلة إلى وجهتك بأرخص الأسعار"),
         "or": MessageLookupByLibrary.simpleMessage("او"),
-        "parseError": MessageLookupByLibrary.simpleMessage(
-            "فشل في تحليل النموذج، يرجى التحقق منه"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "passwordShouldAtLeast8Character": MessageLookupByLibrary.simpleMessage(
             "يجب أن لا تقل كلمة المرور عن 8 أحرف"),
@@ -67,6 +56,8 @@ class MessageLookup extends MessageLookupByLibrary {
                 "الرجاء السماح للتطبيق بالوصول إلى موقعك الحالي ثم حاول مرة أخرى"),
         "pleaseCompleteField":
             MessageLookupByLibrary.simpleMessage("الرجاء إكمال الحقل"),
+        "pleaseCompleteVerificationCode":
+            MessageLookupByLibrary.simpleMessage("الرجاء إكمال رمز التحقق"),
         "pleaseEnterEmail": MessageLookupByLibrary.simpleMessage(
             "الرجاء إدخال البريد الإلكتروني"),
         "pleaseEnterMobileNumber": MessageLookupByLibrary.simpleMessage(
@@ -75,19 +66,23 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الرجاء إدخال كلمة المرور"),
         "pleaseEnterUserName":
             MessageLookupByLibrary.simpleMessage("الرجاء إدخال اسم المستخدم"),
+        "pleaseEnterVerificationCode":
+            MessageLookupByLibrary.simpleMessage("الرجاء إدخال رمز التحقق"),
         "pleaseTurnOnLocationServiceAndTryAgain":
             MessageLookupByLibrary.simpleMessage(
                 "الرجاء تشغيل خدمة الموقع ثم المحاولة مرة أخرى"),
-        "register": MessageLookupByLibrary.simpleMessage("التسجيل"),
-        "registerYourAccount":
-            MessageLookupByLibrary.simpleMessage("سجل حسابك"),
+        "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "signInToYourAccount":
             MessageLookupByLibrary.simpleMessage("تسجيل الدخول إلى حسابك"),
+        "signUp": MessageLookupByLibrary.simpleMessage("التسجيل"),
+        "signUpYourAccount": MessageLookupByLibrary.simpleMessage("سجل حسابك"),
         "somethingWentWrong":
             MessageLookupByLibrary.simpleMessage("حدث خطأ ما"),
         "userName": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
         "usernameShort":
             MessageLookupByLibrary.simpleMessage("اسم المستخدم قصير"),
+        "weSentOTPCodeToVerifyYourNumber": MessageLookupByLibrary.simpleMessage(
+            "لقد أرسلنا لك رمز OTP للتحقق من رقمك"),
         "welcome": MessageLookupByLibrary.simpleMessage("مرحباً بك ")
       };
 }
