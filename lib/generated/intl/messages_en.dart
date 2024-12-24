@@ -23,6 +23,8 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addTrip": MessageLookupByLibrary.simpleMessage("Add trip"),
+        "alreadyHaveAnAccount":
+            MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
         "continue1": MessageLookupByLibrary.simpleMessage("Continue"),
@@ -34,10 +36,15 @@ class MessageLookup extends MessageLookupByLibrary {
         "emailFormatNotCorrect":
             MessageLookupByLibrary.simpleMessage("Email format not correct"),
         "english": MessageLookupByLibrary.simpleMessage("English"),
+        "enterYourAccountDetailsHere": MessageLookupByLibrary.simpleMessage(
+            "Enter your account details here."),
         "getStartWithDeliver":
             MessageLookupByLibrary.simpleMessage("Get Start With Deliver"),
         "haveAnAccount":
             MessageLookupByLibrary.simpleMessage("Have an account?"),
+        "kindlySignUpBelow":
+            MessageLookupByLibrary.simpleMessage("Kindly sign up below."),
+        "loginHere": MessageLookupByLibrary.simpleMessage("Login Here"),
         "mobileNumber": MessageLookupByLibrary.simpleMessage("Mobile number"),
         "mobileNumberFormatNotCorrect": MessageLookupByLibrary.simpleMessage(
             "Mobile number format not correct"),
@@ -71,6 +78,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseTurnOnLocationServiceAndTryAgain":
             MessageLookupByLibrary.simpleMessage(
                 "Please turn on location service and try again"),
+        "registerHere": MessageLookupByLibrary.simpleMessage("Register Here"),
+        "registration": MessageLookupByLibrary.simpleMessage("Registration"),
         "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
         "signInToYourAccount":
             MessageLookupByLibrary.simpleMessage("Sign in to your account"),
@@ -84,6 +93,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Username is short"),
         "weSentOTPCodeToVerifyYourNumber": MessageLookupByLibrary.simpleMessage(
             "We sent OTP code to verify your number"),
-        "welcome": MessageLookupByLibrary.simpleMessage("Welcome ")
+        "welcome": MessageLookupByLibrary.simpleMessage("Welcome "),
+        "welcomeBack": MessageLookupByLibrary.simpleMessage("Welcome Back!")
       };
 }

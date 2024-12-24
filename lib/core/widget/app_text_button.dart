@@ -46,10 +46,11 @@ class AppTextButton extends StatelessWidget {
           shape: WidgetStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(borderRadius ?? 5),
-              side: BorderSide(
-                color: borderSideColor ?? ColorsManager.grey,
-                width: borderSideWidth ?? 1,
-              ),
+              side: BorderSide.none,
+              // side: BorderSide(
+              //   color: borderSideColor ?? ColorsManager.grey,
+              //   width: borderSideWidth ?? 1,
+              // ),
             ),
           ),
           backgroundColor: WidgetStatePropertyAll(

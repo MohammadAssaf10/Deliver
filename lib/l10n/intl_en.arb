@@ -18,6 +18,9 @@
   "english": "English",
   "arabic": "Arabic",
   "signIn": "Sign In",
+  "loginHere": "Login Here",
+  "registerHere": "Register Here",
+  "registration": "Registration",
   "signInToYourAccount": "Sign in to your account",
   "signUpYourAccount": "Sign Up your account",
   "signUp": "Sign Up",
@@ -37,5 +40,9 @@
   "weSentOTPCodeToVerifyYourNumber": "We sent OTP code to verify your number",
   "pleaseEnterVerificationCode": "Please enter verification code",
   "pleaseCompleteVerificationCode": "Please complete verification code",
-  "confirm": "Confirm"
+  "confirm": "Confirm",
+  "welcomeBack": "Welcome Back!",
+  "enterYourAccountDetailsHere": "Enter your account details here.",
+  "kindlySignUpBelow": "Kindly sign up below.",
+  "alreadyHaveAnAccount": "Already have an account?"
 }

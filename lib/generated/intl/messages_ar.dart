@@ -23,6 +23,8 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addTrip": MessageLookupByLibrary.simpleMessage("إضافة رحلة"),
+        "alreadyHaveAnAccount":
+            MessageLookupByLibrary.simpleMessage("لديك حساب بالفعل؟"),
         "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
         "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
         "continue1": MessageLookupByLibrary.simpleMessage("متابعة"),
@@ -34,9 +36,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "emailFormatNotCorrect": MessageLookupByLibrary.simpleMessage(
             "تنسيق البريد الإلكتروني غير صحيح"),
         "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
+        "enterYourAccountDetailsHere":
+            MessageLookupByLibrary.simpleMessage("أدخل تفاصيل حسابك هنا."),
         "getStartWithDeliver":
             MessageLookupByLibrary.simpleMessage("ابدأ مع Deliver"),
         "haveAnAccount": MessageLookupByLibrary.simpleMessage("لديك حساب؟"),
+        "kindlySignUpBelow":
+            MessageLookupByLibrary.simpleMessage("يرجى التسجيل أدناه."),
+        "loginHere": MessageLookupByLibrary.simpleMessage("تسجيل الدخول هنا"),
         "mobileNumber":
             MessageLookupByLibrary.simpleMessage("رقم الهاتف المحمول"),
         "mobileNumberFormatNotCorrect":
@@ -71,6 +78,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseTurnOnLocationServiceAndTryAgain":
             MessageLookupByLibrary.simpleMessage(
                 "الرجاء تشغيل خدمة الموقع ثم المحاولة مرة أخرى"),
+        "registerHere": MessageLookupByLibrary.simpleMessage("سجل هنا"),
+        "registration": MessageLookupByLibrary.simpleMessage("التسجيل"),
         "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "signInToYourAccount":
             MessageLookupByLibrary.simpleMessage("تسجيل الدخول إلى حسابك"),
@@ -83,6 +92,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("اسم المستخدم قصير"),
         "weSentOTPCodeToVerifyYourNumber": MessageLookupByLibrary.simpleMessage(
             "لقد أرسلنا لك رمز OTP للتحقق من رقمك"),
-        "welcome": MessageLookupByLibrary.simpleMessage("مرحباً بك ")
+        "welcome": MessageLookupByLibrary.simpleMessage("مرحباً بك "),
+        "welcomeBack": MessageLookupByLibrary.simpleMessage("مرحبًا بعودتك!")
       };
 }

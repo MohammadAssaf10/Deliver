@@ -37,7 +37,7 @@ class OnBoardingPage extends StatelessWidget {
                     Flexible(
                       child: Text(
                         S.of(context).getStartWithDeliver,
-                        style: TextStyles.font30BlackBold,
+                        style: TextStyles.font28BlackBold,
                       ),
                     ),
                     Flexible(

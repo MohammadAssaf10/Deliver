@@ -240,6 +240,36 @@ class S {
     );
   }
 
+  /// `Login Here`
+  String get loginHere {
+    return Intl.message(
+      'Login Here',
+      name: 'loginHere',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Register Here`
+  String get registerHere {
+    return Intl.message(
+      'Register Here',
+      name: 'registerHere',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Registration`
+  String get registration {
+    return Intl.message(
+      'Registration',
+      name: 'registration',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `Sign in to your account`
   String get signInToYourAccount {
     return Intl.message(
@@ -435,6 +465,46 @@ class S {
     return Intl.message(
       'Confirm',
       name: 'confirm',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Welcome Back!`
+  String get welcomeBack {
+    return Intl.message(
+      'Welcome Back!',
+      name: 'welcomeBack',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Enter your account details here.`
+  String get enterYourAccountDetailsHere {
+    return Intl.message(
+      'Enter your account details here.',
+      name: 'enterYourAccountDetailsHere',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Kindly sign up below.`
+  String get kindlySignUpBelow {
+    return Intl.message(
+      'Kindly sign up below.',
+      name: 'kindlySignUpBelow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Already have an account?`
+  String get alreadyHaveAnAccount {
+    return Intl.message(
+      'Already have an account?',
+      name: 'alreadyHaveAnAccount',
       desc: '',
       args: [],
     );

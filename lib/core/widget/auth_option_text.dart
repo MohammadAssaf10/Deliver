@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../theming/colors_manager.dart';
 import '../theming/styles_manager.dart';
 
 class AuthOptionText extends StatelessWidget {
@@ -25,7 +24,7 @@ class AuthOptionText extends StatelessWidget {
           flex: 2,
           child: Text(
             title,
-            style: TextStyles.font16GreyRegular,
+            style: TextStyles.font14GreyRegular,
           ),
         ),
         const SizedBox(width: 3),
@@ -34,20 +33,9 @@ class AuthOptionText extends StatelessWidget {
             onTap: () {
               subTitleOnPress();
             },
-            child: IntrinsicWidth(
-              child: Column(
-                children: [
-                  Text(
-                    subTitle,
-                    style: TextStyles.font16BlackRegular,
-                  ),
-                  const Divider(
-                    height: 0,
-                    color: ColorsManager.black,
-                    thickness: 1.2,
-                  ),
-                ],
-              ),
+            child: Text(
+              subTitle,
+              style: TextStyles.font14BlackBold,
             ),
           ),
         ),

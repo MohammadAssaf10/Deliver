@@ -14,6 +14,11 @@ class TextStyles {
     fontWeight: FontWeightHelper.regular,
     color: ColorsManager.grey,
   );
+  static TextStyle font15GreyRegular = const TextStyle(
+    fontSize: 15,
+    fontWeight: FontWeightHelper.regular,
+    color: ColorsManager.grey,
+  );
   static TextStyle font14BlackRegular = const TextStyle(
     fontSize: 14,
     fontWeight: FontWeightHelper.regular,
@@ -22,6 +27,11 @@ class TextStyles {
 
   static TextStyle font14BlackBold = const TextStyle(
     fontSize: 14,
+    fontWeight: FontWeightHelper.bold,
+    color: ColorsManager.black,
+  );
+  static TextStyle font15BlackBold = const TextStyle(
+    fontSize: 15,
     fontWeight: FontWeightHelper.bold,
     color: ColorsManager.black,
   );
@@ -102,6 +112,11 @@ class TextStyles {
     fontWeight: FontWeightHelper.regular,
     color: ColorsManager.white,
   );
+  static TextStyle font18WhiteRegular = const TextStyle(
+    fontSize: 18,
+    fontWeight: FontWeightHelper.regular,
+    color: ColorsManager.white,
+  );
   static TextStyle font20BlackSemiBold = const TextStyle(
     fontSize: 20,
     fontWeight: FontWeightHelper.semiBold,
@@ -121,6 +136,16 @@ class TextStyles {
     fontSize: 33,
     fontWeight: FontWeightHelper.bold,
     color: ColorsManager.darkWhite,
+  );
+  static const TextStyle font28BlackBold = TextStyle(
+    fontSize: 28,
+    fontWeight: FontWeightHelper.bold,
+    color: ColorsManager.black,
+  );
+  static const TextStyle font24BlackBold = TextStyle(
+    fontSize: 24,
+    fontWeight: FontWeightHelper.bold,
+    color: ColorsManager.black,
   );
   static const TextStyle font30BlackBold = TextStyle(
     fontSize: 30,

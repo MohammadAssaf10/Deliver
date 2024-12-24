@@ -19,6 +19,9 @@
   "arabic": "العربية",
   "signUp": "التسجيل",
   "signIn": "تسجيل الدخول",
+  "loginHere": "تسجيل الدخول هنا",
+  "registerHere": "سجل هنا",
+  "registration": "التسجيل",
   "signInToYourAccount": "تسجيل الدخول إلى حسابك",
   "signUpYourAccount": "سجل حسابك",
   "or": "او",
@@ -37,5 +40,9 @@
   "weSentOTPCodeToVerifyYourNumber": "لقد أرسلنا لك رمز OTP للتحقق من رقمك",
   "pleaseEnterVerificationCode": "الرجاء إدخال رمز التحقق",
   "pleaseCompleteVerificationCode": "الرجاء إكمال رمز التحقق",
-  "confirm": "تأكيد"
+  "confirm": "تأكيد",
+  "welcomeBack": "مرحبًا بعودتك!",
+  "enterYourAccountDetailsHere": "أدخل تفاصيل حسابك هنا.",
+  "kindlySignUpBelow": "يرجى التسجيل أدناه.",
+  "alreadyHaveAnAccount": "لديك حساب بالفعل؟"
 }

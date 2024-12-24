@@ -46,19 +46,18 @@ class SignInPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                const Spacer(flex: 2),
+                const Spacer(),
                 Text(
-                  S.of(context).signIn,
+                  S.of(context).welcomeBack,
                   textAlign: TextAlign.center,
-                  style: TextStyles.font30BlackBold,
+                  style: TextStyles.font24BlackBold,
+                ),
+                Text(
+                  S.of(context).enterYourAccountDetailsHere,
+                  textAlign: TextAlign.center,
+                  style: TextStyles.font16GreyRegular,
                 ),
                 const SizedBox(height: 10),
-                Text(
-                  S.of(context).signInToYourAccount,
-                  textAlign: TextAlign.center,
-                  style: TextStyles.font16GreyBold,
-                ),
-                const Spacer(flex: 2),
                 CustomTextField(
                   controller: context.read<SignInBloc>().phoneNumberController,
                   labelTitle: S.of(context).mobileNumber,
@@ -114,16 +113,14 @@ class SignInPage extends StatelessWidget {
                 const OrBar(),
                 AuthOptionText(
                   title: S.of(context).doNotHaveAnAccount,
-                  subTitle: S.of(context).signUp,
+                  subTitle: S.of(context).registerHere,
                   subTitleOnPress: () {
                     context.pushNamed(Routes.signUpPage);
                     context.read<SignInBloc>().phoneNumberController.clear();
                     context.read<SignInBloc>().passwordController.clear();
                   },
                 ),
-                const Spacer(flex: 2),
-                const SelectLanguage(),
-                const Spacer(),
+                const Expanded(child: SelectLanguage()),
               ],
             ),
           ),

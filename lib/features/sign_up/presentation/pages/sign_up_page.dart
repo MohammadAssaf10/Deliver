@@ -42,21 +42,18 @@ class SignUpPage extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: <Widget>[
-                Spacer(
-                  flex: MediaQuery.viewInsetsOf(context).bottom == 0 ? 2 : 3,
+                const Spacer(),
+                Text(
+                  S.of(context).registration,
+                  textAlign: TextAlign.center,
+                  style: TextStyles.font24BlackBold,
                 ),
                 Text(
-                  S.of(context).signUp,
+                  S.of(context).kindlySignUpBelow,
                   textAlign: TextAlign.center,
-                  style: TextStyles.font30BlackBold,
+                  style: TextStyles.font16GreyRegular,
                 ),
                 const SizedBox(height: 10),
-                Text(
-                  S.of(context).signUpYourAccount,
-                  textAlign: TextAlign.center,
-                  style: TextStyles.font16GreyBold,
-                ),
-                const Spacer(flex: 2),
                 CustomTextField(
                   controller: context.read<SignUpBloc>().usernameController,
                   labelTitle: S.of(context).userName,
@@ -118,15 +115,13 @@ class SignUpPage extends StatelessWidget {
                 ),
                 const OrBar(),
                 AuthOptionText(
-                  title: S.of(context).haveAnAccount,
-                  subTitle: S.of(context).signIn,
+                  title: S.of(context).alreadyHaveAnAccount,
+                  subTitle: S.of(context).loginHere,
                   subTitleOnPress: () {
                     context.pop();
                   },
                 ),
-                const Spacer(flex: 2),
-                const SelectLanguage(),
-                const Spacer(),
+                const Expanded(child: SelectLanguage()),
               ],
             ),
           ),
