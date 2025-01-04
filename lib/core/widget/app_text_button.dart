@@ -54,7 +54,7 @@ class AppTextButton extends StatelessWidget {
             ),
           ),
           backgroundColor: WidgetStatePropertyAll(
-            backgroundColor ?? ColorsManager.black,
+            backgroundColor ?? ColorsManager.darkGrey,
           ),
           fixedSize: WidgetStateProperty.all(
             Size(buttonWidth ?? double.maxFinite, buttonHeight ?? 50),

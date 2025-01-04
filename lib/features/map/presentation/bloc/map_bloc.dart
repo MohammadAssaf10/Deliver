@@ -7,12 +7,14 @@ import 'package:location/location.dart';
 
 import '../../../../core/utils/app_functions.dart';
 import '../../../../generated/l10n.dart';
+import '../../domain/repositories/map_repository.dart';
 import 'map_event.dart';
 import 'map_state.dart';
 
 @injectable
 class MapBloc extends Bloc<MapEvent, MapState> {
-  final Location location;
+  final Location _location;
+  final MapRepository _mapRepository;
   final Completer<GoogleMapController> mapCompleter =
       Completer<GoogleMapController>();
 
@@ -20,13 +22,11 @@ class MapBloc extends Bloc<MapEvent, MapState> {
     add(GetCurrentLocation());
   }
 
-  MapBloc(
-    this.location,
-  ) : super(MapState.initial()) {
+  MapBloc(this._location, this._mapRepository) : super(MapState.initial()) {
     on<GetCurrentLocation>((event, emit) async {
-      bool serviceEnabled = await location.serviceEnabled();
+      bool serviceEnabled = await _location.serviceEnabled();
       if (!serviceEnabled) {
-        serviceEnabled = await location.requestService();
+        serviceEnabled = await _location.requestService();
         if (!serviceEnabled) {
           showCustomToast(
             toastMessage: S.current.pleaseTurnOnLocationServiceAndTryAgain,
@@ -36,9 +36,9 @@ class MapBloc extends Bloc<MapEvent, MapState> {
         }
       }
 
-      PermissionStatus permissionGranted = await location.hasPermission();
+      PermissionStatus permissionGranted = await _location.hasPermission();
       if (permissionGranted != PermissionStatus.granted) {
-        permissionGranted = await location.requestPermission();
+        permissionGranted = await _location.requestPermission();
         if (permissionGranted != PermissionStatus.granted) {
           showCustomToast(
             toastMessage:
@@ -52,7 +52,7 @@ class MapBloc extends Bloc<MapEvent, MapState> {
         (b) => b..isLoading = true,
       ));
 
-      final LocationData locationData = await location.getLocation();
+      final LocationData locationData = await _location.getLocation();
       if (locationData.latitude != null && locationData.longitude != null) {
         final GoogleMapController googleMapController =
             await mapCompleter.future;

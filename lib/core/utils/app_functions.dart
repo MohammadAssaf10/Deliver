@@ -30,7 +30,7 @@ void showCustomToast({
   Fluttertoast.showToast(
     gravity: ToastGravity.BOTTOM,
     msg: toastMessage,
-    backgroundColor: isError ? ColorsManager.error : ColorsManager.black,
+    backgroundColor: isError ? ColorsManager.error : ColorsManager.darkGrey,
     fontSize: 16,
     textColor: ColorsManager.white,
   );

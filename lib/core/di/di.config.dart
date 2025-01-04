@@ -21,7 +21,13 @@ import '../../app/data/data_sources/local/app_local_data_source_impl.dart'
 import '../../app/data/repositories/app_repository_impl.dart' as _i604;
 import '../../app/domain/repositories/app_repository.dart' as _i350;
 import '../../app/presentation/bloc/app_cubit.dart' as _i571;
-import '../../features/maps/presentation/bloc/map_bloc.dart' as _i30;
+import '../../features/map/data/data_sources/remote/map_data_source.dart'
+    as _i1026;
+import '../../features/map/data/data_sources/remote/map_data_source_impl.dart'
+    as _i115;
+import '../../features/map/data/repositories/map_repository_impl.dart' as _i457;
+import '../../features/map/domain/repositories/map_repository.dart' as _i973;
+import '../../features/map/presentation/bloc/map_bloc.dart' as _i437;
 import '../../features/sign_in/data/data_sources/remote/sign_in_remote_data_source.dart'
     as _i533;
 import '../../features/sign_in/data/data_sources/remote/sign_in_remote_data_source_impl.dart'
@@ -96,8 +102,11 @@ Future<_i174.GetIt> $initGetIt(
       () => _i307.SignInRepositoryImpl(gh<_i533.SignInRemoteDataSource>()));
   gh.lazySingleton<_i89.VerificationCodeRemoteDataSource>(
       () => _i673.VerificationCodeRemoteDataSourceImpl());
+  gh.lazySingleton<_i1026.MapDataSource>(() => _i115.MapDataSourceImpl());
   gh.lazySingleton<_i350.AppRepository>(
       () => _i604.AppRepositoryImpl(gh<_i212.AppLocalDataSource>()));
+  gh.lazySingleton<_i973.MapRepository>(
+      () => _i457.MapRepositoryImpl(gh<_i1026.MapDataSource>()));
   gh.lazySingleton<_i578.SignUpRepository>(
       () => _i275.SignUpRepositoryImpl(gh<_i964.SignUpRemoteDataSource>()));
   gh.lazySingleton<_i932.NetworkInfo>(
@@ -106,7 +115,10 @@ Future<_i174.GetIt> $initGetIt(
         gh<_i210.SplashRepository>(),
         gh<_i862.SignInRepository>(),
       ));
-  gh.factory<_i30.MapBloc>(() => _i30.MapBloc(gh<_i645.Location>()));
+  gh.factory<_i437.MapBloc>(() => _i437.MapBloc(
+        gh<_i645.Location>(),
+        gh<_i973.MapRepository>(),
+      ));
   gh.lazySingleton<_i314.VerificationCodeRepository>(
       () => _i328.VerificationCodeRepositoryImpl(
             gh<_i89.VerificationCodeRemoteDataSource>(),

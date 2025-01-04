@@ -10,7 +10,7 @@ class MapAppBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      backgroundColor: ColorsManager.textFieldBackgroundColor,
+      backgroundColor: ColorsManager.customWhite,
       centerTitle: true,
       elevation: 0,
       toolbarHeight: 70,
@@ -33,7 +33,7 @@ class MapAppBar extends StatelessWidget implements PreferredSizeWidget {
                   child: Container(
                     padding: const EdgeInsets.all(4),
                     decoration: BoxDecoration(
-                      color: ColorsManager.black,
+                      color: ColorsManager.darkGrey,
                       borderRadius: BorderRadius.circular(10),
                     ),
                     child: Text(

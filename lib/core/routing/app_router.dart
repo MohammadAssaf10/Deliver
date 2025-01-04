@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../features/main/presentation/pages/main_page.dart';
-import '../../features/maps/presentation/bloc/map_bloc.dart';
-import '../../features/maps/presentation/pages/map_page.dart';
+import '../../features/map/presentation/bloc/map_bloc.dart';
+import '../../features/map/presentation/pages/map_page.dart';
 import '../../features/on_boarding/presentation/pages/on_boarding_page.dart';
 import '../../features/sign_in/presentation/bloc/sign_in_bloc.dart';
 import '../../features/sign_in/presentation/pages/sign_in_page.dart';
@@ -31,10 +31,7 @@ class AppRouter {
         );
       case Routes.mainPage:
         return MaterialPageRoute(
-          builder: (_) => BlocProvider<MapBloc>(
-            create: (context) => getIt<MapBloc>(),
-            child: const MainPage(),
-          ),
+          builder: (_) => const MainPage(),
         );
       case Routes.signInPage:
         return MaterialPageRoute(

@@ -19,6 +19,7 @@ class SplashPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorsManager.customWhite,
       body: BlocListener<SplashBloc, SplashState>(
         listener: (context, state) {
           if (state.isError) {
@@ -32,7 +33,7 @@ class SplashPage extends StatelessWidget {
                   ),
                   child: Dialog(
                     elevation: 0,
-                    backgroundColor: ColorsManager.backgroundColor,
+                    backgroundColor: ColorsManager.customWhite,
                     insetPadding: const EdgeInsets.symmetric(horizontal: 10),
                     shape: const OutlineInputBorder(
                       borderRadius: BorderRadius.all(
@@ -87,7 +88,7 @@ class SplashPage extends StatelessWidget {
               ),
               SizedBox(height: 10),
               SpinKitThreeBounce(
-                color: ColorsManager.black,
+                color: ColorsManager.darkGrey,
                 size: 19,
               ),
             ],

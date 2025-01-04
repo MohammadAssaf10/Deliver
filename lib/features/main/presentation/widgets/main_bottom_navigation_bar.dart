@@ -13,7 +13,6 @@ class MainBottomNavigationBar extends StatelessWidget {
     return Container(
       height: 65,
       decoration: const BoxDecoration(
-        color: ColorsManager.darkGrey,
         border: Border(
           top: BorderSide(
             color: ColorsManager.lightBlack,

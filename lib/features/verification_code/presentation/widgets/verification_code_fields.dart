@@ -49,6 +49,15 @@ class VerificationCodeFields extends StatelessWidget {
               context.read<VerificationCodeBloc>().verifyPhoneNumber();
             }
           },
+          onCompleted: (_) {
+            if (context
+                .read<VerificationCodeBloc>()
+                .formKey
+                .currentState!
+                .validate()) {
+              context.read<VerificationCodeBloc>().verifyPhoneNumber();
+            }
+          },
           closeKeyboardWhenCompleted: false,
           validator: AppValidator.verificationCodeValidator,
           defaultPinTheme: PinTheme(
@@ -56,10 +65,10 @@ class VerificationCodeFields extends StatelessWidget {
             width: 45,
             textStyle: TextStyles.font16BlackBold,
             decoration: BoxDecoration(
-              color: ColorsManager.backgroundColor,
+              color: ColorsManager.customWhite,
               borderRadius: const BorderRadius.all(Radius.circular(10)),
               border: Border.all(
-                color: ColorsManager.black,
+                color: ColorsManager.darkGrey,
                 width: 3,
               ),
             ),

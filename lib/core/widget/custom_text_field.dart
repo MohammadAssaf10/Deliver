@@ -53,7 +53,7 @@ class CustomTextField extends StatelessWidget {
             obscureText: obscureText,
             keyboardType: keyboardType,
             autovalidateMode: AutovalidateMode.disabled,
-            cursorColor: cursorColor ?? ColorsManager.black,
+            cursorColor: cursorColor ?? ColorsManager.darkGrey,
             onTapOutside: (_) {
               FocusManager.instance.primaryFocus?.unfocus();
             },
@@ -64,7 +64,7 @@ class CustomTextField extends StatelessWidget {
               labelText: formFieldState.hasError
                   ? validator(controller.text) ?? labelTitle
                   : labelTitle,
-              fillColor: ColorsManager.textFieldBackgroundColor,
+              fillColor: ColorsManager.customWhite,
               filled: true,
               prefixIcon: prefixIcon != null
                   ? Icon(
@@ -83,7 +83,7 @@ class CustomTextField extends StatelessWidget {
                         suffixIcon,
                         color: obscureText
                             ? ColorsManager.grey
-                            : ColorsManager.black,
+                            : ColorsManager.darkGrey,
                       ),
                     )
                   : null,
@@ -104,7 +104,7 @@ class CustomTextField extends StatelessWidget {
                 borderSide: BorderSide(
                     color: formFieldState.hasError
                         ? ColorsManager.error
-                        : ColorsManager.black),
+                        : ColorsManager.darkGrey),
                 borderRadius: const BorderRadius.all(
                   Radius.circular(10),
                 ),
