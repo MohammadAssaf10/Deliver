@@ -1,10 +1,10 @@
 import '../../../../../core/data_source/remote/base_remote_data_source.dart';
 import '../../models/distance_model.dart';
-import '../../models/location_data_request.dart';
+import '../../../domain/entities/location_info.dart';
 
 abstract class MapDataSource extends BaseRemoteDataSource {
   Future<DistanceModel> calculateDistance({
-    required LocationDataRequest startLocation,
-    required LocationDataRequest endLocation,
+    required LocationInfo startLocation,
+    required LocationInfo endLocation,
   });
 }

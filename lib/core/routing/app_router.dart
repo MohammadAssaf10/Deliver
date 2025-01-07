@@ -58,7 +58,7 @@ class AppRouter {
       case Routes.mapPage:
         return MaterialPageRoute(
           builder: (_) => BlocProvider<MapBloc>(
-            create: (context) => getIt<MapBloc>(),
+            create: (context) => getIt<MapBloc>()..getCurrentLocation(),
             child: const MapPage(),
           ),
         );

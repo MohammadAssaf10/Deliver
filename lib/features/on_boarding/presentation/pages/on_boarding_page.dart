@@ -13,6 +13,7 @@ class OnBoardingPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: ColorsManager.customWhite,
       body: SizedBox(
         height: double.infinity,
         width: double.infinity,

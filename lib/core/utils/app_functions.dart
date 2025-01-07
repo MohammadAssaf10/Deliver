@@ -1,5 +1,6 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import '../di/di.dart';
 import '../theming/colors_manager.dart';
@@ -55,4 +56,9 @@ void closeLoadingDialogIfVisible() {
   if (getIt<GlobalKey<State>>().currentContext != null) {
     getIt<GlobalKey<State>>().currentContext!.pop();
   }
+}
+
+Future<String> fetchGoogleMapKey() async {
+  final MethodChannel channel = MethodChannel('deliverChannel');
+  return await channel.invokeMethod('getGoogleMapKey');
 }

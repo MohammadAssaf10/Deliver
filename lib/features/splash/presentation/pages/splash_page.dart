@@ -59,7 +59,6 @@ class SplashPage extends StatelessWidget {
                                 .read<SplashBloc>()
                                 .checkUserAuthentication();
                           },
-                          borderSideWidth: 0,
                           buttonHeight: 45,
                           buttonWidth: MediaQuery.sizeOf(context).width * 0.6,
                           buttonText: "Retry",

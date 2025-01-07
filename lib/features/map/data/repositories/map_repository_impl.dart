@@ -6,7 +6,7 @@ import '../../../../core/repositories/base_repository_impl.dart';
 import '../../domain/entities/distance.dart';
 import '../../domain/repositories/map_repository.dart';
 import '../data_sources/remote/map_data_source.dart';
-import '../models/location_data_request.dart';
+import '../../domain/entities/location_info.dart';
 
 @LazySingleton(as: MapRepository)
 class MapRepositoryImpl extends BaseRepositoryImpl implements MapRepository {
@@ -16,8 +16,8 @@ class MapRepositoryImpl extends BaseRepositoryImpl implements MapRepository {
 
   @override
   Future<Either<Failure, Distance>> calculateDistance({
-    required LocationDataRequest startLocation,
-    required LocationDataRequest endLocation,
+    required LocationInfo startLocation,
+    required LocationInfo endLocation,
   }) async =>
       await requestApi(
         () async => await _mapDataSource.calculateDistance(

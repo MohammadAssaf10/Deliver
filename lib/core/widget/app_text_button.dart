@@ -10,10 +10,9 @@ class AppTextButton extends StatelessWidget {
   final double? buttonHeight;
   final String? buttonText;
   final TextStyle? textStyle;
-  final VoidCallback onPressed;
+  final VoidCallback? onPressed;
   final Widget? child;
-  final Color? borderSideColor;
-  final double? borderSideWidth;
+  final BorderSide borderSide;
   final double? outerVerticalPadding;
   final double? outerHorizontalPadding;
 
@@ -28,9 +27,8 @@ class AppTextButton extends StatelessWidget {
     this.child,
     this.buttonText,
     this.textStyle,
-    this.borderSideColor,
-    this.borderSideWidth,
     this.outerVerticalPadding,
+    this.borderSide = BorderSide.none,
     required this.onPressed,
   });
 
@@ -46,11 +44,7 @@ class AppTextButton extends StatelessWidget {
           shape: WidgetStateProperty.all<RoundedRectangleBorder>(
             RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(borderRadius ?? 5),
-              side: BorderSide.none,
-              // side: BorderSide(
-              //   color: borderSideColor ?? ColorsManager.grey,
-              //   width: borderSideWidth ?? 1,
-              // ),
+              side: borderSide,
             ),
           ),
           backgroundColor: WidgetStatePropertyAll(

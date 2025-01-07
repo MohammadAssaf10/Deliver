@@ -86,6 +86,7 @@ class HomeBody extends StatelessWidget {
               color: ColorsManager.customPurple,
               borderRadius: BorderRadius.circular(15),
             ),
+            clipBehavior: Clip.hardEdge,
             margin: const EdgeInsets.symmetric(vertical: 25),
             padding: const EdgeInsetsDirectional.only(start: 14),
             child: Row(
