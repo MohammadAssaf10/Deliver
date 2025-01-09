@@ -48,8 +48,8 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
         );
         final result = await _signInRepository.signIn(signInRequest);
         result.fold((failure) {
-          showCustomToast(
-            toastMessage: failure.errorMessage,
+          showToastMessage(
+            failure.errorMessage,
             isError: true,
           );
           emit(state.rebuild(

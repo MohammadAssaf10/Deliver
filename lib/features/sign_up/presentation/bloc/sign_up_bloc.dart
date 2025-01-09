@@ -55,8 +55,8 @@ class SignUpBloc extends Bloc<SignUpEvent, SignUpState> {
         );
         final result = await _signUpRepository.signUp(signUpRequest);
         result.fold((failure) {
-          showCustomToast(
-            toastMessage: failure.errorMessage,
+          showToastMessage(
+            failure.errorMessage,
             isError: true,
           );
           emit(state.rebuild(

@@ -28,6 +28,7 @@ class MapPage extends StatelessWidget {
               isPanelOpen: state.isPanelOpen,
               tripInfo: state.tripInfo,
               message: state.message,
+              isLoading: state.isLoading,
             ),
             onPanelSlide: (position) {
               if (position >= 0.9) {

@@ -55,5 +55,7 @@
   "pleaseSelectEndTripLocation": "Please select end trip location",
   "minute": "{value} m",
   "whereAreYouGoing": "Where are you going?",
-  "pickupLocation": "Pickup location"
+  "pickupLocation": "Pickup location",
+  "tripCreatedSuccessfully": "Trip created successfully",
+  "km": "{value} KM"
 }

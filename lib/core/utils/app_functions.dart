@@ -2,10 +2,10 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+
 import '../di/di.dart';
 import '../theming/colors_manager.dart';
 import '../widget/loader.dart';
-
 import 'app_enums.dart';
 import 'app_extensions.dart';
 
@@ -24,8 +24,8 @@ dismissDialog(BuildContext context) {
   }
 }
 
-void showCustomToast({
-  required String toastMessage,
+void showToastMessage(
+  String toastMessage, {
   bool isError = false,
 }) {
   Fluttertoast.showToast(

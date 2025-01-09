@@ -20,7 +20,9 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
-  static String m0(value) => "${value} m";
+  static String m0(value) => "${value} KM";
+
+  static String m1(value) => "${value} m";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -51,8 +53,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Have an account?"),
         "kindlySignUpBelow":
             MessageLookupByLibrary.simpleMessage("Kindly sign up below."),
+        "km": m0,
         "loginHere": MessageLookupByLibrary.simpleMessage("Login Here"),
-        "minute": m0,
+        "minute": m1,
         "mobileNumber": MessageLookupByLibrary.simpleMessage("Mobile number"),
         "mobileNumberFormatNotCorrect": MessageLookupByLibrary.simpleMessage(
             "Mobile number format not correct"),
@@ -104,6 +107,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "somethingWentWrong":
             MessageLookupByLibrary.simpleMessage("Something went wrong"),
         "to": MessageLookupByLibrary.simpleMessage("To"),
+        "tripCreatedSuccessfully":
+            MessageLookupByLibrary.simpleMessage("Trip created successfully"),
         "userName": MessageLookupByLibrary.simpleMessage("Username"),
         "usernameShort":
             MessageLookupByLibrary.simpleMessage("Username is short"),

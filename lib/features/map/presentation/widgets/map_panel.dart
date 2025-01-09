@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/theming/colors_manager.dart';
 import '../../../../core/theming/styles_manager.dart';
 import '../../../../core/widget/app_text_button.dart';
+import '../../../../core/widget/loader.dart';
 import '../../../../generated/l10n.dart';
 import '../../domain/entities/location_info.dart';
 import '../../domain/entities/trip_info.dart';
@@ -20,6 +21,7 @@ class MapPanel extends StatelessWidget {
   final bool isPanelOpen;
   final TripInfo? tripInfo;
   final String message;
+  final bool isLoading;
 
   const MapPanel({
     super.key,
@@ -29,6 +31,7 @@ class MapPanel extends StatelessWidget {
     required this.isPanelOpen,
     required this.tripInfo,
     required this.message,
+    required this.isLoading,
   });
 
   @override
@@ -54,45 +57,52 @@ class MapPanel extends StatelessWidget {
             title: S.of(context).to,
             locationInfo: endLocationInfo,
           ),
-          TripInfoRow(
-            tripInfo: tripInfo,
+          Expanded(
+            child: TripInfoRow(
+              tripInfo: tripInfo,
+            ),
           ),
-          const Spacer(),
-          Row(
-            children: [
-              Expanded(
-                child: AppTextButton(
-                  onPressed: () {
-                    context.read<MapBloc>().panelController.close();
-                    context.read<MapBloc>().changeIsPanelOpenState(false);
-                    context.read<MapBloc>().setHintMessage("");
-                  },
-                  buttonText: S.of(context).cancel,
-                  buttonHeight: 48,
-                  borderRadius: 15,
-                  backgroundColor: ColorsManager.white,
-                  borderSide: BorderSide(
-                    width: 2,
-                    color: ColorsManager.darkGrey,
+          isLoading
+              ? Loader(size: 45)
+              : Expanded(
+                  child: Row(
+                    children: [
+                      Expanded(
+                        child: AppTextButton(
+                          onPressed: () {
+                            context.read<MapBloc>().panelController.close();
+                            context
+                                .read<MapBloc>()
+                                .changeIsPanelOpenState(false);
+                            context.read<MapBloc>().setHintMessage("");
+                          },
+                          buttonText: S.of(context).cancel,
+                          buttonHeight: 48,
+                          borderRadius: 15,
+                          backgroundColor: ColorsManager.white,
+                          borderSide: BorderSide(
+                            width: 2,
+                            color: ColorsManager.darkGrey,
+                          ),
+                          textStyle: TextStyles.font16BlackRegular,
+                        ),
+                      ),
+                      SizedBox(width: 10),
+                      Expanded(
+                        child: AppTextButton(
+                          onPressed: () {
+                            context.read<MapBloc>().createNewTrip();
+                          },
+                          buttonText: S.of(context).confirm,
+                          buttonHeight: 48,
+                          borderRadius: 15,
+                          textStyle: TextStyles.font16WhiteRegular,
+                        ),
+                      ),
+                    ],
                   ),
-                  textStyle: TextStyles.font16BlackRegular,
                 ),
-              ),
-              SizedBox(width: 10),
-              Expanded(
-                child: AppTextButton(
-                  onPressed: () {
-                    context.read<MapBloc>().createNewTrip();
-                  },
-                  buttonText: S.of(context).confirm,
-                  buttonHeight: 48,
-                  borderRadius: 15,
-                  textStyle: TextStyles.font16WhiteRegular,
-                ),
-              ),
-            ],
-          ),
-          SizedBox(height: 40),
+          SizedBox(height: 30),
         ]
       ],
     );

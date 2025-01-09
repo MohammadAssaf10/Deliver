@@ -154,17 +154,26 @@ class MapBloc extends Bloc<MapEvent, MapState> {
         if (state.startLocation == null || state.endLocation == null) {
           return;
         }
+        emit(state.rebuild((b) => b
+          ..isLoading = true
+          ..tripInfo = null));
+
         final result = await _mapRepository.calculateDistance(
           startLocation: state.startLocation!,
           endLocation: state.endLocation!,
         );
         result.fold((failure) {
+          emit(state.rebuild((b) => b..isLoading = false));
           dPrint(
             "Error From CalculateDistance event ${failure.errorMessage}",
             stringColor: StringColor.red,
           );
         }, (data) {
-          emit(state.rebuild((b) => b..tripInfo = data));
+          emit(state.rebuild(
+            (b) => b
+              ..tripInfo = data
+              ..isLoading = false,
+          ));
         });
       },
       transformer: restartable(),
@@ -184,13 +193,25 @@ class MapBloc extends Bloc<MapEvent, MapState> {
           tripInfo: state.tripInfo!,
         );
         result.fold((failure) {
+          showToastMessage(failure.errorMessage, isError: true);
           emit(state.rebuild((b) => b..isLoading = false));
           dPrint(
             "Error from CreateNewTrip bloc event: ${failure.errorMessage}",
             stringColor: StringColor.red,
           );
         }, (_) {
-          emit(state.rebuild((b) => b..isLoading = false));
+          panelController.close();
+          showToastMessage(S.current.tripCreatedSuccessfully);
+          emit(state.rebuild(
+            (b) => b
+              ..isLoading = false
+              ..startLocation = null
+              ..endLocation = null
+              ..tripInfo = null
+              ..message = ""
+              ..isPanelOpen = false
+              ..isStartPoint = null,
+          ));
         });
       },
       transformer: droppable(),
@@ -202,8 +223,8 @@ class MapBloc extends Bloc<MapEvent, MapState> {
     if (!serviceEnabled) {
       serviceEnabled = await _location.requestService();
       if (!serviceEnabled) {
-        showCustomToast(
-          toastMessage: S.current.pleaseTurnOnLocationServiceAndTryAgain,
+        showToastMessage(
+          S.current.pleaseTurnOnLocationServiceAndTryAgain,
           isError: true,
         );
         return false;
@@ -214,9 +235,8 @@ class MapBloc extends Bloc<MapEvent, MapState> {
     if (permissionGranted != PermissionStatus.granted) {
       permissionGranted = await _location.requestPermission();
       if (permissionGranted != PermissionStatus.granted) {
-        showCustomToast(
-          toastMessage:
-              S.current.pleaseAllowAppToAccessYourCurrentLocationAndTryAgain,
+        showToastMessage(
+          S.current.pleaseAllowAppToAccessYourCurrentLocationAndTryAgain,
           isError: true,
         );
         return false;

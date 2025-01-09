@@ -16,35 +16,31 @@ class TripInfoRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return tripInfo == null
         ? SizedBox.shrink()
-        : Padding(
-      padding: const EdgeInsets.symmetric(vertical: 6),
-      child: Wrap(
-        children: [
-          SizedBox(width: 30),
-          Text(
-            S
-                .of(context)
-                .estimatedTime,
-            style: TextStyles.font16BlackBold,
-          ),
-          Text(
-            // tripInfo!.duration.toString(),
-            S.of(context).minute(tripInfo!.duration),
-            style: TextStyles.font16BlackRegular,
-          ),
-          SizedBox(width: 20),
-          Text(
-            S
-                .of(context)
-                .distance,
-            style: TextStyles.font16BlackBold,
-          ),
-          Text(
-            tripInfo!.distance.toString(),
-            style: TextStyles.font16BlackRegular,
-          ),
-        ],
-      ),
-    );
+        : Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 15),
+              child: Wrap(
+                children: [
+                  Text(
+                    S.of(context).estimatedTime,
+                    style: TextStyles.font16BlackBold,
+                  ),
+                  Text(
+                    S.of(context).minute(tripInfo!.duration),
+                    style: TextStyles.font16BlackRegular,
+                  ),
+                  SizedBox(width: 20),
+                  Text(
+                    S.of(context).distance,
+                    style: TextStyles.font16BlackBold,
+                  ),
+                  Text(
+                    S.of(context).km(tripInfo!.distance),
+                    style: TextStyles.font16BlackRegular,
+                  ),
+                ],
+              ),
+            ),
+          );
   }
 }

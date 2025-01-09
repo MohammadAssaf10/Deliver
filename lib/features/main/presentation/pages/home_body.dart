@@ -80,48 +80,53 @@ class HomeBody extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            height: 170,
-            decoration: BoxDecoration(
-              color: ColorsManager.customPurple,
-              borderRadius: BorderRadius.circular(15),
-            ),
-            clipBehavior: Clip.hardEdge,
-            margin: const EdgeInsets.symmetric(vertical: 25),
-            padding: const EdgeInsetsDirectional.only(start: 14),
-            child: Row(
-              children: [
-                Container(
-                  width: MediaQuery.sizeOf(context).width * 0.54,
-                  margin: const EdgeInsets.only(top: 20, bottom: 10),
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "Ready? Then let's roll.",
-                        style: TextStyles.font18DarkGreyBold,
-                        maxLines: 1,
-                      ),
-                      AppTextButton(
-                        onPressed: () {},
-                        buttonText: "Ride with Deliver",
-                        buttonWidth: 135,
-                        buttonHeight: 0,
-                        borderRadius: 50,
-                        textStyle: TextStyles.font12LightGreyBold,
-                      )
-                    ],
+          GestureDetector(
+            onTap: () {
+              context.pushNamed(Routes.mapPage);
+            },
+            child: Container(
+              height: 170,
+              decoration: BoxDecoration(
+                color: ColorsManager.customPurple,
+                borderRadius: BorderRadius.circular(15),
+              ),
+              clipBehavior: Clip.hardEdge,
+              margin: const EdgeInsets.symmetric(vertical: 25),
+              padding: const EdgeInsetsDirectional.only(start: 14),
+              child: Row(
+                children: [
+                  Container(
+                    width: MediaQuery.sizeOf(context).width * 0.54,
+                    margin: const EdgeInsets.only(top: 20, bottom: 10),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Ready? Then let's roll.",
+                          style: TextStyles.font18DarkGreyBold,
+                          maxLines: 1,
+                        ),
+                        AppTextButton(
+                          onPressed: null,
+                          buttonText: "Ride with Deliver",
+                          buttonWidth: 135,
+                          buttonHeight: 0,
+                          borderRadius: 50,
+                          textStyle: TextStyles.font12LightGreyBold,
+                        )
+                      ],
+                    ),
                   ),
-                ),
-                Expanded(
-                  child: Image.asset(
-                    Assets.imagesPickupImage,
-                    fit: BoxFit.cover,
-                    height: double.infinity,
-                  ),
-                )
-              ],
+                  Expanded(
+                    child: Image.asset(
+                      Assets.imagesPickupImage,
+                      fit: BoxFit.cover,
+                      height: double.infinity,
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ],

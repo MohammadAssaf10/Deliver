@@ -55,5 +55,7 @@
   "pleaseSelectEndTripLocation": "الرجاء تحديد موقع نهاية الرحلة",
   "minute": "{value} دقيقة",
   "whereAreYouGoing": "إلى أين أنت ذاهب؟",
-  "pickupLocation": "مكان الانطلاق"
+  "pickupLocation": "مكان الانطلاق",
+  "tripCreatedSuccessfully": "تم إنشاء الرحلة بنجاح",
+  "km": "{value} كم"
 }

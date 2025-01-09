@@ -37,8 +37,8 @@ class VerificationCodeBloc
       final result =
           await _verificationCodeRepository.generateVerificationCode();
       result.fold((failure) {
-        showCustomToast(
-          toastMessage: failure.errorMessage,
+        showToastMessage(
+          failure.errorMessage,
           isError: true,
         );
       }, (_) {
@@ -49,8 +49,8 @@ class VerificationCodeBloc
     on<GetVerificationCode>((event, emit) async {
       final result = await _verificationCodeRepository.getVerificationCode();
       await result.fold((failure) {
-        showCustomToast(
-          toastMessage: failure.errorMessage,
+        showToastMessage(
+          failure.errorMessage,
           isError: true,
         );
       }, (data) async {
@@ -69,8 +69,8 @@ class VerificationCodeBloc
       final result = await _verificationCodeRepository
           .verifyPhoneNumber(verificationCodeController.text);
       result.fold((failure) {
-        showCustomToast(
-          toastMessage: failure.errorMessage,
+        showToastMessage(
+          failure.errorMessage,
           isError: true,
         );
         emit(state.rebuild(

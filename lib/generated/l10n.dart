@@ -619,6 +619,26 @@ class S {
       args: [],
     );
   }
+
+  /// `Trip created successfully`
+  String get tripCreatedSuccessfully {
+    return Intl.message(
+      'Trip created successfully',
+      name: 'tripCreatedSuccessfully',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `{value} KM`
+  String km(Object value) {
+    return Intl.message(
+      '$value KM',
+      name: 'km',
+      desc: '',
+      args: [value],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
