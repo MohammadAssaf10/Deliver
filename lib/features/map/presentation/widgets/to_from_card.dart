@@ -49,7 +49,9 @@ class ToFromCard extends StatelessWidget {
                     locationInfo?.administrativeArea == null
                         ? locationInfo != null
                             ? "${locationInfo!.longitude}, ${locationInfo!.latitude}"
-                            : "Select point"
+                            : isStartPoint
+                                ? S.of(context).pickupLocation
+                                : S.of(context).whereAreYouGoing
                         : '${locationInfo?.administrativeArea}, ${locationInfo?.locality}, ${locationInfo?.street}',
                     style: TextStyles.font15BlackRegular,
                     maxLines: 2,

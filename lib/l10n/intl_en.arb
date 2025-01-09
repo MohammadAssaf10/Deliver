@@ -52,5 +52,8 @@
   "distance": "Distance: ",
   "cancel": "Cancel",
   "pleaseSelectStartTripLocation": "Please select start trip location",
-  "pleaseSelectEndTripLocation": "Please select end trip location"
+  "pleaseSelectEndTripLocation": "Please select end trip location",
+  "minute": "{value} m",
+  "whereAreYouGoing": "Where are you going?",
+  "pickupLocation": "Pickup location"
 }

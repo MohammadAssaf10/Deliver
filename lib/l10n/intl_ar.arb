@@ -52,5 +52,8 @@
   "distance": "المسافة: ",
   "cancel": "إلغاء",
   "pleaseSelectStartTripLocation": "الرجاء تحديد موقع بدء الرحلة",
-  "pleaseSelectEndTripLocation": "الرجاء تحديد موقع نهاية الرحلة"
+  "pleaseSelectEndTripLocation": "الرجاء تحديد موقع نهاية الرحلة",
+  "minute": "{value} دقيقة",
+  "whereAreYouGoing": "إلى أين أنت ذاهب؟",
+  "pickupLocation": "مكان الانطلاق"
 }

@@ -20,6 +20,8 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ar';
 
+  static String m0(value) => "${value} دقيقة";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "addTrip": MessageLookupByLibrary.simpleMessage("إضافة رحلة"),
@@ -49,6 +51,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "kindlySignUpBelow":
             MessageLookupByLibrary.simpleMessage("يرجى التسجيل أدناه."),
         "loginHere": MessageLookupByLibrary.simpleMessage("تسجيل الدخول هنا"),
+        "minute": m0,
         "mobileNumber":
             MessageLookupByLibrary.simpleMessage("رقم الهاتف المحمول"),
         "mobileNumberFormatNotCorrect":
@@ -64,6 +67,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "passwordShouldAtLeast8Character": MessageLookupByLibrary.simpleMessage(
             "يجب أن لا تقل كلمة المرور عن 8 أحرف"),
+        "pickupLocation": MessageLookupByLibrary.simpleMessage("مكان الانطلاق"),
         "pleaseAllowAppToAccessYourCurrentLocationAndTryAgain":
             MessageLookupByLibrary.simpleMessage(
                 "الرجاء السماح للتطبيق بالوصول إلى موقعك الحالي ثم حاول مرة أخرى"),
@@ -104,6 +108,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "weSentOTPCodeToVerifyYourNumber": MessageLookupByLibrary.simpleMessage(
             "لقد أرسلنا لك رمز OTP للتحقق من رقمك"),
         "welcome": MessageLookupByLibrary.simpleMessage("مرحباً بك "),
-        "welcomeBack": MessageLookupByLibrary.simpleMessage("مرحبًا بعودتك!")
+        "welcomeBack": MessageLookupByLibrary.simpleMessage("مرحبًا بعودتك!"),
+        "whereAreYouGoing":
+            MessageLookupByLibrary.simpleMessage("إلى أين أنت ذاهب؟")
       };
 }

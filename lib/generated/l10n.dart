@@ -589,6 +589,36 @@ class S {
       args: [],
     );
   }
+
+  /// `{value} m`
+  String minute(Object value) {
+    return Intl.message(
+      '$value m',
+      name: 'minute',
+      desc: '',
+      args: [value],
+    );
+  }
+
+  /// `Where are you going?`
+  String get whereAreYouGoing {
+    return Intl.message(
+      'Where are you going?',
+      name: 'whereAreYouGoing',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pickup location`
+  String get pickupLocation {
+    return Intl.message(
+      'Pickup location',
+      name: 'pickupLocation',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
+import '../../../../core/utils/app_enums.dart';
 import '../../../../core/utils/app_functions.dart';
 import '../../domain/entities/location_info.dart';
 import '../bloc/map_bloc.dart';
@@ -29,6 +30,7 @@ class DeliverMap extends StatelessWidget {
         dPrint("Latitude: ${latLan.latitude} Longitude: ${latLan.longitude}");
         if (isStartPoint != null) {
           final LocationInfo locationInfo = LocationInfo(
+            markerState: isStartPoint! ? MarkerState.start : MarkerState.end,
             latitude: latLan.latitude,
             longitude: latLan.longitude,
           );
