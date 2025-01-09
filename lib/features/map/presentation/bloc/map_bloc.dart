@@ -312,10 +312,11 @@ class MapBloc extends Bloc<MapEvent, MapState> {
           );
           emit(state.rebuild((b) => b..isLoading = true));
           // Create a Completer to wait for CalculateDistance to finish
-          final completer = Completer<void>();
+          final Completer<void> completer = Completer<void>();
 
           // Listen to state changes to know when tripInfo is updated
-          final subscription = stream.listen((updatedState) {
+          final StreamSubscription<MapState> subscription =
+              stream.listen((updatedState) {
             if ((updatedState.tripInfo != null ||
                     updatedState.isLoading == false) &&
                 !completer.isCompleted) {
