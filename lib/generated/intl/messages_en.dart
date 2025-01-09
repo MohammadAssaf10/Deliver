@@ -26,9 +26,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Already have an account?"),
         "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
+        "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
         "continue1": MessageLookupByLibrary.simpleMessage("Continue"),
         "deliver": MessageLookupByLibrary.simpleMessage("Deliver"),
+        "distance": MessageLookupByLibrary.simpleMessage("Distance: "),
         "doNotHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("Don\'t have an account?"),
         "done": MessageLookupByLibrary.simpleMessage("Done"),
@@ -38,6 +40,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "english": MessageLookupByLibrary.simpleMessage("English"),
         "enterYourAccountDetailsHere": MessageLookupByLibrary.simpleMessage(
             "Enter your account details here."),
+        "estimatedTime":
+            MessageLookupByLibrary.simpleMessage("Estimated time: "),
+        "from": MessageLookupByLibrary.simpleMessage("From"),
         "getStartWithDeliver":
             MessageLookupByLibrary.simpleMessage("Get Start With Deliver"),
         "haveAnAccount":
@@ -55,6 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoarding1": MessageLookupByLibrary.simpleMessage(
             "Welcome! Take a trip to your destination with the cheapest fare"),
         "or": MessageLookupByLibrary.simpleMessage("OR"),
+        "orderNow": MessageLookupByLibrary.simpleMessage("Order now"),
         "password": MessageLookupByLibrary.simpleMessage("Password"),
         "passwordShouldAtLeast8Character": MessageLookupByLibrary.simpleMessage(
             "Password should at least 8 character"),
@@ -75,6 +81,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Please enter username"),
         "pleaseEnterVerificationCode": MessageLookupByLibrary.simpleMessage(
             "Please enter verification code"),
+        "pleaseSelectEndTripLocation": MessageLookupByLibrary.simpleMessage(
+            "Please select end trip location"),
+        "pleaseSelectStartTripLocation": MessageLookupByLibrary.simpleMessage(
+            "Please select start trip location"),
         "pleaseTurnOnLocationServiceAndTryAgain":
             MessageLookupByLibrary.simpleMessage(
                 "Please turn on location service and try again"),
@@ -88,6 +98,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Sign Up your account"),
         "somethingWentWrong":
             MessageLookupByLibrary.simpleMessage("Something went wrong"),
+        "to": MessageLookupByLibrary.simpleMessage("To"),
         "userName": MessageLookupByLibrary.simpleMessage("Username"),
         "usernameShort":
             MessageLookupByLibrary.simpleMessage("Username is short"),

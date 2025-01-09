@@ -74,3 +74,11 @@ abstract class CalculateDistance extends MapEvent
   factory CalculateDistance([void Function(CalculateDistanceBuilder) updates]) =
       _$CalculateDistance;
 }
+
+abstract class CreateNewTrip extends MapEvent
+    implements Built<CreateNewTrip, CreateNewTripBuilder> {
+  CreateNewTrip._();
+
+  factory CreateNewTrip([void Function(CreateNewTripBuilder) updates]) =
+      _$CreateNewTrip;
+}

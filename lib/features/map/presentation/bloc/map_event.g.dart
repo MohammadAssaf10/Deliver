@@ -547,4 +547,61 @@ class CalculateDistanceBuilder
   }
 }
 
+class _$CreateNewTrip extends CreateNewTrip {
+  factory _$CreateNewTrip([void Function(CreateNewTripBuilder)? updates]) =>
+      (new CreateNewTripBuilder()..update(updates))._build();
+
+  _$CreateNewTrip._() : super._();
+
+  @override
+  CreateNewTrip rebuild(void Function(CreateNewTripBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  CreateNewTripBuilder toBuilder() => new CreateNewTripBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is CreateNewTrip;
+  }
+
+  @override
+  int get hashCode {
+    return 149946870;
+  }
+
+  @override
+  String toString() {
+    return newBuiltValueToStringHelper(r'CreateNewTrip').toString();
+  }
+}
+
+class CreateNewTripBuilder
+    implements Builder<CreateNewTrip, CreateNewTripBuilder> {
+  _$CreateNewTrip? _$v;
+
+  CreateNewTripBuilder();
+
+  @override
+  void replace(CreateNewTrip other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$CreateNewTrip;
+  }
+
+  @override
+  void update(void Function(CreateNewTripBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  CreateNewTrip build() => _build();
+
+  _$CreateNewTrip _build() {
+    final _$result = _$v ?? new _$CreateNewTrip._();
+    replace(_$result);
+    return _$result;
+  }
+}
+
 // ignore_for_file: deprecated_member_use_from_same_package,type=lint

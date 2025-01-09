@@ -1,13 +1,13 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'distance_model.dart';
+part of 'trip_info_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-DistanceModel _$DistanceModelFromJson(Map<String, dynamic> json) =>
-    DistanceModel(
+TripInfoModel _$TripInfoModelFromJson(Map<String, dynamic> json) =>
+    TripInfoModel(
       distance: (json['distance'] as num).toDouble(),
       duration: (json['duration'] as num).toInt(),
     );

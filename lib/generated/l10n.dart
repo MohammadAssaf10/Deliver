@@ -509,6 +509,86 @@ class S {
       args: [],
     );
   }
+
+  /// `Order now`
+  String get orderNow {
+    return Intl.message(
+      'Order now',
+      name: 'orderNow',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `From`
+  String get from {
+    return Intl.message(
+      'From',
+      name: 'from',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `To`
+  String get to {
+    return Intl.message(
+      'To',
+      name: 'to',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Estimated time: `
+  String get estimatedTime {
+    return Intl.message(
+      'Estimated time: ',
+      name: 'estimatedTime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Distance: `
+  String get distance {
+    return Intl.message(
+      'Distance: ',
+      name: 'distance',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Cancel`
+  String get cancel {
+    return Intl.message(
+      'Cancel',
+      name: 'cancel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please select start trip location`
+  String get pleaseSelectStartTripLocation {
+    return Intl.message(
+      'Please select start trip location',
+      name: 'pleaseSelectStartTripLocation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Please select end trip location`
+  String get pleaseSelectEndTripLocation {
+    return Intl.message(
+      'Please select end trip location',
+      name: 'pleaseSelectEndTripLocation',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

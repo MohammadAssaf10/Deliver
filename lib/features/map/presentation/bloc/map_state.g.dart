@@ -22,7 +22,7 @@ class _$MapState extends MapState {
   @override
   final GoogleMapController? googleMapController;
   @override
-  final Distance? distance;
+  final TripInfo? tripInfo;
   @override
   final String message;
 
@@ -37,7 +37,7 @@ class _$MapState extends MapState {
       required this.isPanelOpen,
       this.isStartPoint,
       this.googleMapController,
-      this.distance,
+      this.tripInfo,
       required this.message})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(isLoading, r'MapState', 'isLoading');
@@ -65,7 +65,7 @@ class _$MapState extends MapState {
         isPanelOpen == other.isPanelOpen &&
         isStartPoint == other.isStartPoint &&
         googleMapController == other.googleMapController &&
-        distance == other.distance &&
+        tripInfo == other.tripInfo &&
         message == other.message;
   }
 
@@ -79,7 +79,7 @@ class _$MapState extends MapState {
     _$hash = $jc(_$hash, isPanelOpen.hashCode);
     _$hash = $jc(_$hash, isStartPoint.hashCode);
     _$hash = $jc(_$hash, googleMapController.hashCode);
-    _$hash = $jc(_$hash, distance.hashCode);
+    _$hash = $jc(_$hash, tripInfo.hashCode);
     _$hash = $jc(_$hash, message.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -95,7 +95,7 @@ class _$MapState extends MapState {
           ..add('isPanelOpen', isPanelOpen)
           ..add('isStartPoint', isStartPoint)
           ..add('googleMapController', googleMapController)
-          ..add('distance', distance)
+          ..add('tripInfo', tripInfo)
           ..add('message', message))
         .toString();
   }
@@ -136,9 +136,9 @@ class MapStateBuilder implements Builder<MapState, MapStateBuilder> {
   set googleMapController(GoogleMapController? googleMapController) =>
       _$this._googleMapController = googleMapController;
 
-  Distance? _distance;
-  Distance? get distance => _$this._distance;
-  set distance(Distance? distance) => _$this._distance = distance;
+  TripInfo? _tripInfo;
+  TripInfo? get tripInfo => _$this._tripInfo;
+  set tripInfo(TripInfo? tripInfo) => _$this._tripInfo = tripInfo;
 
   String? _message;
   String? get message => _$this._message;
@@ -156,7 +156,7 @@ class MapStateBuilder implements Builder<MapState, MapStateBuilder> {
       _isPanelOpen = $v.isPanelOpen;
       _isStartPoint = $v.isStartPoint;
       _googleMapController = $v.googleMapController;
-      _distance = $v.distance;
+      _tripInfo = $v.tripInfo;
       _message = $v.message;
       _$v = null;
     }
@@ -191,7 +191,7 @@ class MapStateBuilder implements Builder<MapState, MapStateBuilder> {
                   isPanelOpen, r'MapState', 'isPanelOpen'),
               isStartPoint: isStartPoint,
               googleMapController: googleMapController,
-              distance: distance,
+              tripInfo: tripInfo,
               message: BuiltValueNullFieldError.checkNotNull(
                   message, r'MapState', 'message'));
     } catch (_) {

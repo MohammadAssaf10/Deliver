@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../generated/l10n.dart';
@@ -13,7 +12,6 @@ import 'base_repository.dart';
 
 @LazySingleton(as: BaseRepository)
 class BaseRepositoryImpl implements BaseRepository {
-  @protected
   final NetworkInfo _networkInfo = getIt<NetworkInfo>();
 
   @override

@@ -44,5 +44,13 @@
   "welcomeBack": "مرحبًا بعودتك!",
   "enterYourAccountDetailsHere": "أدخل تفاصيل حسابك هنا.",
   "kindlySignUpBelow": "يرجى التسجيل أدناه.",
-  "alreadyHaveAnAccount": "لديك حساب بالفعل؟"
+  "alreadyHaveAnAccount": "لديك حساب بالفعل؟",
+  "orderNow": "اطلب الآن",
+  "from": "من",
+  "to": "إلى",
+  "estimatedTime": "الوقت المتوقع: ",
+  "distance": "المسافة: ",
+  "cancel": "إلغاء",
+  "pleaseSelectStartTripLocation": "الرجاء تحديد موقع بدء الرحلة",
+  "pleaseSelectEndTripLocation": "الرجاء تحديد موقع نهاية الرحلة"
 }

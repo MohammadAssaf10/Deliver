@@ -44,5 +44,13 @@
   "welcomeBack": "Welcome Back!",
   "enterYourAccountDetailsHere": "Enter your account details here.",
   "kindlySignUpBelow": "Kindly sign up below.",
-  "alreadyHaveAnAccount": "Already have an account?"
+  "alreadyHaveAnAccount": "Already have an account?",
+  "orderNow": "Order now",
+  "from": "From",
+  "to": "To",
+  "estimatedTime": "Estimated time: ",
+  "distance": "Distance: ",
+  "cancel": "Cancel",
+  "pleaseSelectStartTripLocation": "Please select start trip location",
+  "pleaseSelectEndTripLocation": "Please select end trip location"
 }

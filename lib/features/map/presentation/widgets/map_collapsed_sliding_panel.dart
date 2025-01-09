@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../../../core/theming/colors_manager.dart';
 import '../../../../core/theming/styles_manager.dart';
 import '../../../../core/widget/app_text_button.dart';
+import '../../../../generated/l10n.dart';
 import '../bloc/map_bloc.dart';
 
 class MapCollapsedSlidingPanel extends StatelessWidget {
@@ -24,7 +25,7 @@ class MapCollapsedSlidingPanel extends StatelessWidget {
           context.read<MapBloc>().getCurrentLocation();
         }
       },
-      buttonText: "Order now",
+      buttonText: S.of(context).orderNow,
       buttonHeight: 48,
       borderRadius: 15,
       outerHorizontalPadding: 20,

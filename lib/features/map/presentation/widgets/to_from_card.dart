@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/theming/colors_manager.dart';
 import '../../../../core/theming/styles_manager.dart';
+import '../../../../generated/l10n.dart';
 import '../../domain/entities/location_info.dart';
 import '../bloc/map_bloc.dart';
 
@@ -58,10 +59,12 @@ class ToFromCard extends StatelessWidget {
                 GestureDetector(
                   onTap: () {
                     if (isStartPoint) {
-                      context.read<MapBloc>().setHintMessage("data1");
+                      context.read<MapBloc>().setHintMessage(
+                          S.of(context).pleaseSelectStartTripLocation);
                       context.read<MapBloc>().changeIsStartPointState(true);
                     } else {
-                      context.read<MapBloc>().setHintMessage("data2");
+                      context.read<MapBloc>().setHintMessage(
+                          S.of(context).pleaseSelectEndTripLocation);
                       context.read<MapBloc>().changeIsStartPointState(false);
                     }
                   },

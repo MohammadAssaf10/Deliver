@@ -54,7 +54,14 @@ class MapBloc extends Bloc<MapEvent, MapState> {
     add(SetHintMessage((b) => b..message = message));
   }
 
-  MapBloc(this._location, this._mapRepository) : super(MapState.initial()) {
+  void createNewTrip() {
+    add(CreateNewTrip());
+  }
+
+  MapBloc(
+    this._location,
+    this._mapRepository,
+  ) : super(MapState.initial()) {
     on<GetCurrentLocation>(
       (event, emit) async {
         bool serviceEnabled = await _location.serviceEnabled();
@@ -283,15 +290,72 @@ class MapBloc extends Bloc<MapEvent, MapState> {
           endLocation: state.endLocation!,
         );
         result.fold((failure) {
+          emit(state.rebuild((b) => b..isLoading = false));
           dPrint(
             "Error From CalculateDistance event ${failure.errorMessage}",
             stringColor: StringColor.red,
           );
         }, (data) {
-          emit(state.rebuild((b) => b..distance = data));
+          emit(state.rebuild((b) => b..tripInfo = data));
         });
       },
       transformer: restartable(),
+    );
+    on<CreateNewTrip>(
+      (event, emit) async {
+        if (state.startLocation == null || state.endLocation == null) {
+          return;
+        } else if (state.tripInfo == null) {
+          dPrint(
+            "Calculate Distance",
+            stringColor: StringColor.green,
+          );
+          emit(state.rebuild((b) => b..isLoading = true));
+          // Create a Completer to wait for CalculateDistance to finish
+          final completer = Completer<void>();
+
+          // Listen to state changes to know when tripInfo is updated
+          final subscription = stream.listen((updatedState) {
+            if ((updatedState.tripInfo != null ||
+                    updatedState.isLoading == false) &&
+                !completer.isCompleted) {
+              completer.complete();
+            }
+          });
+
+          // Dispatch the CalculateDistance event
+          add(CalculateDistance());
+
+          // Wait for the completer to complete
+          await completer.future;
+
+          // Cancel the subscription after it's no longer needed
+          await subscription.cancel();
+        }
+        if (state.tripInfo != null) {
+          emit(state.rebuild((b) => b..isLoading = true));
+          final result = await _mapRepository.createNewTrip(
+            startLocation: state.startLocation!,
+            endLocation: state.endLocation!,
+            tripInfo: state.tripInfo!,
+          );
+          result.fold((failure) {
+            emit(state.rebuild((b) => b..isLoading = false));
+            dPrint(
+              "Error from CreateNewTrip bloc event: ${failure.errorMessage}",
+              stringColor: StringColor.red,
+            );
+          }, (_) {
+            emit(state.rebuild((b) => b..isLoading = false));
+          });
+        } else {
+          dPrint(
+            S.current.somethingWentWrong,
+            stringColor: StringColor.red,
+          );
+        }
+      },
+      transformer: droppable(),
     );
   }
 }

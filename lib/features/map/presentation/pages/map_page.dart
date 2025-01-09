@@ -26,7 +26,7 @@ class MapPage extends StatelessWidget {
               endLocationInfo: state.endLocation,
               isButtonEnable: state.startLocation != null,
               isPanelOpen: state.isPanelOpen,
-              distance: state.distance,
+              tripInfo: state.tripInfo,
               message: state.message,
             ),
             onPanelSlide: (position) {

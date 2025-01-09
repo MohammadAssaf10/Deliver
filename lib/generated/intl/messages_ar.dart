@@ -26,9 +26,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("لديك حساب بالفعل؟"),
         "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
+        "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
         "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
         "continue1": MessageLookupByLibrary.simpleMessage("متابعة"),
         "deliver": MessageLookupByLibrary.simpleMessage("دليفر"),
+        "distance": MessageLookupByLibrary.simpleMessage("المسافة: "),
         "doNotHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("لا تملك حساب؟"),
         "done": MessageLookupByLibrary.simpleMessage("تم"),
@@ -38,6 +40,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
         "enterYourAccountDetailsHere":
             MessageLookupByLibrary.simpleMessage("أدخل تفاصيل حسابك هنا."),
+        "estimatedTime":
+            MessageLookupByLibrary.simpleMessage("الوقت المتوقع: "),
+        "from": MessageLookupByLibrary.simpleMessage("من"),
         "getStartWithDeliver":
             MessageLookupByLibrary.simpleMessage("ابدأ مع Deliver"),
         "haveAnAccount": MessageLookupByLibrary.simpleMessage("لديك حساب؟"),
@@ -55,6 +60,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "onBoarding1": MessageLookupByLibrary.simpleMessage(
             "مرحباً! انطلق في رحلة إلى وجهتك بأرخص الأسعار"),
         "or": MessageLookupByLibrary.simpleMessage("او"),
+        "orderNow": MessageLookupByLibrary.simpleMessage("اطلب الآن"),
         "password": MessageLookupByLibrary.simpleMessage("كلمة المرور"),
         "passwordShouldAtLeast8Character": MessageLookupByLibrary.simpleMessage(
             "يجب أن لا تقل كلمة المرور عن 8 أحرف"),
@@ -75,6 +81,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("الرجاء إدخال اسم المستخدم"),
         "pleaseEnterVerificationCode":
             MessageLookupByLibrary.simpleMessage("الرجاء إدخال رمز التحقق"),
+        "pleaseSelectEndTripLocation": MessageLookupByLibrary.simpleMessage(
+            "الرجاء تحديد موقع نهاية الرحلة"),
+        "pleaseSelectStartTripLocation": MessageLookupByLibrary.simpleMessage(
+            "الرجاء تحديد موقع بدء الرحلة"),
         "pleaseTurnOnLocationServiceAndTryAgain":
             MessageLookupByLibrary.simpleMessage(
                 "الرجاء تشغيل خدمة الموقع ثم المحاولة مرة أخرى"),
@@ -87,6 +97,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "signUpYourAccount": MessageLookupByLibrary.simpleMessage("سجل حسابك"),
         "somethingWentWrong":
             MessageLookupByLibrary.simpleMessage("حدث خطأ ما"),
+        "to": MessageLookupByLibrary.simpleMessage("إلى"),
         "userName": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
         "usernameShort":
             MessageLookupByLibrary.simpleMessage("اسم المستخدم قصير"),

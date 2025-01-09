@@ -2,7 +2,7 @@ import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import '../../domain/entities/distance.dart';
+import '../../domain/entities/trip_info.dart';
 import '../../domain/entities/location_info.dart';
 
 part 'map_state.g.dart';
@@ -22,7 +22,7 @@ abstract class MapState implements Built<MapState, MapStateBuilder> {
 
   GoogleMapController? get googleMapController;
 
-  Distance? get distance;
+  TripInfo? get tripInfo;
 
   String get message;
 
@@ -39,7 +39,7 @@ abstract class MapState implements Built<MapState, MapStateBuilder> {
           ..isPanelOpen = false
           ..isStartPoint = null
           ..googleMapController = null
-          ..distance = null
+          ..tripInfo = null
           ..message = "",
       );
 }
