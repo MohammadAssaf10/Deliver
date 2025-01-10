@@ -5,12 +5,12 @@ import '../../../../core/error/failures.dart';
 import '../../../../core/repositories/base_repository_impl.dart';
 import '../../domain/entities/trip_info.dart';
 import '../../domain/repositories/map_repository.dart';
-import '../data_sources/remote/map_data_source.dart';
+import '../data_sources/remote/map_remote_data_source.dart';
 import '../../domain/entities/location_info.dart';
 
 @LazySingleton(as: MapRepository)
 class MapRepositoryImpl extends BaseRepositoryImpl implements MapRepository {
-  final MapDataSource _mapDataSource;
+  final MapRemoteDataSource _mapDataSource;
 
   MapRepositoryImpl(this._mapDataSource);
 

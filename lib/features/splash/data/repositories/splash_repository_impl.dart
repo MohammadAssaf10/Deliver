@@ -5,6 +5,8 @@ import 'package:ntp/ntp.dart';
 
 import '../../../../core/error/failures.dart';
 import '../../../../core/repositories/base_repository_impl.dart';
+import '../../../../core/utils/app_enums.dart';
+import '../../../../core/utils/app_functions.dart';
 import '../../../../core/utils/constant.dart';
 import '../../../../core/utils/shared_preferences_helper.dart';
 import '../../domain/repositories/splash_repository.dart';
@@ -30,6 +32,9 @@ class SplashRepositoryImpl extends BaseRepositoryImpl
     try {
       final String loggedInDate =
           SharedPreferencesHelper.getString(LocalStorageKeys.loggedInDate);
+      if (loggedInDate.isEmpty) {
+        return Right(false);
+      }
       final DateTime nowDateTime =
           await NTP.now(lookUpAddress: 'time.windows.com');
       final Duration diff =
@@ -39,6 +44,10 @@ class SplashRepositoryImpl extends BaseRepositoryImpl
       }
       return const Right(false);
     } catch (e) {
+      dPrint(
+        "Error from tokenNeedRefresh: $e",
+        stringColor: StringColor.red,
+      );
       return const Left(
         CacheFailure(errorMessage: "Can't get user token"),
       );

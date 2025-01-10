@@ -7,7 +7,7 @@ part 'trip_info_model.g.dart';
 @JsonSerializable(createToJson: false)
 class TripInfoModel {
   final double distance;
-  final int duration;
+  final double duration;
 
   TripInfoModel({
     required this.distance,

@@ -57,5 +57,9 @@
   "whereAreYouGoing": "إلى أين أنت ذاهب؟",
   "pickupLocation": "مكان الانطلاق",
   "tripCreatedSuccessfully": "تم إنشاء الرحلة بنجاح",
-  "km": "{value} كم"
+  "km": "{value} كم",
+  "enterPickupPoint": "اختيار نقطة الاستلام",
+  "now": "الآن",
+  "readyThenLetsRoll": "هل أنت مستعد؟ إذن فلنبدأ",
+  "rideWithDeliver": "اركب مع Deliver"
 }

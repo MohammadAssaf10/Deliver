@@ -27,12 +27,12 @@ class SignInRepositoryImpl extends BaseRepositoryImpl
       (signInModel) async {
         DioFactory.setTokenIntoHeaderAfterLogin(signInModel.token);
         if (signInModel.isPhoneNumberVerified) {
+          final DateTime loggedInTime =
+              await NTP.now(lookUpAddress: 'time.windows.com');
           await SharedPreferencesHelper.setSecuredString(
             LocalStorageKeys.userToken,
             signInModel.token,
           );
-          final DateTime loggedInTime =
-              await NTP.now(lookUpAddress: 'time.windows.com');
           await SharedPreferencesHelper.setData(
             LocalStorageKeys.loggedInDate,
             loggedInTime.toString(),

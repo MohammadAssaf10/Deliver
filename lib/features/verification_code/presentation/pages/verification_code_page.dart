@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/theming/colors_manager.dart';
 import '../../../../core/theming/styles_manager.dart';
 import '../../../../core/widget/app_text_button.dart';
 import '../../../../generated/l10n.dart';
@@ -15,6 +16,7 @@ class VerificationCodePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: true,
+      backgroundColor: ColorsManager.customWhite,
       body: Padding(
         padding: const EdgeInsets.all(20),
         child: Column(

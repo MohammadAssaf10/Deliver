@@ -21,10 +21,18 @@ import '../../app/data/data_sources/local/app_local_data_source_impl.dart'
 import '../../app/data/repositories/app_repository_impl.dart' as _i604;
 import '../../app/domain/repositories/app_repository.dart' as _i350;
 import '../../app/presentation/bloc/app_cubit.dart' as _i571;
-import '../../features/map/data/data_sources/remote/map_data_source.dart'
-    as _i1026;
-import '../../features/map/data/data_sources/remote/map_data_source_impl.dart'
-    as _i115;
+import '../../features/main/data/data_sources/remote/main_remote_data_source.dart'
+    as _i1003;
+import '../../features/main/data/data_sources/remote/main_remote_data_source_impl.dart'
+    as _i724;
+import '../../features/main/data/repositories/main_repository_impl.dart'
+    as _i411;
+import '../../features/main/domain/repositories/main_repository.dart' as _i298;
+import '../../features/main/presentation/bloc/main_bloc.dart' as _i1014;
+import '../../features/map/data/data_sources/remote/map_remote_data_source.dart'
+    as _i590;
+import '../../features/map/data/data_sources/remote/map_remote_data_source_impl.dart'
+    as _i935;
 import '../../features/map/data/repositories/map_repository_impl.dart' as _i457;
 import '../../features/map/domain/repositories/map_repository.dart' as _i973;
 import '../../features/map/presentation/bloc/map_bloc.dart' as _i437;
@@ -94,19 +102,20 @@ Future<_i174.GetIt> $initGetIt(
   gh.lazySingleton<_i533.SignInRemoteDataSource>(
       () => _i1024.SignInRemoteDataSourceImpl());
   gh.lazySingleton<_i421.BaseRepository>(() => _i432.BaseRepositoryImpl());
+  gh.lazySingleton<_i1003.MainRemoteDataSource>(
+      () => _i724.MainRemoteDataSourceImpl());
   gh.lazySingleton<_i212.AppLocalDataSource>(
       () => _i746.AppLocalDataSourceImpl());
+  gh.lazySingleton<_i590.MapRemoteDataSource>(
+      () => _i935.MapRemoteDataSourceImpl());
   gh.lazySingleton<_i755.BaseRemoteDataSource>(
       () => _i330.BaseRemoteDataSourceImpl());
   gh.lazySingleton<_i862.SignInRepository>(
       () => _i307.SignInRepositoryImpl(gh<_i533.SignInRemoteDataSource>()));
   gh.lazySingleton<_i89.VerificationCodeRemoteDataSource>(
       () => _i673.VerificationCodeRemoteDataSourceImpl());
-  gh.lazySingleton<_i1026.MapDataSource>(() => _i115.MapDataSourceImpl());
   gh.lazySingleton<_i350.AppRepository>(
       () => _i604.AppRepositoryImpl(gh<_i212.AppLocalDataSource>()));
-  gh.lazySingleton<_i973.MapRepository>(
-      () => _i457.MapRepositoryImpl(gh<_i1026.MapDataSource>()));
   gh.lazySingleton<_i578.SignUpRepository>(
       () => _i275.SignUpRepositoryImpl(gh<_i964.SignUpRemoteDataSource>()));
   gh.lazySingleton<_i932.NetworkInfo>(
@@ -115,10 +124,16 @@ Future<_i174.GetIt> $initGetIt(
         gh<_i210.SplashRepository>(),
         gh<_i862.SignInRepository>(),
       ));
+  gh.lazySingleton<_i973.MapRepository>(
+      () => _i457.MapRepositoryImpl(gh<_i590.MapRemoteDataSource>()));
+  gh.lazySingleton<_i298.MainRepository>(
+      () => _i411.MainRepositoryImpl(gh<_i1003.MainRemoteDataSource>()));
   gh.factory<_i437.MapBloc>(() => _i437.MapBloc(
         gh<_i645.Location>(),
         gh<_i973.MapRepository>(),
       ));
+  gh.factory<_i1014.MainBloc>(
+      () => _i1014.MainBloc(gh<_i298.MainRepository>()));
   gh.lazySingleton<_i314.VerificationCodeRepository>(
       () => _i328.VerificationCodeRepositoryImpl(
             gh<_i89.VerificationCodeRemoteDataSource>(),

@@ -2,7 +2,7 @@ import 'package:equatable/equatable.dart';
 
 class TripInfo extends Equatable {
   final double distance;
-  final int duration;
+  final double duration;
 
   const TripInfo({
     required this.distance,

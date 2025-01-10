@@ -6,7 +6,6 @@ import '../utils/shared_preferences_helper.dart';
 import 'endpoints.dart';
 
 class DioFactory {
-  /// private constructor as I don't want to allow creating an instance of this class
   DioFactory._();
 
   static Dio? _dio;

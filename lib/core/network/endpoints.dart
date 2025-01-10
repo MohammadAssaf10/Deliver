@@ -10,4 +10,5 @@ class Endpoints {
   static String verifyPhoneNumber = '/Account/verifyPhone';
   static String tripInfo = '/distance/distance';
   static String createNewTrip = '/rider/trip';
+  static String currentTrip = '/rider/trip/current';
 }

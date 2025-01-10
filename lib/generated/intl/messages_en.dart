@@ -42,6 +42,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "emailFormatNotCorrect":
             MessageLookupByLibrary.simpleMessage("Email format not correct"),
         "english": MessageLookupByLibrary.simpleMessage("English"),
+        "enterPickupPoint":
+            MessageLookupByLibrary.simpleMessage("Enter pickup point"),
         "enterYourAccountDetailsHere": MessageLookupByLibrary.simpleMessage(
             "Enter your account details here."),
         "estimatedTime":
@@ -63,6 +65,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "networkError": MessageLookupByLibrary.simpleMessage(
             "There is problem with your connection, please try again"),
         "next": MessageLookupByLibrary.simpleMessage("Next"),
+        "now": MessageLookupByLibrary.simpleMessage("Now"),
         "onBoarding1": MessageLookupByLibrary.simpleMessage(
             "Welcome! Take a trip to your destination with the cheapest fare"),
         "or": MessageLookupByLibrary.simpleMessage("OR"),
@@ -96,8 +99,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseTurnOnLocationServiceAndTryAgain":
             MessageLookupByLibrary.simpleMessage(
                 "Please turn on location service and try again"),
+        "readyThenLetsRoll":
+            MessageLookupByLibrary.simpleMessage("Ready? Then let\'s roll"),
         "registerHere": MessageLookupByLibrary.simpleMessage("Register Here"),
         "registration": MessageLookupByLibrary.simpleMessage("Registration"),
+        "rideWithDeliver":
+            MessageLookupByLibrary.simpleMessage("Ride with Deliver"),
         "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
         "signInToYourAccount":
             MessageLookupByLibrary.simpleMessage("Sign in to your account"),

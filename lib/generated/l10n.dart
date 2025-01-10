@@ -639,6 +639,46 @@ class S {
       args: [value],
     );
   }
+
+  /// `Enter pickup point`
+  String get enterPickupPoint {
+    return Intl.message(
+      'Enter pickup point',
+      name: 'enterPickupPoint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Now`
+  String get now {
+    return Intl.message(
+      'Now',
+      name: 'now',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ready? Then let's roll`
+  String get readyThenLetsRoll {
+    return Intl.message(
+      'Ready? Then let\'s roll',
+      name: 'readyThenLetsRoll',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Ride with Deliver`
+  String get rideWithDeliver {
+    return Intl.message(
+      'Ride with Deliver',
+      name: 'rideWithDeliver',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

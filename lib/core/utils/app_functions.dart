@@ -31,9 +31,9 @@ void showToastMessage(
   Fluttertoast.showToast(
     gravity: ToastGravity.BOTTOM,
     msg: toastMessage,
-    backgroundColor: isError ? ColorsManager.error : ColorsManager.darkGrey,
+    backgroundColor: isError ? ColorsManager.error : ColorsManager.darkWhite,
     fontSize: 16,
-    textColor: ColorsManager.white,
+    textColor: isError ? ColorsManager.darkWhite : ColorsManager.darkGrey,
   );
 }
 

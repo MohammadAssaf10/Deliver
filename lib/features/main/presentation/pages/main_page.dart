@@ -1,22 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/theming/styles_manager.dart';
 import '../../../../generated/l10n.dart';
+import '../bloc/main_bloc.dart';
 import '../widgets/main_bottom_navigation_bar.dart';
-import 'home_body.dart';
 
-class MainPage extends StatefulWidget {
+class MainPage extends StatelessWidget {
   const MainPage({super.key});
-
-  @override
-  State<MainPage> createState() => _MainPageState();
-}
-
-class _MainPageState extends State<MainPage> {
-  final PageController pageController = PageController();
-  final List<Widget> pages = const [
-    HomeBody(),
-  ];
 
   @override
   Widget build(BuildContext context) {
@@ -36,8 +27,8 @@ class _MainPageState extends State<MainPage> {
       ),
       bottomNavigationBar: const MainBottomNavigationBar(),
       body: PageView(
-        controller: pageController,
-        children: pages,
+        controller: context.read<MainBloc>().pageController,
+        children: context.read<MainBloc>().pages,
       ),
     );
   }

@@ -57,5 +57,9 @@
   "whereAreYouGoing": "Where are you going?",
   "pickupLocation": "Pickup location",
   "tripCreatedSuccessfully": "Trip created successfully",
-  "km": "{value} KM"
+  "km": "{value} KM",
+  "enterPickupPoint": "Enter pickup point",
+  "now": "Now",
+  "readyThenLetsRoll": "Ready? Then let's roll",
+  "rideWithDeliver": "Ride with Deliver"
 }

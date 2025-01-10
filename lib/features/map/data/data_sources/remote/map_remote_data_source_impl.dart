@@ -5,11 +5,11 @@ import '../../../../../core/network/endpoints.dart';
 import '../../../domain/entities/location_info.dart';
 import '../../../domain/entities/trip_info.dart';
 import '../../models/trip_info_model.dart';
-import 'map_data_source.dart';
+import 'map_remote_data_source.dart';
 
-@LazySingleton(as: MapDataSource)
-class MapDataSourceImpl extends BaseRemoteDataSourceImpl
-    implements MapDataSource {
+@LazySingleton(as: MapRemoteDataSource)
+class MapRemoteDataSourceImpl extends BaseRemoteDataSourceImpl
+    implements MapRemoteDataSource {
   @override
   Future<TripInfoModel> calculateDistance({
     required LocationInfo startLocation,

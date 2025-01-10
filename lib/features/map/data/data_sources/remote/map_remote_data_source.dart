@@ -3,7 +3,7 @@ import '../../../domain/entities/trip_info.dart';
 import '../../models/trip_info_model.dart';
 import '../../../domain/entities/location_info.dart';
 
-abstract class MapDataSource extends BaseRemoteDataSource {
+abstract class MapRemoteDataSource extends BaseRemoteDataSource {
   Future<TripInfoModel> calculateDistance({
     required LocationInfo startLocation,
     required LocationInfo endLocation,

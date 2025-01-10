@@ -42,6 +42,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "emailFormatNotCorrect": MessageLookupByLibrary.simpleMessage(
             "تنسيق البريد الإلكتروني غير صحيح"),
         "english": MessageLookupByLibrary.simpleMessage("الإنجليزية"),
+        "enterPickupPoint":
+            MessageLookupByLibrary.simpleMessage("اختيار نقطة الاستلام"),
         "enterYourAccountDetailsHere":
             MessageLookupByLibrary.simpleMessage("أدخل تفاصيل حسابك هنا."),
         "estimatedTime":
@@ -63,6 +65,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "networkError": MessageLookupByLibrary.simpleMessage(
             "هناك مشكلة بالاتصال بالشبكة الرجاء إعادة المحاولة لاحقاً"),
         "next": MessageLookupByLibrary.simpleMessage("التالي"),
+        "now": MessageLookupByLibrary.simpleMessage("الآن"),
         "onBoarding1": MessageLookupByLibrary.simpleMessage(
             "مرحباً! انطلق في رحلة إلى وجهتك بأرخص الأسعار"),
         "or": MessageLookupByLibrary.simpleMessage("او"),
@@ -95,8 +98,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "pleaseTurnOnLocationServiceAndTryAgain":
             MessageLookupByLibrary.simpleMessage(
                 "الرجاء تشغيل خدمة الموقع ثم المحاولة مرة أخرى"),
+        "readyThenLetsRoll":
+            MessageLookupByLibrary.simpleMessage("هل أنت مستعد؟ إذن فلنبدأ"),
         "registerHere": MessageLookupByLibrary.simpleMessage("سجل هنا"),
         "registration": MessageLookupByLibrary.simpleMessage("التسجيل"),
+        "rideWithDeliver":
+            MessageLookupByLibrary.simpleMessage("اركب مع Deliver"),
         "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "signInToYourAccount":
             MessageLookupByLibrary.simpleMessage("تسجيل الدخول إلى حسابك"),
