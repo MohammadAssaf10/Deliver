@@ -25,11 +25,11 @@ class MainPage extends StatelessWidget {
           ),
         ),
       ),
-      bottomNavigationBar: const MainBottomNavigationBar(),
       body: PageView(
         controller: context.read<MainBloc>().pageController,
         children: context.read<MainBloc>().pages,
       ),
+      bottomNavigationBar: const MainBottomNavigationBar(),
     );
   }
 }

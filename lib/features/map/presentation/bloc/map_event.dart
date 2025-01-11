@@ -1,6 +1,7 @@
 import 'package:built_value/built_value.dart';
 
-import '../../domain/entities/location_info.dart';
+import '../../../../core/entities/address.dart';
+import '../../../main/domain/entities/trip.dart';
 
 part 'map_event.g.dart';
 
@@ -26,15 +27,14 @@ abstract class ChangeIsPanelOpenState extends MapEvent
       _$ChangeIsPanelOpenState;
 }
 
-abstract class ChangeIsStartPointState extends MapEvent
-    implements Built<ChangeIsStartPointState, ChangeIsStartPointStateBuilder> {
-  bool? get isStartPoint;
+abstract class SetIsStartAddress extends MapEvent
+    implements Built<SetIsStartAddress, SetIsStartAddressBuilder> {
+  bool get isStartAddress;
 
-  ChangeIsStartPointState._();
+  SetIsStartAddress._();
 
-  factory ChangeIsStartPointState(
-          [void Function(ChangeIsStartPointStateBuilder) updates]) =
-      _$ChangeIsStartPointState;
+  factory SetIsStartAddress([void Function(SetIsStartAddressBuilder) updates]) =
+      _$SetIsStartAddress;
 }
 
 abstract class SetHintMessage extends MapEvent
@@ -47,24 +47,24 @@ abstract class SetHintMessage extends MapEvent
       _$SetHintMessage;
 }
 
-abstract class SetStartPoint extends MapEvent
-    implements Built<SetStartPoint, SetStartPointBuilder> {
-  LocationInfo get startPoint;
+abstract class SetStartAddress extends MapEvent
+    implements Built<SetStartAddress, SetStartAddressBuilder> {
+  Address get address;
 
-  SetStartPoint._();
+  SetStartAddress._();
 
-  factory SetStartPoint([void Function(SetStartPointBuilder) updates]) =
-      _$SetStartPoint;
+  factory SetStartAddress([void Function(SetStartAddressBuilder) updates]) =
+      _$SetStartAddress;
 }
 
-abstract class SetEndPoint extends MapEvent
-    implements Built<SetEndPoint, SetEndPointBuilder> {
-  LocationInfo get endPoint;
+abstract class SetEndAddress extends MapEvent
+    implements Built<SetEndAddress, SetEndAddressBuilder> {
+  Address get address;
 
-  SetEndPoint._();
+  SetEndAddress._();
 
-  factory SetEndPoint([void Function(SetEndPointBuilder) updates]) =
-      _$SetEndPoint;
+  factory SetEndAddress([void Function(SetEndAddressBuilder) updates]) =
+      _$SetEndAddress;
 }
 
 abstract class CalculateDistance extends MapEvent
@@ -81,4 +81,14 @@ abstract class CreateNewTrip extends MapEvent
 
   factory CreateNewTrip([void Function(CreateNewTripBuilder) updates]) =
       _$CreateNewTrip;
+}
+
+abstract class SetCurrentTrip extends MapEvent
+    implements Built<SetCurrentTrip, SetCurrentTripBuilder> {
+  Trip get trip;
+
+  SetCurrentTrip._();
+
+  factory SetCurrentTrip([void Function(SetCurrentTripBuilder) updates]) =
+      _$SetCurrentTrip;
 }

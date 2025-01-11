@@ -153,85 +153,88 @@ class ChangeIsPanelOpenStateBuilder
   }
 }
 
-class _$ChangeIsStartPointState extends ChangeIsStartPointState {
+class _$SetIsStartAddress extends SetIsStartAddress {
   @override
-  final bool? isStartPoint;
+  final bool isStartAddress;
 
-  factory _$ChangeIsStartPointState(
-          [void Function(ChangeIsStartPointStateBuilder)? updates]) =>
-      (new ChangeIsStartPointStateBuilder()..update(updates))._build();
+  factory _$SetIsStartAddress(
+          [void Function(SetIsStartAddressBuilder)? updates]) =>
+      (new SetIsStartAddressBuilder()..update(updates))._build();
 
-  _$ChangeIsStartPointState._({this.isStartPoint}) : super._();
+  _$SetIsStartAddress._({required this.isStartAddress}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(
+        isStartAddress, r'SetIsStartAddress', 'isStartAddress');
+  }
 
   @override
-  ChangeIsStartPointState rebuild(
-          void Function(ChangeIsStartPointStateBuilder) updates) =>
+  SetIsStartAddress rebuild(void Function(SetIsStartAddressBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ChangeIsStartPointStateBuilder toBuilder() =>
-      new ChangeIsStartPointStateBuilder()..replace(this);
+  SetIsStartAddressBuilder toBuilder() =>
+      new SetIsStartAddressBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ChangeIsStartPointState &&
-        isStartPoint == other.isStartPoint;
+    return other is SetIsStartAddress && isStartAddress == other.isStartAddress;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, isStartPoint.hashCode);
+    _$hash = $jc(_$hash, isStartAddress.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ChangeIsStartPointState')
-          ..add('isStartPoint', isStartPoint))
+    return (newBuiltValueToStringHelper(r'SetIsStartAddress')
+          ..add('isStartAddress', isStartAddress))
         .toString();
   }
 }
 
-class ChangeIsStartPointStateBuilder
-    implements
-        Builder<ChangeIsStartPointState, ChangeIsStartPointStateBuilder> {
-  _$ChangeIsStartPointState? _$v;
+class SetIsStartAddressBuilder
+    implements Builder<SetIsStartAddress, SetIsStartAddressBuilder> {
+  _$SetIsStartAddress? _$v;
 
-  bool? _isStartPoint;
-  bool? get isStartPoint => _$this._isStartPoint;
-  set isStartPoint(bool? isStartPoint) => _$this._isStartPoint = isStartPoint;
+  bool? _isStartAddress;
+  bool? get isStartAddress => _$this._isStartAddress;
+  set isStartAddress(bool? isStartAddress) =>
+      _$this._isStartAddress = isStartAddress;
 
-  ChangeIsStartPointStateBuilder();
+  SetIsStartAddressBuilder();
 
-  ChangeIsStartPointStateBuilder get _$this {
+  SetIsStartAddressBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _isStartPoint = $v.isStartPoint;
+      _isStartAddress = $v.isStartAddress;
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(ChangeIsStartPointState other) {
+  void replace(SetIsStartAddress other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ChangeIsStartPointState;
+    _$v = other as _$SetIsStartAddress;
   }
 
   @override
-  void update(void Function(ChangeIsStartPointStateBuilder)? updates) {
+  void update(void Function(SetIsStartAddressBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  ChangeIsStartPointState build() => _build();
+  SetIsStartAddress build() => _build();
 
-  _$ChangeIsStartPointState _build() {
-    final _$result =
-        _$v ?? new _$ChangeIsStartPointState._(isStartPoint: isStartPoint);
+  _$SetIsStartAddress _build() {
+    final _$result = _$v ??
+        new _$SetIsStartAddress._(
+            isStartAddress: BuiltValueNullFieldError.checkNotNull(
+                isStartAddress, r'SetIsStartAddress', 'isStartAddress'));
     replace(_$result);
     return _$result;
   }
@@ -322,167 +325,169 @@ class SetHintMessageBuilder
   }
 }
 
-class _$SetStartPoint extends SetStartPoint {
+class _$SetStartAddress extends SetStartAddress {
   @override
-  final LocationInfo startPoint;
+  final Address address;
 
-  factory _$SetStartPoint([void Function(SetStartPointBuilder)? updates]) =>
-      (new SetStartPointBuilder()..update(updates))._build();
+  factory _$SetStartAddress([void Function(SetStartAddressBuilder)? updates]) =>
+      (new SetStartAddressBuilder()..update(updates))._build();
 
-  _$SetStartPoint._({required this.startPoint}) : super._() {
+  _$SetStartAddress._({required this.address}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        startPoint, r'SetStartPoint', 'startPoint');
+        address, r'SetStartAddress', 'address');
   }
 
   @override
-  SetStartPoint rebuild(void Function(SetStartPointBuilder) updates) =>
+  SetStartAddress rebuild(void Function(SetStartAddressBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SetStartPointBuilder toBuilder() => new SetStartPointBuilder()..replace(this);
+  SetStartAddressBuilder toBuilder() =>
+      new SetStartAddressBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SetStartPoint && startPoint == other.startPoint;
+    return other is SetStartAddress && address == other.address;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, startPoint.hashCode);
+    _$hash = $jc(_$hash, address.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SetStartPoint')
-          ..add('startPoint', startPoint))
+    return (newBuiltValueToStringHelper(r'SetStartAddress')
+          ..add('address', address))
         .toString();
   }
 }
 
-class SetStartPointBuilder
-    implements Builder<SetStartPoint, SetStartPointBuilder> {
-  _$SetStartPoint? _$v;
+class SetStartAddressBuilder
+    implements Builder<SetStartAddress, SetStartAddressBuilder> {
+  _$SetStartAddress? _$v;
 
-  LocationInfo? _startPoint;
-  LocationInfo? get startPoint => _$this._startPoint;
-  set startPoint(LocationInfo? startPoint) => _$this._startPoint = startPoint;
+  Address? _address;
+  Address? get address => _$this._address;
+  set address(Address? address) => _$this._address = address;
 
-  SetStartPointBuilder();
+  SetStartAddressBuilder();
 
-  SetStartPointBuilder get _$this {
+  SetStartAddressBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _startPoint = $v.startPoint;
+      _address = $v.address;
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(SetStartPoint other) {
+  void replace(SetStartAddress other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SetStartPoint;
+    _$v = other as _$SetStartAddress;
   }
 
   @override
-  void update(void Function(SetStartPointBuilder)? updates) {
+  void update(void Function(SetStartAddressBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  SetStartPoint build() => _build();
+  SetStartAddress build() => _build();
 
-  _$SetStartPoint _build() {
+  _$SetStartAddress _build() {
     final _$result = _$v ??
-        new _$SetStartPoint._(
-            startPoint: BuiltValueNullFieldError.checkNotNull(
-                startPoint, r'SetStartPoint', 'startPoint'));
+        new _$SetStartAddress._(
+            address: BuiltValueNullFieldError.checkNotNull(
+                address, r'SetStartAddress', 'address'));
     replace(_$result);
     return _$result;
   }
 }
 
-class _$SetEndPoint extends SetEndPoint {
+class _$SetEndAddress extends SetEndAddress {
   @override
-  final LocationInfo endPoint;
+  final Address address;
 
-  factory _$SetEndPoint([void Function(SetEndPointBuilder)? updates]) =>
-      (new SetEndPointBuilder()..update(updates))._build();
+  factory _$SetEndAddress([void Function(SetEndAddressBuilder)? updates]) =>
+      (new SetEndAddressBuilder()..update(updates))._build();
 
-  _$SetEndPoint._({required this.endPoint}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(endPoint, r'SetEndPoint', 'endPoint');
+  _$SetEndAddress._({required this.address}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(address, r'SetEndAddress', 'address');
   }
 
   @override
-  SetEndPoint rebuild(void Function(SetEndPointBuilder) updates) =>
+  SetEndAddress rebuild(void Function(SetEndAddressBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SetEndPointBuilder toBuilder() => new SetEndPointBuilder()..replace(this);
+  SetEndAddressBuilder toBuilder() => new SetEndAddressBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SetEndPoint && endPoint == other.endPoint;
+    return other is SetEndAddress && address == other.address;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, endPoint.hashCode);
+    _$hash = $jc(_$hash, address.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SetEndPoint')
-          ..add('endPoint', endPoint))
+    return (newBuiltValueToStringHelper(r'SetEndAddress')
+          ..add('address', address))
         .toString();
   }
 }
 
-class SetEndPointBuilder implements Builder<SetEndPoint, SetEndPointBuilder> {
-  _$SetEndPoint? _$v;
+class SetEndAddressBuilder
+    implements Builder<SetEndAddress, SetEndAddressBuilder> {
+  _$SetEndAddress? _$v;
 
-  LocationInfo? _endPoint;
-  LocationInfo? get endPoint => _$this._endPoint;
-  set endPoint(LocationInfo? endPoint) => _$this._endPoint = endPoint;
+  Address? _address;
+  Address? get address => _$this._address;
+  set address(Address? address) => _$this._address = address;
 
-  SetEndPointBuilder();
+  SetEndAddressBuilder();
 
-  SetEndPointBuilder get _$this {
+  SetEndAddressBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _endPoint = $v.endPoint;
+      _address = $v.address;
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(SetEndPoint other) {
+  void replace(SetEndAddress other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$SetEndPoint;
+    _$v = other as _$SetEndAddress;
   }
 
   @override
-  void update(void Function(SetEndPointBuilder)? updates) {
+  void update(void Function(SetEndAddressBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  SetEndPoint build() => _build();
+  SetEndAddress build() => _build();
 
-  _$SetEndPoint _build() {
+  _$SetEndAddress _build() {
     final _$result = _$v ??
-        new _$SetEndPoint._(
-            endPoint: BuiltValueNullFieldError.checkNotNull(
-                endPoint, r'SetEndPoint', 'endPoint'));
+        new _$SetEndAddress._(
+            address: BuiltValueNullFieldError.checkNotNull(
+                address, r'SetEndAddress', 'address'));
     replace(_$result);
     return _$result;
   }
@@ -599,6 +604,89 @@ class CreateNewTripBuilder
 
   _$CreateNewTrip _build() {
     final _$result = _$v ?? new _$CreateNewTrip._();
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$SetCurrentTrip extends SetCurrentTrip {
+  @override
+  final Trip trip;
+
+  factory _$SetCurrentTrip([void Function(SetCurrentTripBuilder)? updates]) =>
+      (new SetCurrentTripBuilder()..update(updates))._build();
+
+  _$SetCurrentTrip._({required this.trip}) : super._() {
+    BuiltValueNullFieldError.checkNotNull(trip, r'SetCurrentTrip', 'trip');
+  }
+
+  @override
+  SetCurrentTrip rebuild(void Function(SetCurrentTripBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  SetCurrentTripBuilder toBuilder() =>
+      new SetCurrentTripBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is SetCurrentTrip && trip == other.trip;
+  }
+
+  @override
+  int get hashCode {
+    var _$hash = 0;
+    _$hash = $jc(_$hash, trip.hashCode);
+    _$hash = $jf(_$hash);
+    return _$hash;
+  }
+
+  @override
+  String toString() {
+    return (newBuiltValueToStringHelper(r'SetCurrentTrip')..add('trip', trip))
+        .toString();
+  }
+}
+
+class SetCurrentTripBuilder
+    implements Builder<SetCurrentTrip, SetCurrentTripBuilder> {
+  _$SetCurrentTrip? _$v;
+
+  Trip? _trip;
+  Trip? get trip => _$this._trip;
+  set trip(Trip? trip) => _$this._trip = trip;
+
+  SetCurrentTripBuilder();
+
+  SetCurrentTripBuilder get _$this {
+    final $v = _$v;
+    if ($v != null) {
+      _trip = $v.trip;
+      _$v = null;
+    }
+    return this;
+  }
+
+  @override
+  void replace(SetCurrentTrip other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$SetCurrentTrip;
+  }
+
+  @override
+  void update(void Function(SetCurrentTripBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  SetCurrentTrip build() => _build();
+
+  _$SetCurrentTrip _build() {
+    final _$result = _$v ??
+        new _$SetCurrentTrip._(
+            trip: BuiltValueNullFieldError.checkNotNull(
+                trip, r'SetCurrentTrip', 'trip'));
     replace(_$result);
     return _$result;
   }

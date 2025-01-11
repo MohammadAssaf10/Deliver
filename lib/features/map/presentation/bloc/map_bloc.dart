@@ -8,10 +8,11 @@ import 'package:injectable/injectable.dart';
 import 'package:location/location.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
+import '../../../../core/entities/address.dart';
 import '../../../../core/utils/app_enums.dart';
 import '../../../../core/utils/app_functions.dart';
 import '../../../../generated/l10n.dart';
-import '../../domain/entities/location_info.dart';
+import '../../../main/domain/entities/trip.dart';
 import '../../domain/repositories/map_repository.dart';
 import 'map_event.dart';
 import 'map_state.dart';
@@ -29,14 +30,14 @@ class MapBloc extends Bloc<MapEvent, MapState> {
   void changeIsPanelOpenState(bool isPanelOpen) =>
       add(ChangeIsPanelOpenState((b) => b..isPanelOpen = isPanelOpen));
 
-  void changeIsStartPointState(bool? isStartPoint) =>
-      add(ChangeIsStartPointState((b) => b..isStartPoint = isStartPoint));
+  void setIsStartAddress(bool? isStartAddress) =>
+      add(SetIsStartAddress((b) => b..isStartAddress = isStartAddress));
 
-  void setStartPoint(LocationInfo startPoint) =>
-      add(SetStartPoint((b) => b..startPoint = startPoint));
+  void setStartAddress(Address address) =>
+      add(SetStartAddress((b) => b..address = address));
 
-  void setEndPoint(LocationInfo endPoint) =>
-      add(SetEndPoint((b) => b..endPoint = endPoint));
+  void setEndAddress(Address address) =>
+      add(SetEndAddress((b) => b..address = address));
 
   void calculateDistance() => add(CalculateDistance());
 
@@ -45,28 +46,30 @@ class MapBloc extends Bloc<MapEvent, MapState> {
 
   void createNewTrip() => add(CreateNewTrip());
 
+  void setCurrentTrip(Trip trip) => add(SetCurrentTrip((b) => b..trip = trip));
+
   MapBloc(
     this._location,
     this._mapRepository,
   ) : super(MapState.initial()) {
     on<GetCurrentLocation>(
       (event, emit) async {
-        LocationInfo? startLocation;
+        Address? startAddress;
         final bool isLocationServiceEnabled =
             await _ensureLocationServiceEnabled();
         if (!isLocationServiceEnabled) return;
 
         final LocationData locationData = await _location.getLocation();
-        if (locationData.latitude == null && locationData.longitude == null) {
+        if (locationData.latitude == null || locationData.longitude == null) {
           return;
         }
         final GoogleMapController googleMapController =
             await mapCompleter.future;
 
-        startLocation = await _getLocationInfoPlacemark(LocationInfo(
+        startAddress = await _getAddressPlacemark(Address(
           markerState: MarkerState.start,
-          latitude: locationData.latitude,
-          longitude: locationData.longitude,
+          latitude: locationData.latitude!,
+          longitude: locationData.longitude!,
         ));
         final Set<Marker> updatedMarkers = _updateMarkerSet(
           markers: state.markers.toSet(),
@@ -79,7 +82,7 @@ class MapBloc extends Bloc<MapEvent, MapState> {
         emit(
           state.rebuild(
             (b) => b
-              ..startLocation = startLocation
+              ..startAddress = startAddress
               ..googleMapController = googleMapController
               ..markers.replace(updatedMarkers),
           ),
@@ -92,11 +95,11 @@ class MapBloc extends Bloc<MapEvent, MapState> {
       emit(state.rebuild((b) => b..isPanelOpen = event.isPanelOpen));
     });
 
-    on<ChangeIsStartPointState>((event, emit) async {
+    on<SetIsStartAddress>((event, emit) async {
       await panelController.close();
       emit(state.rebuild(
         (b) => b
-          ..isStartPoint = event.isStartPoint
+          ..isStartAddress = event.isStartAddress
           ..isPanelOpen = false,
       ));
     });
@@ -105,45 +108,43 @@ class MapBloc extends Bloc<MapEvent, MapState> {
       emit(state.rebuild((b) => b..message = event.message));
     });
 
-    on<SetStartPoint>((event, emit) async {
-      final LocationInfo updatedLocationInfo =
-          await _getLocationInfoPlacemark(event.startPoint);
+    on<SetStartAddress>((event, emit) async {
+      final Address updatedAddress = await _getAddressPlacemark(event.address);
       final Set<Marker> updatedMarkers = _updateMarkerSet(
         markers: state.markers.toSet(),
-        markerState: updatedLocationInfo.markerState!,
-        latitude: updatedLocationInfo.latitude!,
-        longitude: updatedLocationInfo.longitude!,
+        markerState: updatedAddress.markerState!,
+        latitude: updatedAddress.latitude,
+        longitude: updatedAddress.longitude,
         googleMapController: state.googleMapController!,
       );
       await panelController.open();
       emit(state.rebuild(
         (b) => b
-          ..startLocation = updatedLocationInfo
+          ..startAddress = updatedAddress
           ..markers.replace(updatedMarkers)
           ..isPanelOpen = true
-          ..isStartPoint = null
+          ..isStartAddress = null
           ..message = "",
       ));
       calculateDistance();
     });
 
-    on<SetEndPoint>((event, emit) async {
-      final LocationInfo updatedLocationInfo =
-          await _getLocationInfoPlacemark(event.endPoint);
+    on<SetEndAddress>((event, emit) async {
+      final Address updatedAddress = await _getAddressPlacemark(event.address);
       final Set<Marker> updatedMarkers = _updateMarkerSet(
         markers: state.markers.toSet(),
-        markerState: updatedLocationInfo.markerState!,
-        latitude: updatedLocationInfo.latitude!,
-        longitude: updatedLocationInfo.longitude!,
+        markerState: updatedAddress.markerState!,
+        latitude: updatedAddress.latitude,
+        longitude: updatedAddress.longitude,
         googleMapController: state.googleMapController!,
       );
       await panelController.open();
       emit(state.rebuild(
         (b) => b
-          ..endLocation = updatedLocationInfo
+          ..endAddress = updatedAddress
           ..markers.replace(updatedMarkers)
           ..isPanelOpen = true
-          ..isStartPoint = null
+          ..isStartAddress = null
           ..message = "",
       ));
       calculateDistance();
@@ -151,16 +152,18 @@ class MapBloc extends Bloc<MapEvent, MapState> {
 
     on<CalculateDistance>(
       (event, emit) async {
-        if (state.startLocation == null || state.endLocation == null) {
+        if (state.startAddress == null || state.endAddress == null) {
           return;
         }
-        emit(state.rebuild((b) => b
-          ..isLoading = true
-          ..tripInfo = null));
+        emit(state.rebuild(
+          (b) => b
+            ..isLoading = true
+            ..tripDistanceAndDuration = null,
+        ));
 
         final result = await _mapRepository.calculateDistance(
-          startLocation: state.startLocation!,
-          endLocation: state.endLocation!,
+          startLocation: state.startAddress!.toLocationRequest(),
+          endLocation: state.endAddress!.toLocationRequest(),
         );
         result.fold((failure) {
           emit(state.rebuild((b) => b..isLoading = false));
@@ -171,7 +174,7 @@ class MapBloc extends Bloc<MapEvent, MapState> {
         }, (data) {
           emit(state.rebuild(
             (b) => b
-              ..tripInfo = data
+              ..tripDistanceAndDuration = data
               ..isLoading = false,
           ));
         });
@@ -181,16 +184,16 @@ class MapBloc extends Bloc<MapEvent, MapState> {
 
     on<CreateNewTrip>(
       (event, emit) async {
-        if (state.startLocation == null ||
-            state.endLocation == null ||
-            state.tripInfo == null) {
+        if (state.startAddress == null ||
+            state.endAddress == null ||
+            state.tripDistanceAndDuration == null) {
           return;
         }
         emit(state.rebuild((b) => b..isLoading = true));
         final result = await _mapRepository.createNewTrip(
-          startLocation: state.startLocation!,
-          endLocation: state.endLocation!,
-          tripInfo: state.tripInfo!,
+          startLocation: state.startAddress!.toLocationRequest(),
+          endLocation: state.endAddress!.toLocationRequest(),
+          tripInfo: state.tripDistanceAndDuration!,
         );
         result.fold((failure) {
           showToastMessage(failure.errorMessage, isError: true);
@@ -205,17 +208,21 @@ class MapBloc extends Bloc<MapEvent, MapState> {
           emit(state.rebuild(
             (b) => b
               ..isLoading = false
-              ..startLocation = null
-              ..endLocation = null
-              ..tripInfo = null
+              ..startAddress = null
+              ..endAddress = null
+              ..tripDistanceAndDuration = null
               ..message = ""
               ..isPanelOpen = false
-              ..isStartPoint = null,
+              ..isStartAddress = null,
           ));
         });
       },
       transformer: droppable(),
     );
+
+    on<SetCurrentTrip>((event, emit) {
+      emit(state.rebuild((b) => b..currentTrip = event.trip));
+    });
   }
 
   Future<bool> _ensureLocationServiceEnabled() async {
@@ -277,14 +284,13 @@ class MapBloc extends Bloc<MapEvent, MapState> {
     return updatedMarkers;
   }
 
-  Future<LocationInfo> _getLocationInfoPlacemark(LocationInfo location) async {
-    LocationInfo updatedLocationInfo = location;
+  Future<Address> _getAddressPlacemark(Address address) async {
+    Address updatedAddress = address;
     try {
-      final geocoding.Placemark placemark =
-          (await geocoding.placemarkFromCoordinates(
-                  location.latitude!, location.longitude!))
-              .first;
-      updatedLocationInfo = location.copyWith(
+      final geocoding.Placemark placemark = (await geocoding
+              .placemarkFromCoordinates(address.latitude, address.longitude))
+          .first;
+      updatedAddress = address.copyWith(
         administrativeArea: placemark.administrativeArea,
         locality: placemark.locality,
         street: placemark.street,
@@ -293,6 +299,6 @@ class MapBloc extends Bloc<MapEvent, MapState> {
       dPrint("Error from get location placemark: $e",
           stringColor: StringColor.red);
     }
-    return updatedLocationInfo;
+    return updatedAddress;
   }
 }

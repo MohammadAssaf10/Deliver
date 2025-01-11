@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/theming/colors_manager.dart';
 import '../../../../core/widget/loader.dart';
 import '../bloc/main_bloc.dart';
 import '../bloc/main_state.dart';
@@ -17,10 +18,12 @@ class HomeBody extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 14),
           child: state.isLoading
-              ? Loader()
+              ? Loader(
+                  color: ColorsManager.customWhite,
+                )
               : state.trip == null
                   ? UserDoNotHaveTripWidget()
-                  : UserHaveTripWidget(),
+                  : UserHaveTripWidget(trip: state.trip!),
         );
       },
     );

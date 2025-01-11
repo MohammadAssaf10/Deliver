@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/entities/address.dart';
 import '../../../../core/theming/colors_manager.dart';
 import '../../../../core/theming/styles_manager.dart';
 import '../../../../generated/l10n.dart';
-import '../../domain/entities/location_info.dart';
 import '../bloc/map_bloc.dart';
 
 class ToFromCard extends StatelessWidget {
   final String title;
-  final LocationInfo? locationInfo;
+  final Address? address;
   final bool isStartPoint;
 
   const ToFromCard({
     super.key,
     required this.title,
     required this.isStartPoint,
-    required this.locationInfo,
+    required this.address,
   });
 
   @override
@@ -46,13 +46,13 @@ class ToFromCard extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    locationInfo?.administrativeArea == null
-                        ? locationInfo != null
-                            ? "${locationInfo!.longitude}, ${locationInfo!.latitude}"
+                    address?.administrativeArea == null
+                        ? address != null
+                            ? "${address!.longitude}, ${address!.latitude}"
                             : isStartPoint
                                 ? S.of(context).pickupLocation
                                 : S.of(context).whereAreYouGoing
-                        : '${locationInfo?.administrativeArea}, ${locationInfo?.locality}, ${locationInfo?.street}',
+                        : '${address?.administrativeArea}, ${address?.locality}, ${address?.street}',
                     style: TextStyles.font15BlackRegular,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
@@ -63,11 +63,11 @@ class ToFromCard extends StatelessWidget {
                     if (isStartPoint) {
                       context.read<MapBloc>().setHintMessage(
                           S.of(context).pleaseSelectStartTripLocation);
-                      context.read<MapBloc>().changeIsStartPointState(true);
+                      context.read<MapBloc>().setIsStartAddress(true);
                     } else {
                       context.read<MapBloc>().setHintMessage(
                           S.of(context).pleaseSelectEndTripLocation);
-                      context.read<MapBloc>().changeIsStartPointState(false);
+                      context.read<MapBloc>().setIsStartAddress(false);
                     }
                   },
                   child: CircleAvatar(

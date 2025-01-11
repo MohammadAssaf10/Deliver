@@ -1,49 +1,57 @@
 import 'package:equatable/equatable.dart';
 
-import '../../../../core/utils/app_enums.dart';
+import '../models/location_request.dart';
+import '../utils/app_enums.dart';
 
-class LocationInfo extends Equatable {
+class Address extends Equatable {
   final MarkerState? markerState;
-  final double? latitude;
-  final double? longitude;
+  final double longitude;
+  final double latitude;
   final String? administrativeArea;
   final String? locality;
   final String? street;
 
-  const LocationInfo({
-    required this.latitude,
+  const Address({
     required this.longitude,
-    this.markerState,
-    this.administrativeArea,
-    this.locality,
+    required this.latitude,
     this.street,
+    this.locality,
+    this.administrativeArea,
+    this.markerState,
   });
 
   @override
   List<Object?> get props => [
-        latitude,
         longitude,
-        administrativeArea,
-        locality,
+        latitude,
         street,
+        locality,
+        administrativeArea,
         markerState,
       ];
 
-  LocationInfo copyWith({
+  Address copyWith({
     MarkerState? markerState,
-    double? latitude,
     double? longitude,
+    double? latitude,
     String? administrativeArea,
     String? locality,
     String? street,
   }) {
-    return LocationInfo(
+    return Address(
       markerState: markerState ?? this.markerState,
-      latitude: latitude ?? this.latitude,
       longitude: longitude ?? this.longitude,
+      latitude: latitude ?? this.latitude,
       administrativeArea: administrativeArea ?? this.administrativeArea,
       locality: locality ?? this.locality,
       street: street ?? this.street,
+    );
+  }
+
+  LocationRequest toLocationRequest() {
+    return LocationRequest(
+      latitude: latitude,
+      longitude: longitude,
     );
   }
 }

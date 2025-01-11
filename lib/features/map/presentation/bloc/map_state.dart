@@ -2,29 +2,32 @@ import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import '../../domain/entities/trip_info.dart';
-import '../../domain/entities/location_info.dart';
+import '../../../../core/entities/address.dart';
+import '../../../main/domain/entities/trip.dart';
+import '../../domain/entities/trip_distance_and_duration.dart';
 
 part 'map_state.g.dart';
 
 abstract class MapState implements Built<MapState, MapStateBuilder> {
   bool get isLoading;
 
-  LocationInfo? get startLocation;
+  Address? get startAddress;
 
-  LocationInfo? get endLocation;
+  Address? get endAddress;
 
   BuiltSet<Marker> get markers;
 
   bool get isPanelOpen;
 
-  bool? get isStartPoint;
+  bool? get isStartAddress;
 
   GoogleMapController? get googleMapController;
 
-  TripInfo? get tripInfo;
+  TripDistanceAndDuration? get tripDistanceAndDuration;
 
   String get message;
+
+  Trip? get currentTrip;
 
   MapState._();
 
@@ -34,12 +37,13 @@ abstract class MapState implements Built<MapState, MapStateBuilder> {
         (b) => b
           ..isLoading = false
           ..markers.replace({})
-          ..startLocation = null
-          ..endLocation = null
+          ..startAddress = null
+          ..endAddress = null
           ..isPanelOpen = false
-          ..isStartPoint = null
+          ..isStartAddress = null
           ..googleMapController = null
-          ..tripInfo = null
-          ..message = "",
+          ..tripDistanceAndDuration = null
+          ..message = ""
+          ..currentTrip = null,
       );
 }

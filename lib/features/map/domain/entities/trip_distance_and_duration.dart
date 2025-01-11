@@ -1,10 +1,10 @@
 import 'package:equatable/equatable.dart';
 
-class TripInfo extends Equatable {
+class TripDistanceAndDuration extends Equatable {
   final double distance;
   final double duration;
 
-  const TripInfo({
+  const TripDistanceAndDuration({
     required this.distance,
     required this.duration,
   });

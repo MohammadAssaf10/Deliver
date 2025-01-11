@@ -1,17 +1,17 @@
 import '../../../../../core/data_source/remote/base_remote_data_source.dart';
-import '../../../domain/entities/trip_info.dart';
-import '../../models/trip_info_model.dart';
-import '../../../domain/entities/location_info.dart';
+import '../../../../../core/models/location_request.dart';
+import '../../../domain/entities/trip_distance_and_duration.dart';
+import '../../models/trip_distance_and_duration_model.dart';
 
 abstract class MapRemoteDataSource extends BaseRemoteDataSource {
-  Future<TripInfoModel> calculateDistance({
-    required LocationInfo startLocation,
-    required LocationInfo endLocation,
+  Future<TripDistanceAndDurationModel> calculateDistance({
+    required LocationRequest startLocation,
+    required LocationRequest endLocation,
   });
 
   Future<void> createNewTrip({
-    required LocationInfo startLocation,
-    required LocationInfo endLocation,
-    required TripInfo tripInfo,
+    required LocationRequest startLocation,
+    required LocationRequest endLocation,
+    required TripDistanceAndDuration tripInfo,
   });
 }

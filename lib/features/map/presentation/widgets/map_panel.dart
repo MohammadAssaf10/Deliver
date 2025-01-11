@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../core/entities/address.dart';
 import '../../../../core/theming/colors_manager.dart';
 import '../../../../core/theming/styles_manager.dart';
 import '../../../../core/widget/app_text_button.dart';
 import '../../../../core/widget/loader.dart';
 import '../../../../generated/l10n.dart';
-import '../../domain/entities/location_info.dart';
-import '../../domain/entities/trip_info.dart';
+import '../../domain/entities/trip_distance_and_duration.dart';
 import '../bloc/map_bloc.dart';
 import 'location_text.dart';
 import 'map_collapsed_sliding_panel.dart';
@@ -15,21 +15,21 @@ import 'to_from_card.dart';
 import 'trip_info_row.dart';
 
 class MapPanel extends StatelessWidget {
-  final LocationInfo? startLocationInfo;
-  final LocationInfo? endLocationInfo;
+  final Address? startAddress;
+  final Address? endAddress;
   final bool isButtonEnable;
   final bool isPanelOpen;
-  final TripInfo? tripInfo;
+  final TripDistanceAndDuration? tripDistanceAndDuration;
   final String message;
   final bool isLoading;
 
   const MapPanel({
     super.key,
-    required this.startLocationInfo,
-    required this.endLocationInfo,
+    required this.startAddress,
+    required this.endAddress,
     required this.isButtonEnable,
     required this.isPanelOpen,
-    required this.tripInfo,
+    required this.tripDistanceAndDuration,
     required this.message,
     required this.isLoading,
   });
@@ -49,17 +49,17 @@ class MapPanel extends StatelessWidget {
           ToFromCard(
             isStartPoint: true,
             title: S.of(context).from,
-            locationInfo: startLocationInfo,
+            address: startAddress,
           ),
           SizedBox(height: 15),
           ToFromCard(
             isStartPoint: false,
             title: S.of(context).to,
-            locationInfo: endLocationInfo,
+            address: endAddress,
           ),
           Expanded(
             child: TripInfoRow(
-              tripInfo: tripInfo,
+              tripDistanceAndDuration: tripDistanceAndDuration,
             ),
           ),
           isLoading

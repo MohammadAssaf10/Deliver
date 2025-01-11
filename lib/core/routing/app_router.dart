@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../features/main/domain/entities/trip.dart';
 import '../../features/main/presentation/bloc/main_bloc.dart';
 import '../../features/main/presentation/pages/main_page.dart';
 import '../../features/map/presentation/bloc/map_bloc.dart';
@@ -19,8 +20,8 @@ import 'routes.dart';
 
 class AppRouter {
   Route? generateRoute(RouteSettings settings) {
-    //this arguments to be passed in any screen like this ( arguments as ClassName )
-    // final arguments = settings.arguments;
+    // this arguments to be passed in any screen like this ( arguments as ClassName )
+    final arguments = settings.arguments;
 
     switch (settings.name) {
       case Routes.splashPage:
@@ -60,9 +61,16 @@ class AppRouter {
           ),
         );
       case Routes.mapPage:
+        final Trip? trip = arguments as Trip?;
         return MaterialPageRoute(
           builder: (_) => BlocProvider<MapBloc>(
-            create: (context) => getIt<MapBloc>()..getCurrentLocation(),
+            create: (context) {
+              if (trip == null) {
+                return getIt<MapBloc>()..getCurrentLocation();
+              } else {
+                return getIt<MapBloc>()..setCurrentTrip(trip);
+              }
+            },
             child: const MapPage(),
           ),
         );

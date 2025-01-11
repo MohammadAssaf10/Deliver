@@ -22,11 +22,11 @@ class MapPage extends StatelessWidget {
             backdropEnabled: true,
             borderRadius: BorderRadius.circular(15),
             panel: MapPanel(
-              startLocationInfo: state.startLocation,
-              endLocationInfo: state.endLocation,
-              isButtonEnable: state.startLocation != null,
+              startAddress: state.startAddress,
+              endAddress: state.endAddress,
+              isButtonEnable: state.startAddress != null,
               isPanelOpen: state.isPanelOpen,
-              tripInfo: state.tripInfo,
+              tripDistanceAndDuration: state.tripDistanceAndDuration,
               message: state.message,
               isLoading: state.isLoading,
             ),
@@ -41,7 +41,7 @@ class MapPage extends StatelessWidget {
             padding: EdgeInsets.all(15),
             body: DeliverMap(
               markers: state.markers.toSet(),
-              isStartPoint: state.isStartPoint,
+              isStartAddress: state.isStartAddress,
             ),
           );
         },

@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/theming/styles_manager.dart';
 import '../../../../generated/l10n.dart';
-import '../../domain/entities/trip_info.dart';
+import '../../domain/entities/trip_distance_and_duration.dart';
 
 class TripInfoRow extends StatelessWidget {
-  final TripInfo? tripInfo;
+  final TripDistanceAndDuration? tripDistanceAndDuration;
 
   const TripInfoRow({
     super.key,
-    required this.tripInfo,
+    required this.tripDistanceAndDuration,
   });
 
   @override
   Widget build(BuildContext context) {
-    return tripInfo == null
+    return tripDistanceAndDuration == null
         ? SizedBox.shrink()
         : Center(
             child: Padding(
@@ -26,7 +26,7 @@ class TripInfoRow extends StatelessWidget {
                     style: TextStyles.font16BlackBold,
                   ),
                   Text(
-                    S.of(context).minute(tripInfo!.duration),
+                    S.of(context).minute(tripDistanceAndDuration!.duration),
                     style: TextStyles.font16BlackRegular,
                   ),
                   SizedBox(width: 20),
@@ -35,7 +35,7 @@ class TripInfoRow extends StatelessWidget {
                     style: TextStyles.font16BlackBold,
                   ),
                   Text(
-                    S.of(context).km(tripInfo!.distance),
+                    S.of(context).km(tripDistanceAndDuration!.distance),
                     style: TextStyles.font16BlackRegular,
                   ),
                 ],
