@@ -1,6 +1,6 @@
 import 'package:built_value/built_value.dart';
 
-import '../../domain/entities/trip.dart';
+import '../../../../core/entities/trip.dart';
 
 part 'main_state.g.dart';
 

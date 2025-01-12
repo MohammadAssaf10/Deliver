@@ -53,7 +53,7 @@
   "cancel": "Cancel",
   "pleaseSelectStartTripLocation": "Please select start trip location",
   "pleaseSelectEndTripLocation": "Please select end trip location",
-  "minute": "{value} m",
+  "minute": "{value} min",
   "whereAreYouGoing": "Where are you going?",
   "pickupLocation": "Pickup location",
   "tripCreatedSuccessfully": "Trip created successfully",
@@ -61,5 +61,10 @@
   "enterPickupPoint": "Enter pickup point",
   "now": "Now",
   "readyThenLetsRoll": "Ready? Then let's roll",
-  "rideWithDeliver": "Ride with Deliver"
+  "rideWithDeliver": "Ride with Deliver",
+  "currentTrip": "Current Trip",
+  "tripNumber": "Trip Number",
+  "status": "Status",
+  "date": "Date",
+  "showTripDetails": "Show trip details"
 }

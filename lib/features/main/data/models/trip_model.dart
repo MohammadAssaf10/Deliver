@@ -1,7 +1,8 @@
+import 'package:intl/intl.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 import '../../../../core/utils/constant.dart';
-import '../../domain/entities/trip.dart';
+import '../../../../core/entities/trip.dart';
 import '../../../../core/models/address_model.dart';
 
 part 'trip_model.g.dart';
@@ -32,6 +33,9 @@ class TripModel {
       _$TripModelFromJson(json);
 
   Trip toDomain() {
+    final String formattedDate = DateFormat('yyyy-MM-dd HH:mm').format(
+      DateTime.fromMillisecondsSinceEpoch(createdDate * 1000, isUtc: true),
+    );
     return Trip(
       id: id,
       tripStatus: Constant.tripStatusMap[status]!,
@@ -40,8 +44,7 @@ class TripModel {
       calculatedDistance: calculatedDistance,
       calculatedDuration: calculatedDuration,
       driverName: driverName,
-      createdDate:
-          DateTime.fromMillisecondsSinceEpoch(createdDate * 1000, isUtc: true),
+      createdDate: formattedDate,
     );
   }
 }

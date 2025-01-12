@@ -33,7 +33,7 @@ class VerificationCodeFields extends StatelessWidget {
           errorTextStyle: TextStyles.font16ErrorRegular,
           cursor: Text(
             '|',
-            style: TextStyles.font16BlackBold,
+            style: TextStyles.font16DarkGreyBold,
           ),
           length: 6,
           keyboardType: TextInputType.number,
@@ -63,7 +63,7 @@ class VerificationCodeFields extends StatelessWidget {
           defaultPinTheme: PinTheme(
             height: 45,
             width: 45,
-            textStyle: TextStyles.font16BlackBold,
+            textStyle: TextStyles.font16DarkGreyBold,
             decoration: BoxDecoration(
               color: ColorsManager.customWhite,
               borderRadius: const BorderRadius.all(Radius.circular(10)),

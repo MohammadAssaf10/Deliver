@@ -61,5 +61,10 @@
   "enterPickupPoint": "اختيار نقطة الاستلام",
   "now": "الآن",
   "readyThenLetsRoll": "هل أنت مستعد؟ إذن فلنبدأ",
-  "rideWithDeliver": "اركب مع Deliver"
+  "rideWithDeliver": "اركب مع Deliver",
+  "currentTrip": "الرحلة الحالية",
+  "tripNumber": "رقم الرحلة",
+  "status": "الحالة",
+  "date": "التاريخ",
+  "showTripDetails": "عرض تفاصيل الرحلة"
 }

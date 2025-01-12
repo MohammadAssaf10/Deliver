@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'app_enums.dart';
+import 'app_regex.dart';
 
 extension NullOrEmpty on String? {
   bool nullOrEmpty() {
@@ -31,6 +32,12 @@ extension ChangePrintedStringColor on String {
       default:
         return this;
     }
+  }
+}
+
+extension RemoveDecimalZero on double {
+  String removeDecimalZero() {
+    return toString().replaceAll(AppRegex.decimalZeroRegExp, '');
   }
 }
 

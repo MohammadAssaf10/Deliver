@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
-import '../../../../core/utils/app_enums.dart';
-import '../../../../core/entities/address.dart';
+import '../utils/app_enums.dart';
+import 'address.dart';
 
 class Trip extends Equatable {
   final int id;
@@ -11,7 +11,7 @@ class Trip extends Equatable {
   final double calculatedDistance;
   final double calculatedDuration;
   final String? driverName;
-  final DateTime createdDate;
+  final String createdDate;
 
   const Trip({
     required this.id,

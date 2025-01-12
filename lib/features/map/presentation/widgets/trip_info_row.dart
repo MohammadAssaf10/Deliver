@@ -23,20 +23,20 @@ class TripInfoRow extends StatelessWidget {
                 children: [
                   Text(
                     S.of(context).estimatedTime,
-                    style: TextStyles.font16BlackBold,
+                    style: TextStyles.font16DarkGreyBold,
                   ),
                   Text(
                     S.of(context).minute(tripDistanceAndDuration!.duration),
-                    style: TextStyles.font16BlackRegular,
+                    style: TextStyles.font16DarkGreyRegular,
                   ),
                   SizedBox(width: 20),
                   Text(
                     S.of(context).distance,
-                    style: TextStyles.font16BlackBold,
+                    style: TextStyles.font16DarkGreyBold,
                   ),
                   Text(
                     S.of(context).km(tripDistanceAndDuration!.distance),
-                    style: TextStyles.font16BlackRegular,
+                    style: TextStyles.font16DarkGreyRegular,
                   ),
                 ],
               ),

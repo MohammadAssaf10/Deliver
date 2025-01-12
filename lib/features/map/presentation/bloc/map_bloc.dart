@@ -12,7 +12,7 @@ import '../../../../core/entities/address.dart';
 import '../../../../core/utils/app_enums.dart';
 import '../../../../core/utils/app_functions.dart';
 import '../../../../generated/l10n.dart';
-import '../../../main/domain/entities/trip.dart';
+import '../../../../core/entities/trip.dart';
 import '../../domain/repositories/map_repository.dart';
 import 'map_event.dart';
 import 'map_state.dart';

@@ -27,7 +27,7 @@ class ToFromCard extends StatelessWidget {
           width: 45,
           child: Text(
             title,
-            style: TextStyles.font16BlackBold,
+            style: TextStyles.font16DarkGreyBold,
           ),
         ),
         SizedBox(width: 10),

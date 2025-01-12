@@ -33,6 +33,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
         "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
         "continue1": MessageLookupByLibrary.simpleMessage("متابعة"),
+        "currentTrip": MessageLookupByLibrary.simpleMessage("الرحلة الحالية"),
+        "date": MessageLookupByLibrary.simpleMessage("التاريخ"),
         "deliver": MessageLookupByLibrary.simpleMessage("دليفر"),
         "distance": MessageLookupByLibrary.simpleMessage("المسافة: "),
         "doNotHaveAnAccount":
@@ -104,6 +106,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "registration": MessageLookupByLibrary.simpleMessage("التسجيل"),
         "rideWithDeliver":
             MessageLookupByLibrary.simpleMessage("اركب مع Deliver"),
+        "showTripDetails":
+            MessageLookupByLibrary.simpleMessage("عرض تفاصيل الرحلة"),
         "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
         "signInToYourAccount":
             MessageLookupByLibrary.simpleMessage("تسجيل الدخول إلى حسابك"),
@@ -111,9 +115,11 @@ class MessageLookup extends MessageLookupByLibrary {
         "signUpYourAccount": MessageLookupByLibrary.simpleMessage("سجل حسابك"),
         "somethingWentWrong":
             MessageLookupByLibrary.simpleMessage("حدث خطأ ما"),
+        "status": MessageLookupByLibrary.simpleMessage("الحالة"),
         "to": MessageLookupByLibrary.simpleMessage("إلى"),
         "tripCreatedSuccessfully":
             MessageLookupByLibrary.simpleMessage("تم إنشاء الرحلة بنجاح"),
+        "tripNumber": MessageLookupByLibrary.simpleMessage("رقم الرحلة"),
         "userName": MessageLookupByLibrary.simpleMessage("اسم المستخدم"),
         "usernameShort":
             MessageLookupByLibrary.simpleMessage("اسم المستخدم قصير"),

@@ -23,7 +23,7 @@ class LetsRollCard extends StatelessWidget {
           color: ColorsManager.customPurple,
           borderRadius: BorderRadius.circular(15),
         ),
-        clipBehavior: Clip.hardEdge,
+        clipBehavior: Clip.antiAlias,
         margin: const EdgeInsets.symmetric(vertical: 25),
         padding: const EdgeInsetsDirectional.only(start: 14),
         child: Row(
@@ -57,7 +57,7 @@ class LetsRollCard extends StatelessWidget {
                 fit: BoxFit.cover,
                 height: double.infinity,
               ),
-            )
+            ),
           ],
         ),
       ),

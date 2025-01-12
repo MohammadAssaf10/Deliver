@@ -3,7 +3,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../../../core/error/failures.dart';
 import '../../../../core/repositories/base_repository_impl.dart';
-import '../../domain/entities/trip.dart';
+import '../../../../core/entities/trip.dart';
 import '../../domain/repositories/main_repository.dart';
 import '../data_sources/remote/main_remote_data_source.dart';
 

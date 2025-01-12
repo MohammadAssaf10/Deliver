@@ -1,7 +1,7 @@
 import 'package:built_value/built_value.dart';
 
 import '../../../../core/entities/address.dart';
-import '../../../main/domain/entities/trip.dart';
+import '../../../../core/entities/trip.dart';
 
 part 'map_event.g.dart';
 

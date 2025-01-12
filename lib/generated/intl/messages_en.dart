@@ -22,7 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
 
   static String m0(value) => "${value} KM";
 
-  static String m1(value) => "${value} m";
+  static String m1(value) => "${value} min";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -33,6 +33,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
         "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
         "continue1": MessageLookupByLibrary.simpleMessage("Continue"),
+        "currentTrip": MessageLookupByLibrary.simpleMessage("Current Trip"),
+        "date": MessageLookupByLibrary.simpleMessage("Date"),
         "deliver": MessageLookupByLibrary.simpleMessage("Deliver"),
         "distance": MessageLookupByLibrary.simpleMessage("Distance: "),
         "doNotHaveAnAccount":
@@ -105,6 +107,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "registration": MessageLookupByLibrary.simpleMessage("Registration"),
         "rideWithDeliver":
             MessageLookupByLibrary.simpleMessage("Ride with Deliver"),
+        "showTripDetails":
+            MessageLookupByLibrary.simpleMessage("Show trip details"),
         "signIn": MessageLookupByLibrary.simpleMessage("Sign In"),
         "signInToYourAccount":
             MessageLookupByLibrary.simpleMessage("Sign in to your account"),
@@ -113,9 +117,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Sign Up your account"),
         "somethingWentWrong":
             MessageLookupByLibrary.simpleMessage("Something went wrong"),
+        "status": MessageLookupByLibrary.simpleMessage("Status"),
         "to": MessageLookupByLibrary.simpleMessage("To"),
         "tripCreatedSuccessfully":
             MessageLookupByLibrary.simpleMessage("Trip created successfully"),
+        "tripNumber": MessageLookupByLibrary.simpleMessage("Trip Number"),
         "userName": MessageLookupByLibrary.simpleMessage("Username"),
         "usernameShort":
             MessageLookupByLibrary.simpleMessage("Username is short"),

@@ -3,7 +3,7 @@ import 'package:built_value/built_value.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../../../core/entities/address.dart';
-import '../../../main/domain/entities/trip.dart';
+import '../../../../core/entities/trip.dart';
 import '../../domain/entities/trip_distance_and_duration.dart';
 
 part 'map_state.g.dart';

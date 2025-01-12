@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../features/main/domain/entities/trip.dart';
+import '../entities/trip.dart';
 import '../../features/main/presentation/bloc/main_bloc.dart';
 import '../../features/main/presentation/pages/main_page.dart';
 import '../../features/map/presentation/bloc/map_bloc.dart';

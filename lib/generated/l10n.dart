@@ -590,10 +590,10 @@ class S {
     );
   }
 
-  /// `{value} m`
+  /// `{value} min`
   String minute(Object value) {
     return Intl.message(
-      '$value m',
+      '$value min',
       name: 'minute',
       desc: '',
       args: [value],
@@ -675,6 +675,56 @@ class S {
     return Intl.message(
       'Ride with Deliver',
       name: 'rideWithDeliver',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Current Trip`
+  String get currentTrip {
+    return Intl.message(
+      'Current Trip',
+      name: 'currentTrip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Trip Number`
+  String get tripNumber {
+    return Intl.message(
+      'Trip Number',
+      name: 'tripNumber',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Status`
+  String get status {
+    return Intl.message(
+      'Status',
+      name: 'status',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Date`
+  String get date {
+    return Intl.message(
+      'Date',
+      name: 'date',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Show trip details`
+  String get showTripDetails {
+    return Intl.message(
+      'Show trip details',
+      name: 'showTripDetails',
       desc: '',
       args: [],
     );
