@@ -2,18 +2,20 @@ import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import '../../../../core/entities/address.dart';
 import '../../../../core/entities/trip.dart';
-import '../../domain/entities/trip_distance_and_duration.dart';
+import '../../../../core/models/address.dart';
+import '../../data/models/trip_distance_and_duration.dart';
 
 part 'map_state.g.dart';
 
 abstract class MapState implements Built<MapState, MapStateBuilder> {
   bool get isLoading;
 
-  Address? get startAddress;
+  Address? get tripStartAddress;
 
-  Address? get endAddress;
+  Address? get currentAddress;
+
+  Address? get tripEndAddress;
 
   BuiltSet<Marker> get markers;
 
@@ -37,8 +39,9 @@ abstract class MapState implements Built<MapState, MapStateBuilder> {
         (b) => b
           ..isLoading = false
           ..markers.replace({})
-          ..startAddress = null
-          ..endAddress = null
+          ..tripStartAddress = null
+          ..currentAddress = null
+          ..tripEndAddress = null
           ..isPanelOpen = false
           ..isStartAddress = null
           ..googleMapController = null

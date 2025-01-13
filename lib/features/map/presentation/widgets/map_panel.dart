@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/entities/address.dart';
 import '../../../../core/entities/trip.dart';
-import '../../domain/entities/trip_distance_and_duration.dart';
+import '../../../../core/models/address.dart';
+import '../../data/models/trip_distance_and_duration.dart';
 import 'create_new_trip_form.dart';
 import 'location_text.dart';
 import 'map_collapsed_sliding_panel.dart';
@@ -43,11 +43,13 @@ class MapPanel extends StatelessWidget {
         ],
         if (!isPanelOpen && message.isNotEmpty) LocationText(message: message),
         if (isPanelOpen && currentTrip == null)
-          CreateNewTripForm(
-            isLoading: isLoading,
-            startAddress: startAddress,
-            endAddress: endAddress,
-            tripDistanceAndDuration: tripDistanceAndDuration,
+          Expanded(
+            child: CreateNewTripForm(
+              isLoading: isLoading,
+              startAddress: startAddress,
+              endAddress: endAddress,
+              tripDistanceAndDuration: tripDistanceAndDuration,
+            ),
           ),
         if (isPanelOpen && currentTrip != null)
           CurrentTripDetails(currentTrip: currentTrip!)

@@ -1,20 +1,16 @@
 import 'package:dartz/dartz.dart';
-
 import 'package:injectable/injectable.dart';
 import 'package:ntp/ntp.dart';
 
 import '../../../../core/error/failures.dart';
-import '../../../../core/repositories/base_repository_impl.dart';
+import '../../../../core/repositories/base_repository.dart';
 import '../../../../core/utils/app_enums.dart';
 import '../../../../core/utils/app_functions.dart';
 import '../../../../core/utils/constant.dart';
 import '../../../../core/utils/shared_preferences_helper.dart';
-import '../../domain/repositories/splash_repository.dart';
 
-@LazySingleton(as: SplashRepository)
-class SplashRepositoryImpl extends BaseRepositoryImpl
-    implements SplashRepository {
-  @override
+@lazySingleton
+class SplashRepository extends BaseRepository {
   Future<Either<Failure, bool>> isUserAuthenticated() async {
     try {
       final String userToken = await SharedPreferencesHelper.getSecuredString(
@@ -27,7 +23,6 @@ class SplashRepositoryImpl extends BaseRepositoryImpl
     }
   }
 
-  @override
   Future<Either<Failure, bool>> tokenNeedRefresh() async {
     try {
       final String loggedInDate =

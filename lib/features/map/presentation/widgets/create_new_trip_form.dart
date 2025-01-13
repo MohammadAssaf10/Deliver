@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/entities/address.dart';
+import '../../../../core/models/address.dart';
 import '../../../../core/theming/colors_manager.dart';
 import '../../../../core/theming/styles_manager.dart';
 import '../../../../core/widget/app_text_button.dart';
 import '../../../../core/widget/loader.dart';
 import '../../../../generated/l10n.dart';
-import '../../domain/entities/trip_distance_and_duration.dart';
+import '../../data/models/trip_distance_and_duration.dart';
 import '../bloc/map_bloc.dart';
 import 'to_from_card.dart';
 import 'trip_info_row.dart';

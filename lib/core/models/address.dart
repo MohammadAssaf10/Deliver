@@ -1,8 +1,12 @@
 import 'package:equatable/equatable.dart';
+import 'package:json_annotation/json_annotation.dart';
 
-import '../models/location_request.dart';
+import '../../features/map/data/models/location_request.dart';
 import '../utils/app_enums.dart';
 
+part 'address.g.dart';
+
+@JsonSerializable(createToJson: false)
 class Address extends Equatable {
   final MarkerState? markerState;
   final double longitude;
@@ -14,21 +18,21 @@ class Address extends Equatable {
   const Address({
     required this.longitude,
     required this.latitude,
-    this.street,
-    this.locality,
-    this.administrativeArea,
     this.markerState,
+    this.administrativeArea,
+    this.locality,
+    this.street,
   });
 
-  @override
-  List<Object?> get props => [
-        longitude,
-        latitude,
-        street,
-        locality,
-        administrativeArea,
-        markerState,
-      ];
+  factory Address.fromJson(Map<String, dynamic> json) =>
+      _$AddressFromJson(json);
+
+  LocationRequest toLocationRequest() {
+    return LocationRequest(
+      longitude: longitude,
+      latitude: latitude,
+    );
+  }
 
   Address copyWith({
     MarkerState? markerState,
@@ -48,10 +52,13 @@ class Address extends Equatable {
     );
   }
 
-  LocationRequest toLocationRequest() {
-    return LocationRequest(
-      latitude: latitude,
-      longitude: longitude,
-    );
-  }
+  @override
+  List<Object?> get props => [
+        longitude,
+        latitude,
+        markerState,
+        administrativeArea,
+        locality,
+        street,
+      ];
 }

@@ -2,19 +2,17 @@ import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/error/failures.dart';
-import '../../../../core/models/location_request.dart';
-import '../../../../core/repositories/base_repository_impl.dart';
-import '../../domain/entities/trip_distance_and_duration.dart';
-import '../../domain/repositories/map_repository.dart';
+import '../models/location_request.dart';
+import '../../../../core/repositories/base_repository.dart';
 import '../data_sources/remote/map_remote_data_source.dart';
+import '../models/trip_distance_and_duration.dart';
 
-@LazySingleton(as: MapRepository)
-class MapRepositoryImpl extends BaseRepositoryImpl implements MapRepository {
+@lazySingleton
+class MapRepository extends BaseRepository {
   final MapRemoteDataSource _mapDataSource;
 
-  MapRepositoryImpl(this._mapDataSource);
+  MapRepository(this._mapDataSource);
 
-  @override
   Future<Either<Failure, TripDistanceAndDuration>> calculateDistance({
     required LocationRequest startLocation,
     required LocationRequest endLocation,
@@ -25,11 +23,10 @@ class MapRepositoryImpl extends BaseRepositoryImpl implements MapRepository {
           endLocation: endLocation,
         ),
         (tripInfoModel) async {
-          return tripInfoModel.toDomain();
+          return tripInfoModel;
         },
       );
 
-  @override
   Future<Either<Failure, void>> createNewTrip({
     required LocationRequest startLocation,
     required LocationRequest endLocation,

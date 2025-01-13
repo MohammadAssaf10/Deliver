@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../core/theming/styles_manager.dart';
 import '../../../../generated/l10n.dart';
-import '../../domain/entities/trip_distance_and_duration.dart';
+import '../../data/models/trip_distance_and_duration.dart';
 
 class TripInfoRow extends StatelessWidget {
   final TripDistanceAndDuration? tripDistanceAndDuration;

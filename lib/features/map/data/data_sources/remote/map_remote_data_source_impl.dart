@@ -1,17 +1,16 @@
 import 'package:injectable/injectable.dart';
 
 import '../../../../../core/data_source/remote/base_remote_data_source_impl.dart';
-import '../../../../../core/models/location_request.dart';
+import '../../models/location_request.dart';
 import '../../../../../core/network/endpoints.dart';
-import '../../../domain/entities/trip_distance_and_duration.dart';
-import '../../models/trip_distance_and_duration_model.dart';
+import '../../models/trip_distance_and_duration.dart';
 import 'map_remote_data_source.dart';
 
 @LazySingleton(as: MapRemoteDataSource)
 class MapRemoteDataSourceImpl extends BaseRemoteDataSourceImpl
     implements MapRemoteDataSource {
   @override
-  Future<TripDistanceAndDurationModel> calculateDistance({
+  Future<TripDistanceAndDuration> calculateDistance({
     required LocationRequest startLocation,
     required LocationRequest endLocation,
   }) async {
@@ -24,7 +23,7 @@ class MapRemoteDataSourceImpl extends BaseRemoteDataSourceImpl
         "Destination.Lon": endLocation.longitude,
       },
     );
-    return TripDistanceAndDurationModel.fromJson(result.data);
+    return TripDistanceAndDuration.fromJson(result.data);
   }
 
   @override

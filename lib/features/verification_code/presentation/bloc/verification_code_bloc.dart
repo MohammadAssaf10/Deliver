@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/utils/app_functions.dart';
-import '../../domain/repositories/verification_code_repository.dart';
+import '../../data/repositories/verification_code_repository.dart';
 import 'verification_code_event.dart';
 import 'verification_code_state.dart';
 

@@ -4,8 +4,8 @@ import 'package:injectable/injectable.dart';
 import '../../../../core/utils/constant.dart';
 import '../../../../core/utils/shared_preferences_helper.dart';
 import '../../../sign_in/data/models/sign_in_request.dart';
-import '../../../sign_in/domain/repositories/sign_in_repository.dart';
-import '../../domain/repositories/splash_repository.dart';
+import '../../../sign_in/data/repositories/sign_in_repository.dart';
+import '../../data/repositories/splash_repository.dart';
 import 'splash_event.dart';
 import 'splash_state.dart';
 

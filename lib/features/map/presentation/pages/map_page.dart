@@ -22,9 +22,10 @@ class MapPage extends StatelessWidget {
             backdropEnabled: true,
             borderRadius: BorderRadius.circular(15),
             panel: MapPanel(
-              startAddress: state.startAddress,
-              endAddress: state.endAddress,
-              isButtonEnable: state.startAddress != null,
+              startAddress: state.tripStartAddress ?? state.currentAddress,
+              endAddress: state.tripEndAddress,
+              isButtonEnable: (state.tripStartAddress != null ||
+                  state.currentAddress != null),
               isPanelOpen: state.isPanelOpen,
               tripDistanceAndDuration: state.tripDistanceAndDuration,
               message: state.message,

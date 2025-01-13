@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../entities/trip.dart';
 import '../../features/main/presentation/bloc/main_bloc.dart';
 import '../../features/main/presentation/pages/main_page.dart';
 import '../../features/map/presentation/bloc/map_bloc.dart';
@@ -16,6 +15,7 @@ import '../../features/splash/presentation/pages/splash_page.dart';
 import '../../features/verification_code/presentation/bloc/verification_code_bloc.dart';
 import '../../features/verification_code/presentation/pages/verification_code_page.dart';
 import '../di/di.dart';
+import '../entities/trip.dart';
 import 'routes.dart';
 
 class AppRouter {
@@ -65,11 +65,12 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => BlocProvider<MapBloc>(
             create: (context) {
-              if (trip == null) {
-                return getIt<MapBloc>()..getCurrentLocation();
-              } else {
-                return getIt<MapBloc>()..setCurrentTrip(trip);
+              final MapBloc mapBloc = getIt<MapBloc>();
+              mapBloc.getCurrentLocation();
+              if (trip != null) {
+                mapBloc.setCurrentTrip(trip);
               }
+              return mapBloc;
             },
             child: const MapPage(),
           ),

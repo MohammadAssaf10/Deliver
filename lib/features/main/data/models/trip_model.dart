@@ -3,7 +3,7 @@ import 'package:json_annotation/json_annotation.dart';
 
 import '../../../../core/utils/constant.dart';
 import '../../../../core/entities/trip.dart';
-import '../../../../core/models/address_model.dart';
+import '../../../../core/models/address.dart';
 
 part 'trip_model.g.dart';
 
@@ -11,8 +11,8 @@ part 'trip_model.g.dart';
 class TripModel {
   final int id;
   final int status;
-  final AddressModel pickUpAddress;
-  final AddressModel dropOfAddress;
+  final Address pickUpAddress;
+  final Address dropOfAddress;
   final int createdDate;
   final double calculatedDistance;
   final double calculatedDuration;
@@ -39,8 +39,8 @@ class TripModel {
     return Trip(
       id: id,
       tripStatus: Constant.tripStatusMap[status]!,
-      pickUpAddress: pickUpAddress.toDomain(),
-      dropOfAddress: dropOfAddress.toDomain(),
+      pickUpAddress: pickUpAddress,
+      dropOfAddress: dropOfAddress,
       calculatedDistance: calculatedDistance,
       calculatedDuration: calculatedDuration,
       driverName: driverName,

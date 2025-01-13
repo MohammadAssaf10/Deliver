@@ -10,9 +10,11 @@ class _$MapState extends MapState {
   @override
   final bool isLoading;
   @override
-  final Address? startAddress;
+  final Address? tripStartAddress;
   @override
-  final Address? endAddress;
+  final Address? currentAddress;
+  @override
+  final Address? tripEndAddress;
   @override
   final BuiltSet<Marker> markers;
   @override
@@ -33,8 +35,9 @@ class _$MapState extends MapState {
 
   _$MapState._(
       {required this.isLoading,
-      this.startAddress,
-      this.endAddress,
+      this.tripStartAddress,
+      this.currentAddress,
+      this.tripEndAddress,
       required this.markers,
       required this.isPanelOpen,
       this.isStartAddress,
@@ -62,8 +65,9 @@ class _$MapState extends MapState {
     if (identical(other, this)) return true;
     return other is MapState &&
         isLoading == other.isLoading &&
-        startAddress == other.startAddress &&
-        endAddress == other.endAddress &&
+        tripStartAddress == other.tripStartAddress &&
+        currentAddress == other.currentAddress &&
+        tripEndAddress == other.tripEndAddress &&
         markers == other.markers &&
         isPanelOpen == other.isPanelOpen &&
         isStartAddress == other.isStartAddress &&
@@ -77,8 +81,9 @@ class _$MapState extends MapState {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, isLoading.hashCode);
-    _$hash = $jc(_$hash, startAddress.hashCode);
-    _$hash = $jc(_$hash, endAddress.hashCode);
+    _$hash = $jc(_$hash, tripStartAddress.hashCode);
+    _$hash = $jc(_$hash, currentAddress.hashCode);
+    _$hash = $jc(_$hash, tripEndAddress.hashCode);
     _$hash = $jc(_$hash, markers.hashCode);
     _$hash = $jc(_$hash, isPanelOpen.hashCode);
     _$hash = $jc(_$hash, isStartAddress.hashCode);
@@ -94,8 +99,9 @@ class _$MapState extends MapState {
   String toString() {
     return (newBuiltValueToStringHelper(r'MapState')
           ..add('isLoading', isLoading)
-          ..add('startAddress', startAddress)
-          ..add('endAddress', endAddress)
+          ..add('tripStartAddress', tripStartAddress)
+          ..add('currentAddress', currentAddress)
+          ..add('tripEndAddress', tripEndAddress)
           ..add('markers', markers)
           ..add('isPanelOpen', isPanelOpen)
           ..add('isStartAddress', isStartAddress)
@@ -114,14 +120,20 @@ class MapStateBuilder implements Builder<MapState, MapStateBuilder> {
   bool? get isLoading => _$this._isLoading;
   set isLoading(bool? isLoading) => _$this._isLoading = isLoading;
 
-  Address? _startAddress;
-  Address? get startAddress => _$this._startAddress;
-  set startAddress(Address? startAddress) =>
-      _$this._startAddress = startAddress;
+  Address? _tripStartAddress;
+  Address? get tripStartAddress => _$this._tripStartAddress;
+  set tripStartAddress(Address? tripStartAddress) =>
+      _$this._tripStartAddress = tripStartAddress;
 
-  Address? _endAddress;
-  Address? get endAddress => _$this._endAddress;
-  set endAddress(Address? endAddress) => _$this._endAddress = endAddress;
+  Address? _currentAddress;
+  Address? get currentAddress => _$this._currentAddress;
+  set currentAddress(Address? currentAddress) =>
+      _$this._currentAddress = currentAddress;
+
+  Address? _tripEndAddress;
+  Address? get tripEndAddress => _$this._tripEndAddress;
+  set tripEndAddress(Address? tripEndAddress) =>
+      _$this._tripEndAddress = tripEndAddress;
 
   SetBuilder<Marker>? _markers;
   SetBuilder<Marker> get markers =>
@@ -163,8 +175,9 @@ class MapStateBuilder implements Builder<MapState, MapStateBuilder> {
     final $v = _$v;
     if ($v != null) {
       _isLoading = $v.isLoading;
-      _startAddress = $v.startAddress;
-      _endAddress = $v.endAddress;
+      _tripStartAddress = $v.tripStartAddress;
+      _currentAddress = $v.currentAddress;
+      _tripEndAddress = $v.tripEndAddress;
       _markers = $v.markers.toBuilder();
       _isPanelOpen = $v.isPanelOpen;
       _isStartAddress = $v.isStartAddress;
@@ -198,8 +211,9 @@ class MapStateBuilder implements Builder<MapState, MapStateBuilder> {
           new _$MapState._(
               isLoading: BuiltValueNullFieldError.checkNotNull(
                   isLoading, r'MapState', 'isLoading'),
-              startAddress: startAddress,
-              endAddress: endAddress,
+              tripStartAddress: tripStartAddress,
+              currentAddress: currentAddress,
+              tripEndAddress: tripEndAddress,
               markers: markers.build(),
               isPanelOpen: BuiltValueNullFieldError.checkNotNull(
                   isPanelOpen, r'MapState', 'isPanelOpen'),

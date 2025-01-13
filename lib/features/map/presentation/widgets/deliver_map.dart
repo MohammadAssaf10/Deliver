@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-import '../../../../core/entities/address.dart';
+import '../../../../core/models/address.dart';
 import '../../../../core/utils/app_enums.dart';
 import '../../../../core/utils/app_functions.dart';
 import '../bloc/map_bloc.dart';
@@ -30,14 +30,16 @@ class DeliverMap extends StatelessWidget {
         dPrint("Latitude: ${latLan.latitude} Longitude: ${latLan.longitude}");
         if (isStartAddress != null) {
           final Address address = Address(
-            markerState: isStartAddress! ? MarkerState.start : MarkerState.end,
+            markerState: isStartAddress!
+                ? MarkerState.tripStartLocation
+                : MarkerState.tripEndLocation,
             latitude: latLan.latitude,
             longitude: latLan.longitude,
           );
           if (isStartAddress!) {
             context.read<MapBloc>().setStartAddress(address);
           } else {
-            context.read<MapBloc>().setStartAddress(address);
+            context.read<MapBloc>().setEndAddress(address);
           }
         }
       },

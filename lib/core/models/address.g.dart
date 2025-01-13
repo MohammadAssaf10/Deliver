@@ -1,12 +1,12 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'address_model.dart';
+part of 'address.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-AddressModel _$AddressModelFromJson(Map<String, dynamic> json) => AddressModel(
+Address _$AddressFromJson(Map<String, dynamic> json) => Address(
       longitude: (json['longitude'] as num).toDouble(),
       latitude: (json['latitude'] as num).toDouble(),
       markerState:
@@ -17,6 +17,7 @@ AddressModel _$AddressModelFromJson(Map<String, dynamic> json) => AddressModel(
     );
 
 const _$MarkerStateEnumMap = {
-  MarkerState.start: 'start',
-  MarkerState.end: 'end',
+  MarkerState.tripStartLocation: 'tripStartLocation',
+  MarkerState.tripEndLocation: 'tripEndLocation',
+  MarkerState.currentLocation: 'currentLocation',
 };

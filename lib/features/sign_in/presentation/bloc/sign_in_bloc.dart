@@ -5,7 +5,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../../../core/utils/app_functions.dart';
 import '../../data/models/sign_in_request.dart';
-import '../../domain/repositories/sign_in_repository.dart';
+import '../../data/repositories/sign_in_repository.dart';
 import 'sign_in_event.dart';
 import 'sign_in_state.dart';
 

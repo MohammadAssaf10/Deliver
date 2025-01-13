@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
+import '../models/address.dart';
 import '../utils/app_enums.dart';
-import 'address.dart';
 
 class Trip extends Equatable {
   final int id;

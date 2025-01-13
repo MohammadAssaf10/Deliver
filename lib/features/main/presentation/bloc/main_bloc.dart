@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/utils/app_functions.dart';
-import '../../domain/repositories/main_repository.dart';
+import '../../data/repositories/main_repository.dart';
 import '../pages/home_body.dart';
 import 'main_event.dart';
 import 'main_state.dart';

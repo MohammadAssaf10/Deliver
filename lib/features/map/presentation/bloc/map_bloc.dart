@@ -8,12 +8,12 @@ import 'package:injectable/injectable.dart';
 import 'package:location/location.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
-import '../../../../core/entities/address.dart';
+import '../../../../core/entities/trip.dart';
+import '../../../../core/models/address.dart';
 import '../../../../core/utils/app_enums.dart';
 import '../../../../core/utils/app_functions.dart';
 import '../../../../generated/l10n.dart';
-import '../../../../core/entities/trip.dart';
-import '../../domain/repositories/map_repository.dart';
+import '../../data/repositories/map_repository.dart';
 import 'map_event.dart';
 import 'map_state.dart';
 
@@ -54,7 +54,6 @@ class MapBloc extends Bloc<MapEvent, MapState> {
   ) : super(MapState.initial()) {
     on<GetCurrentLocation>(
       (event, emit) async {
-        Address? startAddress;
         final bool isLocationServiceEnabled =
             await _ensureLocationServiceEnabled();
         if (!isLocationServiceEnabled) return;
@@ -66,14 +65,14 @@ class MapBloc extends Bloc<MapEvent, MapState> {
         final GoogleMapController googleMapController =
             await mapCompleter.future;
 
-        startAddress = await _getAddressPlacemark(Address(
-          markerState: MarkerState.start,
+        final Address currentAddress = await _getAddressPlacemark(Address(
+          markerState: MarkerState.currentLocation,
           latitude: locationData.latitude!,
           longitude: locationData.longitude!,
         ));
         final Set<Marker> updatedMarkers = _updateMarkerSet(
           markers: state.markers.toSet(),
-          markerState: MarkerState.start,
+          markerState: MarkerState.currentLocation,
           latitude: locationData.latitude!,
           longitude: locationData.longitude!,
           googleMapController: googleMapController,
@@ -82,7 +81,7 @@ class MapBloc extends Bloc<MapEvent, MapState> {
         emit(
           state.rebuild(
             (b) => b
-              ..startAddress = startAddress
+              ..currentAddress = currentAddress
               ..googleMapController = googleMapController
               ..markers.replace(updatedMarkers),
           ),
@@ -120,7 +119,7 @@ class MapBloc extends Bloc<MapEvent, MapState> {
       await panelController.open();
       emit(state.rebuild(
         (b) => b
-          ..startAddress = updatedAddress
+          ..tripStartAddress = updatedAddress
           ..markers.replace(updatedMarkers)
           ..isPanelOpen = true
           ..isStartAddress = null
@@ -141,7 +140,7 @@ class MapBloc extends Bloc<MapEvent, MapState> {
       await panelController.open();
       emit(state.rebuild(
         (b) => b
-          ..endAddress = updatedAddress
+          ..tripEndAddress = updatedAddress
           ..markers.replace(updatedMarkers)
           ..isPanelOpen = true
           ..isStartAddress = null
@@ -152,7 +151,8 @@ class MapBloc extends Bloc<MapEvent, MapState> {
 
     on<CalculateDistance>(
       (event, emit) async {
-        if (state.startAddress == null || state.endAddress == null) {
+        if ((state.tripStartAddress == null && state.currentAddress == null) ||
+            state.tripEndAddress == null) {
           return;
         }
         emit(state.rebuild(
@@ -162,8 +162,9 @@ class MapBloc extends Bloc<MapEvent, MapState> {
         ));
 
         final result = await _mapRepository.calculateDistance(
-          startLocation: state.startAddress!.toLocationRequest(),
-          endLocation: state.endAddress!.toLocationRequest(),
+          startLocation: state.tripStartAddress?.toLocationRequest() ??
+              state.currentAddress!.toLocationRequest(),
+          endLocation: state.tripEndAddress!.toLocationRequest(),
         );
         result.fold((failure) {
           emit(state.rebuild((b) => b..isLoading = false));
@@ -184,15 +185,16 @@ class MapBloc extends Bloc<MapEvent, MapState> {
 
     on<CreateNewTrip>(
       (event, emit) async {
-        if (state.startAddress == null ||
-            state.endAddress == null ||
+        if ((state.tripStartAddress == null && state.currentAddress == null) ||
+            state.tripEndAddress == null ||
             state.tripDistanceAndDuration == null) {
           return;
         }
         emit(state.rebuild((b) => b..isLoading = true));
         final result = await _mapRepository.createNewTrip(
-          startLocation: state.startAddress!.toLocationRequest(),
-          endLocation: state.endAddress!.toLocationRequest(),
+          startLocation: state.tripStartAddress?.toLocationRequest() ??
+              state.currentAddress!.toLocationRequest(),
+          endLocation: state.tripEndAddress!.toLocationRequest(),
           tripInfo: state.tripDistanceAndDuration!,
         );
         result.fold((failure) {
@@ -208,8 +210,9 @@ class MapBloc extends Bloc<MapEvent, MapState> {
           emit(state.rebuild(
             (b) => b
               ..isLoading = false
-              ..startAddress = null
-              ..endAddress = null
+              ..tripStartAddress = null
+              ..tripEndAddress = null
+              ..currentAddress = null
               ..tripDistanceAndDuration = null
               ..message = ""
               ..isPanelOpen = false
@@ -220,8 +223,31 @@ class MapBloc extends Bloc<MapEvent, MapState> {
       transformer: droppable(),
     );
 
-    on<SetCurrentTrip>((event, emit) {
+    on<SetCurrentTrip>((event, emit) async {
+      Set<Marker> markers = {};
       emit(state.rebuild((b) => b..currentTrip = event.trip));
+      final Address tripStartAddress =
+          await _getAddressPlacemark(event.trip.pickUpAddress);
+      markers = _updateMarkerSet(
+        markers: state.markers.toSet(),
+        markerState: MarkerState.tripStartLocation,
+        latitude: tripStartAddress.latitude,
+        longitude: tripStartAddress.longitude,
+      );
+      final Address tripEndAddress =
+          await _getAddressPlacemark(event.trip.dropOfAddress);
+      markers = _updateMarkerSet(
+        markers: markers,
+        markerState: MarkerState.tripEndLocation,
+        latitude: tripEndAddress.latitude,
+        longitude: tripEndAddress.longitude,
+      );
+      emit(state.rebuild(
+        (b) => b
+          ..tripStartAddress = tripStartAddress
+          ..tripEndAddress = tripEndAddress
+          ..markers.replace(markers),
+      ));
     });
   }
 
@@ -230,10 +256,7 @@ class MapBloc extends Bloc<MapEvent, MapState> {
     if (!serviceEnabled) {
       serviceEnabled = await _location.requestService();
       if (!serviceEnabled) {
-        showToastMessage(
-          S.current.pleaseTurnOnLocationServiceAndTryAgain,
-          isError: true,
-        );
+        showToastMessage(S.current.pleaseTurnOnLocationServiceAndTryAgain);
         return false;
       }
     }
@@ -243,9 +266,7 @@ class MapBloc extends Bloc<MapEvent, MapState> {
       permissionGranted = await _location.requestPermission();
       if (permissionGranted != PermissionStatus.granted) {
         showToastMessage(
-          S.current.pleaseAllowAppToAccessYourCurrentLocationAndTryAgain,
-          isError: true,
-        );
+            S.current.pleaseAllowAppToAccessYourCurrentLocationAndTryAgain);
         return false;
       }
     }
@@ -257,7 +278,7 @@ class MapBloc extends Bloc<MapEvent, MapState> {
     required MarkerState markerState,
     required double latitude,
     required double longitude,
-    required GoogleMapController googleMapController,
+    GoogleMapController? googleMapController,
   }) {
     final Set<Marker> updatedMarkers = Set<Marker>.from(markers);
     updatedMarkers.removeWhere(
@@ -268,18 +289,19 @@ class MapBloc extends Bloc<MapEvent, MapState> {
       markerId: MarkerId(markerState.index.toString()),
       position: LatLng(latitude, longitude),
     ));
-
-    googleMapController.animateCamera(
-      CameraUpdate.newCameraPosition(
-        CameraPosition(
-          target: LatLng(
-            latitude,
-            longitude,
+    if (googleMapController != null) {
+      googleMapController.animateCamera(
+        CameraUpdate.newCameraPosition(
+          CameraPosition(
+            target: LatLng(
+              latitude,
+              longitude,
+            ),
+            zoom: 15,
           ),
-          zoom: 16,
         ),
-      ),
-    );
+      );
+    }
 
     return updatedMarkers;
   }
