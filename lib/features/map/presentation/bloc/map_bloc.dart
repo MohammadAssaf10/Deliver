@@ -5,6 +5,7 @@ import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:geocoding/geocoding.dart' as geocoding;
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:injectable/injectable.dart';
+import 'package:intl/intl.dart';
 import 'package:location/location.dart';
 import 'package:sliding_up_panel/sliding_up_panel.dart';
 
@@ -204,8 +205,20 @@ class MapBloc extends Bloc<MapEvent, MapState> {
             "Error from CreateNewTrip bloc event: ${failure.errorMessage}",
             stringColor: StringColor.red,
           );
-        }, (_) {
+        }, (data) {
           panelController.close();
+          final String formattedDate =
+              DateFormat('yyyy-MM-dd HH:mm').format(DateTime.now());
+
+          final Trip currentTrip = Trip(
+            id: data,
+            calculatedDuration: state.tripDistanceAndDuration!.duration,
+            calculatedDistance: state.tripDistanceAndDuration!.distance,
+            pickUpAddress: state.tripStartAddress ?? state.currentAddress!,
+            dropOfAddress: state.tripEndAddress!,
+            tripStatus: TripStatus.waiting,
+            createdDate: formattedDate,
+          );
           showToastMessage(S.current.tripCreatedSuccessfully);
           emit(state.rebuild(
             (b) => b
@@ -216,7 +229,8 @@ class MapBloc extends Bloc<MapEvent, MapState> {
               ..tripDistanceAndDuration = null
               ..message = ""
               ..isPanelOpen = false
-              ..isStartAddress = null,
+              ..isStartAddress = null
+              ..currentTrip = currentTrip,
           ));
         });
       },
@@ -285,10 +299,13 @@ class MapBloc extends Bloc<MapEvent, MapState> {
       (marker) => marker.markerId.value == markerState.index.toString(),
     );
 
-    updatedMarkers.add(Marker(
-      markerId: MarkerId(markerState.index.toString()),
-      position: LatLng(latitude, longitude),
-    ));
+    updatedMarkers.add(
+      Marker(
+        markerId: MarkerId(markerState.index.toString()),
+        position: LatLng(latitude, longitude),
+        infoWindow: InfoWindow(title: markerState.name),
+      ),
+    );
     if (googleMapController != null) {
       googleMapController.animateCamera(
         CameraUpdate.newCameraPosition(

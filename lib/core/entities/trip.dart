@@ -20,7 +20,7 @@ class Trip extends Equatable {
     required this.dropOfAddress,
     required this.calculatedDistance,
     required this.calculatedDuration,
-    required this.driverName,
+    this.driverName,
     required this.createdDate,
   });
 

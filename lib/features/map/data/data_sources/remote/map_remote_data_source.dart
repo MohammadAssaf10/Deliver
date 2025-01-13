@@ -8,7 +8,7 @@ abstract class MapRemoteDataSource extends BaseRemoteDataSource {
     required LocationRequest endLocation,
   });
 
-  Future<void> createNewTrip({
+  Future<int> createNewTrip({
     required LocationRequest startLocation,
     required LocationRequest endLocation,
     required TripDistanceAndDuration tripInfo,

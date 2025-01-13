@@ -4,4 +4,5 @@ class Assets {
 
   static const String imagesOnBoarding = 'assets/images/on_boarding.jpg';
   static const String imagesPickupImage = 'assets/images/pickup_image.jpg';
+  static const String svgCurrentLocation = 'assets/svg/current_location.svg';
 }

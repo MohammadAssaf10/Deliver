@@ -4,7 +4,7 @@ import '../theming/colors_manager.dart';
 
 class AppTextButton extends StatelessWidget {
   final double? borderRadius;
-  final Color? backgroundColor;
+  final Color backgroundColor;
   final Color? overlayColor;
   final double? buttonWidth;
   final double? buttonHeight;
@@ -19,7 +19,7 @@ class AppTextButton extends StatelessWidget {
   const AppTextButton({
     super.key,
     this.borderRadius,
-    this.backgroundColor,
+    this.backgroundColor = ColorsManager.darkGrey,
     this.overlayColor,
     this.outerHorizontalPadding,
     this.buttonHeight,
@@ -48,7 +48,7 @@ class AppTextButton extends StatelessWidget {
             ),
           ),
           backgroundColor: WidgetStatePropertyAll(
-            backgroundColor ?? ColorsManager.darkGrey,
+            backgroundColor,
           ),
           fixedSize: WidgetStateProperty.all(
             Size(buttonWidth ?? double.maxFinite, buttonHeight ?? 50),

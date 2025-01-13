@@ -93,6 +93,7 @@ flutter:
 
   assets:
     - assets/images/
+    - assets/svgs/
 
 flutter_intl:
   enabled: true

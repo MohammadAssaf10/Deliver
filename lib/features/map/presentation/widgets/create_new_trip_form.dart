@@ -72,13 +72,21 @@ class CreateNewTripForm extends StatelessWidget {
                     SizedBox(width: 10),
                     Expanded(
                       child: AppTextButton(
-                        onPressed: () {
-                          context.read<MapBloc>().createNewTrip();
-                        },
+                        onPressed: startAddress == null || endAddress == null
+                            ? null
+                            : () {
+                                context.read<MapBloc>().createNewTrip();
+                              },
+                        backgroundColor:
+                            startAddress == null || endAddress == null
+                                ? ColorsManager.darkWhite
+                                : ColorsManager.darkGrey,
                         buttonText: S.of(context).confirm,
                         buttonHeight: 48,
                         borderRadius: 15,
-                        textStyle: TextStyles.font16WhiteRegular,
+                        textStyle: startAddress == null || endAddress == null
+                            ? TextStyles.font16DarkGreyRegular
+                            : TextStyles.font16WhiteRegular,
                       ),
                     ),
                   ],

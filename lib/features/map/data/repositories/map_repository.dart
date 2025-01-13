@@ -27,7 +27,7 @@ class MapRepository extends BaseRepository {
         },
       );
 
-  Future<Either<Failure, void>> createNewTrip({
+  Future<Either<Failure, int>> createNewTrip({
     required LocationRequest startLocation,
     required LocationRequest endLocation,
     required TripDistanceAndDuration tripInfo,
@@ -38,8 +38,8 @@ class MapRepository extends BaseRepository {
           endLocation: endLocation,
           tripInfo: tripInfo,
         ),
-        (_) async {
-          return;
+        (tripId) async {
+          return tripId;
         },
       );
 }

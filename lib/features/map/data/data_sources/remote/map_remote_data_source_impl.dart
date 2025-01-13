@@ -27,12 +27,12 @@ class MapRemoteDataSourceImpl extends BaseRemoteDataSourceImpl
   }
 
   @override
-  Future<void> createNewTrip({
+  Future<int> createNewTrip({
     required LocationRequest startLocation,
     required LocationRequest endLocation,
     required TripDistanceAndDuration tripInfo,
   }) async {
-    await performPostRequest(
+    final result = await performPostRequest(
       endpoint: Endpoints.createNewTrip,
       body: {
         "pickUpAddress": {
@@ -47,5 +47,6 @@ class MapRemoteDataSourceImpl extends BaseRemoteDataSourceImpl
         "duration": tripInfo.duration,
       },
     );
+    return result.data['id'];
   }
 }

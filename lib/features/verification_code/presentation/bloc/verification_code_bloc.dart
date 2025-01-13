@@ -54,7 +54,7 @@ class VerificationCodeBloc
           isError: true,
         );
       }, (data) async {
-        await Future.delayed(const Duration(seconds: 1));
+        await Future.delayed(const Duration(milliseconds: 1500));
         verificationCodeController.text = data;
       });
     });
