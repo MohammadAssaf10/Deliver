@@ -15,7 +15,6 @@ class VerificationCodeListener extends StatelessWidget {
     return BlocListener<VerificationCodeBloc, VerificationCodeState>(
       listener: (context, state) {
         if (state.isSuccess) {
-          closeLoadingDialogIfVisible();
           context.pushNamedAndRemoveUntil(
             Routes.mainPage,
             predicate: (_) => false,

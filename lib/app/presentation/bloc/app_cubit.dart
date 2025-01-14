@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../core/utils/app_enums.dart';
-import '../../domain/repositories/app_repository.dart';
+import '../../data/repositories/app_repository.dart';
 import 'app_state.dart';
 
 @lazySingleton

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import '../../core/routing/route_observer_helper.dart';
 import '../../core/routing/app_router.dart';
 import '../../core/routing/routes.dart';
 import '../../core/theming/colors_manager.dart';
@@ -33,6 +34,9 @@ class DeliverApp extends StatelessWidget {
           },
           initialRoute: Routes.splashPage,
           onGenerateRoute: appRouter.generateRoute,
+          navigatorObservers: <NavigatorObserver>[
+            RouteObserverHelper.mainRouteObserver,
+          ],
           localizationsDelegates: const [
             S.delegate,
             GlobalMaterialLocalizations.delegate,

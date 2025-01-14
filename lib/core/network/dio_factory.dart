@@ -23,6 +23,7 @@ class DioFactory {
   }
 
   static void _addDioHeaders() async {
+    final DateTime currentDateTime = DateTime.now().toUtc();
     _dio?.options.headers = {
       'Accept': 'text/plain',
       'Content-Type': 'application/json',
@@ -30,6 +31,7 @@ class DioFactory {
           "Bearer ${await SharedPreferencesHelper.getSecuredString(LocalStorageKeys.userToken)}",
       'Accept-Language':
           SharedPreferencesHelper.getString(LocalStorageKeys.appLanguage),
+      'fuckOff': currentDateTime.toString(),
     };
   }
 

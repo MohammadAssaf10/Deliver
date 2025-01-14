@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:bloc_concurrency/bloc_concurrency.dart';
+import 'package:flutter/material.dart';
 import 'package:geocoding/geocoding.dart' as geocoding;
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:injectable/injectable.dart';
@@ -13,6 +14,7 @@ import '../../../../core/entities/trip.dart';
 import '../../../../core/models/address.dart';
 import '../../../../core/utils/app_enums.dart';
 import '../../../../core/utils/app_functions.dart';
+import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
 import '../../data/repositories/map_repository.dart';
 import 'map_event.dart';
@@ -71,12 +73,13 @@ class MapBloc extends Bloc<MapEvent, MapState> {
           latitude: locationData.latitude!,
           longitude: locationData.longitude!,
         ));
-        final Set<Marker> updatedMarkers = _updateMarkerSet(
+        final Set<Marker> updatedMarkers = await _updateMarkerSet(
           markers: state.markers.toSet(),
           markerState: MarkerState.currentLocation,
           latitude: locationData.latitude!,
           longitude: locationData.longitude!,
           googleMapController: googleMapController,
+          markerIcon: Assets.iconsCurrentLocation,
         );
 
         emit(
@@ -110,12 +113,13 @@ class MapBloc extends Bloc<MapEvent, MapState> {
 
     on<SetStartAddress>((event, emit) async {
       final Address updatedAddress = await _getAddressPlacemark(event.address);
-      final Set<Marker> updatedMarkers = _updateMarkerSet(
+      final Set<Marker> updatedMarkers = await _updateMarkerSet(
         markers: state.markers.toSet(),
         markerState: updatedAddress.markerState!,
         latitude: updatedAddress.latitude,
         longitude: updatedAddress.longitude,
         googleMapController: state.googleMapController!,
+        markerIcon: Assets.iconsStartLocation,
       );
       await panelController.open();
       emit(state.rebuild(
@@ -131,12 +135,13 @@ class MapBloc extends Bloc<MapEvent, MapState> {
 
     on<SetEndAddress>((event, emit) async {
       final Address updatedAddress = await _getAddressPlacemark(event.address);
-      final Set<Marker> updatedMarkers = _updateMarkerSet(
+      final Set<Marker> updatedMarkers = await _updateMarkerSet(
         markers: state.markers.toSet(),
         markerState: updatedAddress.markerState!,
         latitude: updatedAddress.latitude,
         longitude: updatedAddress.longitude,
         googleMapController: state.googleMapController!,
+        markerIcon: Assets.iconsEndLocation,
       );
       await panelController.open();
       emit(state.rebuild(
@@ -242,19 +247,21 @@ class MapBloc extends Bloc<MapEvent, MapState> {
       emit(state.rebuild((b) => b..currentTrip = event.trip));
       final Address tripStartAddress =
           await _getAddressPlacemark(event.trip.pickUpAddress);
-      markers = _updateMarkerSet(
+      markers = await _updateMarkerSet(
         markers: state.markers.toSet(),
         markerState: MarkerState.tripStartLocation,
         latitude: tripStartAddress.latitude,
         longitude: tripStartAddress.longitude,
+        markerIcon: Assets.iconsStartLocation,
       );
       final Address tripEndAddress =
           await _getAddressPlacemark(event.trip.dropOfAddress);
-      markers = _updateMarkerSet(
+      markers = await _updateMarkerSet(
         markers: markers,
         markerState: MarkerState.tripEndLocation,
         latitude: tripEndAddress.latitude,
         longitude: tripEndAddress.longitude,
+        markerIcon: Assets.iconsEndLocation,
       );
       emit(state.rebuild(
         (b) => b
@@ -287,23 +294,30 @@ class MapBloc extends Bloc<MapEvent, MapState> {
     return true;
   }
 
-  Set<Marker> _updateMarkerSet({
+  Future<Set<Marker>> _updateMarkerSet({
     required Set<Marker> markers,
     required MarkerState markerState,
     required double latitude,
     required double longitude,
+    required String markerIcon,
     GoogleMapController? googleMapController,
-  }) {
+  }) async {
     final Set<Marker> updatedMarkers = Set<Marker>.from(markers);
     updatedMarkers.removeWhere(
       (marker) => marker.markerId.value == markerState.index.toString(),
     );
-
+    final BitmapDescriptor mapMarkerIcon = await BitmapDescriptor.asset(
+      const ImageConfiguration(
+        size: Size(34, 34),
+      ),
+      markerIcon,
+    );
     updatedMarkers.add(
       Marker(
         markerId: MarkerId(markerState.index.toString()),
         position: LatLng(latitude, longitude),
         infoWindow: InfoWindow(title: markerState.name),
+        icon: mapMarkerIcon,
       ),
     );
     if (googleMapController != null) {

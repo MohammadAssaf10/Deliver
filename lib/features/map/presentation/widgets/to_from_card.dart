@@ -73,12 +73,13 @@ class ToFromCard extends StatelessWidget {
                   child: CircleAvatar(
                     backgroundColor: ColorsManager.white,
                     child: Icon(
-                      Icons.edit,
+                      Icons.edit_location,
                       color: ColorsManager.darkGrey,
                     ),
                   ),
                 ),
-                if (isStartPoint)
+                if (isStartPoint) ...[
+                  SizedBox(width: 5),
                   GestureDetector(
                     onTap: () {
                       context.read<MapBloc>().getCurrentLocation();
@@ -91,6 +92,7 @@ class ToFromCard extends StatelessWidget {
                       ),
                     ),
                   ),
+                ],
               ],
             ),
           ),
