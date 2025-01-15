@@ -4,8 +4,8 @@ on:
   push:
     branches:
       - master
-    paths:
-      - "pubspec.yaml"
+#    paths:
+#      - "pubspec.yaml"
 
 jobs:
   android_distribute_to_firebase:
@@ -39,6 +39,7 @@ jobs:
 
       - name: Run Build
         run: ./gradlew build
+        working-directory: android
 
       - name: Build and Distribute App
         env:
