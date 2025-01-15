@@ -29,7 +29,7 @@ jobs:
       - name: Set up local.properties
         run: |
           cd android
-          echo "google_maps_key=${{ secrets.GOOGLE_MAP_KEY }}" > local.properties
+          echo "google_map_key=${{ secrets.GOOGLE_MAP_KEY }}" > local.properties
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
