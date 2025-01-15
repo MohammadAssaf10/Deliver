@@ -26,6 +26,11 @@ jobs:
           flutter-version: "3.24.3"
           channel: stable
 
+      - name: Set up local.properties
+        run: |
+          cd android
+          echo "google_maps_key=${{ secrets.GOOGLE_MAPS_KEY }}" > local.properties
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
@@ -33,13 +38,11 @@ jobs:
           bundler-cache: true
           working-directory: android
 
-      - name: Set up local.properties
+      - name: Install Fastlane
         run: |
-          echo "google_maps_key=${{ secrets.GOOGLE_MAPS_KEY }}" >> local.properties
-
-      - name: Run Build
-        run: ./gradlew build
-        working-directory: android
+          cd android
+          sudo gem install fastlane
+          bundle install
 
       - name: Build and Distribute App
         env:
