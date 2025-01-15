@@ -4,14 +4,6 @@ platform :android do
   desc "Lane for Android Firebase App Distribution"
   lane :firebase_distribution do
     sh "flutter clean"
-    google_maps_key = ENV["GOOGLE_MAP_KEY"]
-    if google_maps_key.nil? || google_maps_key.empty?
-        UI.user_error!("Google Maps API Key is missing!")
-    end
-local_properties_path = File.join(Dir.pwd, "android", "local.properties")
-    File.open(local_properties_path ,"a") do |f|
-    f.puts "google_maps_key=#{google_maps_key}"
-    end
     sh "flutter build apk --release"
     firebase_app_distribution(
         app: "1:855422049492:android:9f51e70785e3a18d922f41",
