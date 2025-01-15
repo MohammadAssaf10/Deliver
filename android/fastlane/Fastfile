@@ -8,7 +8,8 @@ platform :android do
     if google_maps_key.nil? || google_maps_key.empty?
         UI.user_error!("Google Maps API Key is missing!")
     end
-    File.open("../android/local.properties","a") do |f|
+local_properties_path = File.join(Dir.pwd, "android", "local.properties")
+    File.open(local_properties_path ,"a") do |f|
     f.puts "google_maps_key=#{google_maps_key}"
     end
     sh "flutter build apk --release"
