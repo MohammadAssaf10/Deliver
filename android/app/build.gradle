@@ -49,7 +49,7 @@ android {
         targetSdkVersion flutter.targetSdkVersion
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
-        def googleMapsKey = localProperties['google_maps_key'] ?: "YOUR_DEFAULT_KEY"
+        def googleMapsKey = localProperties['google_maps_key']
         buildConfigField "String", "GOOGLE_MAPS_KEY", "\"${googleMapsKey}\""
         resValue "string", "google_maps_key", googleMapsKey
     }
