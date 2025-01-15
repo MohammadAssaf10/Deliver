@@ -58,7 +58,7 @@ void closeLoadingDialogIfVisible() {
   }
 }
 
-Future<String> fetchGoogleMapKey() async {
+Future<String> fetchGoogleMapsKey() async {
   final MethodChannel channel = MethodChannel('deliverChannel');
-  return await channel.invokeMethod('getGoogleMapKey');
+  return await channel.invokeMethod('getGoogleMapsKey');
 }

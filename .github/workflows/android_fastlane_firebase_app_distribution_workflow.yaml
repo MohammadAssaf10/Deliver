@@ -29,7 +29,7 @@ jobs:
       - name: Set up local.properties
         run: |
           cd android
-          echo "google_map_key=${{ secrets.GOOGLE_MAP_KEY }}" > local.properties
+          echo "google_maps_key=${{ secrets.GOOGLE_MAPS_KEY }}" > local.properties
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
@@ -47,7 +47,6 @@ jobs:
       - name: Build and Distribute App
         env:
           FIREBASE_CLI_TOKEN: ${{ secrets.FIREBASE_CLI_TOKEN }}
-          GOOGLE_MAP_KEY: ${{ secrets.GOOGLE_MAP_KEY }}
         run: |
           bundle exec fastlane android firebase_distribution
         working-directory: android
