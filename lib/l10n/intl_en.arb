@@ -66,5 +66,9 @@
   "tripNumber": "Trip Number",
   "status": "Status",
   "date": "Date",
-  "showTripDetails": "Show trip details"
+  "showTripDetails": "Show trip details",
+  "home": "Home",
+  "services": "Services",
+  "activities": "Activities",
+  "account": "Account"
 }

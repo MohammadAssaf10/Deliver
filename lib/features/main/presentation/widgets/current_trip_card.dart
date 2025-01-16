@@ -27,7 +27,6 @@ class CurrentTripCard extends StatelessWidget {
       },
       child: Container(
         width: double.infinity,
-        // padding: EdgeInsets.all(12),
         clipBehavior: Clip.antiAlias,
         decoration: BoxDecoration(
           color: ColorsManager.customPurple,

@@ -66,5 +66,9 @@
   "tripNumber": "رقم الرحلة",
   "status": "الحالة",
   "date": "التاريخ",
-  "showTripDetails": "عرض تفاصيل الرحلة"
+  "showTripDetails": "عرض تفاصيل الرحلة",
+  "home": "الرئيسية",
+  "services": "الخدمات",
+  "activities": "الأنشطة",
+  "account": "الحساب"
 }

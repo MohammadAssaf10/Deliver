@@ -3,6 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/utils/app_functions.dart';
+import '../../../account/presentation/pages/account_page.dart';
+import '../../../activities/presentation/pages/activities_page.dart';
+import '../../../services/presentation/pages/services_page.dart';
 import '../../data/repositories/main_repository.dart';
 import '../pages/home_body.dart';
 import 'main_event.dart';
@@ -13,6 +16,9 @@ class MainBloc extends Bloc<MainEvent, MainState> {
   final PageController pageController = PageController();
   final List<Widget> pages = const [
     HomeBody(),
+    ServicesPage(),
+    ActivitiesPage(),
+    AccountPage(),
   ];
   final MainRepository _mainRepository;
 

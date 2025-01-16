@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/theming/colors_manager.dart';
+import '../../../../generated/l10n.dart';
 import 'bottom_navigation_bar_button.dart';
 
 class MainBottomNavigationBar extends StatelessWidget {
@@ -23,23 +24,23 @@ class MainBottomNavigationBar extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           BottomNavigationBarButton(
-            onPress: () {},
-            title: 'Home',
+            index: 0,
+            title: S.of(context).home,
             icon: Icons.home,
           ),
           BottomNavigationBarButton(
-            onPress: () {},
-            title: 'Services',
+            index: 1,
+            title: S.of(context).services,
             icon: Icons.apps,
           ),
           BottomNavigationBarButton(
-            onPress: () {},
-            title: "Activity",
+            index: 2,
+            title: S.of(context).activities,
             icon: Icons.list_alt,
           ),
           BottomNavigationBarButton(
-            onPress: () {},
-            title: 'Account',
+            index: 3,
+            title: S.of(context).account,
             icon: Icons.person,
           ),
         ],

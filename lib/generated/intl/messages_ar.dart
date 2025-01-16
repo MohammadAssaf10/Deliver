@@ -26,6 +26,8 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+        "account": MessageLookupByLibrary.simpleMessage("الحساب"),
+        "activities": MessageLookupByLibrary.simpleMessage("الأنشطة"),
         "addTrip": MessageLookupByLibrary.simpleMessage("إضافة رحلة"),
         "alreadyHaveAnAccount":
             MessageLookupByLibrary.simpleMessage("لديك حساب بالفعل؟"),
@@ -54,6 +56,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "getStartWithDeliver":
             MessageLookupByLibrary.simpleMessage("ابدأ مع Deliver"),
         "haveAnAccount": MessageLookupByLibrary.simpleMessage("لديك حساب؟"),
+        "home": MessageLookupByLibrary.simpleMessage("الرئيسية"),
         "kindlySignUpBelow":
             MessageLookupByLibrary.simpleMessage("يرجى التسجيل أدناه."),
         "km": m0,
@@ -106,6 +109,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "registration": MessageLookupByLibrary.simpleMessage("التسجيل"),
         "rideWithDeliver":
             MessageLookupByLibrary.simpleMessage("اركب مع Deliver"),
+        "services": MessageLookupByLibrary.simpleMessage("الخدمات"),
         "showTripDetails":
             MessageLookupByLibrary.simpleMessage("عرض تفاصيل الرحلة"),
         "signIn": MessageLookupByLibrary.simpleMessage("تسجيل الدخول"),
