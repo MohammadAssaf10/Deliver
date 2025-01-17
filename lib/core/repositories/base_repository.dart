@@ -1,15 +1,17 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
+import 'package:sentry_flutter/sentry_flutter.dart';
 
 import '../../generated/l10n.dart';
 import '../di/di.dart';
 import '../error/error_handler.dart';
+import '../error/exceptions.dart';
 import '../error/failures.dart';
 import '../network/network_info.dart';
 import '../utils/app_enums.dart';
 import '../utils/app_functions.dart';
 
-class BaseRepository{
+class BaseRepository {
   final NetworkInfo _networkInfo = getIt<NetworkInfo>();
 
   @protected
@@ -23,7 +25,11 @@ class BaseRepository{
     try {
       final TM result = await apiRequest(); // apiRequest returns TM
       return Right(await converter(result)); // Convert TM to T
-    } catch (e) {
+    } catch (e, stackTrace) {
+      Sentry.captureException(
+        e,
+        stackTrace: stackTrace,
+      );
       dPrint("Error From BaseRepository: $e", stringColor: StringColor.red);
       final Failure failure = ErrorHandler.handleFailureError(e);
       return Left(failure);

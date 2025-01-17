@@ -13,6 +13,8 @@ class MainActivity : FlutterActivity() {
             .setMethodCallHandler { call, result ->
                 if (call.method == "getGoogleMapsKey") {
                     result.success(BuildConfig.GOOGLE_MAPS_KEY)
+                } else if (call.method == "getSentryDsn") {
+                    result.success(BuildConfig.SENTRY_DSN)
                 } else {
                     result.notImplemented()
                 }

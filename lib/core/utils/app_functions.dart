@@ -62,3 +62,8 @@ Future<String> fetchGoogleMapsKey() async {
   final MethodChannel channel = MethodChannel('deliverChannel');
   return await channel.invokeMethod('getGoogleMapsKey');
 }
+
+Future<String> getSentryDsn() async {
+  final MethodChannel channel = MethodChannel('deliverChannel');
+  return await channel.invokeMethod('getSentryDsn');
+}

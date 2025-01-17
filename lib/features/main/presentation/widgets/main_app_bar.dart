@@ -35,10 +35,8 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
                 state.pageIndex == 0
                     ? S.of(context).deliver
                     : state.pageIndex == 1
-                        ? S.of(context).services
-                        : state.pageIndex == 2
-                            ? S.of(context).activities
-                            : S.of(context).account,
+                        ? S.of(context).activities
+                        : S.of(context).account,
                 style: TextStyles.font33DarkWhiteBold,
               );
             },

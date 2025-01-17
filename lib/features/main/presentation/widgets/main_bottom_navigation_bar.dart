@@ -30,16 +30,11 @@ class MainBottomNavigationBar extends StatelessWidget {
           ),
           BottomNavigationBarButton(
             index: 1,
-            title: S.of(context).services,
-            icon: Icons.apps,
-          ),
-          BottomNavigationBarButton(
-            index: 2,
             title: S.of(context).activities,
             icon: Icons.list_alt,
           ),
           BottomNavigationBarButton(
-            index: 3,
+            index: 2,
             title: S.of(context).account,
             icon: Icons.person,
           ),

@@ -50,8 +50,11 @@ android {
         versionCode flutterVersionCode.toInteger()
         versionName flutterVersionName
         def googleMapsKey = localProperties['google_maps_key']
+        def sentryDsn = localProperties['sentry_dsn']
         buildConfigField "String", "GOOGLE_MAPS_KEY", "\"${googleMapsKey}\""
+        buildConfigField "String", "SENTRY_DSN", "\"${sentryDsn}\""
         resValue "string", "google_maps_key", googleMapsKey
+        resValue "string", "sentry_dsn", sentryDsn
     }
 
     buildTypes {
