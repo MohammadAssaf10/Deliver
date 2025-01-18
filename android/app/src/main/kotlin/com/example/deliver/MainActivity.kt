@@ -5,18 +5,24 @@ import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.plugin.common.MethodChannel
 
 class MainActivity : FlutterActivity() {
-    private val CHANNEL = "deliverChannel"
+    private val channel = "deliverChannel"
 
     override fun configureFlutterEngine(flutterEngine: FlutterEngine) {
         super.configureFlutterEngine(flutterEngine)
-        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, CHANNEL)
+        MethodChannel(flutterEngine.dartExecutor.binaryMessenger, channel)
             .setMethodCallHandler { call, result ->
-                if (call.method == "getGoogleMapsKey") {
-                    result.success(BuildConfig.GOOGLE_MAPS_KEY)
-                } else if (call.method == "getSentryDsn") {
-                    result.success(BuildConfig.SENTRY_DSN)
-                } else {
-                    result.notImplemented()
+                when (call.method) {
+                    "getGoogleMapsKey" -> {
+                        result.success(BuildConfig.GOOGLE_MAPS_KEY)
+                    }
+
+                    "getSentryDsn" -> {
+                        result.success(BuildConfig.SENTRY_DSN)
+                    }
+
+                    else -> {
+                        result.notImplemented()
+                    }
                 }
             }
     }
