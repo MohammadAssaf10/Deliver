@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../generated/l10n.dart';
 import '../../error/error_handler.dart';
 import '../../error/exceptions.dart';
 import '../../models/base_model.dart';
@@ -32,7 +33,7 @@ class BaseRemoteDataSourceImpl extends BaseRemoteDataSource {
           throw ServerException(error: baseModel.message);
         }
       } else {
-        throw const ServerException(error: "Something went wrong");
+        throw ServerException(error: S.current.somethingWentWrong);
       }
     } catch (e) {
       throw ErrorHandler.handleExceptionError(e);
@@ -60,7 +61,7 @@ class BaseRemoteDataSourceImpl extends BaseRemoteDataSource {
           throw ServerException(error: baseModel.message);
         }
       } else {
-        throw const ServerException(error: "Something went wrong");
+        throw ServerException(error: S.current.somethingWentWrong);
       }
     } catch (e) {
       throw ErrorHandler.handleExceptionError(e);
@@ -88,7 +89,7 @@ class BaseRemoteDataSourceImpl extends BaseRemoteDataSource {
           throw ServerException(error: baseModel.message);
         }
       } else {
-        throw const ServerException(error: "Something went wrong");
+        throw ServerException(error: S.current.somethingWentWrong);
       }
     } catch (e) {
       throw ErrorHandler.handleExceptionError(e);

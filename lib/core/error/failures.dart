@@ -13,6 +13,11 @@ class ServerFailure extends Failure {
   const ServerFailure({
     required String? errorMessage,
   }) : super(errorMessage ?? "Something went wrong");
+
+  @override
+  String toString() {
+    return 'ServerFailure{errorMessage:$errorMessage}';
+  }
 }
 
 class CacheFailure extends Failure {

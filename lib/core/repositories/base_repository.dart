@@ -5,7 +5,6 @@ import 'package:sentry_flutter/sentry_flutter.dart';
 import '../../generated/l10n.dart';
 import '../di/di.dart';
 import '../error/error_handler.dart';
-import '../error/exceptions.dart';
 import '../error/failures.dart';
 import '../network/network_info.dart';
 import '../utils/app_enums.dart';
