@@ -51,6 +51,13 @@ android {
         versionName flutterVersionName
         def googleMapsKey = localProperties['google_maps_key']
         def sentryDsn = localProperties['sentry_dsn']
+        // Log missing keys
+        if (!localProperties.containsKey('google_maps_key') || googleMapsKey == null || googleMapsKey.isEmpty()) {
+            println "Warning: google_maps_key is not defined in local.properties."
+        }
+        if (!localProperties.containsKey('sentry_dsn') || sentryDsn == null || sentryDsn.isEmpty()) {
+            println "Warning: sentry_dsn is not defined in local.properties."
+        }
         buildConfigField "String", "GOOGLE_MAPS_KEY", "\"${googleMapsKey}\""
         buildConfigField "String", "SENTRY_DSN", "\"${sentryDsn}\""
         resValue "string", "google_maps_key", googleMapsKey

@@ -29,8 +29,8 @@ jobs:
       - name: Set up local.properties
         run: |
           cd android
-          echo "google_maps_key=${{ secrets.GOOGLE_MAPS_KEY }}" > local.properties
-          echo "sentry_dsn=${{ secrets.SENTRY_DSN }}" > local.properties
+          echo "google_maps_key=${{ secrets.GOOGLE_MAPS_KEY }}" >> local.properties
+          echo "sentry_dsn=${{ secrets.SENTRY_DSN }}" >> local.properties
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
