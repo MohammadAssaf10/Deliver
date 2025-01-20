@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 import 'app_enums.dart';
 import 'app_regex.dart';
@@ -58,4 +59,13 @@ extension Navigation on BuildContext {
   }
 
   void pop() => Navigator.of(this).pop();
+}
+
+extension ConvertIntToStringDateTime on int {
+  String convertToStringDateTime() {
+    final DateTime date =
+        DateTime.fromMillisecondsSinceEpoch(this * 1000).toLocal();
+    final String formatedDate = DateFormat('yyyy-MM-dd HH:mm').format(date);
+    return formatedDate;
+  }
 }
