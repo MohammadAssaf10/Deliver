@@ -54,7 +54,7 @@ class DeliverApp extends StatelessWidget {
               backgroundColor: ColorsManager.darkGrey,
             ),
             textSelectionTheme: TextSelectionThemeData(
-              selectionColor: ColorsManager.grey.withOpacity(0.5),
+              selectionColor: ColorsManager.grey.withValues(alpha: 0.5),
               selectionHandleColor: ColorsManager.darkGrey,
             ),
           ),

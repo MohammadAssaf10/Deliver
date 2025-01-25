@@ -54,7 +54,7 @@ class AppTextButton extends StatelessWidget {
             Size(buttonWidth ?? double.maxFinite, buttonHeight ?? 50),
           ),
           overlayColor: WidgetStateProperty.all(
-            overlayColor ?? ColorsManager.grey.withOpacity(0.03),
+            overlayColor ?? ColorsManager.grey.withValues(alpha: 0.03),
           ),
         ),
         onPressed: onPressed,

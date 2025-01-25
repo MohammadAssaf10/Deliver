@@ -1,6 +1,5 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 
 import '../di/di.dart';
@@ -56,14 +55,4 @@ void closeLoadingDialogIfVisible() {
   if (getIt<GlobalKey<State>>().currentContext != null) {
     getIt<GlobalKey<State>>().currentContext!.pop();
   }
-}
-
-Future<String> fetchGoogleMapsKey() async {
-  final MethodChannel channel = MethodChannel('deliverChannel');
-  return await channel.invokeMethod('getGoogleMapsKey');
-}
-
-Future<String> getSentryDsn() async {
-  final MethodChannel channel = MethodChannel('deliverChannel');
-  return await channel.invokeMethod('getSentryDsn');
 }
