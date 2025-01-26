@@ -19,18 +19,22 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
   }
 
   SplashBloc(
-    this._splashRepository,
-    this._signInRepository,
-  ) : super(SplashState.initial()) {
+      this._splashRepository,
+      this._signInRepository,
+      ) : super(SplashState.initial()) {
     on<CheckUserAuthentication>((event, emit) async {
       emit(SplashState.initial());
       final result = await _splashRepository.isUserAuthenticated();
       await Future.delayed(const Duration(milliseconds: 1500));
       result.fold(
-        (failure) {
-          emit(state.rebuild((b) => b..isError = true));
+            (failure) {
+          emit(state.rebuild(
+                (b) => b
+              ..isError = true
+              ..errorMessage = failure.errorMessage,
+          ));
         },
-        (data) {
+            (data) {
           emit(state.rebuild((b) => b..isAuth = data));
           if (data) {
             add(TokenNeedRefresh());
@@ -40,10 +44,15 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
         },
       );
     });
+
     on<TokenNeedRefresh>((event, emit) async {
       final result = await _splashRepository.tokenNeedRefresh();
       await result.fold((failure) {
-        emit(state.rebuild((b) => b..isError = true));
+        emit(state.rebuild(
+              (b) => b
+            ..isError = true
+            ..errorMessage = failure.errorMessage,
+        ));
       }, (data) async {
         if (data) {
           add(RefreshToken());
@@ -64,7 +73,11 @@ class SplashBloc extends Bloc<SplashEvent, SplashState> {
       );
       final result = await _signInRepository.signIn(signInRequest);
       result.fold((failure) {
-        emit(state.rebuild((b) => b..isError = true));
+        emit(state.rebuild(
+              (b) => b
+            ..isError = true
+            ..errorMessage = failure.errorMessage,
+        ));
       }, (_) {
         emit(state.rebuild((b) => b..isTokenUpToDate = true));
       });

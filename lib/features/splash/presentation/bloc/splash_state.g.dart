@@ -13,16 +13,23 @@ class _$SplashState extends SplashState {
   final bool isTokenUpToDate;
   @override
   final bool isError;
+  @override
+  final String errorMessage;
 
   factory _$SplashState([void Function(SplashStateBuilder)? updates]) =>
       (new SplashStateBuilder()..update(updates))._build();
 
   _$SplashState._(
-      {this.isAuth, required this.isTokenUpToDate, required this.isError})
+      {this.isAuth,
+      required this.isTokenUpToDate,
+      required this.isError,
+      required this.errorMessage})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         isTokenUpToDate, r'SplashState', 'isTokenUpToDate');
     BuiltValueNullFieldError.checkNotNull(isError, r'SplashState', 'isError');
+    BuiltValueNullFieldError.checkNotNull(
+        errorMessage, r'SplashState', 'errorMessage');
   }
 
   @override
@@ -38,7 +45,8 @@ class _$SplashState extends SplashState {
     return other is SplashState &&
         isAuth == other.isAuth &&
         isTokenUpToDate == other.isTokenUpToDate &&
-        isError == other.isError;
+        isError == other.isError &&
+        errorMessage == other.errorMessage;
   }
 
   @override
@@ -47,6 +55,7 @@ class _$SplashState extends SplashState {
     _$hash = $jc(_$hash, isAuth.hashCode);
     _$hash = $jc(_$hash, isTokenUpToDate.hashCode);
     _$hash = $jc(_$hash, isError.hashCode);
+    _$hash = $jc(_$hash, errorMessage.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -56,7 +65,8 @@ class _$SplashState extends SplashState {
     return (newBuiltValueToStringHelper(r'SplashState')
           ..add('isAuth', isAuth)
           ..add('isTokenUpToDate', isTokenUpToDate)
-          ..add('isError', isError))
+          ..add('isError', isError)
+          ..add('errorMessage', errorMessage))
         .toString();
   }
 }
@@ -77,6 +87,10 @@ class SplashStateBuilder implements Builder<SplashState, SplashStateBuilder> {
   bool? get isError => _$this._isError;
   set isError(bool? isError) => _$this._isError = isError;
 
+  String? _errorMessage;
+  String? get errorMessage => _$this._errorMessage;
+  set errorMessage(String? errorMessage) => _$this._errorMessage = errorMessage;
+
   SplashStateBuilder();
 
   SplashStateBuilder get _$this {
@@ -85,6 +99,7 @@ class SplashStateBuilder implements Builder<SplashState, SplashStateBuilder> {
       _isAuth = $v.isAuth;
       _isTokenUpToDate = $v.isTokenUpToDate;
       _isError = $v.isError;
+      _errorMessage = $v.errorMessage;
       _$v = null;
     }
     return this;
@@ -107,11 +122,14 @@ class SplashStateBuilder implements Builder<SplashState, SplashStateBuilder> {
   _$SplashState _build() {
     final _$result = _$v ??
         new _$SplashState._(
-            isAuth: isAuth,
-            isTokenUpToDate: BuiltValueNullFieldError.checkNotNull(
-                isTokenUpToDate, r'SplashState', 'isTokenUpToDate'),
-            isError: BuiltValueNullFieldError.checkNotNull(
-                isError, r'SplashState', 'isError'));
+          isAuth: isAuth,
+          isTokenUpToDate: BuiltValueNullFieldError.checkNotNull(
+              isTokenUpToDate, r'SplashState', 'isTokenUpToDate'),
+          isError: BuiltValueNullFieldError.checkNotNull(
+              isError, r'SplashState', 'isError'),
+          errorMessage: BuiltValueNullFieldError.checkNotNull(
+              errorMessage, r'SplashState', 'errorMessage'),
+        );
     replace(_$result);
     return _$result;
   }

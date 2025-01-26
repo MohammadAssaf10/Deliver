@@ -9,15 +9,18 @@ abstract class SplashState implements Built<SplashState, SplashStateBuilder> {
 
   bool get isError;
 
+  String get errorMessage;
+
   SplashState._();
 
   factory SplashState([void Function(SplashStateBuilder) updates]) =
-      _$SplashState;
+  _$SplashState;
 
   factory SplashState.initial() => SplashState(
         (b) => b
-          ..isAuth = null
-          ..isTokenUpToDate = false
-          ..isError = false,
-      );
+      ..isAuth = null
+      ..isTokenUpToDate = false
+      ..isError = false
+      ..errorMessage = '',
+  );
 }

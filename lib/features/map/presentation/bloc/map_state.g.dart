@@ -209,20 +209,21 @@ class MapStateBuilder implements Builder<MapState, MapStateBuilder> {
     try {
       _$result = _$v ??
           new _$MapState._(
-              isLoading: BuiltValueNullFieldError.checkNotNull(
-                  isLoading, r'MapState', 'isLoading'),
-              tripStartAddress: tripStartAddress,
-              currentAddress: currentAddress,
-              tripEndAddress: tripEndAddress,
-              markers: markers.build(),
-              isPanelOpen: BuiltValueNullFieldError.checkNotNull(
-                  isPanelOpen, r'MapState', 'isPanelOpen'),
-              isStartAddress: isStartAddress,
-              googleMapController: googleMapController,
-              tripDistanceAndDuration: tripDistanceAndDuration,
-              message: BuiltValueNullFieldError.checkNotNull(
-                  message, r'MapState', 'message'),
-              currentTrip: currentTrip);
+            isLoading: BuiltValueNullFieldError.checkNotNull(
+                isLoading, r'MapState', 'isLoading'),
+            tripStartAddress: tripStartAddress,
+            currentAddress: currentAddress,
+            tripEndAddress: tripEndAddress,
+            markers: markers.build(),
+            isPanelOpen: BuiltValueNullFieldError.checkNotNull(
+                isPanelOpen, r'MapState', 'isPanelOpen'),
+            isStartAddress: isStartAddress,
+            googleMapController: googleMapController,
+            tripDistanceAndDuration: tripDistanceAndDuration,
+            message: BuiltValueNullFieldError.checkNotNull(
+                message, r'MapState', 'message'),
+            currentTrip: currentTrip,
+          );
     } catch (_) {
       late String _$failedField;
       try {

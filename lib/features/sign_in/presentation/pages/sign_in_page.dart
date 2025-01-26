@@ -1,20 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/colors_manager.dart';
 import '../../../../core/theming/styles_manager.dart';
 import '../../../../core/utils/app_extensions.dart';
 import '../../../../core/utils/app_functions.dart';
 import '../../../../core/utils/app_validator.dart';
-import '../../../../core/widget/auth_option_text.dart';
 import '../../../../core/widget/app_text_button.dart';
+import '../../../../core/widget/auth_option_text.dart';
 import '../../../../core/widget/custom_text_field.dart';
+import '../../../../core/widget/or_bar.dart';
 import '../../../../core/widget/select_language.dart';
 import '../../../../generated/l10n.dart';
 import '../bloc/sign_in_bloc.dart';
 import '../bloc/sign_in_state.dart';
-import '../../../../core/widget/or_bar.dart';
 
 class SignInPage extends StatelessWidget {
   const SignInPage({super.key});
@@ -23,33 +24,36 @@ class SignInPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocListener<SignInBloc, SignInState>(
       listener: (context, state) {
-        if (state.isError) {
-          closeLoadingDialogIfVisible();
-        }
         if (state.isSuccess && state.isPhoneNumberVerified) {
           context.pushNamedAndRemoveUntil(
             Routes.mainPage,
             predicate: (_) => false,
           );
         } else if (state.isSuccess && !state.isPhoneNumberVerified) {
+          closeLoadingDialogIfVisible();
           context.pushNamed(Routes.verificationCodePage);
-        }
-        if (state.isLoading) {
+        } else if (state.isError) {
+          closeLoadingDialogIfVisible();
+        } else if (state.isLoading) {
           showLoadingDialog(context);
         }
       },
       child: Scaffold(
         resizeToAvoidBottomInset: true,
         backgroundColor: ColorsManager.customWhite,
-        body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.all(20),
-            child: Form(
-              key: context.read<SignInBloc>().formKey,
+        body: Padding(
+          padding: const EdgeInsets.only(
+            top: 20,
+            right: 20,
+            left: 20,
+          ),
+          child: Form(
+            key: context.read<SignInBloc>().formKey,
+            child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
-                  const Spacer(),
+                  SizedBox(height: MediaQuery.sizeOf(context).height * 0.3),
                   Text(
                     S.of(context).welcomeBack,
                     textAlign: TextAlign.center,
@@ -125,7 +129,8 @@ class SignInPage extends StatelessWidget {
                       context.read<SignInBloc>().passwordController.clear();
                     },
                   ),
-                  const Expanded(child: SelectLanguage()),
+                  SizedBox(height: MediaQuery.sizeOf(context).height * 0.19),
+                  SelectLanguage(),
                 ],
               ),
             ),

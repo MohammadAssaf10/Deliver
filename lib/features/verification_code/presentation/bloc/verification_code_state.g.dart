@@ -113,12 +113,13 @@ class VerificationCodeStateBuilder
   _$VerificationCodeState _build() {
     final _$result = _$v ??
         new _$VerificationCodeState._(
-            isLoading: BuiltValueNullFieldError.checkNotNull(
-                isLoading, r'VerificationCodeState', 'isLoading'),
-            isSuccess: BuiltValueNullFieldError.checkNotNull(
-                isSuccess, r'VerificationCodeState', 'isSuccess'),
-            isError: BuiltValueNullFieldError.checkNotNull(
-                isError, r'VerificationCodeState', 'isError'));
+          isLoading: BuiltValueNullFieldError.checkNotNull(
+              isLoading, r'VerificationCodeState', 'isLoading'),
+          isSuccess: BuiltValueNullFieldError.checkNotNull(
+              isSuccess, r'VerificationCodeState', 'isSuccess'),
+          isError: BuiltValueNullFieldError.checkNotNull(
+              isError, r'VerificationCodeState', 'isError'),
+        );
     replace(_$result);
     return _$result;
   }

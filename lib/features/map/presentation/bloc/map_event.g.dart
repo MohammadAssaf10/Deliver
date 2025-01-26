@@ -146,8 +146,9 @@ class ChangeIsPanelOpenStateBuilder
   _$ChangeIsPanelOpenState _build() {
     final _$result = _$v ??
         new _$ChangeIsPanelOpenState._(
-            isPanelOpen: BuiltValueNullFieldError.checkNotNull(
-                isPanelOpen, r'ChangeIsPanelOpenState', 'isPanelOpen'));
+          isPanelOpen: BuiltValueNullFieldError.checkNotNull(
+              isPanelOpen, r'ChangeIsPanelOpenState', 'isPanelOpen'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -233,8 +234,9 @@ class SetIsStartAddressBuilder
   _$SetIsStartAddress _build() {
     final _$result = _$v ??
         new _$SetIsStartAddress._(
-            isStartAddress: BuiltValueNullFieldError.checkNotNull(
-                isStartAddress, r'SetIsStartAddress', 'isStartAddress'));
+          isStartAddress: BuiltValueNullFieldError.checkNotNull(
+              isStartAddress, r'SetIsStartAddress', 'isStartAddress'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -318,8 +320,9 @@ class SetHintMessageBuilder
   _$SetHintMessage _build() {
     final _$result = _$v ??
         new _$SetHintMessage._(
-            message: BuiltValueNullFieldError.checkNotNull(
-                message, r'SetHintMessage', 'message'));
+          message: BuiltValueNullFieldError.checkNotNull(
+              message, r'SetHintMessage', 'message'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -403,8 +406,9 @@ class SetStartAddressBuilder
   _$SetStartAddress _build() {
     final _$result = _$v ??
         new _$SetStartAddress._(
-            address: BuiltValueNullFieldError.checkNotNull(
-                address, r'SetStartAddress', 'address'));
+          address: BuiltValueNullFieldError.checkNotNull(
+              address, r'SetStartAddress', 'address'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -486,8 +490,9 @@ class SetEndAddressBuilder
   _$SetEndAddress _build() {
     final _$result = _$v ??
         new _$SetEndAddress._(
-            address: BuiltValueNullFieldError.checkNotNull(
-                address, r'SetEndAddress', 'address'));
+          address: BuiltValueNullFieldError.checkNotNull(
+              address, r'SetEndAddress', 'address'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -685,8 +690,9 @@ class SetCurrentTripBuilder
   _$SetCurrentTrip _build() {
     final _$result = _$v ??
         new _$SetCurrentTrip._(
-            trip: BuiltValueNullFieldError.checkNotNull(
-                trip, r'SetCurrentTrip', 'trip'));
+          trip: BuiltValueNullFieldError.checkNotNull(
+              trip, r'SetCurrentTrip', 'trip'),
+        );
     replace(_$result);
     return _$result;
   }

@@ -104,11 +104,12 @@ class MainStateBuilder implements Builder<MainState, MainStateBuilder> {
   _$MainState _build() {
     final _$result = _$v ??
         new _$MainState._(
-            isLoading: BuiltValueNullFieldError.checkNotNull(
-                isLoading, r'MainState', 'isLoading'),
-            pageIndex: BuiltValueNullFieldError.checkNotNull(
-                pageIndex, r'MainState', 'pageIndex'),
-            trip: trip);
+          isLoading: BuiltValueNullFieldError.checkNotNull(
+              isLoading, r'MainState', 'isLoading'),
+          pageIndex: BuiltValueNullFieldError.checkNotNull(
+              pageIndex, r'MainState', 'pageIndex'),
+          trip: trip,
+        );
     replace(_$result);
     return _$result;
   }

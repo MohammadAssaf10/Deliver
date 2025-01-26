@@ -128,6 +128,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "registerHere": MessageLookupByLibrary.simpleMessage("Register Here"),
     "registration": MessageLookupByLibrary.simpleMessage("Registration"),
+    "retry": MessageLookupByLibrary.simpleMessage("Retry"),
     "rideWithDeliver": MessageLookupByLibrary.simpleMessage(
       "Ride with Deliver",
     ),

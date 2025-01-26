@@ -138,18 +138,17 @@ class SignInStateBuilder implements Builder<SignInState, SignInStateBuilder> {
   _$SignInState _build() {
     final _$result = _$v ??
         new _$SignInState._(
-            passwordVisible: BuiltValueNullFieldError.checkNotNull(
-                passwordVisible, r'SignInState', 'passwordVisible'),
-            isLoading: BuiltValueNullFieldError.checkNotNull(
-                isLoading, r'SignInState', 'isLoading'),
-            isSuccess: BuiltValueNullFieldError.checkNotNull(
-                isSuccess, r'SignInState', 'isSuccess'),
-            isError: BuiltValueNullFieldError.checkNotNull(
-                isError, r'SignInState', 'isError'),
-            isPhoneNumberVerified: BuiltValueNullFieldError.checkNotNull(
-                isPhoneNumberVerified,
-                r'SignInState',
-                'isPhoneNumberVerified'));
+          passwordVisible: BuiltValueNullFieldError.checkNotNull(
+              passwordVisible, r'SignInState', 'passwordVisible'),
+          isLoading: BuiltValueNullFieldError.checkNotNull(
+              isLoading, r'SignInState', 'isLoading'),
+          isSuccess: BuiltValueNullFieldError.checkNotNull(
+              isSuccess, r'SignInState', 'isSuccess'),
+          isError: BuiltValueNullFieldError.checkNotNull(
+              isError, r'SignInState', 'isError'),
+          isPhoneNumberVerified: BuiltValueNullFieldError.checkNotNull(
+              isPhoneNumberVerified, r'SignInState', 'isPhoneNumberVerified'),
+        );
     replace(_$result);
     return _$result;
   }

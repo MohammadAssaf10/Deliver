@@ -9,11 +9,11 @@ import '../../../../core/utils/app_extensions.dart';
 import '../../../../core/utils/app_functions.dart';
 import '../../../../core/utils/app_validator.dart';
 import '../../../../core/widget/app_text_button.dart';
-import '../../../../core/widget/custom_text_field.dart';
 import '../../../../core/widget/auth_option_text.dart';
+import '../../../../core/widget/custom_text_field.dart';
+import '../../../../core/widget/or_bar.dart';
 import '../../../../core/widget/select_language.dart';
 import '../../../../generated/l10n.dart';
-import '../../../../core/widget/or_bar.dart';
 import '../bloc/sign_up_bloc.dart';
 import '../bloc/sign_up_state.dart';
 
@@ -28,6 +28,7 @@ class SignUpPage extends StatelessWidget {
           closeLoadingDialogIfVisible();
         }
         if (state.isSuccess) {
+          closeLoadingDialogIfVisible();
           context.pushNamed(Routes.verificationCodePage);
         }
         if (state.isLoading) {

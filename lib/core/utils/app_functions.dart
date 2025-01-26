@@ -53,6 +53,6 @@ void showLoadingDialog(BuildContext context, {Color? backgroundColor}) {
 
 void closeLoadingDialogIfVisible() {
   if (getIt<GlobalKey<State>>().currentContext != null) {
-    getIt<GlobalKey<State>>().currentContext!.pop();
+    Navigator.of(getIt<GlobalKey<State>>().currentContext!, rootNavigator: true).pop();
   }
 }

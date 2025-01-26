@@ -70,5 +70,6 @@
   "home": "Home",
   "services": "Services",
   "activities": "Activities",
-  "account": "Account"
+  "account": "Account",
+  "retry": "Retry"
 }

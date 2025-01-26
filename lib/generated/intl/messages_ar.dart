@@ -126,6 +126,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "registerHere": MessageLookupByLibrary.simpleMessage("سجل هنا"),
     "registration": MessageLookupByLibrary.simpleMessage("التسجيل"),
+    "retry": MessageLookupByLibrary.simpleMessage("إعادة المحاولة"),
     "rideWithDeliver": MessageLookupByLibrary.simpleMessage("اركب مع Deliver"),
     "services": MessageLookupByLibrary.simpleMessage("الخدمات"),
     "showTripDetails": MessageLookupByLibrary.simpleMessage(

@@ -40,7 +40,8 @@ class SignInBloc extends Bloc<SignInEvent, SignInState> {
         emit(state.rebuild(
           (b) => b
             ..isLoading = true
-            ..isError = false,
+            ..isError = false
+            ..isSuccess = false,
         ));
         final SignInRequest signInRequest = SignInRequest(
           phoneNumber: phoneNumberController.text,

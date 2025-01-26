@@ -14,42 +14,45 @@ class SelectLanguage extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<AppCubit, AppState>(
       builder: (context, state) {
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Flexible(
-              child: GestureDetector(
-                onTap: () {
-                  context.read<AppCubit>().changeAppLanguage();
-                },
-                child: Text(
-                  S.of(context).arabic,
-                  textAlign: TextAlign.end,
-                  style: state.appLanguage == Language.ar
-                      ? TextStyles.font14BlackBold
-                      : TextStyles.font14GreyRegular,
+        return Padding(
+          padding: const EdgeInsets.symmetric(vertical: 15),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Flexible(
+                child: GestureDetector(
+                  onTap: () {
+                    context.read<AppCubit>().changeAppLanguage();
+                  },
+                  child: Text(
+                    S.of(context).arabic,
+                    textAlign: TextAlign.end,
+                    style: state.appLanguage == Language.ar
+                        ? TextStyles.font14BlackBold
+                        : TextStyles.font14GreyRegular,
+                  ),
                 ),
               ),
-            ),
-            Text(
-              " / ",
-              style: TextStyles.font14BlackBold,
-            ),
-            Flexible(
-              child: GestureDetector(
-                onTap: () {
-                  context.read<AppCubit>().changeAppLanguage();
-                },
-                child: Text(
-                  S.of(context).english,
-                  style: state.appLanguage == Language.en
-                      ? TextStyles.font14BlackBold
-                      : TextStyles.font14GreyRegular,
-                ),
+              Text(
+                " / ",
+                style: TextStyles.font14BlackBold,
               ),
-            )
-          ],
+              Flexible(
+                child: GestureDetector(
+                  onTap: () {
+                    context.read<AppCubit>().changeAppLanguage();
+                  },
+                  child: Text(
+                    S.of(context).english,
+                    style: state.appLanguage == Language.en
+                        ? TextStyles.font14BlackBold
+                        : TextStyles.font14GreyRegular,
+                  ),
+                ),
+              )
+            ],
+          ),
         );
       },
     );

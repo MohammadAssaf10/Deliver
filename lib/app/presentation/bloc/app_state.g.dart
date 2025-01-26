@@ -94,10 +94,11 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
   _$AppState _build() {
     final _$result = _$v ??
         new _$AppState._(
-            appLanguage: BuiltValueNullFieldError.checkNotNull(
-                appLanguage, r'AppState', 'appLanguage'),
-            isAuth: BuiltValueNullFieldError.checkNotNull(
-                isAuth, r'AppState', 'isAuth'));
+          appLanguage: BuiltValueNullFieldError.checkNotNull(
+              appLanguage, r'AppState', 'appLanguage'),
+          isAuth: BuiltValueNullFieldError.checkNotNull(
+              isAuth, r'AppState', 'isAuth'),
+        );
     replace(_$result);
     return _$result;
   }
