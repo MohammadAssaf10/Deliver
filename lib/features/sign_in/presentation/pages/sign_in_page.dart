@@ -4,12 +4,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/colors_manager.dart';
-import '../../../../core/theming/styles_manager.dart';
+import '../../../../core/theming/font_manager.dart';
 import '../../../../core/utils/app_extensions.dart';
 import '../../../../core/utils/app_functions.dart';
 import '../../../../core/utils/app_validator.dart';
 import '../../../../core/widget/app_text_button.dart';
 import '../../../../core/widget/auth_option_text.dart';
+import '../../../../core/widget/custom_auto_size_text.dart';
 import '../../../../core/widget/custom_text_field.dart';
 import '../../../../core/widget/or_bar.dart';
 import '../../../../core/widget/select_language.dart';
@@ -54,15 +55,22 @@ class SignInPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: <Widget>[
                   SizedBox(height: MediaQuery.sizeOf(context).height * 0.3),
-                  Text(
-                    S.of(context).welcomeBack,
+                  CustomAutoSizeText(
+                    text: S.of(context).welcomeBack,
                     textAlign: TextAlign.center,
-                    style: TextStyles.font24BlackBold,
+                    minFontSize: 22,
+                    initialFontSize: 24,
+                    maxFontSize: 26,
+                    fontWeight: FontWeightHelper.bold,
+                    color: ColorsManager.darkGrey,
                   ),
-                  Text(
-                    S.of(context).enterYourAccountDetailsHere,
+                  CustomAutoSizeText(
+                    text: S.of(context).enterYourAccountDetailsHere,
                     textAlign: TextAlign.center,
-                    style: TextStyles.font16GreyRegular,
+                    minFontSize: 14,
+                    initialFontSize: 16,
+                    maxFontSize: 18,
+                    color: ColorsManager.grey,
                   ),
                   const SizedBox(height: 10),
                   CustomTextField(
@@ -115,9 +123,14 @@ class SignInPage extends StatelessWidget {
                         context.read<SignInBloc>().signIn();
                       }
                     },
-                    buttonText: S.of(context).signIn,
-                    textStyle: TextStyles.font14WhiteRegular,
                     borderRadius: 10,
+                    child: CustomAutoSizeText(
+                      text: S.of(context).signIn,
+                      minFontSize: 12,
+                      initialFontSize: 14,
+                      maxFontSize: 16,
+                      color: ColorsManager.white,
+                    ),
                   ),
                   const OrBar(),
                   AuthOptionText(

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../../../../core/theming/styles_manager.dart';
+import '../../../../core/theming/colors_manager.dart';
+import '../../../../core/theming/font_manager.dart';
+import '../../../../core/widget/custom_auto_size_text.dart';
 import '../../../../generated/l10n.dart';
 import '../../data/models/trip_distance_and_duration.dart';
 
@@ -21,22 +23,37 @@ class TripInfoRow extends StatelessWidget {
               padding: const EdgeInsets.symmetric(vertical: 15),
               child: Wrap(
                 children: [
-                  Text(
-                    S.of(context).estimatedTime,
-                    style: TextStyles.font16DarkGreyBold,
+                  CustomAutoSizeText(
+                    text: S.of(context).estimatedTime,
+                    minFontSize: 14,
+                    initialFontSize: 16,
+                    maxFontSize: 18,
+                    color: ColorsManager.darkGrey,
+                    fontWeight: FontWeightHelper.bold,
                   ),
-                  Text(
-                    S.of(context).minute(tripDistanceAndDuration!.duration),
-                    style: TextStyles.font16DarkGreyRegular,
+                  CustomAutoSizeText(
+                    text:
+                        S.of(context).minute(tripDistanceAndDuration!.duration),
+                    minFontSize: 14,
+                    initialFontSize: 16,
+                    maxFontSize: 18,
+                    color: ColorsManager.darkGrey,
                   ),
                   SizedBox(width: 20),
-                  Text(
-                    S.of(context).distance,
-                    style: TextStyles.font16DarkGreyBold,
+                  CustomAutoSizeText(
+                    text: S.of(context).distance,
+                    minFontSize: 14,
+                    initialFontSize: 16,
+                    maxFontSize: 18,
+                    color: ColorsManager.darkGrey,
+                    fontWeight: FontWeightHelper.bold,
                   ),
-                  Text(
-                    S.of(context).km(tripDistanceAndDuration!.distance),
-                    style: TextStyles.font16DarkGreyRegular,
+                  CustomAutoSizeText(
+                    text: S.of(context).km(tripDistanceAndDuration!.distance),
+                    minFontSize: 14,
+                    initialFontSize: 16,
+                    maxFontSize: 18,
+                    color: ColorsManager.darkGrey,
                   ),
                 ],
               ),

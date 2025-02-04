@@ -4,8 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../app/presentation/bloc/app_cubit.dart';
 import '../../app/presentation/bloc/app_state.dart';
 import '../../generated/l10n.dart';
-import '../theming/styles_manager.dart';
+import '../theming/colors_manager.dart';
+import '../theming/font_manager.dart';
 import '../utils/app_enums.dart';
+import 'custom_auto_size_text.dart';
 
 class SelectLanguage extends StatelessWidget {
   const SelectLanguage({super.key});
@@ -25,29 +27,45 @@ class SelectLanguage extends StatelessWidget {
                   onTap: () {
                     context.read<AppCubit>().changeAppLanguage();
                   },
-                  child: Text(
-                    S.of(context).arabic,
+                  child: CustomAutoSizeText(
+                    text: S.of(context).arabic,
                     textAlign: TextAlign.end,
-                    style: state.appLanguage == Language.ar
-                        ? TextStyles.font14BlackBold
-                        : TextStyles.font14GreyRegular,
+                    minFontSize: 12,
+                    initialFontSize: 14,
+                    maxFontSize: 16,
+                    color: state.appLanguage == Language.ar
+                        ? ColorsManager.darkGrey
+                        : ColorsManager.grey,
+                    fontWeight: state.appLanguage == Language.ar
+                        ? FontWeightHelper.bold
+                        : FontWeightHelper.regular,
                   ),
                 ),
               ),
-              Text(
-                " / ",
-                style: TextStyles.font14BlackBold,
+              CustomAutoSizeText(
+                text: ' / ',
+                minFontSize: 12,
+                initialFontSize: 14,
+                maxFontSize: 16,
+                color: ColorsManager.darkGrey,
+                fontWeight: FontWeightHelper.bold,
               ),
               Flexible(
                 child: GestureDetector(
                   onTap: () {
                     context.read<AppCubit>().changeAppLanguage();
                   },
-                  child: Text(
-                    S.of(context).english,
-                    style: state.appLanguage == Language.en
-                        ? TextStyles.font14BlackBold
-                        : TextStyles.font14GreyRegular,
+                  child: CustomAutoSizeText(
+                    text: S.of(context).english,
+                    minFontSize: 12,
+                    initialFontSize: 14,
+                    maxFontSize: 16,
+                    color: state.appLanguage == Language.en
+                        ? ColorsManager.darkGrey
+                        : ColorsManager.grey,
+                    fontWeight: state.appLanguage == Language.en
+                        ? FontWeightHelper.bold
+                        : FontWeightHelper.regular,
                   ),
                 ),
               )

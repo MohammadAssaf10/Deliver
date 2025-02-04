@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import '../theming/colors_manager.dart';
-import '../theming/styles_manager.dart';
+import '../theming/font_manager.dart';
 
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
@@ -59,8 +59,17 @@ class CustomTextField extends StatelessWidget {
             },
             decoration: InputDecoration(
               labelStyle: formFieldState.hasError
-                  ? TextStyles.font15ErrorRegular
-                  : (labelStyle ?? TextStyles.font15BlackRegular),
+                  ? TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeightHelper.regular,
+                color: ColorsManager.error,
+              )
+                  : (labelStyle ??
+                  TextStyle(
+                    fontSize: 15,
+                    fontWeight: FontWeightHelper.regular,
+                    color: ColorsManager.darkGrey,
+                  )),
               labelText: formFieldState.hasError
                   ? validator(controller.text) ?? labelTitle
                   : labelTitle,
@@ -68,24 +77,24 @@ class CustomTextField extends StatelessWidget {
               filled: true,
               prefixIcon: prefixIcon != null
                   ? Icon(
-                      prefixIcon,
-                      color: Colors.black,
-                    )
+                prefixIcon,
+                color: Colors.black,
+              )
                   : null,
               suffixIcon: suffixIcon != null
                   ? IconButton(
-                      onPressed: () {
-                        if (suffixIconAction != null) {
-                          suffixIconAction!();
-                        }
-                      },
-                      icon: Icon(
-                        suffixIcon,
-                        color: obscureText
-                            ? ColorsManager.grey
-                            : ColorsManager.darkGrey,
-                      ),
-                    )
+                onPressed: () {
+                  if (suffixIconAction != null) {
+                    suffixIconAction!();
+                  }
+                },
+                icon: Icon(
+                  suffixIcon,
+                  color: obscureText
+                      ? ColorsManager.grey
+                      : ColorsManager.darkGrey,
+                ),
+              )
                   : null,
               contentPadding: contentPadding ??
                   const EdgeInsets.symmetric(
@@ -131,7 +140,12 @@ class CustomTextField extends StatelessWidget {
             ],
             onFieldSubmitted: onFieldSubmitted,
             textInputAction: textInputAction ?? TextInputAction.go,
-            style: labelStyle ?? TextStyles.font15BlackRegular,
+            style: labelStyle ??
+                TextStyle(
+                  fontSize: 15,
+                  color: ColorsManager.darkGrey,
+                  fontWeight: FontWeightHelper.regular,
+                ),
           );
         },
       ),

@@ -3,8 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/models/address.dart';
 import '../../../../core/theming/colors_manager.dart';
-import '../../../../core/theming/styles_manager.dart';
 import '../../../../core/widget/app_text_button.dart';
+import '../../../../core/widget/custom_auto_size_text.dart';
 import '../../../../core/widget/loader.dart';
 import '../../../../generated/l10n.dart';
 import '../../data/models/trip_distance_and_duration.dart';
@@ -53,21 +53,27 @@ class CreateNewTripForm extends StatelessWidget {
                   children: [
                     Expanded(
                       child: AppTextButton(
-                        onPressed: () {
-                          context.read<MapBloc>().panelController.close();
-                          context.read<MapBloc>().changeIsPanelOpenState(false);
-                          context.read<MapBloc>().setHintMessage("");
-                        },
-                        buttonText: S.of(context).cancel,
-                        buttonHeight: 48,
-                        borderRadius: 15,
-                        backgroundColor: ColorsManager.white,
-                        borderSide: BorderSide(
-                          width: 2,
-                          color: ColorsManager.darkGrey,
-                        ),
-                        textStyle: TextStyles.font16DarkGreyRegular,
-                      ),
+                          onPressed: () {
+                            context.read<MapBloc>().panelController.close();
+                            context
+                                .read<MapBloc>()
+                                .changeIsPanelOpenState(false);
+                            context.read<MapBloc>().setHintMessage("");
+                          },
+                          buttonHeight: 48,
+                          borderRadius: 15,
+                          backgroundColor: ColorsManager.white,
+                          borderSide: BorderSide(
+                            width: 2,
+                            color: ColorsManager.darkGrey,
+                          ),
+                          child: CustomAutoSizeText(
+                            text: S.of(context).cancel,
+                            minFontSize: 14,
+                            initialFontSize: 16,
+                            maxFontSize: 18,
+                            color: ColorsManager.darkGrey,
+                          )),
                     ),
                     SizedBox(width: 10),
                     Expanded(
@@ -81,12 +87,17 @@ class CreateNewTripForm extends StatelessWidget {
                             startAddress == null || endAddress == null
                                 ? ColorsManager.darkWhite
                                 : ColorsManager.darkGrey,
-                        buttonText: S.of(context).confirm,
                         buttonHeight: 48,
                         borderRadius: 15,
-                        textStyle: startAddress == null || endAddress == null
-                            ? TextStyles.font16DarkGreyRegular
-                            : TextStyles.font16WhiteRegular,
+                        child: CustomAutoSizeText(
+                          text: S.of(context).confirm,
+                          minFontSize: 14,
+                          initialFontSize: 16,
+                          maxFontSize: 18,
+                          color: startAddress == null || endAddress == null
+                              ? ColorsManager.darkGrey
+                              : ColorsManager.white,
+                        ),
                       ),
                     ),
                   ],

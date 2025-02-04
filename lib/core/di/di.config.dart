@@ -104,6 +104,8 @@ Future<_i174.GetIt> $initGetIt(
             gh<_i89.VerificationCodeRemoteDataSource>(),
             gh<_i115.SignInRepository>(),
           ));
+  gh.factory<_i442.SplashBloc>(
+      () => _i442.SplashBloc(gh<_i120.SplashRepository>()));
   gh.lazySingleton<_i932.NetworkInfo>(
       () => _i932.NetworkInfoImpl(gh<_i895.Connectivity>()));
   gh.lazySingleton<_i83.SignUpRepository>(
@@ -116,10 +118,6 @@ Future<_i174.GetIt> $initGetIt(
       () => _i245.AppRepository(gh<_i212.AppLocalDataSource>()));
   gh.lazySingleton<_i1027.MainRepository>(
       () => _i1027.MainRepository(gh<_i1003.MainRemoteDataSource>()));
-  gh.factory<_i442.SplashBloc>(() => _i442.SplashBloc(
-        gh<_i120.SplashRepository>(),
-        gh<_i115.SignInRepository>(),
-      ));
   gh.factory<_i640.SignInBloc>(
       () => _i640.SignInBloc(gh<_i115.SignInRepository>()));
   gh.factory<_i437.MapBloc>(() => _i437.MapBloc(

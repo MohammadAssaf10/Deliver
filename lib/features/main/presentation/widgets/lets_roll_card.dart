@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/routing/routes.dart';
-import '../../../../core/utils/app_extensions.dart';
 import '../../../../core/theming/colors_manager.dart';
-import '../../../../core/theming/styles_manager.dart';
+import '../../../../core/theming/font_manager.dart';
+import '../../../../core/utils/app_extensions.dart';
 import '../../../../core/widget/app_text_button.dart';
+import '../../../../core/widget/custom_auto_size_text.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
 
@@ -35,18 +36,28 @@ class LetsRollCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    S.of(context).readyThenLetsRoll,
-                    style: TextStyles.font18DarkGreyBold,
+                  CustomAutoSizeText(
+                    text: S.of(context).readyThenLetsRoll,
+                    minFontSize: 16,
+                    initialFontSize: 18,
+                    maxFontSize: 20,
+                    color: ColorsManager.darkGrey,
+                    fontWeight: FontWeightHelper.bold,
                     maxLines: 1,
                   ),
                   AppTextButton(
                     onPressed: null,
-                    buttonText: S.of(context).rideWithDeliver,
                     buttonWidth: 135,
                     buttonHeight: 0,
                     borderRadius: 50,
-                    textStyle: TextStyles.font12LightGreyBold,
+                    child: CustomAutoSizeText(
+                      text: S.of(context).rideWithDeliver,
+                      minFontSize: 10,
+                      initialFontSize: 12,
+                      maxFontSize: 14,
+                      color: ColorsManager.lightGrey,
+                      fontWeight: FontWeightHelper.bold,
+                    ),
                   )
                 ],
               ),

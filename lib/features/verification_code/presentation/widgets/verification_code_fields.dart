@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pinput/pinput.dart';
 
 import '../../../../core/theming/colors_manager.dart';
-import '../../../../core/theming/styles_manager.dart';
+import '../../../../core/theming/font_manager.dart';
 import '../../../../core/utils/app_language.dart';
 import '../../../../core/utils/app_validator.dart';
 import '../bloc/verification_code_bloc.dart';
@@ -21,7 +21,7 @@ class VerificationCodeFields extends StatelessWidget {
             : TextDirection.rtl,
         child: Pinput(
           controller:
-              context.read<VerificationCodeBloc>().verificationCodeController,
+          context.read<VerificationCodeBloc>().verificationCodeController,
           animationCurve: Curves.easeInOut,
           toolbarEnabled: false,
           pinAnimationType: PinAnimationType.slide,
@@ -30,10 +30,18 @@ class VerificationCodeFields extends StatelessWidget {
           animationDuration: const Duration(
             milliseconds: 200,
           ),
-          errorTextStyle: TextStyles.font16ErrorRegular,
+          errorTextStyle: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeightHelper.regular,
+            color: ColorsManager.error,
+          ),
           cursor: Text(
             '|',
-            style: TextStyles.font16DarkGreyBold,
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeightHelper.bold,
+              color: ColorsManager.darkGrey,
+            ),
           ),
           length: 6,
           keyboardType: TextInputType.number,
@@ -61,9 +69,13 @@ class VerificationCodeFields extends StatelessWidget {
           closeKeyboardWhenCompleted: false,
           validator: AppValidator.verificationCodeValidator,
           defaultPinTheme: PinTheme(
-            height: 45,
-            width: 45,
-            textStyle: TextStyles.font16DarkGreyBold,
+            height: 50,
+            width: 50,
+            textStyle: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeightHelper.bold,
+              color: ColorsManager.darkGrey,
+            ),
             decoration: BoxDecoration(
               color: ColorsManager.customWhite,
               borderRadius: const BorderRadius.all(Radius.circular(10)),

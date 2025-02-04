@@ -263,10 +263,13 @@ class MapBloc extends Bloc<MapEvent, MapState> {
         longitude: tripEndAddress.longitude,
         markerIcon: Assets.iconsEndLocation,
       );
+      final Trip trip = state.currentTrip!.copyWith(
+          pickUpAddress: tripStartAddress, dropOfAddress: tripEndAddress);
       emit(state.rebuild(
         (b) => b
           ..tripStartAddress = tripStartAddress
           ..tripEndAddress = tripEndAddress
+          ..currentTrip = trip
           ..markers.replace(markers),
       ));
     });

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/theming/colors_manager.dart';
-import '../../../../core/theming/styles_manager.dart';
-import '../../../../core/widget/app_text_button.dart';
-import '../../../../generated/l10n.dart';
 import '../../../../core/entities/trip.dart';
+import '../../../../core/theming/colors_manager.dart';
+import '../../../../core/widget/app_text_button.dart';
+import '../../../../core/widget/custom_auto_size_text.dart';
+import '../../../../generated/l10n.dart';
 import '../bloc/map_bloc.dart';
 
 class MapCollapsedSlidingPanel extends StatelessWidget {
@@ -29,26 +29,35 @@ class MapCollapsedSlidingPanel extends StatelessWidget {
                 context.read<MapBloc>().getCurrentLocation();
               }
             },
-            buttonText: S.of(context).orderNow,
             buttonHeight: 48,
             borderRadius: 15,
-            outerHorizontalPadding: 20,
+            outerPadding: EdgeInsets.symmetric(horizontal: 20),
             backgroundColor: isButtonEnable
                 ? ColorsManager.darkGrey
                 : ColorsManager.darkWhite,
-            textStyle: isButtonEnable
-                ? TextStyles.font16WhiteRegular
-                : TextStyles.font16DarkGreyRegular,
+            child: CustomAutoSizeText(
+              text: S.of(context).orderNow,
+              minFontSize: 14,
+              initialFontSize: 16,
+              maxFontSize: 18,
+              color:
+                  isButtonEnable ? ColorsManager.white : ColorsManager.darkGrey,
+            ),
           )
         : AppTextButton(
             onPressed: () {
               context.read<MapBloc>().panelController.open();
             },
-            buttonText: S.of(context).showTripDetails,
             buttonHeight: 48,
             borderRadius: 15,
-            outerHorizontalPadding: 20,
-            textStyle: TextStyles.font16WhiteRegular,
+            outerPadding: EdgeInsets.symmetric(horizontal: 20),
+            child: CustomAutoSizeText(
+              text: S.of(context).showTripDetails,
+              minFontSize: 14,
+              initialFontSize: 16,
+              maxFontSize: 18,
+              color: ColorsManager.white,
+            ),
           );
   }
 }

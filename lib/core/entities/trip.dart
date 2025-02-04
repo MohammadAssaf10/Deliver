@@ -35,4 +35,26 @@ class Trip extends Equatable {
         driverName,
         createdDate,
       ];
+
+  Trip copyWith({
+    int? id,
+    TripStatus? tripStatus,
+    Address? pickUpAddress,
+    Address? dropOfAddress,
+    double? calculatedDistance,
+    double? calculatedDuration,
+    String? driverName,
+    String? createdDate,
+  }) {
+    return Trip(
+      id: id ?? this.id,
+      tripStatus: tripStatus ?? this.tripStatus,
+      pickUpAddress: pickUpAddress ?? this.pickUpAddress,
+      dropOfAddress: dropOfAddress ?? this.dropOfAddress,
+      calculatedDistance: calculatedDistance ?? this.calculatedDistance,
+      calculatedDuration: calculatedDuration ?? this.calculatedDuration,
+      driverName: driverName ?? this.driverName,
+      createdDate: createdDate ?? this.createdDate,
+    );
+  }
 }

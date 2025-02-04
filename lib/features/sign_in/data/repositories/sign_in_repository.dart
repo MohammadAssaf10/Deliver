@@ -1,9 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
-import 'package:ntp/ntp.dart';
 
 import '../../../../core/error/failures.dart';
-import '../../../../core/network/dio_factory.dart';
 import '../../../../core/repositories/base_repository.dart';
 import '../../../../core/utils/constant.dart';
 import '../../../../core/utils/shared_preferences_helper.dart';
@@ -22,17 +20,10 @@ class SignInRepository extends BaseRepository {
       <SignInModel>() async =>
           await _signInRemoteDataSource.signIn(signInRequest),
       (signInModel) async {
-        DioFactory.setTokenIntoHeaderAfterLogin(signInModel.token);
         if (signInModel.isPhoneNumberVerified) {
-          final DateTime loggedInTime =
-              await NTP.now(lookUpAddress: 'time.windows.com');
           await SharedPreferencesHelper.setSecuredString(
             LocalStorageKeys.userToken,
             signInModel.token,
-          );
-          await SharedPreferencesHelper.setData(
-            LocalStorageKeys.loggedInDate,
-            loggedInTime.toString(),
           );
         }
         await SharedPreferencesHelper.setSecuredString(
