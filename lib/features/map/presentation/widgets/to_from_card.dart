@@ -3,7 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/models/address.dart';
 import '../../../../core/theming/colors_manager.dart';
-import '../../../../core/theming/styles_manager.dart';
+import '../../../../core/theming/font_manager.dart';
+import '../../../../core/widget/custom_auto_size_text.dart';
 import '../../../../generated/l10n.dart';
 import '../bloc/map_bloc.dart';
 
@@ -27,7 +28,11 @@ class ToFromCard extends StatelessWidget {
           width: 45,
           child: Text(
             title,
-            style: TextStyles.font16DarkGreyBold,
+            style: TextStyle(
+              fontSize: 16,
+              color: ColorsManager.darkGrey,
+              fontWeight: FontWeightHelper.bold,
+            ),
           ),
         ),
         SizedBox(width: 10),
@@ -45,7 +50,7 @@ class ToFromCard extends StatelessWidget {
             child: Row(
               children: [
                 Expanded(
-                  child: Text(
+                  child: CustomAutoSizeText(text:
                     address?.administrativeArea == null
                         ? address != null
                             ? "${address!.longitude}, ${address!.latitude}"
@@ -53,7 +58,10 @@ class ToFromCard extends StatelessWidget {
                                 ? S.of(context).pickupLocation
                                 : S.of(context).whereAreYouGoing
                         : '${address?.administrativeArea}, ${address?.locality}, ${address?.street}',
-                    style: TextStyles.font15BlackRegular,
+                    minFontSize: 13,
+                    initialFontSize: 15,
+                    maxFontSize: 17,
+                    color: ColorsManager.darkGrey,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),

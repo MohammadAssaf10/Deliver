@@ -8,9 +8,9 @@ class SharedPreferencesHelper {
   SharedPreferencesHelper._();
 
   static final SharedPreferences _sharedPreferences =
-      getIt<SharedPreferences>();
+  getIt<SharedPreferences>();
   static const FlutterSecureStorage _flutterSecureStorage =
-      FlutterSecureStorage();
+  FlutterSecureStorage();
 
   /// Removes a value from SharedPreferences with given [key].
   static Future<void> removeData(String key) async {
@@ -74,5 +74,9 @@ class SharedPreferencesHelper {
   /// Removes all keys and values in the FlutterSecureStorage
   static Future<void> clearAllSecuredData() async {
     await _flutterSecureStorage.deleteAll();
+  }
+
+  static Future<void> removeSecureData(String key) async {
+    await _flutterSecureStorage.delete(key: key);
   }
 }

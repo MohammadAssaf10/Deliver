@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/routing/routes.dart';
-import '../../../../core/utils/app_extensions.dart';
 import '../../../../core/theming/colors_manager.dart';
-import '../../../../core/theming/styles_manager.dart';
+import '../../../../core/theming/font_manager.dart';
+import '../../../../core/utils/app_extensions.dart';
+import '../../../../core/widget/custom_auto_size_text.dart';
 import '../../../../generated/l10n.dart';
 
 class PickupPointCard extends StatelessWidget {
@@ -32,9 +33,13 @@ class PickupPointCard extends StatelessWidget {
             Expanded(
               child: Padding(
                 padding: const EdgeInsetsDirectional.only(start: 10),
-                child: Text(
-                  S.of(context).enterPickupPoint,
-                  style: TextStyles.font12LightGreyBold,
+                child: CustomAutoSizeText(
+                  text: S.of(context).enterPickupPoint,
+                  minFontSize: 10,
+                  initialFontSize: 12,
+                  maxFontSize: 14,
+                  color: ColorsManager.lightGrey,
+                  fontWeight: FontWeightHelper.bold,
                 ),
               ),
             ),
@@ -60,9 +65,12 @@ class PickupPointCard extends StatelessWidget {
                     ),
                     Expanded(
                       child: Center(
-                        child: Text(
-                          S.of(context).now,
-                          style: TextStyles.font12LightGreyRegular,
+                        child: CustomAutoSizeText(
+                          text: S.of(context).now,
+                          minFontSize: 10,
+                          initialFontSize: 12,
+                          maxFontSize: 14,
+                          color: ColorsManager.lightGrey,
                         ),
                       ),
                     ),

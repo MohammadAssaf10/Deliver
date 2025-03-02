@@ -11,4 +11,5 @@ class Endpoints {
   static String tripInfo = '/distance/distance';
   static String createNewTrip = '/rider/trip';
   static String currentTrip = '/rider/trip/current';
+  static String tripHistory = '/rider/trip/history';
 }

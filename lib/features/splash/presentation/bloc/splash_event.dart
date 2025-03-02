@@ -12,19 +12,3 @@ abstract class CheckUserAuthentication extends SplashEvent
           [void Function(CheckUserAuthenticationBuilder) updates]) =
       _$CheckUserAuthentication;
 }
-
-abstract class TokenNeedRefresh extends SplashEvent
-    implements Built<TokenNeedRefresh, TokenNeedRefreshBuilder> {
-  TokenNeedRefresh._();
-
-  factory TokenNeedRefresh([void Function(TokenNeedRefreshBuilder) updates]) =
-      _$TokenNeedRefresh;
-}
-
-abstract class RefreshToken extends SplashEvent
-    implements Built<RefreshToken, RefreshTokenBuilder> {
-  RefreshToken._();
-
-  factory RefreshToken([void Function(RefreshTokenBuilder) updates]) =
-      _$RefreshToken;
-}

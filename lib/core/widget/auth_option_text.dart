@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../theming/styles_manager.dart';
+import '../theming/colors_manager.dart';
+import '../theming/font_manager.dart';
+import 'custom_auto_size_text.dart';
 
 class AuthOptionText extends StatelessWidget {
   const AuthOptionText({
@@ -22,9 +24,12 @@ class AuthOptionText extends StatelessWidget {
       children: [
         Flexible(
           flex: 2,
-          child: Text(
-            title,
-            style: TextStyles.font14GreyRegular,
+          child: CustomAutoSizeText(
+            text: title,
+            minFontSize: 12,
+            initialFontSize: 14,
+            maxFontSize: 16,
+            color: ColorsManager.grey,
           ),
         ),
         const SizedBox(width: 3),
@@ -33,9 +38,13 @@ class AuthOptionText extends StatelessWidget {
             onTap: () {
               subTitleOnPress();
             },
-            child: Text(
-              subTitle,
-              style: TextStyles.font14BlackBold,
+            child: CustomAutoSizeText(
+              text: subTitle,
+              minFontSize: 12,
+              initialFontSize: 14,
+              maxFontSize: 16,
+              color: ColorsManager.darkGrey,
+              fontWeight: FontWeightHelper.bold,
             ),
           ),
         ),

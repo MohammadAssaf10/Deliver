@@ -15,35 +15,46 @@ class MapPage extends StatelessWidget {
     return Scaffold(
       body: BlocBuilder<MapBloc, MapState>(
         builder: (context, state) {
-          return SlidingUpPanel(
-            controller: context.read<MapBloc>().panelController,
-            minHeight: 80,
-            maxHeight: 260,
-            backdropEnabled: true,
-            borderRadius: BorderRadius.circular(15),
-            panel: MapPanel(
-              startAddress: state.tripStartAddress ?? state.currentAddress,
-              endAddress: state.tripEndAddress,
-              isButtonEnable: (state.tripStartAddress != null ||
-                  state.currentAddress != null),
-              isPanelOpen: state.isPanelOpen,
-              tripDistanceAndDuration: state.tripDistanceAndDuration,
-              message: state.message,
-              isLoading: state.isLoading,
-              currentTrip: state.currentTrip,
-            ),
-            onPanelSlide: (position) {
-              if (position >= 0.9) {
-                context.read<MapBloc>().changeIsPanelOpenState(true);
-              } else if (position <= 0.1) {
-                context.read<MapBloc>().changeIsPanelOpenState(false);
+          return PopScope(
+            // Allow popping only when panel is closed
+            canPop: !state.isPanelOpen,
+            // Handle back button press
+            onPopInvokedWithResult: (bool didPop,_) {
+              if (!didPop && state.isPanelOpen) {
+                // Close panel if pop was prevented and panel is open
+                context.read<MapBloc>().panelController.close();
               }
             },
-            isDraggable: false,
-            padding: EdgeInsets.all(15),
-            body: DeliverMap(
-              markers: state.markers.toSet(),
-              isStartAddress: state.isStartAddress,
+            child: SlidingUpPanel(
+              controller: context.read<MapBloc>().panelController,
+              minHeight: 80,
+              maxHeight: 265,
+              backdropEnabled: true,
+              borderRadius: BorderRadius.circular(15),
+              panel: MapPanel(
+                startAddress: state.tripStartAddress ?? state.currentAddress,
+                endAddress: state.tripEndAddress,
+                isButtonEnable: (state.tripStartAddress != null ||
+                    state.currentAddress != null),
+                isPanelOpen: state.isPanelOpen,
+                tripDistanceAndDuration: state.tripDistanceAndDuration,
+                message: state.message,
+                isLoading: state.isLoading,
+                currentTrip: state.currentTrip,
+              ),
+              onPanelSlide: (position) {
+                if (position >= 0.9) {
+                  context.read<MapBloc>().changeIsPanelOpenState(true);
+                } else if (position <= 0.1) {
+                  context.read<MapBloc>().changeIsPanelOpenState(false);
+                }
+              },
+              isDraggable: false,
+              padding: EdgeInsets.all(15),
+              body: DeliverMap(
+                markers: state.markers.toSet(),
+                isStartAddress: state.isStartAddress,
+              ),
             ),
           );
         },

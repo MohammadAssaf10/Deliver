@@ -3,10 +3,11 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/utils/app_extensions.dart';
 import '../../../../core/theming/colors_manager.dart';
-import '../../../../core/theming/styles_manager.dart';
+import '../../../../core/theming/font_manager.dart';
+import '../../../../core/utils/app_extensions.dart';
 import '../../../../core/widget/app_text_button.dart';
+import '../../../../core/widget/custom_auto_size_text.dart';
 import '../../../../generated/l10n.dart';
 import '../bloc/splash_bloc.dart';
 
@@ -41,9 +42,13 @@ class SplashErrorDialog extends StatelessWidget {
           children: [
             Padding(
               padding: const EdgeInsets.symmetric(vertical: 20),
-              child: Text(
-                errorMessage,
-                style: TextStyles.font18BlackBold,
+              child: CustomAutoSizeText(
+                text: errorMessage,
+                minFontSize: 16,
+                initialFontSize: 18,
+                maxFontSize: 20,
+                fontWeight: FontWeightHelper.bold,
+                color: ColorsManager.darkGrey,
               ),
             ),
             AppTextButton(
@@ -53,8 +58,13 @@ class SplashErrorDialog extends StatelessWidget {
               },
               buttonHeight: 45,
               buttonWidth: MediaQuery.sizeOf(context).width * 0.6,
-              buttonText: S.of(context).retry,
-              textStyle: TextStyles.font16WhiteRegular,
+              child: CustomAutoSizeText(
+                text: S.of(context).retry,
+                minFontSize: 14,
+                initialFontSize: 16,
+                maxFontSize: 18,
+                color: ColorsManager.white,
+              ),
             ),
             const SizedBox(height: 20),
           ],

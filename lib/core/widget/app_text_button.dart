@@ -8,26 +8,20 @@ class AppTextButton extends StatelessWidget {
   final Color? overlayColor;
   final double? buttonWidth;
   final double? buttonHeight;
-  final String? buttonText;
-  final TextStyle? textStyle;
   final VoidCallback? onPressed;
-  final Widget? child;
+  final Widget child;
   final BorderSide borderSide;
-  final double? outerVerticalPadding;
-  final double? outerHorizontalPadding;
+  final EdgeInsetsGeometry outerPadding;
 
   const AppTextButton({
     super.key,
     this.borderRadius,
     this.backgroundColor = ColorsManager.darkGrey,
     this.overlayColor,
-    this.outerHorizontalPadding,
+    this.outerPadding = EdgeInsets.zero,
     this.buttonHeight,
     this.buttonWidth,
-    this.child,
-    this.buttonText,
-    this.textStyle,
-    this.outerVerticalPadding,
+    required this.child,
     this.borderSide = BorderSide.none,
     required this.onPressed,
   });
@@ -35,10 +29,7 @@ class AppTextButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(
-        vertical: outerVerticalPadding ?? 0,
-        horizontal: outerHorizontalPadding ?? 0,
-      ),
+      padding: outerPadding,
       child: TextButton(
         style: ButtonStyle(
           shape: WidgetStateProperty.all<RoundedRectangleBorder>(
@@ -58,11 +49,7 @@ class AppTextButton extends StatelessWidget {
           ),
         ),
         onPressed: onPressed,
-        child: child ??
-            Text(
-              buttonText ?? "",
-              style: textStyle,
-            ),
+        child: child,
       ),
     );
   }

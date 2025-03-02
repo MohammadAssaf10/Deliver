@@ -17,21 +17,29 @@ Future<void> main() async {
   //   options: DefaultFirebaseOptions.currentPlatform,
   // );
   Bloc.observer = MyBlocObserver();
-  await dotenv.load(fileName: Assets.deliver);
-  final String? sentryDsn = dotenv.env['SENTRY_DSN'];
-  await SentryFlutter.init(
-    (options) {
-      options.dsn = sentryDsn;
-      options.tracesSampleRate = 1.0;
-      options.profilesSampleRate = 1.0;
-    },
-    appRunner: () => runApp(
-      BlocProvider<AppCubit>(
-        create: (_) => getIt<AppCubit>()..getAppLanguage(),
-        child: DeliverApp(
-          appRouter: AppRouter(),
-        ),
+  runApp(
+    BlocProvider<AppCubit>(
+      create: (_) => getIt<AppCubit>()..getAppLanguage(),
+      child: DeliverApp(
+        appRouter: AppRouter(),
       ),
     ),
   );
+  // await dotenv.load(fileName: Assets.deliver);
+  // final String? sentryDsn = dotenv.env['SENTRY_DSN'];
+  // await SentryFlutter.init(
+  //   (options) {
+  //     options.dsn = sentryDsn;
+  //     options.tracesSampleRate = 1.0;
+  //     options.profilesSampleRate = 1.0;
+  //   },
+  //   appRunner: () => runApp(
+  //     BlocProvider<AppCubit>(
+  //       create: (_) => getIt<AppCubit>()..getAppLanguage(),
+  //       child: DeliverApp(
+  //         appRouter: AppRouter(),
+  //       ),
+  //     ),
+  //   ),
+  // );
 }

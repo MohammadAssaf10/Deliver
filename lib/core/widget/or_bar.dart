@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
-import '../theming/colors_manager.dart';
-import '../theming/styles_manager.dart';
 import '../../generated/l10n.dart';
+import '../theming/colors_manager.dart';
+import 'custom_auto_size_text.dart';
 
 class OrBar extends StatelessWidget {
   const OrBar({super.key});
@@ -20,9 +20,12 @@ class OrBar extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 4),
-            child: Text(
-              S.of(context).or,
-              style: TextStyles.font14BlackRegular,
+            child: CustomAutoSizeText(
+              text: S.of(context).or,
+              minFontSize: 12,
+              initialFontSize: 14,
+              maxFontSize: 16,
+              color: ColorsManager.darkGrey,
             ),
           ),
           const Expanded(

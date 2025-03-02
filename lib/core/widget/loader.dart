@@ -6,19 +6,24 @@ import '../theming/colors_manager.dart';
 class Loader extends StatelessWidget {
   final Color? color;
   final double size;
+  final EdgeInsetsGeometry padding;
 
   const Loader({
     super.key,
     this.color = ColorsManager.darkGrey,
     this.size = 30,
+    this.padding = EdgeInsets.zero,
   });
 
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: SpinKitFadingCircle(
-        color: color,
-        size: size,
+      child: Padding(
+        padding: padding,
+        child: SpinKitFadingCircle(
+          color: color,
+          size: size,
+        ),
       ),
     );
   }

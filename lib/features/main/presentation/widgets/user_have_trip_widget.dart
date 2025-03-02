@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/entities/trip.dart';
-import '../../../../core/theming/styles_manager.dart';
+import '../../../../core/theming/colors_manager.dart';
+import '../../../../core/theming/font_manager.dart';
+import '../../../../core/widget/custom_auto_size_text.dart';
 import '../../../../generated/l10n.dart';
 import 'current_trip_card.dart';
 
@@ -21,9 +23,13 @@ class UserHaveTripWidget extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 10),
-            child: Text(
-              S.of(context).currentTrip,
-              style: TextStyles.font25DarkWhiteBold,
+            child: CustomAutoSizeText(
+              text: S.of(context).currentTrip,
+              minFontSize: 23,
+              initialFontSize: 25,
+              maxFontSize: 27,
+              color: ColorsManager.darkWhite,
+              fontWeight: FontWeightHelper.bold,
             ),
           ),
           CurrentTripCard(trip: trip),

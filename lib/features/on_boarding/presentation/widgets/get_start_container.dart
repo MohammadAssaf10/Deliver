@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../../../../core/routing/routes.dart';
-import '../../../../core/utils/app_extensions.dart';
 import '../../../../core/theming/colors_manager.dart';
-import '../../../../core/theming/styles_manager.dart';
+import '../../../../core/theming/font_manager.dart';
+import '../../../../core/utils/app_extensions.dart';
 import '../../../../core/widget/app_text_button.dart';
+import '../../../../core/widget/custom_auto_size_text.dart';
 import '../../../../generated/l10n.dart';
 
 class GetStartContainer extends StatelessWidget {
@@ -26,9 +27,13 @@ class GetStartContainer extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Flexible(
-            child: Text(
-              S.of(context).getStartWithDeliver,
-              style: TextStyles.font28BlackBold,
+            child: CustomAutoSizeText(
+              text: S.of(context).getStartWithDeliver,
+              minFontSize: 26,
+              initialFontSize: 28,
+              maxFontSize: 30,
+              color: ColorsManager.darkGrey,
+              fontWeight: FontWeightHelper.bold,
             ),
           ),
           Flexible(
@@ -40,9 +45,12 @@ class GetStartContainer extends StatelessWidget {
                 children: [
                   const SizedBox(width: 30),
                   Expanded(
-                    child: Text(
-                      S.of(context).continue1,
-                      style: TextStyles.font20WhiteRegular,
+                    child: CustomAutoSizeText(
+                      text: S.of(context).continue1,
+                      minFontSize: 18,
+                      initialFontSize: 20,
+                      maxFontSize: 22,
+                      color: ColorsManager.white,
                       textAlign: TextAlign.center,
                     ),
                   ),
