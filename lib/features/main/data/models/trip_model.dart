@@ -12,7 +12,7 @@ class TripModel {
   final int id;
   final int status;
   final Address pickUpAddress;
-  final Address dropOfAddress;
+  final Address dropOffAddress;
   final int createdDate;
   final double calculatedDistance;
   final double calculatedDuration;
@@ -22,7 +22,7 @@ class TripModel {
     required this.id,
     required this.status,
     required this.pickUpAddress,
-    required this.dropOfAddress,
+    required this.dropOffAddress,
     required this.createdDate,
     required this.calculatedDistance,
     required this.calculatedDuration,
@@ -37,7 +37,7 @@ class TripModel {
       id: id,
       tripStatus: Constant.tripStatusMap[status]!,
       pickUpAddress: pickUpAddress,
-      dropOfAddress: dropOfAddress,
+      dropOffAddress: dropOffAddress,
       calculatedDistance: calculatedDistance,
       calculatedDuration: calculatedDuration,
       driverName: driverName,

@@ -7,7 +7,7 @@ class Trip extends Equatable {
   final int id;
   final TripStatus tripStatus;
   final Address pickUpAddress;
-  final Address dropOfAddress;
+  final Address dropOffAddress;
   final double calculatedDistance;
   final double calculatedDuration;
   final String? driverName;
@@ -17,7 +17,7 @@ class Trip extends Equatable {
     required this.id,
     required this.tripStatus,
     required this.pickUpAddress,
-    required this.dropOfAddress,
+    required this.dropOffAddress,
     required this.calculatedDistance,
     required this.calculatedDuration,
     this.driverName,
@@ -29,7 +29,7 @@ class Trip extends Equatable {
         id,
         tripStatus,
         pickUpAddress,
-        dropOfAddress,
+    dropOffAddress,
         calculatedDistance,
         calculatedDuration,
         driverName,
@@ -40,7 +40,7 @@ class Trip extends Equatable {
     int? id,
     TripStatus? tripStatus,
     Address? pickUpAddress,
-    Address? dropOfAddress,
+    Address? dropOffAddress,
     double? calculatedDistance,
     double? calculatedDuration,
     String? driverName,
@@ -50,7 +50,7 @@ class Trip extends Equatable {
       id: id ?? this.id,
       tripStatus: tripStatus ?? this.tripStatus,
       pickUpAddress: pickUpAddress ?? this.pickUpAddress,
-      dropOfAddress: dropOfAddress ?? this.dropOfAddress,
+      dropOffAddress: dropOffAddress ?? this.dropOffAddress,
       calculatedDistance: calculatedDistance ?? this.calculatedDistance,
       calculatedDuration: calculatedDuration ?? this.calculatedDuration,
       driverName: driverName ?? this.driverName,

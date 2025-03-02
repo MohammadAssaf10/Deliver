@@ -41,7 +41,7 @@ class CurrentTripDetails extends StatelessWidget {
           TripTile(
             title: S.of(context).to,
             subtitle:
-                '${currentTrip.dropOfAddress.administrativeArea}, ${currentTrip.dropOfAddress.locality}, ${currentTrip.dropOfAddress.street}',
+                '${currentTrip.dropOffAddress.administrativeArea}, ${currentTrip.dropOffAddress.locality}, ${currentTrip.dropOffAddress.street}',
             pngIcon: Assets.iconsEndLocation,
             subtitleMaxLine: 2,
           ),

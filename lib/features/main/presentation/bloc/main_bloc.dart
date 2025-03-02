@@ -1,9 +1,11 @@
-import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../../core/di/di.dart';
 import '../../../../core/utils/app_functions.dart';
 import '../../../account/presentation/pages/account_page.dart';
+import '../../../activities/presentation/bloc/activities_bloc.dart';
 import '../../../activities/presentation/pages/activities_page.dart';
 import '../../data/repositories/main_repository.dart';
 import '../pages/home_body.dart';
@@ -13,9 +15,12 @@ import 'main_state.dart';
 @injectable
 class MainBloc extends Bloc<MainEvent, MainState> {
   final PageController pageController = PageController();
-  final List<Widget> pages = const [
+  final List<Widget> pages = [
     HomeBody(),
-    ActivitiesPage(),
+    BlocProvider<ActivitiesBloc>(
+      create: (context) => getIt<ActivitiesBloc>()..getTripHistories(),
+      child: ActivitiesPage(),
+    ),
     AccountPage(),
   ];
   final MainRepository _mainRepository;

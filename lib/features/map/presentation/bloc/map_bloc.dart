@@ -220,7 +220,7 @@ class MapBloc extends Bloc<MapEvent, MapState> {
             calculatedDuration: state.tripDistanceAndDuration!.duration,
             calculatedDistance: state.tripDistanceAndDuration!.distance,
             pickUpAddress: state.tripStartAddress ?? state.currentAddress!,
-            dropOfAddress: state.tripEndAddress!,
+            dropOffAddress: state.tripEndAddress!,
             tripStatus: TripStatus.waiting,
             createdDate: formattedDate,
           );
@@ -255,7 +255,7 @@ class MapBloc extends Bloc<MapEvent, MapState> {
         markerIcon: Assets.iconsStartLocation,
       );
       final Address tripEndAddress =
-          await _getAddressPlacemark(event.trip.dropOfAddress);
+          await _getAddressPlacemark(event.trip.dropOffAddress);
       markers = await _updateMarkerSet(
         markers: markers,
         markerState: MarkerState.tripEndLocation,
@@ -264,7 +264,7 @@ class MapBloc extends Bloc<MapEvent, MapState> {
         markerIcon: Assets.iconsEndLocation,
       );
       final Trip trip = state.currentTrip!.copyWith(
-          pickUpAddress: tripStartAddress, dropOfAddress: tripEndAddress);
+          pickUpAddress: tripStartAddress, dropOffAddress: tripEndAddress);
       emit(state.rebuild(
         (b) => b
           ..tripStartAddress = tripStartAddress
