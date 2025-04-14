@@ -1,6 +1,8 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:injectable/injectable.dart';
 import 'package:location/location.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -30,4 +32,10 @@ abstract class RegisterModule {
 
   @lazySingleton
   GlobalKey<State> get loadingDialogKey => GlobalKey<State>();
+
+  @lazySingleton
+  ImagePicker get picker => ImagePicker();
+
+  @lazySingleton
+  FirebaseStorage get firebaseStorage => FirebaseStorage.instance;
 }

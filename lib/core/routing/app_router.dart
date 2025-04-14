@@ -6,6 +6,9 @@ import '../../features/main/presentation/pages/main_page.dart';
 import '../../features/map/presentation/bloc/map_bloc.dart';
 import '../../features/map/presentation/pages/map_page.dart';
 import '../../features/on_boarding/presentation/pages/on_boarding_page.dart';
+import '../../features/profile/domain/entities/profile.dart';
+import '../../features/profile_details/presentation/bloc/profile_details_bloc.dart';
+import '../../features/profile_details/presentation/pages/profile_details_page.dart';
 import '../../features/sign_in/presentation/bloc/sign_in_bloc.dart';
 import '../../features/sign_in/presentation/pages/sign_in_page.dart';
 import '../../features/sign_up/presentation/bloc/sign_up_bloc.dart';
@@ -78,6 +81,13 @@ class AppRouter {
       case Routes.onBoardingPage:
         return MaterialPageRoute(
           builder: (_) => const OnBoardingPage(),
+        );
+      case Routes.profileDetailsPage:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider<ProfileDetailsBloc>(
+            create: (context) => getIt<ProfileDetailsBloc>()..setProfileData(arguments as Profile),
+            child: ProfileDetailsPage(),
+          ),
         );
       default:
         return null;

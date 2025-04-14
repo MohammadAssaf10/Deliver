@@ -1,0 +1,2 @@
+C:/Users/Dell/StudioProjects/Deliver/android/app/.cxx/RelWithDebInfo/2x2d2p25/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/Dell/StudioProjects/Deliver/android/app/.cxx/RelWithDebInfo/2x2d2p25/arm64-v8a/CMakeFiles/rebuild_cache.dir

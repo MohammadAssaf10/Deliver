@@ -4,9 +4,10 @@ import 'package:injectable/injectable.dart';
 
 import '../../../../core/di/di.dart';
 import '../../../../core/utils/app_functions.dart';
-import '../../../account/presentation/pages/account_page.dart';
 import '../../../activities/presentation/bloc/activities_bloc.dart';
 import '../../../activities/presentation/pages/activities_page.dart';
+import '../../../profile/presentation/bloc/profile_bloc.dart';
+import '../../../profile/presentation/pages/profile_page.dart';
 import '../../data/repositories/main_repository.dart';
 import '../pages/home_body.dart';
 import 'main_event.dart';
@@ -21,7 +22,10 @@ class MainBloc extends Bloc<MainEvent, MainState> {
       create: (context) => getIt<ActivitiesBloc>()..getTripHistories(),
       child: ActivitiesPage(),
     ),
-    AccountPage(),
+    BlocProvider(
+      create: (context) => getIt<ProfileBloc>()..getProfile(),
+      child: const ProfilePage(),
+    ),
   ];
   final MainRepository _mainRepository;
 

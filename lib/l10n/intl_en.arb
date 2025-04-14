@@ -71,5 +71,14 @@
   "services": "Services",
   "activities": "Activities",
   "account": "Account",
-  "retry": "Retry"
+  "retry": "Retry",
+  "profileDetails": "Profile Details",
+  "changeLanguage": "Change Language",
+  "logout": "Logout",
+  "clientId": "Client Id: ",
+  "name": "Name: ",
+  "phone": "Phone: ",
+  "camera": "Camera",
+  "gallery": "Gallery",
+  "selectImageSource": "Select Image Source"
 }

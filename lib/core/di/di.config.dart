@@ -10,8 +10,10 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:connectivity_plus/connectivity_plus.dart' as _i895;
+import 'package:firebase_storage/firebase_storage.dart' as _i457;
 import 'package:flutter/material.dart' as _i409;
 import 'package:get_it/get_it.dart' as _i174;
+import 'package:image_picker/image_picker.dart' as _i183;
 import 'package:injectable/injectable.dart' as _i526;
 import 'package:location/location.dart' as _i645;
 import 'package:shared_preferences/shared_preferences.dart' as _i460;
@@ -43,6 +45,21 @@ import '../../features/map/data/data_sources/remote/map_remote_data_source_impl.
     as _i935;
 import '../../features/map/data/repositories/map_repository.dart' as _i126;
 import '../../features/map/presentation/bloc/map_bloc.dart' as _i437;
+import '../../features/profile/data/data_sources/profile_remote_data_source.dart'
+    as _i1012;
+import '../../features/profile/data/data_sources/profile_remote_data_source_impl.dart'
+    as _i491;
+import '../../features/profile/data/repositories/profile_repository.dart'
+    as _i361;
+import '../../features/profile/presentation/bloc/profile_bloc.dart' as _i469;
+import '../../features/profile_details/data/data_sources/profile_details_remote_data_source.dart'
+    as _i1022;
+import '../../features/profile_details/data/data_sources/profile_details_remote_data_source_impl.dart'
+    as _i1069;
+import '../../features/profile_details/data/repositories/profile_details_repository.dart'
+    as _i1022;
+import '../../features/profile_details/presentation/bloc/profile_details_bloc.dart'
+    as _i512;
 import '../../features/sign_in/data/data_sources/remote/sign_in_remote_data_source.dart'
     as _i533;
 import '../../features/sign_in/data/data_sources/remote/sign_in_remote_data_source_impl.dart'
@@ -93,10 +110,14 @@ Future<_i174.GetIt> $initGetIt(
   gh.lazySingleton<_i645.Location>(() => registerModule.location);
   gh.lazySingleton<_i409.GlobalKey<_i409.State<_i409.StatefulWidget>>>(
       () => registerModule.loadingDialogKey);
+  gh.lazySingleton<_i183.ImagePicker>(() => registerModule.picker);
+  gh.lazySingleton<_i457.FirebaseStorage>(() => registerModule.firebaseStorage);
   gh.lazySingleton<_i330.ActivitiesRemoteDataSource>(
       () => _i83.ActivitiesRemoteDataSourceImpl());
   gh.lazySingleton<_i964.SignUpRemoteDataSource>(
       () => _i42.SignUpRemoteDataSourceImpl());
+  gh.lazySingleton<_i1022.ProfileDetailsRemoteDataSource>(
+      () => _i1069.ProfileDetailsRemoteDataSourceImpl());
   gh.lazySingleton<_i533.SignInRemoteDataSource>(
       () => _i1024.SignInRemoteDataSourceImpl());
   gh.lazySingleton<_i1003.MainRemoteDataSource>(
@@ -109,6 +130,8 @@ Future<_i174.GetIt> $initGetIt(
       () => _i330.BaseRemoteDataSourceImpl());
   gh.lazySingleton<_i89.VerificationCodeRemoteDataSource>(
       () => _i673.VerificationCodeRemoteDataSourceImpl());
+  gh.lazySingleton<_i1012.ProfileRemoteDataSource>(
+      () => _i491.ProfileRemoteDataSourceImpl());
   gh.lazySingleton<_i932.NetworkInfo>(
       () => _i932.NetworkInfoImpl(gh<_i895.Connectivity>()));
   gh.lazySingleton<_i245.AppRepository>(
@@ -117,10 +140,22 @@ Future<_i174.GetIt> $initGetIt(
         gh<_i1003.MainRemoteDataSource>(),
         gh<_i932.NetworkInfo>(),
       ));
+  gh.lazySingleton<_i361.ProfileRepository>(() => _i361.ProfileRepository(
+        gh<_i1012.ProfileRemoteDataSource>(),
+        gh<_i932.NetworkInfo>(),
+      ));
+  gh.factory<_i469.ProfileBloc>(
+      () => _i469.ProfileBloc(gh<_i361.ProfileRepository>()));
   gh.lazySingleton<_i126.MapRepository>(() => _i126.MapRepository(
         gh<_i590.MapRemoteDataSource>(),
         gh<_i932.NetworkInfo>(),
       ));
+  gh.lazySingleton<_i1022.ProfileDetailsRepository>(
+      () => _i1022.ProfileDetailsRepository(
+            gh<_i1022.ProfileDetailsRemoteDataSource>(),
+            gh<_i457.FirebaseStorage>(),
+            gh<_i932.NetworkInfo>(),
+          ));
   gh.lazySingleton<_i120.SplashRepository>(
       () => _i120.SplashRepository(gh<_i932.NetworkInfo>()));
   gh.lazySingleton<_i61.VerificationCodeRepository>(
@@ -154,6 +189,10 @@ Future<_i174.GetIt> $initGetIt(
   gh.factory<_i437.MapBloc>(() => _i437.MapBloc(
         gh<_i645.Location>(),
         gh<_i126.MapRepository>(),
+      ));
+  gh.factory<_i512.ProfileDetailsBloc>(() => _i512.ProfileDetailsBloc(
+        gh<_i183.ImagePicker>(),
+        gh<_i1022.ProfileDetailsRepository>(),
       ));
   gh.factory<_i880.ActivitiesBloc>(
       () => _i880.ActivitiesBloc(gh<_i415.ActivitiesRepository>()));

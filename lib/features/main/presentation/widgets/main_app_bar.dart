@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/theming/colors_manager.dart';
-import '../../../../core/theming/font_manager.dart';
-import '../../../../core/widget/custom_auto_size_text.dart';
+import '../../../../core/theming/text_styles.dart';
 import '../../../../generated/l10n.dart';
 import '../bloc/main_bloc.dart';
 import '../bloc/main_state.dart';
@@ -32,17 +31,13 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
             buildWhen: (previous, current) =>
                 previous.pageIndex != current.pageIndex,
             builder: (context, state) {
-              return CustomAutoSizeText(
-                text: state.pageIndex == 0
+              return Text(
+                state.pageIndex == 0
                     ? S.of(context).deliver
                     : state.pageIndex == 1
                         ? S.of(context).activities
                         : S.of(context).account,
-                minFontSize: 31,
-                initialFontSize: 33,
-                maxFontSize: 35,
-                color: ColorsManager.darkWhite,
-                fontWeight: FontWeightHelper.bold,
+                style: TextStyles.font33DarkWhiteBold,
               );
             },
           ),
