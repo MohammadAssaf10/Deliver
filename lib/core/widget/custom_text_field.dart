@@ -7,7 +7,8 @@ import '../theming/font_manager.dart';
 class CustomTextField extends StatelessWidget {
   const CustomTextField({
     super.key,
-    required this.labelTitle,
+     this.labelTitle,
+     this.hintText,
     required this.controller,
     required this.validator,
     this.prefixIcon,
@@ -21,10 +22,12 @@ class CustomTextField extends StatelessWidget {
     this.cursorColor,
     this.labelStyle,
     this.contentPadding,
+    this.fillColor = ColorsManager.customWhite,
   });
 
   final TextEditingController controller;
-  final String labelTitle;
+  final String? labelTitle;
+  final String? hintText;
   final String? Function(String? value) validator;
   final IconData? prefixIcon;
   final IconData? suffixIcon;
@@ -37,6 +40,7 @@ class CustomTextField extends StatelessWidget {
   final Color? cursorColor;
   final TextStyle? labelStyle;
   final EdgeInsetsGeometry? contentPadding;
+  final Color fillColor;
 
   @override
   Widget build(BuildContext context) {
@@ -60,6 +64,22 @@ class CustomTextField extends StatelessWidget {
             decoration: InputDecoration(
               labelStyle: formFieldState.hasError
                   ? TextStyle(
+                      fontSize: 15,
+                      fontWeight: FontWeightHelper.regular,
+                      color: ColorsManager.error,
+                    )
+                  : (labelStyle ??
+                      TextStyle(
+                        fontSize: 15,
+                        fontWeight: FontWeightHelper.regular,
+                        color: ColorsManager.darkGrey,
+                      )),
+              labelText: formFieldState.hasError
+                  ? validator(controller.text) ?? labelTitle
+                  : labelTitle,
+              hintText: hintText,
+              hintStyle:formFieldState.hasError
+                  ? TextStyle(
                 fontSize: 15,
                 fontWeight: FontWeightHelper.regular,
                 color: ColorsManager.error,
@@ -70,31 +90,28 @@ class CustomTextField extends StatelessWidget {
                     fontWeight: FontWeightHelper.regular,
                     color: ColorsManager.darkGrey,
                   )),
-              labelText: formFieldState.hasError
-                  ? validator(controller.text) ?? labelTitle
-                  : labelTitle,
-              fillColor: ColorsManager.customWhite,
+              fillColor: fillColor,
               filled: true,
               prefixIcon: prefixIcon != null
                   ? Icon(
-                prefixIcon,
-                color: Colors.black,
-              )
+                      prefixIcon,
+                      color: Colors.black,
+                    )
                   : null,
               suffixIcon: suffixIcon != null
                   ? IconButton(
-                onPressed: () {
-                  if (suffixIconAction != null) {
-                    suffixIconAction!();
-                  }
-                },
-                icon: Icon(
-                  suffixIcon,
-                  color: obscureText
-                      ? ColorsManager.grey
-                      : ColorsManager.darkGrey,
-                ),
-              )
+                      onPressed: () {
+                        if (suffixIconAction != null) {
+                          suffixIconAction!();
+                        }
+                      },
+                      icon: Icon(
+                        suffixIcon,
+                        color: obscureText
+                            ? ColorsManager.grey
+                            : ColorsManager.darkGrey,
+                      ),
+                    )
                   : null,
               contentPadding: contentPadding ??
                   const EdgeInsets.symmetric(

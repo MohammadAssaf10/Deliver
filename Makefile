@@ -9,7 +9,7 @@ buildApp:
 
 runRelease:
 	flutter clean
-	flutter run release
+	flutter run --release
 
 runProfile:
 	flutter clean

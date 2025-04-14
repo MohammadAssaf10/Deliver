@@ -12,6 +12,7 @@ class AppTextButton extends StatelessWidget {
   final Widget child;
   final BorderSide borderSide;
   final EdgeInsetsGeometry outerPadding;
+  final AlignmentGeometry? alignment;
 
   const AppTextButton({
     super.key,
@@ -24,6 +25,7 @@ class AppTextButton extends StatelessWidget {
     required this.child,
     this.borderSide = BorderSide.none,
     required this.onPressed,
+    this.alignment,
   });
 
   @override
@@ -42,11 +44,12 @@ class AppTextButton extends StatelessWidget {
             backgroundColor,
           ),
           fixedSize: WidgetStateProperty.all(
-            Size(buttonWidth ?? double.maxFinite, buttonHeight ?? 50),
+            Size(buttonWidth ?? double.maxFinite, buttonHeight ?? 45),
           ),
           overlayColor: WidgetStateProperty.all(
             overlayColor ?? ColorsManager.grey.withValues(alpha: 0.03),
           ),
+          alignment: alignment,
         ),
         onPressed: onPressed,
         child: child,

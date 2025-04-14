@@ -16,7 +16,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
 # In Windows, buld-name is used as the major, minor, and patch parts
 # of the product and file versions while build-number is used as the build suffix.
-version: 1.0.8+26
+version: 2.0.0+27
 
 environment:
   sdk: ^3.5.3
@@ -55,16 +55,19 @@ dependencies:
   json_annotation: ^4.9.0
   shared_preferences: ^2.4.0
   flutter_secure_storage: ^9.2.4
-  cached_network_image: ^3.4.1
   firebase_core: ^3.10.1
+  firebase_storage: ^12.4.3
   location: ^8.0.0
   google_maps_flutter: ^2.10.0
   pinput: ^5.0.1
   sliding_up_panel: ^2.0.0+1
   geocoding: ^3.0.0
-  sentry_flutter: ^8.12.0
+#  sentry_flutter: ^8.12.0
   flutter_dotenv: ^5.2.1
   auto_size_text: ^3.0.0
+  image_picker: ^1.1.2
+  shimmer: ^3.0.0
+  fancy_shimmer_image: ^2.0.3
 
 
 dev_dependencies:

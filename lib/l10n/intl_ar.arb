@@ -71,5 +71,14 @@
   "services": "الخدمات",
   "activities": "الأنشطة",
   "account": "الحساب",
-  "retry": "إعادة المحاولة"
+  "retry": "إعادة المحاولة",
+  "profileDetails": "تفاصيل الملف الشخصي",
+  "changeLanguage": "تغيير اللغة",
+  "logout": "تسجيل الخروج",
+  "clientId": "رقم العميل: ",
+  "name": "الاسم: ",
+  "phone": "الهاتف: ",
+  "camera": "الكاميرا",
+  "gallery": "المعرض",
+  "selectImageSource": "اختيار مصدر الصورة"
 }

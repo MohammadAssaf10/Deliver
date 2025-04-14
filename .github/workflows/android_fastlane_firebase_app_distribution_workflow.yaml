@@ -17,20 +17,19 @@ jobs:
       - name: Setup JDK
         uses: actions/setup-java@v2
         with:
-          java-version: '19.0.2'
+          java-version: '17.0.12'
           distribution: 'temurin'
 
       - name: Install Flutter
         uses: subosito/flutter-action@v2
         with:
-          flutter-version: "3.27.3"
+          flutter-version: "3.29.2"
           channel: stable
 
       - name: Set up local.properties
         run: |
-          cd android
-          echo "google_maps_key=${{ secrets.GOOGLE_MAPS_KEY }}" >> local.properties
-          echo "sentry_dsn=${{ secrets.SENTRY_DSN }}" >> local.properties
+          echo "GOOGLE_MAPS_KEY=${{ secrets.GOOGLE_MAPS_KEY }}" >> .env
+          echo "SENTRY_DSN=${{ secrets.SENTRY_DSN }}" >> .env
 
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1

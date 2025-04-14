@@ -1,6 +1,5 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
-import 'package:sentry_flutter/sentry_flutter.dart';
 
 import '../../generated/l10n.dart';
 import '../error/error_handler.dart';
@@ -28,10 +27,10 @@ class BaseRepositoryImpl extends BaseRepository {
       final TM result = await apiRequest(); // apiRequest returns TM
       return Right(converter(result)); // Convert TM to T
     } catch (e, stackTrace) {
-      Sentry.captureException(
-        e,
-        stackTrace: stackTrace,
-      );
+      // Sentry.captureException(
+      //   e,
+      //   stackTrace: stackTrace,
+      // );
       dPrint("Exception: $e", stringColor: StringColor.red);
       dPrint("Stack trace: $stackTrace", stringColor: StringColor.red);
       final Failure failure = ErrorHandler.handleFailureError(e);
