@@ -13,4 +13,6 @@ abstract class MapRemoteDataSource extends BaseRemoteDataSource {
     required LocationRequest endLocation,
     required TripDistanceAndDuration tripInfo,
   });
+
+  Future<String?> deleteCurrentTrip();
 }

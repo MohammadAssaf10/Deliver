@@ -16,24 +16,36 @@ class _$PaginationStateData<T> extends PaginationStateData<T> {
   @override
   final int currentPage;
 
-  factory _$PaginationStateData(
-          [void Function(PaginationStateDataBuilder<T>)? updates]) =>
-      (new PaginationStateDataBuilder<T>()..update(updates))._build();
+  factory _$PaginationStateData([
+    void Function(PaginationStateDataBuilder<T>)? updates,
+  ]) => (new PaginationStateDataBuilder<T>()..update(updates))._build();
 
-  _$PaginationStateData._(
-      {required this.items,
-      required this.isLoading,
-      required this.isFinished,
-      required this.currentPage})
-      : super._() {
+  _$PaginationStateData._({
+    required this.items,
+    required this.isLoading,
+    required this.isFinished,
+    required this.currentPage,
+  }) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        items, r'PaginationStateData', 'items');
+      items,
+      r'PaginationStateData',
+      'items',
+    );
     BuiltValueNullFieldError.checkNotNull(
-        isLoading, r'PaginationStateData', 'isLoading');
+      isLoading,
+      r'PaginationStateData',
+      'isLoading',
+    );
     BuiltValueNullFieldError.checkNotNull(
-        isFinished, r'PaginationStateData', 'isFinished');
+      isFinished,
+      r'PaginationStateData',
+      'isFinished',
+    );
     BuiltValueNullFieldError.checkNotNull(
-        currentPage, r'PaginationStateData', 'currentPage');
+      currentPage,
+      r'PaginationStateData',
+      'currentPage',
+    );
     if (T == dynamic) {
       throw new BuiltValueMissingGenericsError(r'PaginationStateData', 'T');
     }
@@ -41,8 +53,8 @@ class _$PaginationStateData<T> extends PaginationStateData<T> {
 
   @override
   PaginationStateData<T> rebuild(
-          void Function(PaginationStateDataBuilder<T>) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(PaginationStateDataBuilder<T>) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   PaginationStateDataBuilder<T> toBuilder() =>
@@ -131,15 +143,25 @@ class PaginationStateDataBuilder<T>
   _$PaginationStateData<T> _build() {
     _$PaginationStateData<T> _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           new _$PaginationStateData<T>._(
             items: items.build(),
             isLoading: BuiltValueNullFieldError.checkNotNull(
-                isLoading, r'PaginationStateData', 'isLoading'),
+              isLoading,
+              r'PaginationStateData',
+              'isLoading',
+            ),
             isFinished: BuiltValueNullFieldError.checkNotNull(
-                isFinished, r'PaginationStateData', 'isFinished'),
+              isFinished,
+              r'PaginationStateData',
+              'isFinished',
+            ),
             currentPage: BuiltValueNullFieldError.checkNotNull(
-                currentPage, r'PaginationStateData', 'currentPage'),
+              currentPage,
+              r'PaginationStateData',
+              'currentPage',
+            ),
           );
     } catch (_) {
       late String _$failedField;
@@ -148,7 +170,10 @@ class PaginationStateDataBuilder<T>
         items.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'PaginationStateData', _$failedField, e.toString());
+          r'PaginationStateData',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }

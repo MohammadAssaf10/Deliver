@@ -95,4 +95,32 @@ class BaseRemoteDataSourceImpl extends BaseRemoteDataSource {
       throw ErrorHandler.handleExceptionError(e);
     }
   }
+
+  @override
+  Future<BaseModel> performDeleteRequest({
+    required String endpoint,
+    Map<String, dynamic>? body,
+    Map<String, dynamic>? queryParameters,
+  }) async {
+    try {
+      final Response<Map<String, dynamic>> response = await _dio.delete(
+        endpoint,
+        data: body,
+        queryParameters: queryParameters,
+      );
+      if (response.data != null) {
+        final BaseModel baseModel = BaseModel.fromJson(response.data!);
+        if ((response.statusCode == 200 || response.statusCode == 202) &&
+            (baseModel.statusCode == 200 || baseModel.statusCode == 202)) {
+          return baseModel;
+        } else {
+          throw ServerException(error: baseModel.message);
+        }
+      } else {
+        throw ServerException(error: S.current.somethingWentWrong);
+      }
+    } catch (e) {
+      throw ErrorHandler.handleExceptionError(e);
+    }
+  }
 }

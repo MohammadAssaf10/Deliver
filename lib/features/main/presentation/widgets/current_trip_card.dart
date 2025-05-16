@@ -44,7 +44,7 @@ class CurrentTripCard extends StatelessWidget {
           children: [
             Expanded(
               child: Padding(
-                padding: EdgeInsetsDirectional.only(start: 13, end: 6, top: 13),
+                padding: const EdgeInsetsDirectional.only(start: 13, end: 6, top: 13),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   spacing: 5,

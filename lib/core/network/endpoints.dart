@@ -6,7 +6,7 @@ class Endpoints {
   static String signIn = '/rider/signin';
   static String signUp = '/rider/signup';
   static String profile = '/Rider/profile';
-  static String createNewTrip = '/rider/trip';
+  static String trip = '/rider/trip';
   static String currentTrip = '/rider/trip/current';
   static String tripHistory = '/rider/trip/history';
   static String generateVerificationCode = '/Account/generateVerificationCode';

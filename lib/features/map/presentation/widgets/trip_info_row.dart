@@ -17,11 +17,14 @@ class TripInfoRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return tripDistanceAndDuration == null
-        ? SizedBox.shrink()
+        ? const SizedBox.shrink()
         : Center(
             child: Padding(
               padding: const EdgeInsets.symmetric(vertical: 15),
               child: Wrap(
+                alignment: WrapAlignment.start,
+                crossAxisAlignment: WrapCrossAlignment.start,
+                runAlignment: WrapAlignment.start,
                 children: [
                   CustomAutoSizeText(
                     text: S.of(context).estimatedTime,
@@ -39,7 +42,7 @@ class TripInfoRow extends StatelessWidget {
                     maxFontSize: 18,
                     color: ColorsManager.darkGrey,
                   ),
-                  SizedBox(width: 20),
+                  const SizedBox(width: 20),
                   CustomAutoSizeText(
                     text: S.of(context).distance,
                     minFontSize: 14,
@@ -55,6 +58,28 @@ class TripInfoRow extends StatelessWidget {
                     maxFontSize: 18,
                     color: ColorsManager.darkGrey,
                   ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 5),
+                    child: CustomAutoSizeText(
+                      text: S.of(context).price,
+                      minFontSize: 14,
+                      initialFontSize: 16,
+                      maxFontSize: 18,
+                      color: ColorsManager.darkGrey,
+                      fontWeight: FontWeightHelper.bold,
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 5),
+                    child: CustomAutoSizeText(
+                      text: S.of(context).km(tripDistanceAndDuration!.price),
+                      minFontSize: 14,
+                      initialFontSize: 16,
+                      maxFontSize: 18,
+                      color: ColorsManager.darkGrey,
+                    ),
+                  ),
+
                 ],
               ),
             ),

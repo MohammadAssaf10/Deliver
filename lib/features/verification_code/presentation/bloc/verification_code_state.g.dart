@@ -14,25 +14,36 @@ class _$VerificationCodeState extends VerificationCodeState {
   @override
   final bool isError;
 
-  factory _$VerificationCodeState(
-          [void Function(VerificationCodeStateBuilder)? updates]) =>
-      (new VerificationCodeStateBuilder()..update(updates))._build();
+  factory _$VerificationCodeState([
+    void Function(VerificationCodeStateBuilder)? updates,
+  ]) => (new VerificationCodeStateBuilder()..update(updates))._build();
 
-  _$VerificationCodeState._(
-      {required this.isLoading, required this.isSuccess, required this.isError})
-      : super._() {
+  _$VerificationCodeState._({
+    required this.isLoading,
+    required this.isSuccess,
+    required this.isError,
+  }) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        isLoading, r'VerificationCodeState', 'isLoading');
+      isLoading,
+      r'VerificationCodeState',
+      'isLoading',
+    );
     BuiltValueNullFieldError.checkNotNull(
-        isSuccess, r'VerificationCodeState', 'isSuccess');
+      isSuccess,
+      r'VerificationCodeState',
+      'isSuccess',
+    );
     BuiltValueNullFieldError.checkNotNull(
-        isError, r'VerificationCodeState', 'isError');
+      isError,
+      r'VerificationCodeState',
+      'isError',
+    );
   }
 
   @override
   VerificationCodeState rebuild(
-          void Function(VerificationCodeStateBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(VerificationCodeStateBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   VerificationCodeStateBuilder toBuilder() =>
@@ -111,14 +122,24 @@ class VerificationCodeStateBuilder
   VerificationCodeState build() => _build();
 
   _$VerificationCodeState _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         new _$VerificationCodeState._(
           isLoading: BuiltValueNullFieldError.checkNotNull(
-              isLoading, r'VerificationCodeState', 'isLoading'),
+            isLoading,
+            r'VerificationCodeState',
+            'isLoading',
+          ),
           isSuccess: BuiltValueNullFieldError.checkNotNull(
-              isSuccess, r'VerificationCodeState', 'isSuccess'),
+            isSuccess,
+            r'VerificationCodeState',
+            'isSuccess',
+          ),
           isError: BuiltValueNullFieldError.checkNotNull(
-              isError, r'VerificationCodeState', 'isError'),
+            isError,
+            r'VerificationCodeState',
+            'isError',
+          ),
         );
     replace(_$result);
     return _$result;

@@ -10,9 +10,7 @@ class MainRemoteDataSourceImpl extends BaseRemoteDataSourceImpl
     implements MainRemoteDataSource {
   @override
   Future<TripModel?> getCurrentTrip() async {
-    final result = await performGetRequest(
-      endpoint: Endpoints.currentTrip,
-    );
+    final result = await performGetRequest(endpoint: Endpoints.currentTrip);
     if (result.data == null) return null;
     return TripModel.fromJson(result.data);
   }

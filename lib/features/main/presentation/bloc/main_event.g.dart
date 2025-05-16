@@ -15,7 +15,10 @@ class _$SetPageIndex extends SetPageIndex {
 
   _$SetPageIndex._({required this.pageIndex}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        pageIndex, r'SetPageIndex', 'pageIndex');
+      pageIndex,
+      r'SetPageIndex',
+      'pageIndex',
+    );
   }
 
   @override
@@ -42,8 +45,7 @@ class _$SetPageIndex extends SetPageIndex {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'SetPageIndex')
-          ..add('pageIndex', pageIndex))
-        .toString();
+      ..add('pageIndex', pageIndex)).toString();
   }
 }
 
@@ -81,10 +83,14 @@ class SetPageIndexBuilder
   SetPageIndex build() => _build();
 
   _$SetPageIndex _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         new _$SetPageIndex._(
           pageIndex: BuiltValueNullFieldError.checkNotNull(
-              pageIndex, r'SetPageIndex', 'pageIndex'),
+            pageIndex,
+            r'SetPageIndex',
+            'pageIndex',
+          ),
         );
     replace(_$result);
     return _$result;

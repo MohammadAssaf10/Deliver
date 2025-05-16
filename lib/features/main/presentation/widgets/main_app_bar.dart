@@ -22,7 +22,7 @@ class MainAppBar extends StatelessWidget implements PreferredSizeWidget {
             bottom: 15,
           ),
           alignment: AlignmentDirectional.centerStart,
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             border: Border(
               bottom: BorderSide(color: ColorsManager.darkWhite),
             ),

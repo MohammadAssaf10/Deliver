@@ -8,7 +8,8 @@ part of 'trip_histories_model.dart';
 
 TripHistoriesModel _$TripHistoriesModelFromJson(Map<String, dynamic> json) =>
     TripHistoriesModel(
-      tripHistories: (json['data'] as List<dynamic>)
-          .map((e) => TripHistoryModel.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      tripHistories:
+          (json['data'] as List<dynamic>)
+              .map((e) => TripHistoryModel.fromJson(e as Map<String, dynamic>))
+              .toList(),
     );

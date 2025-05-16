@@ -7,16 +7,16 @@ part of 'sign_up_event.dart';
 // **************************************************************************
 
 class _$ChangePasswordState extends ChangePasswordState {
-  factory _$ChangePasswordState(
-          [void Function(ChangePasswordStateBuilder)? updates]) =>
-      (new ChangePasswordStateBuilder()..update(updates))._build();
+  factory _$ChangePasswordState([
+    void Function(ChangePasswordStateBuilder)? updates,
+  ]) => (new ChangePasswordStateBuilder()..update(updates))._build();
 
   _$ChangePasswordState._() : super._();
 
   @override
   ChangePasswordState rebuild(
-          void Function(ChangePasswordStateBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ChangePasswordStateBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ChangePasswordStateBuilder toBuilder() =>

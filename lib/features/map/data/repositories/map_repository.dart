@@ -16,30 +16,35 @@ class MapRepository extends BaseRepositoryImpl {
   Future<Either<Failure, TripDistanceAndDuration>> calculateDistance({
     required LocationRequest startLocation,
     required LocationRequest endLocation,
-  }) async =>
-      await requestApi(
-        () async => await _mapDataSource.calculateDistance(
-          startLocation: startLocation,
-          endLocation: endLocation,
-        ),
-        (tripInfoModel) {
-          return tripInfoModel;
-        },
-      );
+  }) async => await requestApi(
+    () async => await _mapDataSource.calculateDistance(
+      startLocation: startLocation,
+      endLocation: endLocation,
+    ),
+    (tripInfoModel) {
+      return tripInfoModel;
+    },
+  );
 
   Future<Either<Failure, int>> createNewTrip({
     required LocationRequest startLocation,
     required LocationRequest endLocation,
     required TripDistanceAndDuration tripInfo,
-  }) async =>
-      await requestApi(
-        () async => await _mapDataSource.createNewTrip(
-          startLocation: startLocation,
-          endLocation: endLocation,
-          tripInfo: tripInfo,
-        ),
-        (tripId) {
-          return tripId;
-        },
-      );
+  }) async => await requestApi(
+    () async => await _mapDataSource.createNewTrip(
+      startLocation: startLocation,
+      endLocation: endLocation,
+      tripInfo: tripInfo,
+    ),
+    (tripId) {
+      return tripId;
+    },
+  );
+
+  Future<Either<Failure, String?>> deleteCurrentTrip() async =>
+      await requestApi(() async => await _mapDataSource.deleteCurrentTrip(), (
+        message,
+      ) {
+        return message;
+      });
 }

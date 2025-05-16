@@ -7,14 +7,13 @@ part of 'address.dart';
 // **************************************************************************
 
 Address _$AddressFromJson(Map<String, dynamic> json) => Address(
-      longitude: (json['longitude'] as num).toDouble(),
-      latitude: (json['latitude'] as num).toDouble(),
-      markerState:
-          $enumDecodeNullable(_$MarkerStateEnumMap, json['markerState']),
-      administrativeArea: json['administrativeArea'] as String?,
-      locality: json['locality'] as String?,
-      street: json['street'] as String?,
-    );
+  longitude: (json['longitude'] as num).toDouble(),
+  latitude: (json['latitude'] as num).toDouble(),
+  markerState: $enumDecodeNullable(_$MarkerStateEnumMap, json['markerState']),
+  administrativeArea: json['administrativeArea'] as String?,
+  locality: json['locality'] as String?,
+  street: json['street'] as String?,
+);
 
 const _$MarkerStateEnumMap = {
   MarkerState.tripStartLocation: 'tripStartLocation',

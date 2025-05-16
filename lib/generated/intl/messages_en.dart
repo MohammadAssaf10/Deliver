@@ -35,6 +35,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("Arabic"),
     "camera": MessageLookupByLibrary.simpleMessage("Camera"),
     "cancel": MessageLookupByLibrary.simpleMessage("Cancel"),
+    "cancelTrip": MessageLookupByLibrary.simpleMessage("Cancel Trip"),
     "changeLanguage": MessageLookupByLibrary.simpleMessage("Change Language"),
     "clientId": MessageLookupByLibrary.simpleMessage("Client Id: "),
     "confirm": MessageLookupByLibrary.simpleMessage("Confirm"),
@@ -130,6 +131,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "Please turn on location service and try again",
         ),
+    "price": MessageLookupByLibrary.simpleMessage("Price: "),
     "profileDetails": MessageLookupByLibrary.simpleMessage("Profile Details"),
     "readyThenLetsRoll": MessageLookupByLibrary.simpleMessage(
       "Ready? Then let\'s roll",

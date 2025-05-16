@@ -17,7 +17,10 @@ class _$ProfileState extends ProfileState {
 
   _$ProfileState._({required this.isLoading, this.profile}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        isLoading, r'ProfileState', 'isLoading');
+      isLoading,
+      r'ProfileState',
+      'isLoading',
+    );
   }
 
   @override
@@ -92,10 +95,14 @@ class ProfileStateBuilder
   ProfileState build() => _build();
 
   _$ProfileState _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         new _$ProfileState._(
           isLoading: BuiltValueNullFieldError.checkNotNull(
-              isLoading, r'ProfileState', 'isLoading'),
+            isLoading,
+            r'ProfileState',
+            'isLoading',
+          ),
           profile: profile,
         );
     replace(_$result);

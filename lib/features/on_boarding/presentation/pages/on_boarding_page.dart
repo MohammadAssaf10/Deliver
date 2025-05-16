@@ -27,7 +27,7 @@ class OnBoardingPage extends StatelessWidget {
                   ),
                 ),
                 if (orientation == Orientation.portrait)
-                  Expanded(
+                  const Expanded(
                     child: GetStartContainer(),
                   ),
                 if (orientation == Orientation.landscape)

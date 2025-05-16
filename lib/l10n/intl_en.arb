@@ -80,5 +80,7 @@
   "phone": "Phone: ",
   "camera": "Camera",
   "gallery": "Gallery",
-  "selectImageSource": "Select Image Source"
+  "selectImageSource": "Select Image Source",
+  "price": "Price: ",
+  "cancelTrip":"Cancel Trip"
 }

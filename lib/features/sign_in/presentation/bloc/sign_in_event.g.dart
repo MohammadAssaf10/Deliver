@@ -7,16 +7,16 @@ part of 'sign_in_event.dart';
 // **************************************************************************
 
 class _$ChangePasswordVisibility extends ChangePasswordVisibility {
-  factory _$ChangePasswordVisibility(
-          [void Function(ChangePasswordVisibilityBuilder)? updates]) =>
-      (new ChangePasswordVisibilityBuilder()..update(updates))._build();
+  factory _$ChangePasswordVisibility([
+    void Function(ChangePasswordVisibilityBuilder)? updates,
+  ]) => (new ChangePasswordVisibilityBuilder()..update(updates))._build();
 
   _$ChangePasswordVisibility._() : super._();
 
   @override
   ChangePasswordVisibility rebuild(
-          void Function(ChangePasswordVisibilityBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ChangePasswordVisibilityBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ChangePasswordVisibilityBuilder toBuilder() =>

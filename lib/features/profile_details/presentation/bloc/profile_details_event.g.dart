@@ -15,7 +15,10 @@ class _$SetProfileData extends SetProfileData {
 
   _$SetProfileData._({required this.profile}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        profile, r'SetProfileData', 'profile');
+      profile,
+      r'SetProfileData',
+      'profile',
+    );
   }
 
   @override
@@ -43,8 +46,7 @@ class _$SetProfileData extends SetProfileData {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'SetProfileData')
-          ..add('profile', profile))
-        .toString();
+      ..add('profile', profile)).toString();
   }
 }
 
@@ -82,10 +84,14 @@ class SetProfileDataBuilder
   SetProfileData build() => _build();
 
   _$SetProfileData _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         new _$SetProfileData._(
           profile: BuiltValueNullFieldError.checkNotNull(
-              profile, r'SetProfileData', 'profile'),
+            profile,
+            r'SetProfileData',
+            'profile',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -96,19 +102,22 @@ class _$SelectProfileImage extends SelectProfileImage {
   @override
   final ImageSource imageSource;
 
-  factory _$SelectProfileImage(
-          [void Function(SelectProfileImageBuilder)? updates]) =>
-      (new SelectProfileImageBuilder()..update(updates))._build();
+  factory _$SelectProfileImage([
+    void Function(SelectProfileImageBuilder)? updates,
+  ]) => (new SelectProfileImageBuilder()..update(updates))._build();
 
   _$SelectProfileImage._({required this.imageSource}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        imageSource, r'SelectProfileImage', 'imageSource');
+      imageSource,
+      r'SelectProfileImage',
+      'imageSource',
+    );
   }
 
   @override
   SelectProfileImage rebuild(
-          void Function(SelectProfileImageBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(SelectProfileImageBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   SelectProfileImageBuilder toBuilder() =>
@@ -131,8 +140,7 @@ class _$SelectProfileImage extends SelectProfileImage {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'SelectProfileImage')
-          ..add('imageSource', imageSource))
-        .toString();
+      ..add('imageSource', imageSource)).toString();
   }
 }
 
@@ -171,10 +179,14 @@ class SelectProfileImageBuilder
   SelectProfileImage build() => _build();
 
   _$SelectProfileImage _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         new _$SelectProfileImage._(
           imageSource: BuiltValueNullFieldError.checkNotNull(
-              imageSource, r'SelectProfileImage', 'imageSource'),
+            imageSource,
+            r'SelectProfileImage',
+            'imageSource',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -182,9 +194,9 @@ class SelectProfileImageBuilder
 }
 
 class _$UpdateProfileData extends UpdateProfileData {
-  factory _$UpdateProfileData(
-          [void Function(UpdateProfileDataBuilder)? updates]) =>
-      (new UpdateProfileDataBuilder()..update(updates))._build();
+  factory _$UpdateProfileData([
+    void Function(UpdateProfileDataBuilder)? updates,
+  ]) => (new UpdateProfileDataBuilder()..update(updates))._build();
 
   _$UpdateProfileData._() : super._();
 

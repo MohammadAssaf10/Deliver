@@ -47,10 +47,10 @@ class DeliverApp extends StatelessWidget {
           locale: Locale(state.appLanguage.name),
           theme: ThemeData(
             scaffoldBackgroundColor: ColorsManager.darkGrey,
-            appBarTheme: AppBarTheme(
+            appBarTheme: const AppBarTheme(
               backgroundColor: ColorsManager.darkGrey,
             ),
-            bottomNavigationBarTheme: BottomNavigationBarThemeData(
+            bottomNavigationBarTheme: const BottomNavigationBarThemeData(
               backgroundColor: ColorsManager.darkGrey,
             ),
             textSelectionTheme: TextSelectionThemeData(

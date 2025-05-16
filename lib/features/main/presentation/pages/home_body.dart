@@ -18,11 +18,11 @@ class HomeBody extends StatelessWidget {
         return Padding(
           padding: const EdgeInsets.symmetric(horizontal: 14),
           child: state.isLoading
-              ? Loader(
+              ? const Loader(
                   color: ColorsManager.customWhite,
                 )
               : state.trip == null
-                  ? UserDoNotHaveTripWidget()
+                  ? const UserDoNotHaveTripWidget()
                   : UserHaveTripWidget(trip: state.trip!),
         );
       },

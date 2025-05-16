@@ -19,7 +19,7 @@ class LocationText extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          SizedBox(width: 18),
+          const SizedBox(width: 18),
           Expanded(
             child: Text(
               message,
@@ -34,7 +34,7 @@ class LocationText extends StatelessWidget {
               context.read<MapBloc>().changeIsPanelOpenState(true);
               context.read<MapBloc>().setHintMessage("");
             },
-            child: CircleAvatar(
+            child: const CircleAvatar(
               radius: 12,
               backgroundColor: ColorsManager.darkWhite,
               child: Icon(

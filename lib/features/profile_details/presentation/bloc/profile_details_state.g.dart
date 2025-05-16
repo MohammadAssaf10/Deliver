@@ -14,25 +14,31 @@ class _$ProfileDetailsState extends ProfileDetailsState {
   @override
   final String profileImage;
 
-  factory _$ProfileDetailsState(
-          [void Function(ProfileDetailsStateBuilder)? updates]) =>
-      (new ProfileDetailsStateBuilder()..update(updates))._build();
+  factory _$ProfileDetailsState([
+    void Function(ProfileDetailsStateBuilder)? updates,
+  ]) => (new ProfileDetailsStateBuilder()..update(updates))._build();
 
-  _$ProfileDetailsState._(
-      {required this.isLoading,
-      this.profileImageFile,
-      required this.profileImage})
-      : super._() {
+  _$ProfileDetailsState._({
+    required this.isLoading,
+    this.profileImageFile,
+    required this.profileImage,
+  }) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        isLoading, r'ProfileDetailsState', 'isLoading');
+      isLoading,
+      r'ProfileDetailsState',
+      'isLoading',
+    );
     BuiltValueNullFieldError.checkNotNull(
-        profileImage, r'ProfileDetailsState', 'profileImage');
+      profileImage,
+      r'ProfileDetailsState',
+      'profileImage',
+    );
   }
 
   @override
   ProfileDetailsState rebuild(
-          void Function(ProfileDetailsStateBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ProfileDetailsStateBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ProfileDetailsStateBuilder toBuilder() =>
@@ -112,13 +118,20 @@ class ProfileDetailsStateBuilder
   ProfileDetailsState build() => _build();
 
   _$ProfileDetailsState _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         new _$ProfileDetailsState._(
           isLoading: BuiltValueNullFieldError.checkNotNull(
-              isLoading, r'ProfileDetailsState', 'isLoading'),
+            isLoading,
+            r'ProfileDetailsState',
+            'isLoading',
+          ),
           profileImageFile: profileImageFile,
           profileImage: BuiltValueNullFieldError.checkNotNull(
-              profileImage, r'ProfileDetailsState', 'profileImage'),
+            profileImage,
+            r'ProfileDetailsState',
+            'profileImage',
+          ),
         );
     replace(_$result);
     return _$result;

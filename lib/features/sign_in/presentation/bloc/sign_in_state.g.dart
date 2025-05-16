@@ -21,22 +21,34 @@ class _$SignInState extends SignInState {
   factory _$SignInState([void Function(SignInStateBuilder)? updates]) =>
       (new SignInStateBuilder()..update(updates))._build();
 
-  _$SignInState._(
-      {required this.passwordVisible,
-      required this.isLoading,
-      required this.isSuccess,
-      required this.isError,
-      required this.isPhoneNumberVerified})
-      : super._() {
+  _$SignInState._({
+    required this.passwordVisible,
+    required this.isLoading,
+    required this.isSuccess,
+    required this.isError,
+    required this.isPhoneNumberVerified,
+  }) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        passwordVisible, r'SignInState', 'passwordVisible');
+      passwordVisible,
+      r'SignInState',
+      'passwordVisible',
+    );
     BuiltValueNullFieldError.checkNotNull(
-        isLoading, r'SignInState', 'isLoading');
+      isLoading,
+      r'SignInState',
+      'isLoading',
+    );
     BuiltValueNullFieldError.checkNotNull(
-        isSuccess, r'SignInState', 'isSuccess');
+      isSuccess,
+      r'SignInState',
+      'isSuccess',
+    );
     BuiltValueNullFieldError.checkNotNull(isError, r'SignInState', 'isError');
     BuiltValueNullFieldError.checkNotNull(
-        isPhoneNumberVerified, r'SignInState', 'isPhoneNumberVerified');
+      isPhoneNumberVerified,
+      r'SignInState',
+      'isPhoneNumberVerified',
+    );
   }
 
   @override
@@ -136,18 +148,34 @@ class SignInStateBuilder implements Builder<SignInState, SignInStateBuilder> {
   SignInState build() => _build();
 
   _$SignInState _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         new _$SignInState._(
           passwordVisible: BuiltValueNullFieldError.checkNotNull(
-              passwordVisible, r'SignInState', 'passwordVisible'),
+            passwordVisible,
+            r'SignInState',
+            'passwordVisible',
+          ),
           isLoading: BuiltValueNullFieldError.checkNotNull(
-              isLoading, r'SignInState', 'isLoading'),
+            isLoading,
+            r'SignInState',
+            'isLoading',
+          ),
           isSuccess: BuiltValueNullFieldError.checkNotNull(
-              isSuccess, r'SignInState', 'isSuccess'),
+            isSuccess,
+            r'SignInState',
+            'isSuccess',
+          ),
           isError: BuiltValueNullFieldError.checkNotNull(
-              isError, r'SignInState', 'isError'),
+            isError,
+            r'SignInState',
+            'isError',
+          ),
           isPhoneNumberVerified: BuiltValueNullFieldError.checkNotNull(
-              isPhoneNumberVerified, r'SignInState', 'isPhoneNumberVerified'),
+            isPhoneNumberVerified,
+            r'SignInState',
+            'isPhoneNumberVerified',
+          ),
         );
     replace(_$result);
     return _$result;

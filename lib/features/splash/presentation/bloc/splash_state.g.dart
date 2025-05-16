@@ -17,12 +17,17 @@ class _$SplashState extends SplashState {
   factory _$SplashState([void Function(SplashStateBuilder)? updates]) =>
       (new SplashStateBuilder()..update(updates))._build();
 
-  _$SplashState._(
-      {this.isAuth, required this.isError, required this.errorMessage})
-      : super._() {
+  _$SplashState._({
+    this.isAuth,
+    required this.isError,
+    required this.errorMessage,
+  }) : super._() {
     BuiltValueNullFieldError.checkNotNull(isError, r'SplashState', 'isError');
     BuiltValueNullFieldError.checkNotNull(
-        errorMessage, r'SplashState', 'errorMessage');
+      errorMessage,
+      r'SplashState',
+      'errorMessage',
+    );
   }
 
   @override
@@ -104,13 +109,20 @@ class SplashStateBuilder implements Builder<SplashState, SplashStateBuilder> {
   SplashState build() => _build();
 
   _$SplashState _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         new _$SplashState._(
           isAuth: isAuth,
           isError: BuiltValueNullFieldError.checkNotNull(
-              isError, r'SplashState', 'isError'),
+            isError,
+            r'SplashState',
+            'isError',
+          ),
           errorMessage: BuiltValueNullFieldError.checkNotNull(
-              errorMessage, r'SplashState', 'errorMessage'),
+            errorMessage,
+            r'SplashState',
+            'errorMessage',
+          ),
         );
     replace(_$result);
     return _$result;

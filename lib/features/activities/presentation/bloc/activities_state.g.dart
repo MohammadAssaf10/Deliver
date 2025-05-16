@@ -19,20 +19,32 @@ class _$ActivitiesState extends ActivitiesState {
   factory _$ActivitiesState([void Function(ActivitiesStateBuilder)? updates]) =>
       (new ActivitiesStateBuilder()..update(updates))._build();
 
-  _$ActivitiesState._(
-      {required this.isLoading,
-      required this.isError,
-      required this.isListenerAdded,
-      required this.tripHistories})
-      : super._() {
+  _$ActivitiesState._({
+    required this.isLoading,
+    required this.isError,
+    required this.isListenerAdded,
+    required this.tripHistories,
+  }) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        isLoading, r'ActivitiesState', 'isLoading');
+      isLoading,
+      r'ActivitiesState',
+      'isLoading',
+    );
     BuiltValueNullFieldError.checkNotNull(
-        isError, r'ActivitiesState', 'isError');
+      isError,
+      r'ActivitiesState',
+      'isError',
+    );
     BuiltValueNullFieldError.checkNotNull(
-        isListenerAdded, r'ActivitiesState', 'isListenerAdded');
+      isListenerAdded,
+      r'ActivitiesState',
+      'isListenerAdded',
+    );
     BuiltValueNullFieldError.checkNotNull(
-        tripHistories, r'ActivitiesState', 'tripHistories');
+      tripHistories,
+      r'ActivitiesState',
+      'tripHistories',
+    );
   }
 
   @override
@@ -129,14 +141,24 @@ class ActivitiesStateBuilder
   _$ActivitiesState _build() {
     _$ActivitiesState _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           new _$ActivitiesState._(
             isLoading: BuiltValueNullFieldError.checkNotNull(
-                isLoading, r'ActivitiesState', 'isLoading'),
+              isLoading,
+              r'ActivitiesState',
+              'isLoading',
+            ),
             isError: BuiltValueNullFieldError.checkNotNull(
-                isError, r'ActivitiesState', 'isError'),
+              isError,
+              r'ActivitiesState',
+              'isError',
+            ),
             isListenerAdded: BuiltValueNullFieldError.checkNotNull(
-                isListenerAdded, r'ActivitiesState', 'isListenerAdded'),
+              isListenerAdded,
+              r'ActivitiesState',
+              'isListenerAdded',
+            ),
             tripHistories: tripHistories.build(),
           );
     } catch (_) {
@@ -146,7 +168,10 @@ class ActivitiesStateBuilder
         tripHistories.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'ActivitiesState', _$failedField, e.toString());
+          r'ActivitiesState',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }

@@ -28,7 +28,7 @@ class ProfileCard extends StatelessWidget {
                 color: ColorsManager.lightGrey,
               ),
             ),
-            child: Icon(
+            child: const Icon(
               Icons.person,
               size: 60,
               color: ColorsManager.lightGrey,
@@ -39,7 +39,7 @@ class ProfileCard extends StatelessWidget {
             height: 85,
             width: 85,
             clipBehavior: Clip.antiAlias,
-            decoration: BoxDecoration(shape: BoxShape.circle),
+            decoration: const BoxDecoration(shape: BoxShape.circle),
             child: CustomAppImage(
               image: profile.profileImage!,
               height: 85,

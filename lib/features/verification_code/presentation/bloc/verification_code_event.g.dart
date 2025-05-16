@@ -7,16 +7,16 @@ part of 'verification_code_event.dart';
 // **************************************************************************
 
 class _$GenerateVerificationCode extends GenerateVerificationCode {
-  factory _$GenerateVerificationCode(
-          [void Function(GenerateVerificationCodeBuilder)? updates]) =>
-      (new GenerateVerificationCodeBuilder()..update(updates))._build();
+  factory _$GenerateVerificationCode([
+    void Function(GenerateVerificationCodeBuilder)? updates,
+  ]) => (new GenerateVerificationCodeBuilder()..update(updates))._build();
 
   _$GenerateVerificationCode._() : super._();
 
   @override
   GenerateVerificationCode rebuild(
-          void Function(GenerateVerificationCodeBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(GenerateVerificationCodeBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   GenerateVerificationCodeBuilder toBuilder() =>
@@ -68,16 +68,16 @@ class GenerateVerificationCodeBuilder
 }
 
 class _$GetVerificationCode extends GetVerificationCode {
-  factory _$GetVerificationCode(
-          [void Function(GetVerificationCodeBuilder)? updates]) =>
-      (new GetVerificationCodeBuilder()..update(updates))._build();
+  factory _$GetVerificationCode([
+    void Function(GetVerificationCodeBuilder)? updates,
+  ]) => (new GetVerificationCodeBuilder()..update(updates))._build();
 
   _$GetVerificationCode._() : super._();
 
   @override
   GetVerificationCode rebuild(
-          void Function(GetVerificationCodeBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(GetVerificationCodeBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   GetVerificationCodeBuilder toBuilder() =>
@@ -128,9 +128,9 @@ class GetVerificationCodeBuilder
 }
 
 class _$VerifyPhoneNumber extends VerifyPhoneNumber {
-  factory _$VerifyPhoneNumber(
-          [void Function(VerifyPhoneNumberBuilder)? updates]) =>
-      (new VerifyPhoneNumberBuilder()..update(updates))._build();
+  factory _$VerifyPhoneNumber([
+    void Function(VerifyPhoneNumberBuilder)? updates,
+  ]) => (new VerifyPhoneNumberBuilder()..update(updates))._build();
 
   _$VerifyPhoneNumber._() : super._();
 

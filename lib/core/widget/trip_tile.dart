@@ -42,7 +42,7 @@ class TripTile extends StatelessWidget {
           const SizedBox(width: 6),
           Text(
             "$title: ",
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 16,
               color: ColorsManager.darkGrey,
               fontWeight: FontWeightHelper.bold,
@@ -51,7 +51,7 @@ class TripTile extends StatelessWidget {
           Expanded(
             child: Text(
               subtitle,
-              style: TextStyle(
+              style: const TextStyle(
                 fontSize: 16,
                 color: ColorsManager.darkGrey,
               ),

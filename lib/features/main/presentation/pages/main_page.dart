@@ -38,7 +38,7 @@ class _MainPageState extends State<MainPage> with RouteAware {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: MainAppBar(),
+      appBar: const MainAppBar(),
       body: PageView(
         onPageChanged: (index) {
           context.read<MainBloc>().setPageIndex(index);

@@ -679,6 +679,16 @@ class S {
       args: [],
     );
   }
+
+  /// `Price: `
+  String get price {
+    return Intl.message('Price: ', name: 'price', desc: '', args: []);
+  }
+
+  /// `Cancel Trip`
+  String get cancelTrip {
+    return Intl.message('Cancel Trip', name: 'cancelTrip', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

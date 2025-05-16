@@ -42,7 +42,7 @@ class SelectLanguage extends StatelessWidget {
                   ),
                 ),
               ),
-              CustomAutoSizeText(
+              const CustomAutoSizeText(
                 text: ' / ',
                 minFontSize: 12,
                 initialFontSize: 14,

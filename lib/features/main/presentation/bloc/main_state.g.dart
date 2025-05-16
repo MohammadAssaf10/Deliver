@@ -18,7 +18,7 @@ class _$MainState extends MainState {
       (new MainStateBuilder()..update(updates))._build();
 
   _$MainState._({required this.isLoading, required this.pageIndex, this.trip})
-      : super._() {
+    : super._() {
     BuiltValueNullFieldError.checkNotNull(isLoading, r'MainState', 'isLoading');
     BuiltValueNullFieldError.checkNotNull(pageIndex, r'MainState', 'pageIndex');
   }
@@ -102,12 +102,19 @@ class MainStateBuilder implements Builder<MainState, MainStateBuilder> {
   MainState build() => _build();
 
   _$MainState _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         new _$MainState._(
           isLoading: BuiltValueNullFieldError.checkNotNull(
-              isLoading, r'MainState', 'isLoading'),
+            isLoading,
+            r'MainState',
+            'isLoading',
+          ),
           pageIndex: BuiltValueNullFieldError.checkNotNull(
-              pageIndex, r'MainState', 'pageIndex'),
+            pageIndex,
+            r'MainState',
+            'pageIndex',
+          ),
           trip: trip,
         );
     replace(_$result);

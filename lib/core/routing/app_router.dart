@@ -86,7 +86,7 @@ class AppRouter {
         return MaterialPageRoute(
           builder: (_) => BlocProvider<ProfileDetailsBloc>(
             create: (context) => getIt<ProfileDetailsBloc>()..setProfileData(arguments as Profile),
-            child: ProfileDetailsPage(),
+            child: const ProfileDetailsPage(),
           ),
         );
       default:

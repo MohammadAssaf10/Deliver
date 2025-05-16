@@ -17,10 +17,10 @@ import 'main_state.dart';
 class MainBloc extends Bloc<MainEvent, MainState> {
   final PageController pageController = PageController();
   final List<Widget> pages = [
-    HomeBody(),
+    const HomeBody(),
     BlocProvider<ActivitiesBloc>(
       create: (context) => getIt<ActivitiesBloc>()..getTripHistories(),
-      child: ActivitiesPage(),
+      child: const ActivitiesPage(),
     ),
     BlocProvider(
       create: (context) => getIt<ProfileBloc>()..getProfile(),
@@ -34,28 +34,29 @@ class MainBloc extends Bloc<MainEvent, MainState> {
 
   void getCurrentTrip() => add(GetCurrentTrip());
 
-  MainBloc(
-    this._mainRepository,
-  ) : super(MainState.initial()) {
+  MainBloc(this._mainRepository) : super(MainState.initial()) {
     on<SetPageIndex>((event, emit) {
       emit(state.rebuild((b) => b..pageIndex = event.pageIndex));
     });
     on<GetCurrentTrip>((event, emit) async {
       emit(state.rebuild((b) => b..isLoading = true));
       final result = await _mainRepository.getCurrentTrip();
-      result.fold((failure) {
-        showToastMessage(
-          failure.errorMessage,
-          isError: true,
-        );
-        emit(state.rebuild((b) => b..isLoading = false));
-      }, (data) {
-        emit(state.rebuild(
-          (b) => b
-            ..isLoading = false
-            ..trip = data,
-        ));
-      });
+      result.fold(
+        (failure) {
+          showToastMessage(failure.errorMessage, isError: true);
+          emit(state.rebuild((b) => b..isLoading = false));
+        },
+        (data) {
+          emit(
+            state.rebuild(
+              (b) =>
+                  b
+                    ..isLoading = false
+                    ..trip = data,
+            ),
+          );
+        },
+      );
     });
   }
 }

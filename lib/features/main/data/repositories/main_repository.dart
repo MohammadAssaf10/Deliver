@@ -13,10 +13,10 @@ class MainRepository extends BaseRepositoryImpl {
   MainRepository(this._mainRemoteDataSource, super._networkInfo);
 
   Future<Either<Failure, Trip?>> getCurrentTrip() async => await requestApi(
-        () async => await _mainRemoteDataSource.getCurrentTrip(),
-        (tripModel) {
-          if (tripModel == null) return null;
-          return tripModel.toDomain();
-        },
-      );
+    () async => await _mainRemoteDataSource.getCurrentTrip(),
+    (tripModel) {
+      if (tripModel == null) return null;
+      return tripModel.toDomain();
+    },
+  );
 }
