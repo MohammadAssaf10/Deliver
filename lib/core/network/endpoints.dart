@@ -13,5 +13,6 @@ class Endpoints {
   static String getVerificationCode = '/Account/getVerificationCode';
   static String verifyPhoneNumber = '/Account/verifyPhone';
   static String tripInfo = '/distance/distance';
+  static String refreshFcmToken = '/Notification/notification';
 
 }

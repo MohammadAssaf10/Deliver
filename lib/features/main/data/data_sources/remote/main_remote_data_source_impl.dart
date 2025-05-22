@@ -14,4 +14,12 @@ class MainRemoteDataSourceImpl extends BaseRemoteDataSourceImpl
     if (result.data == null) return null;
     return TripModel.fromJson(result.data);
   }
+
+  @override
+  Future<void> refreshFCMToken(String fcmToken, String deviceId) async {
+    await performPostRequest(
+      endpoint: Endpoints.refreshFcmToken,
+      body: {"token": fcmToken, "deviceId": deviceId},
+    );
+  }
 }

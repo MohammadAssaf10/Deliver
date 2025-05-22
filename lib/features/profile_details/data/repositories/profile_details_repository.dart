@@ -20,26 +20,29 @@ class ProfileDetailsRepository extends BaseRepositoryImpl {
     super.networkInfo,
   );
 
-  Future<Either<Failure, void>> updateProfileDetails({
+  Future<Either<Failure, String?>> updateProfileDetails({
     required XFile? profileImageFile,
     required String profileImage,
     required String username,
     required String mobileNumber,
-  }) async =>
-      await requestApi(() async {
-        String newProfileImage = profileImage;
-        if (profileImageFile != null) {
-          final Reference profileImageRef =
-              _firebaseStorage.ref().child('rider/${profileImageFile.name}');
-          await profileImageRef.putFile(File(profileImageFile.path));
-          newProfileImage = await profileImageRef.getDownloadURL();
-        }
-        await _profileDetailsRemoteDataSource.updateProfileDetails(
-          profileImage: newProfileImage,
-          username: username,
-          mobileNumber: mobileNumber,
+  }) async => await requestApi(
+    () async {
+      String newProfileImage = profileImage;
+      if (profileImageFile != null) {
+        final Reference profileImageRef = _firebaseStorage.ref().child(
+          'rider/${profileImageFile.name}',
         );
-      }, (_) {
-        return;
-      });
+        await profileImageRef.putFile(File(profileImageFile.path));
+        newProfileImage = await profileImageRef.getDownloadURL();
+      }
+      return await _profileDetailsRemoteDataSource.updateProfileDetails(
+        profileImage: newProfileImage,
+        username: username,
+        mobileNumber: mobileNumber,
+      );
+    },
+    (message) {
+      return message;
+    },
+  );
 }

@@ -1,4 +1,6 @@
 import 'package:connectivity_plus/connectivity_plus.dart';
+import 'package:device_info_plus/device_info_plus.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
@@ -38,4 +40,10 @@ abstract class RegisterModule {
 
   @lazySingleton
   FirebaseStorage get firebaseStorage => FirebaseStorage.instance;
+
+  @lazySingleton
+  FirebaseMessaging get firebaseException => FirebaseMessaging.instance;
+
+  @lazySingleton
+  DeviceInfoPlugin get deviceInfoPlugin => DeviceInfoPlugin();
 }

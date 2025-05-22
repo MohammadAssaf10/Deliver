@@ -10,6 +10,8 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:connectivity_plus/connectivity_plus.dart' as _i895;
+import 'package:device_info_plus/device_info_plus.dart' as _i833;
+import 'package:firebase_messaging/firebase_messaging.dart' as _i892;
 import 'package:firebase_storage/firebase_storage.dart' as _i457;
 import 'package:flutter/material.dart' as _i409;
 import 'package:get_it/get_it.dart' as _i174;
@@ -109,6 +111,12 @@ Future<_i174.GetIt> $initGetIt(
   );
   gh.lazySingleton<_i183.ImagePicker>(() => registerModule.picker);
   gh.lazySingleton<_i457.FirebaseStorage>(() => registerModule.firebaseStorage);
+  gh.lazySingleton<_i892.FirebaseMessaging>(
+    () => registerModule.firebaseException,
+  );
+  gh.lazySingleton<_i833.DeviceInfoPlugin>(
+    () => registerModule.deviceInfoPlugin,
+  );
   gh.lazySingleton<_i330.ActivitiesRemoteDataSource>(
     () => _i83.ActivitiesRemoteDataSourceImpl(),
   );
@@ -142,14 +150,16 @@ Future<_i174.GetIt> $initGetIt(
   gh.lazySingleton<_i932.NetworkInfo>(
     () => _i932.NetworkInfoImpl(gh<_i895.Connectivity>()),
   );
-  gh.lazySingleton<_i245.AppRepository>(
-    () => _i245.AppRepository(gh<_i212.AppLocalDataSource>()),
-  );
   gh.lazySingleton<_i1027.MainRepository>(
     () => _i1027.MainRepository(
       gh<_i1003.MainRemoteDataSource>(),
       gh<_i932.NetworkInfo>(),
+      gh<_i892.FirebaseMessaging>(),
+      gh<_i833.DeviceInfoPlugin>(),
     ),
+  );
+  gh.lazySingleton<_i245.AppRepository>(
+    () => _i245.AppRepository(gh<_i212.AppLocalDataSource>()),
   );
   gh.lazySingleton<_i361.ProfileRepository>(
     () => _i361.ProfileRepository(

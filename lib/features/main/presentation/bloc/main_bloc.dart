@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
+import 'package:intl/intl_standalone.dart';
 
 import '../../../../core/di/di.dart';
+import '../../../../core/utils/app_enums.dart';
 import '../../../../core/utils/app_functions.dart';
 import '../../../activities/presentation/bloc/activities_bloc.dart';
 import '../../../activities/presentation/pages/activities_page.dart';
@@ -34,6 +36,8 @@ class MainBloc extends Bloc<MainEvent, MainState> {
 
   void getCurrentTrip() => add(GetCurrentTrip());
 
+  void refreshFCMToken() => add(RefreshFCMToken());
+
   MainBloc(this._mainRepository) : super(MainState.initial()) {
     on<SetPageIndex>((event, emit) {
       emit(state.rebuild((b) => b..pageIndex = event.pageIndex));
@@ -55,6 +59,20 @@ class MainBloc extends Bloc<MainEvent, MainState> {
                     ..trip = data,
             ),
           );
+        },
+      );
+    });
+    on<RefreshFCMToken>((event, emit) async {
+      final result = await _mainRepository.refreshFCMToken();
+      result.fold(
+        (failure) {
+          dPrint(
+            'Error when refresh FCM Token: ${failure.errorMessage}',
+            stringColor: StringColor.red,
+          );
+        },
+        (_) {
+          dPrint('Success Refresh FCM Token', stringColor: StringColor.green);
         },
       );
     });

@@ -155,4 +155,62 @@ class GetCurrentTripBuilder
   }
 }
 
+class _$RefreshFCMToken extends RefreshFCMToken {
+  factory _$RefreshFCMToken([void Function(RefreshFCMTokenBuilder)? updates]) =>
+      (new RefreshFCMTokenBuilder()..update(updates))._build();
+
+  _$RefreshFCMToken._() : super._();
+
+  @override
+  RefreshFCMToken rebuild(void Function(RefreshFCMTokenBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  RefreshFCMTokenBuilder toBuilder() =>
+      new RefreshFCMTokenBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is RefreshFCMToken;
+  }
+
+  @override
+  int get hashCode {
+    return 552081016;
+  }
+
+  @override
+  String toString() {
+    return newBuiltValueToStringHelper(r'RefreshFCMToken').toString();
+  }
+}
+
+class RefreshFCMTokenBuilder
+    implements Builder<RefreshFCMToken, RefreshFCMTokenBuilder> {
+  _$RefreshFCMToken? _$v;
+
+  RefreshFCMTokenBuilder();
+
+  @override
+  void replace(RefreshFCMToken other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$RefreshFCMToken;
+  }
+
+  @override
+  void update(void Function(RefreshFCMTokenBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  RefreshFCMToken build() => _build();
+
+  _$RefreshFCMToken _build() {
+    final _$result = _$v ?? new _$RefreshFCMToken._();
+    replace(_$result);
+    return _$result;
+  }
+}
+
 // ignore_for_file: deprecated_member_use_from_same_package,type=lint

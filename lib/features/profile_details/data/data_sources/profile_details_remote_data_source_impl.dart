@@ -1,6 +1,7 @@
 import 'package:injectable/injectable.dart';
 
 import '../../../../core/data_source/remote/base_remote_data_source_impl.dart';
+import '../../../../core/models/base_model.dart';
 import '../../../../core/network/endpoints.dart';
 import 'profile_details_remote_data_source.dart';
 
@@ -8,12 +9,12 @@ import 'profile_details_remote_data_source.dart';
 class ProfileDetailsRemoteDataSourceImpl extends BaseRemoteDataSourceImpl
     implements ProfileDetailsRemoteDataSource {
   @override
-  Future<void> updateProfileDetails({
+  Future<String?> updateProfileDetails({
     required String profileImage,
     required String username,
     required String mobileNumber,
   }) async {
-    await performPutRequest(
+    final BaseModel baseModel = await performPutRequest(
       endpoint: Endpoints.profile,
       body: {
         "name": username,
@@ -21,5 +22,6 @@ class ProfileDetailsRemoteDataSourceImpl extends BaseRemoteDataSourceImpl
         "profileImage": profileImage,
       },
     );
+    return baseModel.message;
   }
 }

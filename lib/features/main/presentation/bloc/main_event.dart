@@ -21,3 +21,10 @@ abstract class GetCurrentTrip extends MainEvent
   factory GetCurrentTrip([void Function(GetCurrentTripBuilder) updates]) =
       _$GetCurrentTrip;
 }
+
+abstract class RefreshFCMToken extends MainEvent
+    implements Built<RefreshFCMToken, RefreshFCMTokenBuilder> {
+  RefreshFCMToken._();
+  factory RefreshFCMToken([void Function(RefreshFCMTokenBuilder) updates]) =
+      _$RefreshFCMToken;
+}
