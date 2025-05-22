@@ -80,5 +80,7 @@
   "phone": "الهاتف: ",
   "camera": "الكاميرا",
   "gallery": "المعرض",
-  "selectImageSource": "اختيار مصدر الصورة"
+  "selectImageSource": "اختيار مصدر الصورة",
+  "price": "السعر: ",
+  "cancelTrip":"إلغاء الرحلة"
 }

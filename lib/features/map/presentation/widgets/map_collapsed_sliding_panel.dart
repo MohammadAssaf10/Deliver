@@ -31,7 +31,7 @@ class MapCollapsedSlidingPanel extends StatelessWidget {
             },
             buttonHeight: 48,
             borderRadius: 15,
-            outerPadding: EdgeInsets.symmetric(horizontal: 20),
+            outerPadding: const EdgeInsets.symmetric(horizontal: 20),
             backgroundColor: isButtonEnable
                 ? ColorsManager.darkGrey
                 : ColorsManager.darkWhite,
@@ -50,7 +50,7 @@ class MapCollapsedSlidingPanel extends StatelessWidget {
             },
             buttonHeight: 48,
             borderRadius: 15,
-            outerPadding: EdgeInsets.symmetric(horizontal: 20),
+            outerPadding: const EdgeInsets.symmetric(horizontal: 20),
             child: CustomAutoSizeText(
               text: S.of(context).showTripDetails,
               minFontSize: 14,

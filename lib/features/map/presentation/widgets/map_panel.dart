@@ -39,7 +39,7 @@ class MapPanel extends StatelessWidget {
             isButtonEnable: isButtonEnable,
             currentTrip: currentTrip,
           ),
-          SizedBox(height: 10),
+          const SizedBox(height: 10),
         ],
         if (!isPanelOpen && message.isNotEmpty) LocationText(message: message),
         if (isPanelOpen && currentTrip == null)

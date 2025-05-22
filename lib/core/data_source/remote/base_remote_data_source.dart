@@ -23,4 +23,10 @@ abstract class BaseRemoteDataSource {
     Map<String, dynamic>? body,
     Map<String, dynamic>? queryParameters,
   });
+  @protected
+  Future<BaseModel> performDeleteRequest({
+    required String endpoint,
+    Map<String, dynamic>? body,
+    Map<String, dynamic>? queryParameters,
+  });
 }

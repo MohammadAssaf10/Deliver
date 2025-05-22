@@ -35,6 +35,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "arabic": MessageLookupByLibrary.simpleMessage("العربية"),
     "camera": MessageLookupByLibrary.simpleMessage("الكاميرا"),
     "cancel": MessageLookupByLibrary.simpleMessage("إلغاء"),
+    "cancelTrip": MessageLookupByLibrary.simpleMessage("إلغاء الرحلة"),
     "changeLanguage": MessageLookupByLibrary.simpleMessage("تغيير اللغة"),
     "clientId": MessageLookupByLibrary.simpleMessage("رقم العميل: "),
     "confirm": MessageLookupByLibrary.simpleMessage("تأكيد"),
@@ -128,6 +129,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "الرجاء تشغيل خدمة الموقع ثم المحاولة مرة أخرى",
         ),
+    "price": MessageLookupByLibrary.simpleMessage("السعر: "),
     "profileDetails": MessageLookupByLibrary.simpleMessage(
       "تفاصيل الملف الشخصي",
     ),

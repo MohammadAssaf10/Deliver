@@ -10,6 +10,8 @@
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:connectivity_plus/connectivity_plus.dart' as _i895;
+import 'package:device_info_plus/device_info_plus.dart' as _i833;
+import 'package:firebase_messaging/firebase_messaging.dart' as _i892;
 import 'package:firebase_storage/firebase_storage.dart' as _i457;
 import 'package:flutter/material.dart' as _i409;
 import 'package:get_it/get_it.dart' as _i174;
@@ -96,11 +98,7 @@ Future<_i174.GetIt> $initGetIt(
   String? environment,
   _i526.EnvironmentFilter? environmentFilter,
 }) async {
-  final gh = _i526.GetItHelper(
-    getIt,
-    environment,
-    environmentFilter,
-  );
+  final gh = _i526.GetItHelper(getIt, environment, environmentFilter);
   final registerModule = _$RegisterModule();
   await gh.factoryAsync<_i460.SharedPreferences>(
     () => registerModule.getSharedPreferences(),
@@ -109,95 +107,139 @@ Future<_i174.GetIt> $initGetIt(
   gh.lazySingleton<_i895.Connectivity>(() => registerModule.connectivity);
   gh.lazySingleton<_i645.Location>(() => registerModule.location);
   gh.lazySingleton<_i409.GlobalKey<_i409.State<_i409.StatefulWidget>>>(
-      () => registerModule.loadingDialogKey);
+    () => registerModule.loadingDialogKey,
+  );
   gh.lazySingleton<_i183.ImagePicker>(() => registerModule.picker);
   gh.lazySingleton<_i457.FirebaseStorage>(() => registerModule.firebaseStorage);
+  gh.lazySingleton<_i892.FirebaseMessaging>(
+    () => registerModule.firebaseException,
+  );
+  gh.lazySingleton<_i833.DeviceInfoPlugin>(
+    () => registerModule.deviceInfoPlugin,
+  );
   gh.lazySingleton<_i330.ActivitiesRemoteDataSource>(
-      () => _i83.ActivitiesRemoteDataSourceImpl());
+    () => _i83.ActivitiesRemoteDataSourceImpl(),
+  );
   gh.lazySingleton<_i964.SignUpRemoteDataSource>(
-      () => _i42.SignUpRemoteDataSourceImpl());
+    () => _i42.SignUpRemoteDataSourceImpl(),
+  );
   gh.lazySingleton<_i1022.ProfileDetailsRemoteDataSource>(
-      () => _i1069.ProfileDetailsRemoteDataSourceImpl());
+    () => _i1069.ProfileDetailsRemoteDataSourceImpl(),
+  );
   gh.lazySingleton<_i533.SignInRemoteDataSource>(
-      () => _i1024.SignInRemoteDataSourceImpl());
+    () => _i1024.SignInRemoteDataSourceImpl(),
+  );
   gh.lazySingleton<_i1003.MainRemoteDataSource>(
-      () => _i724.MainRemoteDataSourceImpl());
+    () => _i724.MainRemoteDataSourceImpl(),
+  );
   gh.lazySingleton<_i212.AppLocalDataSource>(
-      () => _i746.AppLocalDataSourceImpl());
+    () => _i746.AppLocalDataSourceImpl(),
+  );
   gh.lazySingleton<_i590.MapRemoteDataSource>(
-      () => _i935.MapRemoteDataSourceImpl());
+    () => _i935.MapRemoteDataSourceImpl(),
+  );
   gh.lazySingleton<_i755.BaseRemoteDataSource>(
-      () => _i330.BaseRemoteDataSourceImpl());
+    () => _i330.BaseRemoteDataSourceImpl(),
+  );
   gh.lazySingleton<_i89.VerificationCodeRemoteDataSource>(
-      () => _i673.VerificationCodeRemoteDataSourceImpl());
+    () => _i673.VerificationCodeRemoteDataSourceImpl(),
+  );
   gh.lazySingleton<_i1012.ProfileRemoteDataSource>(
-      () => _i491.ProfileRemoteDataSourceImpl());
+    () => _i491.ProfileRemoteDataSourceImpl(),
+  );
   gh.lazySingleton<_i932.NetworkInfo>(
-      () => _i932.NetworkInfoImpl(gh<_i895.Connectivity>()));
+    () => _i932.NetworkInfoImpl(gh<_i895.Connectivity>()),
+  );
+  gh.lazySingleton<_i1027.MainRepository>(
+    () => _i1027.MainRepository(
+      gh<_i1003.MainRemoteDataSource>(),
+      gh<_i932.NetworkInfo>(),
+      gh<_i892.FirebaseMessaging>(),
+      gh<_i833.DeviceInfoPlugin>(),
+    ),
+  );
   gh.lazySingleton<_i245.AppRepository>(
-      () => _i245.AppRepository(gh<_i212.AppLocalDataSource>()));
-  gh.lazySingleton<_i1027.MainRepository>(() => _i1027.MainRepository(
-        gh<_i1003.MainRemoteDataSource>(),
-        gh<_i932.NetworkInfo>(),
-      ));
-  gh.lazySingleton<_i361.ProfileRepository>(() => _i361.ProfileRepository(
-        gh<_i1012.ProfileRemoteDataSource>(),
-        gh<_i932.NetworkInfo>(),
-      ));
+    () => _i245.AppRepository(gh<_i212.AppLocalDataSource>()),
+  );
+  gh.lazySingleton<_i361.ProfileRepository>(
+    () => _i361.ProfileRepository(
+      gh<_i1012.ProfileRemoteDataSource>(),
+      gh<_i932.NetworkInfo>(),
+    ),
+  );
   gh.factory<_i469.ProfileBloc>(
-      () => _i469.ProfileBloc(gh<_i361.ProfileRepository>()));
-  gh.lazySingleton<_i126.MapRepository>(() => _i126.MapRepository(
-        gh<_i590.MapRemoteDataSource>(),
-        gh<_i932.NetworkInfo>(),
-      ));
+    () => _i469.ProfileBloc(gh<_i361.ProfileRepository>()),
+  );
+  gh.lazySingleton<_i126.MapRepository>(
+    () => _i126.MapRepository(
+      gh<_i590.MapRemoteDataSource>(),
+      gh<_i932.NetworkInfo>(),
+    ),
+  );
   gh.lazySingleton<_i1022.ProfileDetailsRepository>(
-      () => _i1022.ProfileDetailsRepository(
-            gh<_i1022.ProfileDetailsRemoteDataSource>(),
-            gh<_i457.FirebaseStorage>(),
-            gh<_i932.NetworkInfo>(),
-          ));
+    () => _i1022.ProfileDetailsRepository(
+      gh<_i1022.ProfileDetailsRemoteDataSource>(),
+      gh<_i457.FirebaseStorage>(),
+      gh<_i932.NetworkInfo>(),
+    ),
+  );
   gh.lazySingleton<_i120.SplashRepository>(
-      () => _i120.SplashRepository(gh<_i932.NetworkInfo>()));
+    () => _i120.SplashRepository(gh<_i932.NetworkInfo>()),
+  );
   gh.lazySingleton<_i61.VerificationCodeRepository>(
-      () => _i61.VerificationCodeRepository(
-            gh<_i89.VerificationCodeRemoteDataSource>(),
-            gh<_i932.NetworkInfo>(),
-          ));
+    () => _i61.VerificationCodeRepository(
+      gh<_i89.VerificationCodeRemoteDataSource>(),
+      gh<_i932.NetworkInfo>(),
+    ),
+  );
   gh.lazySingleton<_i571.AppCubit>(
-      () => _i571.AppCubit(gh<_i245.AppRepository>()));
+    () => _i571.AppCubit(gh<_i245.AppRepository>()),
+  );
   gh.factory<_i442.SplashBloc>(
-      () => _i442.SplashBloc(gh<_i120.SplashRepository>()));
+    () => _i442.SplashBloc(gh<_i120.SplashRepository>()),
+  );
   gh.factory<_i1014.MainBloc>(
-      () => _i1014.MainBloc(gh<_i1027.MainRepository>()));
-  gh.lazySingleton<_i115.SignInRepository>(() => _i115.SignInRepository(
-        gh<_i533.SignInRemoteDataSource>(),
-        gh<_i932.NetworkInfo>(),
-      ));
+    () => _i1014.MainBloc(gh<_i1027.MainRepository>()),
+  );
+  gh.lazySingleton<_i115.SignInRepository>(
+    () => _i115.SignInRepository(
+      gh<_i533.SignInRemoteDataSource>(),
+      gh<_i932.NetworkInfo>(),
+    ),
+  );
   gh.lazySingleton<_i415.ActivitiesRepository>(
-      () => _i6.ActivitiesRepositoryImpl(
-            gh<_i330.ActivitiesRemoteDataSource>(),
-            gh<_i932.NetworkInfo>(),
-          ));
-  gh.lazySingleton<_i83.SignUpRepository>(() => _i83.SignUpRepository(
-        gh<_i964.SignUpRemoteDataSource>(),
-        gh<_i932.NetworkInfo>(),
-      ));
+    () => _i6.ActivitiesRepositoryImpl(
+      gh<_i330.ActivitiesRemoteDataSource>(),
+      gh<_i932.NetworkInfo>(),
+    ),
+  );
+  gh.lazySingleton<_i83.SignUpRepository>(
+    () => _i83.SignUpRepository(
+      gh<_i964.SignUpRemoteDataSource>(),
+      gh<_i932.NetworkInfo>(),
+    ),
+  );
   gh.factory<_i59.VerificationCodeBloc>(
-      () => _i59.VerificationCodeBloc(gh<_i61.VerificationCodeRepository>()));
+    () => _i59.VerificationCodeBloc(gh<_i61.VerificationCodeRepository>()),
+  );
   gh.factory<_i640.SignInBloc>(
-      () => _i640.SignInBloc(gh<_i115.SignInRepository>()));
-  gh.factory<_i437.MapBloc>(() => _i437.MapBloc(
-        gh<_i645.Location>(),
-        gh<_i126.MapRepository>(),
-      ));
-  gh.factory<_i512.ProfileDetailsBloc>(() => _i512.ProfileDetailsBloc(
-        gh<_i183.ImagePicker>(),
-        gh<_i1022.ProfileDetailsRepository>(),
-      ));
+    () => _i640.SignInBloc(gh<_i115.SignInRepository>()),
+  );
+  gh.factory<_i437.MapBloc>(
+    () => _i437.MapBloc(gh<_i645.Location>(), gh<_i126.MapRepository>()),
+  );
+  gh.factory<_i512.ProfileDetailsBloc>(
+    () => _i512.ProfileDetailsBloc(
+      gh<_i183.ImagePicker>(),
+      gh<_i1022.ProfileDetailsRepository>(),
+    ),
+  );
   gh.factory<_i880.ActivitiesBloc>(
-      () => _i880.ActivitiesBloc(gh<_i415.ActivitiesRepository>()));
+    () => _i880.ActivitiesBloc(gh<_i415.ActivitiesRepository>()),
+  );
   gh.factory<_i148.SignUpBloc>(
-      () => _i148.SignUpBloc(gh<_i83.SignUpRepository>()));
+    () => _i148.SignUpBloc(gh<_i83.SignUpRepository>()),
+  );
   return getIt;
 }
 

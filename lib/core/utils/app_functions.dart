@@ -23,13 +23,11 @@ dismissDialog(BuildContext context) {
   }
 }
 
-void showToastMessage(
-  String toastMessage, {
-  bool isError = false,
-}) {
+void showToastMessage(String? toastMessage, {bool isError = false}) {
+  if (toastMessage.nullOrEmpty()) return;
   Fluttertoast.showToast(
     gravity: ToastGravity.BOTTOM,
-    msg: toastMessage,
+    msg: toastMessage!,
     backgroundColor: isError ? ColorsManager.error : ColorsManager.darkWhite,
     fontSize: 16,
     textColor: isError ? ColorsManager.darkWhite : ColorsManager.darkGrey,
@@ -37,22 +35,26 @@ void showToastMessage(
 }
 
 void showLoadingDialog(BuildContext context, {Color? backgroundColor}) {
-  showDialog(
-    context: context,
-    barrierDismissible: false,
-    barrierColor: backgroundColor,
-    builder: (_) => Dialog(
-      key: getIt<GlobalKey<State>>(),
-      backgroundColor: backgroundColor ?? Colors.transparent,
-      child: const Loader(
-        size: 50,
-      ),
-    ),
-  );
+  if (getIt<GlobalKey<State>>().currentContext == null) {
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      barrierColor: backgroundColor,
+      builder:
+          (_) => Dialog(
+            key: getIt<GlobalKey<State>>(),
+            backgroundColor: backgroundColor ?? Colors.transparent,
+            child: const Loader(size: 50),
+          ),
+    );
+  }
 }
 
 void closeLoadingDialogIfVisible() {
   if (getIt<GlobalKey<State>>().currentContext != null) {
-    Navigator.of(getIt<GlobalKey<State>>().currentContext!, rootNavigator: true).pop();
+    Navigator.of(
+      getIt<GlobalKey<State>>().currentContext!,
+      rootNavigator: true,
+    ).pop();
   }
 }

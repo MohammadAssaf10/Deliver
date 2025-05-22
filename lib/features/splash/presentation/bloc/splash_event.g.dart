@@ -7,16 +7,16 @@ part of 'splash_event.dart';
 // **************************************************************************
 
 class _$CheckUserAuthentication extends CheckUserAuthentication {
-  factory _$CheckUserAuthentication(
-          [void Function(CheckUserAuthenticationBuilder)? updates]) =>
-      (new CheckUserAuthenticationBuilder()..update(updates))._build();
+  factory _$CheckUserAuthentication([
+    void Function(CheckUserAuthenticationBuilder)? updates,
+  ]) => (new CheckUserAuthenticationBuilder()..update(updates))._build();
 
   _$CheckUserAuthentication._() : super._();
 
   @override
   CheckUserAuthentication rebuild(
-          void Function(CheckUserAuthenticationBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(CheckUserAuthenticationBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   CheckUserAuthenticationBuilder toBuilder() =>

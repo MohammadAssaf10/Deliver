@@ -4,6 +4,7 @@ import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 import '../../../../core/entities/trip.dart';
 import '../../../../core/models/address.dart';
+import '../../../../core/utils/app_enums.dart';
 import '../../data/models/trip_distance_and_duration.dart';
 
 part 'map_state.g.dart';
@@ -31,12 +32,15 @@ abstract class MapState implements Built<MapState, MapStateBuilder> {
 
   Trip? get currentTrip;
 
+  BlocStatus get deleteTripStatus;
+
   MapState._();
 
   factory MapState([void Function(MapStateBuilder) updates]) = _$MapState;
 
   factory MapState.initial() => MapState(
-        (b) => b
+    (b) =>
+        b
           ..isLoading = false
           ..markers.replace({})
           ..tripStartAddress = null
@@ -47,6 +51,7 @@ abstract class MapState implements Built<MapState, MapStateBuilder> {
           ..googleMapController = null
           ..tripDistanceAndDuration = null
           ..message = ""
-          ..currentTrip = null,
-      );
+          ..currentTrip = null
+          ..deleteTripStatus = BlocStatus.initial,
+  );
 }

@@ -28,14 +28,14 @@ class ToFromCard extends StatelessWidget {
           width: 45,
           child: Text(
             title,
-            style: TextStyle(
+            style: const TextStyle(
               fontSize: 16,
               color: ColorsManager.darkGrey,
               fontWeight: FontWeightHelper.bold,
             ),
           ),
         ),
-        SizedBox(width: 10),
+        const SizedBox(width: 10),
         Expanded(
           child: Container(
             decoration: BoxDecoration(
@@ -46,7 +46,7 @@ class ToFromCard extends StatelessWidget {
                 width: 1.5,
               ),
             ),
-            padding: EdgeInsets.all(5),
+            padding: const EdgeInsets.all(5),
             child: Row(
               children: [
                 Expanded(
@@ -78,7 +78,7 @@ class ToFromCard extends StatelessWidget {
                       context.read<MapBloc>().setIsStartAddress(false);
                     }
                   },
-                  child: CircleAvatar(
+                  child: const CircleAvatar(
                     backgroundColor: ColorsManager.white,
                     child: Icon(
                       Icons.edit_location,
@@ -87,12 +87,12 @@ class ToFromCard extends StatelessWidget {
                   ),
                 ),
                 if (isStartPoint) ...[
-                  SizedBox(width: 5),
+                  const SizedBox(width: 5),
                   GestureDetector(
                     onTap: () {
                       context.read<MapBloc>().getCurrentLocation();
                     },
-                    child: CircleAvatar(
+                    child: const CircleAvatar(
                       backgroundColor: ColorsManager.white,
                       child: Icon(
                         Icons.my_location,

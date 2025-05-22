@@ -17,7 +17,10 @@ class _$AppState extends AppState {
 
   _$AppState._({required this.appLanguage, required this.isAuth}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        appLanguage, r'AppState', 'appLanguage');
+      appLanguage,
+      r'AppState',
+      'appLanguage',
+    );
     BuiltValueNullFieldError.checkNotNull(isAuth, r'AppState', 'isAuth');
   }
 
@@ -92,12 +95,19 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
   AppState build() => _build();
 
   _$AppState _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         new _$AppState._(
           appLanguage: BuiltValueNullFieldError.checkNotNull(
-              appLanguage, r'AppState', 'appLanguage'),
+            appLanguage,
+            r'AppState',
+            'appLanguage',
+          ),
           isAuth: BuiltValueNullFieldError.checkNotNull(
-              isAuth, r'AppState', 'isAuth'),
+            isAuth,
+            r'AppState',
+            'isAuth',
+          ),
         );
     replace(_$result);
     return _$result;

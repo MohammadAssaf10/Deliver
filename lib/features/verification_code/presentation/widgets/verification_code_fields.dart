@@ -30,12 +30,12 @@ class VerificationCodeFields extends StatelessWidget {
           animationDuration: const Duration(
             milliseconds: 200,
           ),
-          errorTextStyle: TextStyle(
+          errorTextStyle: const TextStyle(
             fontSize: 16,
             fontWeight: FontWeightHelper.regular,
             color: ColorsManager.error,
           ),
-          cursor: Text(
+          cursor: const Text(
             '|',
             style: TextStyle(
               fontSize: 16,
@@ -71,7 +71,7 @@ class VerificationCodeFields extends StatelessWidget {
           defaultPinTheme: PinTheme(
             height: 50,
             width: 50,
-            textStyle: TextStyle(
+            textStyle: const TextStyle(
               fontSize: 16,
               fontWeight: FontWeightHelper.bold,
               color: ColorsManager.darkGrey,

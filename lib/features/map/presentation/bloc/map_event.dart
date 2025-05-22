@@ -92,3 +92,11 @@ abstract class SetCurrentTrip extends MapEvent
   factory SetCurrentTrip([void Function(SetCurrentTripBuilder) updates]) =
       _$SetCurrentTrip;
 }
+
+abstract class DeleteCurrentTrip extends MapEvent
+    implements Built<DeleteCurrentTrip, DeleteCurrentTripBuilder> {
+  DeleteCurrentTrip._();
+
+  factory DeleteCurrentTrip([void Function(DeleteCurrentTripBuilder) updates]) =
+      _$DeleteCurrentTrip;
+}

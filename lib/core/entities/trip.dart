@@ -8,8 +8,8 @@ class Trip extends Equatable {
   final TripStatus tripStatus;
   final Address pickUpAddress;
   final Address dropOffAddress;
-  final double calculatedDistance;
-  final double calculatedDuration;
+  final num calculatedDistance;
+  final num calculatedDuration;
   final String? driverName;
   final String createdDate;
 
@@ -41,8 +41,8 @@ class Trip extends Equatable {
     TripStatus? tripStatus,
     Address? pickUpAddress,
     Address? dropOffAddress,
-    double? calculatedDistance,
-    double? calculatedDuration,
+    num? calculatedDistance,
+    num? calculatedDuration,
     String? driverName,
     String? createdDate,
   }) {

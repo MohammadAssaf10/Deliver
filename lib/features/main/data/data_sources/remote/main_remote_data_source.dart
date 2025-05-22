@@ -3,4 +3,5 @@ import '../../models/trip_model.dart';
 
 abstract class MainRemoteDataSource extends BaseRemoteDataSource {
   Future<TripModel?> getCurrentTrip();
+  Future<void> refreshFCMToken(String fcmToken, String deviceId);
 }

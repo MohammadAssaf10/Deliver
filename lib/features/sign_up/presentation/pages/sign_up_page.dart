@@ -142,7 +142,7 @@ class SignUpPage extends StatelessWidget {
                       },
                     ),
                     SizedBox(height: MediaQuery.sizeOf(context).height * 0.1),
-                    SelectLanguage(),
+                    const SelectLanguage(),
                   ],
                 ),
               ),

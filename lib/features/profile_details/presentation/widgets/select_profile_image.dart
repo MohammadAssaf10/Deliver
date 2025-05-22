@@ -44,7 +44,7 @@ class SelectProfileImage extends StatelessWidget {
                         : null,
                   ),
                   child: state.profileImageFile == null
-                      ? Icon(
+                      ? const Icon(
                           Icons.person,
                           size: 90,
                           color: ColorsManager.lightGrey,
@@ -56,7 +56,7 @@ class SelectProfileImage extends StatelessWidget {
                   height: 120,
                   width: 120,
                   clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(shape: BoxShape.circle),
+                  decoration: const BoxDecoration(shape: BoxShape.circle),
                   child: CustomAppImage(
                     image: state.profileImage,
                     height: 120,

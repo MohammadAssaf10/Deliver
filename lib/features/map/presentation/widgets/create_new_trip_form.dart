@@ -35,7 +35,7 @@ class CreateNewTripForm extends StatelessWidget {
           title: S.of(context).from,
           address: startAddress,
         ),
-        SizedBox(height: 15),
+        const SizedBox(height: 15),
         ToFromCard(
           isStartPoint: false,
           title: S.of(context).to,
@@ -46,8 +46,9 @@ class CreateNewTripForm extends StatelessWidget {
             tripDistanceAndDuration: tripDistanceAndDuration,
           ),
         ),
+        const SizedBox(height: 20),
         isLoading
-            ? Loader(size: 45)
+            ? const Loader(size: 45)
             : Expanded(
                 child: Row(
                   children: [
@@ -63,7 +64,7 @@ class CreateNewTripForm extends StatelessWidget {
                           buttonHeight: 48,
                           borderRadius: 15,
                           backgroundColor: ColorsManager.white,
-                          borderSide: BorderSide(
+                          borderSide: const BorderSide(
                             width: 2,
                             color: ColorsManager.darkGrey,
                           ),
@@ -75,7 +76,7 @@ class CreateNewTripForm extends StatelessWidget {
                             color: ColorsManager.darkGrey,
                           )),
                     ),
-                    SizedBox(width: 10),
+                    const SizedBox(width: 10),
                     Expanded(
                       child: AppTextButton(
                         onPressed: startAddress == null || endAddress == null
@@ -103,7 +104,7 @@ class CreateNewTripForm extends StatelessWidget {
                   ],
                 ),
               ),
-        SizedBox(height: 30),
+        const SizedBox(height: 30),
       ],
     );
   }

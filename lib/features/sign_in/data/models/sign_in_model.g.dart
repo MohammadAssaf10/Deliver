@@ -7,7 +7,7 @@ part of 'sign_in_model.dart';
 // **************************************************************************
 
 SignInModel _$SignInModelFromJson(Map<String, dynamic> json) => SignInModel(
-      id: (json['id'] as num).toInt(),
-      token: json['token'] as String,
-      isPhoneNumberVerified: json['isPhoneNumberVerified'] as bool,
-    );
+  id: (json['id'] as num).toInt(),
+  token: json['token'] as String,
+  isPhoneNumberVerified: json['isPhoneNumberVerified'] as bool,
+);

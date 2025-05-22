@@ -46,6 +46,7 @@ class CustomAppImage extends StatelessWidget {
           boxFit: boxFit,
           shimmerDuration: const Duration(seconds: 2),
           alignment: Alignment.center,
+          errorWidget: const Icon(Icons.error, color: ColorsManager.error),
           boxDecoration: BoxDecoration(
             color: shimmerBaseColor,
             shape: boxShape,

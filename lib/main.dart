@@ -7,21 +7,19 @@ import 'app/presentation/deliver_app.dart';
 import 'core/di/di.dart';
 import 'core/routing/app_router.dart';
 import 'core/utils/bloc_observer.dart';
+import 'core/utils/notifications_helper.dart';
 import 'firebase_options.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
   await configureDependencies();
-  await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
   Bloc.observer = MyBlocObserver();
+  NotificationsHelper.init();
   runApp(
     BlocProvider<AppCubit>(
       create: (_) => getIt<AppCubit>()..getAppLanguage(),
-      child: DeliverApp(
-        appRouter: AppRouter(),
-      ),
+      child: DeliverApp(appRouter: AppRouter()),
     ),
   );
   // await dotenv.load(fileName: Assets.deliver);

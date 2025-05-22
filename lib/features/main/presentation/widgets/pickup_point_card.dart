@@ -25,7 +25,7 @@ class PickupPointCard extends StatelessWidget {
         ),
         child: Row(
           children: [
-            Icon(
+            const Icon(
               Icons.search,
               color: ColorsManager.lightGrey,
               size: 40,
@@ -59,7 +59,7 @@ class PickupPointCard extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.access_time_filled_rounded,
                       color: ColorsManager.lightGrey,
                     ),

@@ -29,28 +29,39 @@ class _$MapState extends MapState {
   final String message;
   @override
   final Trip? currentTrip;
+  @override
+  final BlocStatus deleteTripStatus;
 
   factory _$MapState([void Function(MapStateBuilder)? updates]) =>
       (new MapStateBuilder()..update(updates))._build();
 
-  _$MapState._(
-      {required this.isLoading,
-      this.tripStartAddress,
-      this.currentAddress,
-      this.tripEndAddress,
-      required this.markers,
-      required this.isPanelOpen,
-      this.isStartAddress,
-      this.googleMapController,
-      this.tripDistanceAndDuration,
-      required this.message,
-      this.currentTrip})
-      : super._() {
+  _$MapState._({
+    required this.isLoading,
+    this.tripStartAddress,
+    this.currentAddress,
+    this.tripEndAddress,
+    required this.markers,
+    required this.isPanelOpen,
+    this.isStartAddress,
+    this.googleMapController,
+    this.tripDistanceAndDuration,
+    required this.message,
+    this.currentTrip,
+    required this.deleteTripStatus,
+  }) : super._() {
     BuiltValueNullFieldError.checkNotNull(isLoading, r'MapState', 'isLoading');
     BuiltValueNullFieldError.checkNotNull(markers, r'MapState', 'markers');
     BuiltValueNullFieldError.checkNotNull(
-        isPanelOpen, r'MapState', 'isPanelOpen');
+      isPanelOpen,
+      r'MapState',
+      'isPanelOpen',
+    );
     BuiltValueNullFieldError.checkNotNull(message, r'MapState', 'message');
+    BuiltValueNullFieldError.checkNotNull(
+      deleteTripStatus,
+      r'MapState',
+      'deleteTripStatus',
+    );
   }
 
   @override
@@ -74,7 +85,8 @@ class _$MapState extends MapState {
         googleMapController == other.googleMapController &&
         tripDistanceAndDuration == other.tripDistanceAndDuration &&
         message == other.message &&
-        currentTrip == other.currentTrip;
+        currentTrip == other.currentTrip &&
+        deleteTripStatus == other.deleteTripStatus;
   }
 
   @override
@@ -91,6 +103,7 @@ class _$MapState extends MapState {
     _$hash = $jc(_$hash, tripDistanceAndDuration.hashCode);
     _$hash = $jc(_$hash, message.hashCode);
     _$hash = $jc(_$hash, currentTrip.hashCode);
+    _$hash = $jc(_$hash, deleteTripStatus.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -108,7 +121,8 @@ class _$MapState extends MapState {
           ..add('googleMapController', googleMapController)
           ..add('tripDistanceAndDuration', tripDistanceAndDuration)
           ..add('message', message)
-          ..add('currentTrip', currentTrip))
+          ..add('currentTrip', currentTrip)
+          ..add('deleteTripStatus', deleteTripStatus))
         .toString();
   }
 }
@@ -158,8 +172,8 @@ class MapStateBuilder implements Builder<MapState, MapStateBuilder> {
   TripDistanceAndDuration? get tripDistanceAndDuration =>
       _$this._tripDistanceAndDuration;
   set tripDistanceAndDuration(
-          TripDistanceAndDuration? tripDistanceAndDuration) =>
-      _$this._tripDistanceAndDuration = tripDistanceAndDuration;
+    TripDistanceAndDuration? tripDistanceAndDuration,
+  ) => _$this._tripDistanceAndDuration = tripDistanceAndDuration;
 
   String? _message;
   String? get message => _$this._message;
@@ -168,6 +182,11 @@ class MapStateBuilder implements Builder<MapState, MapStateBuilder> {
   Trip? _currentTrip;
   Trip? get currentTrip => _$this._currentTrip;
   set currentTrip(Trip? currentTrip) => _$this._currentTrip = currentTrip;
+
+  BlocStatus? _deleteTripStatus;
+  BlocStatus? get deleteTripStatus => _$this._deleteTripStatus;
+  set deleteTripStatus(BlocStatus? deleteTripStatus) =>
+      _$this._deleteTripStatus = deleteTripStatus;
 
   MapStateBuilder();
 
@@ -185,6 +204,7 @@ class MapStateBuilder implements Builder<MapState, MapStateBuilder> {
       _tripDistanceAndDuration = $v.tripDistanceAndDuration;
       _message = $v.message;
       _currentTrip = $v.currentTrip;
+      _deleteTripStatus = $v.deleteTripStatus;
       _$v = null;
     }
     return this;
@@ -207,22 +227,37 @@ class MapStateBuilder implements Builder<MapState, MapStateBuilder> {
   _$MapState _build() {
     _$MapState _$result;
     try {
-      _$result = _$v ??
+      _$result =
+          _$v ??
           new _$MapState._(
             isLoading: BuiltValueNullFieldError.checkNotNull(
-                isLoading, r'MapState', 'isLoading'),
+              isLoading,
+              r'MapState',
+              'isLoading',
+            ),
             tripStartAddress: tripStartAddress,
             currentAddress: currentAddress,
             tripEndAddress: tripEndAddress,
             markers: markers.build(),
             isPanelOpen: BuiltValueNullFieldError.checkNotNull(
-                isPanelOpen, r'MapState', 'isPanelOpen'),
+              isPanelOpen,
+              r'MapState',
+              'isPanelOpen',
+            ),
             isStartAddress: isStartAddress,
             googleMapController: googleMapController,
             tripDistanceAndDuration: tripDistanceAndDuration,
             message: BuiltValueNullFieldError.checkNotNull(
-                message, r'MapState', 'message'),
+              message,
+              r'MapState',
+              'message',
+            ),
             currentTrip: currentTrip,
+            deleteTripStatus: BuiltValueNullFieldError.checkNotNull(
+              deleteTripStatus,
+              r'MapState',
+              'deleteTripStatus',
+            ),
           );
     } catch (_) {
       late String _$failedField;
@@ -231,7 +266,10 @@ class MapStateBuilder implements Builder<MapState, MapStateBuilder> {
         markers.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
-            r'MapState', _$failedField, e.toString());
+          r'MapState',
+          _$failedField,
+          e.toString(),
+        );
       }
       rethrow;
     }

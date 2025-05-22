@@ -7,9 +7,9 @@ part of 'activities_event.dart';
 // **************************************************************************
 
 class _$GetTripHistories extends GetTripHistories {
-  factory _$GetTripHistories(
-          [void Function(GetTripHistoriesBuilder)? updates]) =>
-      (new GetTripHistoriesBuilder()..update(updates))._build();
+  factory _$GetTripHistories([
+    void Function(GetTripHistoriesBuilder)? updates,
+  ]) => (new GetTripHistoriesBuilder()..update(updates))._build();
 
   _$GetTripHistories._() : super._();
 

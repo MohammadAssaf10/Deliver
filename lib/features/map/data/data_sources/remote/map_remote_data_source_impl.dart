@@ -1,6 +1,7 @@
 import 'package:injectable/injectable.dart';
 
 import '../../../../../core/data_source/remote/base_remote_data_source_impl.dart';
+import '../../../../../core/models/base_model.dart';
 import '../../models/location_request.dart';
 import '../../../../../core/network/endpoints.dart';
 import '../../models/trip_distance_and_duration.dart';
@@ -33,7 +34,7 @@ class MapRemoteDataSourceImpl extends BaseRemoteDataSourceImpl
     required TripDistanceAndDuration tripInfo,
   }) async {
     final result = await performPostRequest(
-      endpoint: Endpoints.createNewTrip,
+      endpoint: Endpoints.trip,
       body: {
         "pickUpAddress": {
           "longitude": startLocation.longitude,
@@ -48,5 +49,13 @@ class MapRemoteDataSourceImpl extends BaseRemoteDataSourceImpl
       },
     );
     return result.data['id'];
+  }
+
+   @override
+  Future<String?> deleteCurrentTrip() async {
+    final BaseModel baseModel = await performDeleteRequest(
+      endpoint: Endpoints.trip,
+    );
+    return baseModel.message;
   }
 }

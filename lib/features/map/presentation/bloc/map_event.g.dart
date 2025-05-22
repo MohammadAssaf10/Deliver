@@ -7,16 +7,16 @@ part of 'map_event.dart';
 // **************************************************************************
 
 class _$GetCurrentLocation extends GetCurrentLocation {
-  factory _$GetCurrentLocation(
-          [void Function(GetCurrentLocationBuilder)? updates]) =>
-      (new GetCurrentLocationBuilder()..update(updates))._build();
+  factory _$GetCurrentLocation([
+    void Function(GetCurrentLocationBuilder)? updates,
+  ]) => (new GetCurrentLocationBuilder()..update(updates))._build();
 
   _$GetCurrentLocation._() : super._();
 
   @override
   GetCurrentLocation rebuild(
-          void Function(GetCurrentLocationBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(GetCurrentLocationBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   GetCurrentLocationBuilder toBuilder() =>
@@ -70,19 +70,22 @@ class _$ChangeIsPanelOpenState extends ChangeIsPanelOpenState {
   @override
   final bool isPanelOpen;
 
-  factory _$ChangeIsPanelOpenState(
-          [void Function(ChangeIsPanelOpenStateBuilder)? updates]) =>
-      (new ChangeIsPanelOpenStateBuilder()..update(updates))._build();
+  factory _$ChangeIsPanelOpenState([
+    void Function(ChangeIsPanelOpenStateBuilder)? updates,
+  ]) => (new ChangeIsPanelOpenStateBuilder()..update(updates))._build();
 
   _$ChangeIsPanelOpenState._({required this.isPanelOpen}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        isPanelOpen, r'ChangeIsPanelOpenState', 'isPanelOpen');
+      isPanelOpen,
+      r'ChangeIsPanelOpenState',
+      'isPanelOpen',
+    );
   }
 
   @override
   ChangeIsPanelOpenState rebuild(
-          void Function(ChangeIsPanelOpenStateBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
+    void Function(ChangeIsPanelOpenStateBuilder) updates,
+  ) => (toBuilder()..update(updates)).build();
 
   @override
   ChangeIsPanelOpenStateBuilder toBuilder() =>
@@ -105,8 +108,7 @@ class _$ChangeIsPanelOpenState extends ChangeIsPanelOpenState {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'ChangeIsPanelOpenState')
-          ..add('isPanelOpen', isPanelOpen))
-        .toString();
+      ..add('isPanelOpen', isPanelOpen)).toString();
   }
 }
 
@@ -144,10 +146,14 @@ class ChangeIsPanelOpenStateBuilder
   ChangeIsPanelOpenState build() => _build();
 
   _$ChangeIsPanelOpenState _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         new _$ChangeIsPanelOpenState._(
           isPanelOpen: BuiltValueNullFieldError.checkNotNull(
-              isPanelOpen, r'ChangeIsPanelOpenState', 'isPanelOpen'),
+            isPanelOpen,
+            r'ChangeIsPanelOpenState',
+            'isPanelOpen',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -158,13 +164,16 @@ class _$SetIsStartAddress extends SetIsStartAddress {
   @override
   final bool isStartAddress;
 
-  factory _$SetIsStartAddress(
-          [void Function(SetIsStartAddressBuilder)? updates]) =>
-      (new SetIsStartAddressBuilder()..update(updates))._build();
+  factory _$SetIsStartAddress([
+    void Function(SetIsStartAddressBuilder)? updates,
+  ]) => (new SetIsStartAddressBuilder()..update(updates))._build();
 
   _$SetIsStartAddress._({required this.isStartAddress}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        isStartAddress, r'SetIsStartAddress', 'isStartAddress');
+      isStartAddress,
+      r'SetIsStartAddress',
+      'isStartAddress',
+    );
   }
 
   @override
@@ -192,8 +201,7 @@ class _$SetIsStartAddress extends SetIsStartAddress {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'SetIsStartAddress')
-          ..add('isStartAddress', isStartAddress))
-        .toString();
+      ..add('isStartAddress', isStartAddress)).toString();
   }
 }
 
@@ -232,10 +240,14 @@ class SetIsStartAddressBuilder
   SetIsStartAddress build() => _build();
 
   _$SetIsStartAddress _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         new _$SetIsStartAddress._(
           isStartAddress: BuiltValueNullFieldError.checkNotNull(
-              isStartAddress, r'SetIsStartAddress', 'isStartAddress'),
+            isStartAddress,
+            r'SetIsStartAddress',
+            'isStartAddress',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -251,7 +263,10 @@ class _$SetHintMessage extends SetHintMessage {
 
   _$SetHintMessage._({required this.message}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        message, r'SetHintMessage', 'message');
+      message,
+      r'SetHintMessage',
+      'message',
+    );
   }
 
   @override
@@ -279,8 +294,7 @@ class _$SetHintMessage extends SetHintMessage {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'SetHintMessage')
-          ..add('message', message))
-        .toString();
+      ..add('message', message)).toString();
   }
 }
 
@@ -318,10 +332,14 @@ class SetHintMessageBuilder
   SetHintMessage build() => _build();
 
   _$SetHintMessage _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         new _$SetHintMessage._(
           message: BuiltValueNullFieldError.checkNotNull(
-              message, r'SetHintMessage', 'message'),
+            message,
+            r'SetHintMessage',
+            'message',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -337,7 +355,10 @@ class _$SetStartAddress extends SetStartAddress {
 
   _$SetStartAddress._({required this.address}) : super._() {
     BuiltValueNullFieldError.checkNotNull(
-        address, r'SetStartAddress', 'address');
+      address,
+      r'SetStartAddress',
+      'address',
+    );
   }
 
   @override
@@ -365,8 +386,7 @@ class _$SetStartAddress extends SetStartAddress {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'SetStartAddress')
-          ..add('address', address))
-        .toString();
+      ..add('address', address)).toString();
   }
 }
 
@@ -404,10 +424,14 @@ class SetStartAddressBuilder
   SetStartAddress build() => _build();
 
   _$SetStartAddress _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         new _$SetStartAddress._(
           address: BuiltValueNullFieldError.checkNotNull(
-              address, r'SetStartAddress', 'address'),
+            address,
+            r'SetStartAddress',
+            'address',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -449,8 +473,7 @@ class _$SetEndAddress extends SetEndAddress {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'SetEndAddress')
-          ..add('address', address))
-        .toString();
+      ..add('address', address)).toString();
   }
 }
 
@@ -488,10 +511,14 @@ class SetEndAddressBuilder
   SetEndAddress build() => _build();
 
   _$SetEndAddress _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         new _$SetEndAddress._(
           address: BuiltValueNullFieldError.checkNotNull(
-              address, r'SetEndAddress', 'address'),
+            address,
+            r'SetEndAddress',
+            'address',
+          ),
         );
     replace(_$result);
     return _$result;
@@ -499,9 +526,9 @@ class SetEndAddressBuilder
 }
 
 class _$CalculateDistance extends CalculateDistance {
-  factory _$CalculateDistance(
-          [void Function(CalculateDistanceBuilder)? updates]) =>
-      (new CalculateDistanceBuilder()..update(updates))._build();
+  factory _$CalculateDistance([
+    void Function(CalculateDistanceBuilder)? updates,
+  ]) => (new CalculateDistanceBuilder()..update(updates))._build();
 
   _$CalculateDistance._() : super._();
 
@@ -649,8 +676,8 @@ class _$SetCurrentTrip extends SetCurrentTrip {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SetCurrentTrip')..add('trip', trip))
-        .toString();
+    return (newBuiltValueToStringHelper(r'SetCurrentTrip')
+      ..add('trip', trip)).toString();
   }
 }
 
@@ -688,11 +715,74 @@ class SetCurrentTripBuilder
   SetCurrentTrip build() => _build();
 
   _$SetCurrentTrip _build() {
-    final _$result = _$v ??
+    final _$result =
+        _$v ??
         new _$SetCurrentTrip._(
           trip: BuiltValueNullFieldError.checkNotNull(
-              trip, r'SetCurrentTrip', 'trip'),
+            trip,
+            r'SetCurrentTrip',
+            'trip',
+          ),
         );
+    replace(_$result);
+    return _$result;
+  }
+}
+
+class _$DeleteCurrentTrip extends DeleteCurrentTrip {
+  factory _$DeleteCurrentTrip([
+    void Function(DeleteCurrentTripBuilder)? updates,
+  ]) => (new DeleteCurrentTripBuilder()..update(updates))._build();
+
+  _$DeleteCurrentTrip._() : super._();
+
+  @override
+  DeleteCurrentTrip rebuild(void Function(DeleteCurrentTripBuilder) updates) =>
+      (toBuilder()..update(updates)).build();
+
+  @override
+  DeleteCurrentTripBuilder toBuilder() =>
+      new DeleteCurrentTripBuilder()..replace(this);
+
+  @override
+  bool operator ==(Object other) {
+    if (identical(other, this)) return true;
+    return other is DeleteCurrentTrip;
+  }
+
+  @override
+  int get hashCode {
+    return 47992717;
+  }
+
+  @override
+  String toString() {
+    return newBuiltValueToStringHelper(r'DeleteCurrentTrip').toString();
+  }
+}
+
+class DeleteCurrentTripBuilder
+    implements Builder<DeleteCurrentTrip, DeleteCurrentTripBuilder> {
+  _$DeleteCurrentTrip? _$v;
+
+  DeleteCurrentTripBuilder();
+
+  @override
+  void replace(DeleteCurrentTrip other) {
+    ArgumentError.checkNotNull(other, 'other');
+    _$v = other as _$DeleteCurrentTrip;
+  }
+
+  @override
+  void update(void Function(DeleteCurrentTripBuilder)? updates) {
+    if (updates != null) updates(this);
+  }
+
+  @override
+  DeleteCurrentTrip build() => _build();
+
+  _$DeleteCurrentTrip _build() {
+    final _$result = _$v ?? new _$DeleteCurrentTrip._();
     replace(_$result);
     return _$result;
   }

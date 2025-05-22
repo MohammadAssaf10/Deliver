@@ -1,4 +1,3 @@
-import 'package:deliver/core/widget/app_text_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,6 +6,7 @@ import '../../../../core/theming/colors_manager.dart';
 import '../../../../core/theming/text_styles.dart';
 import '../../../../core/utils/app_functions.dart';
 import '../../../../core/utils/app_validator.dart';
+import '../../../../core/widget/app_text_button.dart';
 import '../../../../core/widget/custom_text_field.dart';
 import '../../../../core/widget/default_app_bar.dart';
 import '../../../../generated/l10n.dart';
@@ -31,14 +31,14 @@ class ProfileDetailsPage extends StatelessWidget {
         },
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.all(15),
+            padding: const EdgeInsets.all(15),
             child: Form(
               key: context.read<ProfileDetailsBloc>().formKey,
               child: Column(
                 children: [
-                  SizedBox(height: 15),
-                  Center(child: SelectProfileImage()),
-                  SizedBox(height: 25),
+                  const SizedBox(height: 15),
+                  const Center(child: SelectProfileImage()),
+                  const SizedBox(height: 25),
                   CustomTextField(
                     controller:
                         context.read<ProfileDetailsBloc>().usernameController,
@@ -70,7 +70,7 @@ class ProfileDetailsPage extends StatelessWidget {
                         context.read<ProfileDetailsBloc>().updateProfileData();
                       }
                     },
-                    outerPadding: EdgeInsets.symmetric(vertical: 15),
+                    outerPadding: const EdgeInsets.symmetric(vertical: 15),
                     backgroundColor: ColorsManager.lightGrey,
                     child: Text(
                       S.of(context).confirm,

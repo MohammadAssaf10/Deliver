@@ -36,7 +36,7 @@ extension ChangePrintedStringColor on String {
   }
 }
 
-extension RemoveDecimalZero on double {
+extension RemoveDecimalZero on num {
   String removeDecimalZero() {
     return toString().replaceAll(AppRegex.decimalZeroRegExp, '');
   }

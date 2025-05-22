@@ -17,10 +17,11 @@ abstract class MainState implements Built<MainState, MainStateBuilder> {
 
   factory MainState.initial() {
     return MainState(
-      (b) => b
-        ..isLoading = false
-        ..pageIndex = 0
-        ..trip = null,
+      (b) =>
+          b
+            ..isLoading = false
+            ..pageIndex = 0
+            ..trip = null,
     );
   }
 }

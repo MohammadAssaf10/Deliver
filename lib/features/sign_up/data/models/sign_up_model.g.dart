@@ -7,6 +7,6 @@ part of 'sign_up_model.dart';
 // **************************************************************************
 
 SignUpModel _$SignUpModelFromJson(Map<String, dynamic> json) => SignUpModel(
-      userId: (json['userId'] as num).toInt(),
-      token: json['token'] as String,
-    );
+  userId: (json['userId'] as num).toInt(),
+  token: json['token'] as String,
+);

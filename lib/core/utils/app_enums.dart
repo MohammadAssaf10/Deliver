@@ -25,3 +25,6 @@ enum TripStatus {
   delivered,
   cancelled,
 }
+
+
+enum BlocStatus { initial, loading, error, success }
