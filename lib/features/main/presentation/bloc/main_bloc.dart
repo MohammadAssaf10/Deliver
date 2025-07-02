@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
-import 'package:intl/intl_standalone.dart';
 
 import '../../../../core/di/di.dart';
 import '../../../../core/utils/app_enums.dart';

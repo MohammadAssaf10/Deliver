@@ -41,7 +41,7 @@ class MapPage extends StatelessWidget {
             child: SlidingUpPanel(
               controller: context.read<MapBloc>().panelController,
               minHeight: 80,
-              maxHeight: 265,
+              maxHeight: 315,
               backdropEnabled: true,
               borderRadius: BorderRadius.circular(15),
               panel: MapPanel(
