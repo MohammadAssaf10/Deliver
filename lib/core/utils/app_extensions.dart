@@ -69,3 +69,10 @@ extension ConvertIntToStringDateTime on int {
     return formatedDate;
   }
 }
+
+extension BlocStatusX on BlocStatus{
+  bool get isInitial => this == BlocStatus.initial;
+  bool get isLoading => this == BlocStatus.loading;
+  bool get isError => this == BlocStatus.error;
+  bool get isSuccess => this == BlocStatus.success;
+}

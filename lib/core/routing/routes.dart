@@ -7,4 +7,5 @@ class Routes {
   static const String verificationCodePage = '/verificationCodePage';
   static const String mapPage = '/mapPage';
   static const String profileDetailsPage = '/profileDetailsPage';
+  static const String conversationPage = '/conversationPage';
 }

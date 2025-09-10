@@ -5,6 +5,7 @@ class Endpoints {
 
   static String signIn = '/rider/signin';
   static String signUp = '/rider/signup';
+  static String signOut = '/rider/signOut';
   static String profile = '/Rider/profile';
   static String trip = '/rider/trip';
   static String currentTrip = '/rider/trip/current';

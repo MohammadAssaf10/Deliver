@@ -7,46 +7,31 @@ part of 'profile_details_event.dart';
 // **************************************************************************
 
 class _$SetProfileData extends SetProfileData {
-  @override
-  final Profile profile;
-
   factory _$SetProfileData([void Function(SetProfileDataBuilder)? updates]) =>
-      (new SetProfileDataBuilder()..update(updates))._build();
+      (SetProfileDataBuilder()..update(updates))._build();
 
-  _$SetProfileData._({required this.profile}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-      profile,
-      r'SetProfileData',
-      'profile',
-    );
-  }
-
+  _$SetProfileData._() : super._();
   @override
   SetProfileData rebuild(void Function(SetProfileDataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SetProfileDataBuilder toBuilder() =>
-      new SetProfileDataBuilder()..replace(this);
+  SetProfileDataBuilder toBuilder() => SetProfileDataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is SetProfileData && profile == other.profile;
+    return other is SetProfileData;
   }
 
   @override
   int get hashCode {
-    var _$hash = 0;
-    _$hash = $jc(_$hash, profile.hashCode);
-    _$hash = $jf(_$hash);
-    return _$hash;
+    return 554189692;
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SetProfileData')
-      ..add('profile', profile)).toString();
+    return newBuiltValueToStringHelper(r'SetProfileData').toString();
   }
 }
 
@@ -54,24 +39,10 @@ class SetProfileDataBuilder
     implements Builder<SetProfileData, SetProfileDataBuilder> {
   _$SetProfileData? _$v;
 
-  Profile? _profile;
-  Profile? get profile => _$this._profile;
-  set profile(Profile? profile) => _$this._profile = profile;
-
   SetProfileDataBuilder();
-
-  SetProfileDataBuilder get _$this {
-    final $v = _$v;
-    if ($v != null) {
-      _profile = $v.profile;
-      _$v = null;
-    }
-    return this;
-  }
 
   @override
   void replace(SetProfileData other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SetProfileData;
   }
 
@@ -84,15 +55,7 @@ class SetProfileDataBuilder
   SetProfileData build() => _build();
 
   _$SetProfileData _build() {
-    final _$result =
-        _$v ??
-        new _$SetProfileData._(
-          profile: BuiltValueNullFieldError.checkNotNull(
-            profile,
-            r'SetProfileData',
-            'profile',
-          ),
-        );
+    final _$result = _$v ?? _$SetProfileData._();
     replace(_$result);
     return _$result;
   }
@@ -104,16 +67,9 @@ class _$SelectProfileImage extends SelectProfileImage {
 
   factory _$SelectProfileImage([
     void Function(SelectProfileImageBuilder)? updates,
-  ]) => (new SelectProfileImageBuilder()..update(updates))._build();
+  ]) => (SelectProfileImageBuilder()..update(updates))._build();
 
-  _$SelectProfileImage._({required this.imageSource}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-      imageSource,
-      r'SelectProfileImage',
-      'imageSource',
-    );
-  }
-
+  _$SelectProfileImage._({required this.imageSource}) : super._();
   @override
   SelectProfileImage rebuild(
     void Function(SelectProfileImageBuilder) updates,
@@ -121,7 +77,7 @@ class _$SelectProfileImage extends SelectProfileImage {
 
   @override
   SelectProfileImageBuilder toBuilder() =>
-      new SelectProfileImageBuilder()..replace(this);
+      SelectProfileImageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -139,8 +95,9 @@ class _$SelectProfileImage extends SelectProfileImage {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SelectProfileImage')
-      ..add('imageSource', imageSource)).toString();
+    return (newBuiltValueToStringHelper(
+      r'SelectProfileImage',
+    )..add('imageSource', imageSource)).toString();
   }
 }
 
@@ -166,7 +123,6 @@ class SelectProfileImageBuilder
 
   @override
   void replace(SelectProfileImage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SelectProfileImage;
   }
 
@@ -181,7 +137,7 @@ class SelectProfileImageBuilder
   _$SelectProfileImage _build() {
     final _$result =
         _$v ??
-        new _$SelectProfileImage._(
+        _$SelectProfileImage._(
           imageSource: BuiltValueNullFieldError.checkNotNull(
             imageSource,
             r'SelectProfileImage',
@@ -196,17 +152,16 @@ class SelectProfileImageBuilder
 class _$UpdateProfileData extends UpdateProfileData {
   factory _$UpdateProfileData([
     void Function(UpdateProfileDataBuilder)? updates,
-  ]) => (new UpdateProfileDataBuilder()..update(updates))._build();
+  ]) => (UpdateProfileDataBuilder()..update(updates))._build();
 
   _$UpdateProfileData._() : super._();
-
   @override
   UpdateProfileData rebuild(void Function(UpdateProfileDataBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   UpdateProfileDataBuilder toBuilder() =>
-      new UpdateProfileDataBuilder()..replace(this);
+      UpdateProfileDataBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -233,7 +188,6 @@ class UpdateProfileDataBuilder
 
   @override
   void replace(UpdateProfileData other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$UpdateProfileData;
   }
 
@@ -246,7 +200,7 @@ class UpdateProfileDataBuilder
   UpdateProfileData build() => _build();
 
   _$UpdateProfileData _build() {
-    final _$result = _$v ?? new _$UpdateProfileData._();
+    final _$result = _$v ?? _$UpdateProfileData._();
     replace(_$result);
     return _$result;
   }

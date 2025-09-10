@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import '../../../../core/entities/trip.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/colors_manager.dart';
+import '../../../../core/utils/app_enums.dart';
 import '../../../../core/utils/app_extensions.dart';
+import '../../../../core/widget/app_text_button.dart';
 import '../../../../core/widget/trip_tile.dart';
 import '../../../../generated/assets.dart';
 import '../../../../generated/l10n.dart';
@@ -11,22 +13,16 @@ import '../../../../generated/l10n.dart';
 class CurrentTripCard extends StatelessWidget {
   final Trip trip;
 
-  const CurrentTripCard({
-    super.key,
-    required this.trip,
-  });
+  const CurrentTripCard({super.key, required this.trip});
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        context.pushNamed(
-          Routes.mapPage,
-          arguments: trip,
-        );
+        context.pushNamed(Routes.mapPage, arguments: trip);
       },
       child: Container(
-        height: 200,
+        height: trip.tripStatus == TripStatus.onWayToPickupRider ? 230 : 200,
         width: double.infinity,
         decoration: BoxDecoration(
           color: ColorsManager.customPurple,
@@ -44,7 +40,11 @@ class CurrentTripCard extends StatelessWidget {
           children: [
             Expanded(
               child: Padding(
-                padding: const EdgeInsetsDirectional.only(start: 13, end: 6, top: 13),
+                padding: const EdgeInsetsDirectional.only(
+                  start: 13,
+                  end: 6,
+                  top: 13,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   spacing: 5,
@@ -77,7 +77,23 @@ class CurrentTripCard extends StatelessWidget {
                       title: S.of(context).date,
                       subtitle: trip.createdDate,
                       icon: Icons.calendar_today,
-                    )
+                    ),
+                    if (trip.tripStatus == TripStatus.onWayToPickupRider)
+                      Expanded(
+                        child: AppTextButton(
+                          onPressed: () {
+                            context.pushNamed(
+                              Routes.conversationPage,
+                              arguments: trip.id,
+                            );
+                          },
+                          outerPadding: const EdgeInsets.symmetric(vertical: 8),
+                          child: Text(
+                            'Chat with driver',
+                            style: TextStyle(color: ColorsManager.darkWhite),
+                          ),
+                        ),
+                      ),
                   ],
                 ),
               ),

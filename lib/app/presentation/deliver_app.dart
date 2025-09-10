@@ -6,8 +6,8 @@ import '../../core/routing/app_router.dart';
 import '../../core/routing/routes.dart';
 import '../../core/theming/colors_manager.dart';
 import '../../generated/l10n.dart';
-import 'bloc/app_cubit.dart';
-import 'bloc/app_state.dart';
+import 'cubit/app_cubit.dart';
+import 'cubit/app_state.dart';
 
 class DeliverApp extends StatelessWidget {
   final AppRouter appRouter;
@@ -27,7 +27,7 @@ class DeliverApp extends StatelessWidget {
           builder: (context, child) {
             return MediaQuery(
               data: MediaQuery.of(context).copyWith(
-                textScaler: const TextScaler.linear(1.0),
+                textScaler: const TextScaler.linear(1),
               ),
               child: child!,
             );

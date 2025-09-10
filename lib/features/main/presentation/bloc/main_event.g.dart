@@ -11,22 +11,15 @@ class _$SetPageIndex extends SetPageIndex {
   final int pageIndex;
 
   factory _$SetPageIndex([void Function(SetPageIndexBuilder)? updates]) =>
-      (new SetPageIndexBuilder()..update(updates))._build();
+      (SetPageIndexBuilder()..update(updates))._build();
 
-  _$SetPageIndex._({required this.pageIndex}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-      pageIndex,
-      r'SetPageIndex',
-      'pageIndex',
-    );
-  }
-
+  _$SetPageIndex._({required this.pageIndex}) : super._();
   @override
   SetPageIndex rebuild(void Function(SetPageIndexBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SetPageIndexBuilder toBuilder() => new SetPageIndexBuilder()..replace(this);
+  SetPageIndexBuilder toBuilder() => SetPageIndexBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -44,8 +37,9 @@ class _$SetPageIndex extends SetPageIndex {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SetPageIndex')
-      ..add('pageIndex', pageIndex)).toString();
+    return (newBuiltValueToStringHelper(
+      r'SetPageIndex',
+    )..add('pageIndex', pageIndex)).toString();
   }
 }
 
@@ -70,7 +64,6 @@ class SetPageIndexBuilder
 
   @override
   void replace(SetPageIndex other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SetPageIndex;
   }
 
@@ -85,7 +78,7 @@ class SetPageIndexBuilder
   _$SetPageIndex _build() {
     final _$result =
         _$v ??
-        new _$SetPageIndex._(
+        _$SetPageIndex._(
           pageIndex: BuiltValueNullFieldError.checkNotNull(
             pageIndex,
             r'SetPageIndex',
@@ -99,17 +92,15 @@ class SetPageIndexBuilder
 
 class _$GetCurrentTrip extends GetCurrentTrip {
   factory _$GetCurrentTrip([void Function(GetCurrentTripBuilder)? updates]) =>
-      (new GetCurrentTripBuilder()..update(updates))._build();
+      (GetCurrentTripBuilder()..update(updates))._build();
 
   _$GetCurrentTrip._() : super._();
-
   @override
   GetCurrentTrip rebuild(void Function(GetCurrentTripBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  GetCurrentTripBuilder toBuilder() =>
-      new GetCurrentTripBuilder()..replace(this);
+  GetCurrentTripBuilder toBuilder() => GetCurrentTripBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -136,7 +127,6 @@ class GetCurrentTripBuilder
 
   @override
   void replace(GetCurrentTrip other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GetCurrentTrip;
   }
 
@@ -149,7 +139,7 @@ class GetCurrentTripBuilder
   GetCurrentTrip build() => _build();
 
   _$GetCurrentTrip _build() {
-    final _$result = _$v ?? new _$GetCurrentTrip._();
+    final _$result = _$v ?? _$GetCurrentTrip._();
     replace(_$result);
     return _$result;
   }
@@ -157,17 +147,15 @@ class GetCurrentTripBuilder
 
 class _$RefreshFCMToken extends RefreshFCMToken {
   factory _$RefreshFCMToken([void Function(RefreshFCMTokenBuilder)? updates]) =>
-      (new RefreshFCMTokenBuilder()..update(updates))._build();
+      (RefreshFCMTokenBuilder()..update(updates))._build();
 
   _$RefreshFCMToken._() : super._();
-
   @override
   RefreshFCMToken rebuild(void Function(RefreshFCMTokenBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  RefreshFCMTokenBuilder toBuilder() =>
-      new RefreshFCMTokenBuilder()..replace(this);
+  RefreshFCMTokenBuilder toBuilder() => RefreshFCMTokenBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -194,7 +182,6 @@ class RefreshFCMTokenBuilder
 
   @override
   void replace(RefreshFCMToken other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$RefreshFCMToken;
   }
 
@@ -207,7 +194,7 @@ class RefreshFCMTokenBuilder
   RefreshFCMToken build() => _build();
 
   _$RefreshFCMToken _build() {
-    final _$result = _$v ?? new _$RefreshFCMToken._();
+    final _$result = _$v ?? _$RefreshFCMToken._();
     replace(_$result);
     return _$result;
   }

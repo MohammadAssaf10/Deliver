@@ -2,7 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'app/presentation/bloc/app_cubit.dart';
+import 'app/presentation/cubit/app_cubit.dart';
 import 'app/presentation/deliver_app.dart';
 import 'core/di/di.dart';
 import 'core/routing/app_router.dart';

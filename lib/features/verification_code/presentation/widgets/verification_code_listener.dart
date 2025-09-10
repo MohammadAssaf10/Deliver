@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../app/presentation/cubit/app_cubit.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/utils/app_extensions.dart';
 import '../../../../core/utils/app_functions.dart';
@@ -15,6 +16,7 @@ class VerificationCodeListener extends StatelessWidget {
     return BlocListener<VerificationCodeBloc, VerificationCodeState>(
       listener: (context, state) {
         if (state.isSuccess) {
+          BlocProvider.of<AppCubit>(context).getProfile();
           context.pushNamedAndRemoveUntil(
             Routes.mainPage,
             predicate: (_) => false,

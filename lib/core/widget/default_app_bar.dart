@@ -6,14 +6,13 @@ import '../../../../core/theming/text_styles.dart';
 class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
 
-  const DefaultAppBar({
-    super.key,
-    required this.title,
-  });
+  const DefaultAppBar({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      leadingWidth: 0,
+      automaticallyImplyLeading: false,
       bottom: PreferredSize(
         preferredSize: const Size.fromHeight(40),
         child: Container(
@@ -24,14 +23,9 @@ class DefaultAppBar extends StatelessWidget implements PreferredSizeWidget {
           ),
           alignment: AlignmentDirectional.centerStart,
           decoration: const BoxDecoration(
-            border: Border(
-              bottom: BorderSide(color: ColorsManager.darkWhite),
-            ),
+            border: Border(bottom: BorderSide(color: ColorsManager.darkWhite)),
           ),
-          child: Text(
-            title,
-            style: TextStyles.font33DarkWhiteBold,
-          ),
+          child: Text(title, style: TextStyles.font33DarkWhiteBold),
         ),
       ),
     );

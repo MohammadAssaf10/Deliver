@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../app/presentation/cubit/app_cubit.dart';
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/colors_manager.dart';
 import '../../../../core/theming/font_manager.dart';
@@ -26,6 +27,7 @@ class SignInPage extends StatelessWidget {
     return BlocListener<SignInBloc, SignInState>(
       listener: (context, state) {
         if (state.isSuccess && state.isPhoneNumberVerified) {
+          BlocProvider.of<AppCubit>(context).getProfile();
           context.pushNamedAndRemoveUntil(
             Routes.mainPage,
             predicate: (_) => false,
@@ -43,11 +45,7 @@ class SignInPage extends StatelessWidget {
         resizeToAvoidBottomInset: true,
         backgroundColor: ColorsManager.customWhite,
         body: Padding(
-          padding: const EdgeInsets.only(
-            top: 20,
-            right: 20,
-            left: 20,
-          ),
+          padding: const EdgeInsets.only(top: 20, right: 20, left: 20),
           child: Form(
             key: context.read<SignInBloc>().formKey,
             child: SingleChildScrollView(
@@ -74,8 +72,9 @@ class SignInPage extends StatelessWidget {
                   ),
                   const SizedBox(height: 10),
                   CustomTextField(
-                    controller:
-                        context.read<SignInBloc>().phoneNumberController,
+                    controller: context
+                        .read<SignInBloc>()
+                        .phoneNumberController,
                     labelTitle: S.of(context).mobileNumber,
                     validator: AppValidator.mobileNumberValidator,
                     prefixIcon: Icons.phone,
@@ -89,8 +88,9 @@ class SignInPage extends StatelessWidget {
                     builder: (context, state) {
                       return CustomTextField(
                         obscureText: state.passwordVisible,
-                        controller:
-                            context.read<SignInBloc>().passwordController,
+                        controller: context
+                            .read<SignInBloc>()
+                            .passwordController,
                         labelTitle: S.of(context).password,
                         validator: AppValidator.passwordValidator,
                         prefixIcon: Icons.password,

@@ -9,10 +9,9 @@ part of 'map_event.dart';
 class _$GetCurrentLocation extends GetCurrentLocation {
   factory _$GetCurrentLocation([
     void Function(GetCurrentLocationBuilder)? updates,
-  ]) => (new GetCurrentLocationBuilder()..update(updates))._build();
+  ]) => (GetCurrentLocationBuilder()..update(updates))._build();
 
   _$GetCurrentLocation._() : super._();
-
   @override
   GetCurrentLocation rebuild(
     void Function(GetCurrentLocationBuilder) updates,
@@ -20,7 +19,7 @@ class _$GetCurrentLocation extends GetCurrentLocation {
 
   @override
   GetCurrentLocationBuilder toBuilder() =>
-      new GetCurrentLocationBuilder()..replace(this);
+      GetCurrentLocationBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -47,7 +46,6 @@ class GetCurrentLocationBuilder
 
   @override
   void replace(GetCurrentLocation other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GetCurrentLocation;
   }
 
@@ -60,7 +58,7 @@ class GetCurrentLocationBuilder
   GetCurrentLocation build() => _build();
 
   _$GetCurrentLocation _build() {
-    final _$result = _$v ?? new _$GetCurrentLocation._();
+    final _$result = _$v ?? _$GetCurrentLocation._();
     replace(_$result);
     return _$result;
   }
@@ -72,16 +70,9 @@ class _$ChangeIsPanelOpenState extends ChangeIsPanelOpenState {
 
   factory _$ChangeIsPanelOpenState([
     void Function(ChangeIsPanelOpenStateBuilder)? updates,
-  ]) => (new ChangeIsPanelOpenStateBuilder()..update(updates))._build();
+  ]) => (ChangeIsPanelOpenStateBuilder()..update(updates))._build();
 
-  _$ChangeIsPanelOpenState._({required this.isPanelOpen}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-      isPanelOpen,
-      r'ChangeIsPanelOpenState',
-      'isPanelOpen',
-    );
-  }
-
+  _$ChangeIsPanelOpenState._({required this.isPanelOpen}) : super._();
   @override
   ChangeIsPanelOpenState rebuild(
     void Function(ChangeIsPanelOpenStateBuilder) updates,
@@ -89,7 +80,7 @@ class _$ChangeIsPanelOpenState extends ChangeIsPanelOpenState {
 
   @override
   ChangeIsPanelOpenStateBuilder toBuilder() =>
-      new ChangeIsPanelOpenStateBuilder()..replace(this);
+      ChangeIsPanelOpenStateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -107,8 +98,9 @@ class _$ChangeIsPanelOpenState extends ChangeIsPanelOpenState {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ChangeIsPanelOpenState')
-      ..add('isPanelOpen', isPanelOpen)).toString();
+    return (newBuiltValueToStringHelper(
+      r'ChangeIsPanelOpenState',
+    )..add('isPanelOpen', isPanelOpen)).toString();
   }
 }
 
@@ -133,7 +125,6 @@ class ChangeIsPanelOpenStateBuilder
 
   @override
   void replace(ChangeIsPanelOpenState other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ChangeIsPanelOpenState;
   }
 
@@ -148,7 +139,7 @@ class ChangeIsPanelOpenStateBuilder
   _$ChangeIsPanelOpenState _build() {
     final _$result =
         _$v ??
-        new _$ChangeIsPanelOpenState._(
+        _$ChangeIsPanelOpenState._(
           isPanelOpen: BuiltValueNullFieldError.checkNotNull(
             isPanelOpen,
             r'ChangeIsPanelOpenState',
@@ -166,23 +157,16 @@ class _$SetIsStartAddress extends SetIsStartAddress {
 
   factory _$SetIsStartAddress([
     void Function(SetIsStartAddressBuilder)? updates,
-  ]) => (new SetIsStartAddressBuilder()..update(updates))._build();
+  ]) => (SetIsStartAddressBuilder()..update(updates))._build();
 
-  _$SetIsStartAddress._({required this.isStartAddress}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-      isStartAddress,
-      r'SetIsStartAddress',
-      'isStartAddress',
-    );
-  }
-
+  _$SetIsStartAddress._({required this.isStartAddress}) : super._();
   @override
   SetIsStartAddress rebuild(void Function(SetIsStartAddressBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   SetIsStartAddressBuilder toBuilder() =>
-      new SetIsStartAddressBuilder()..replace(this);
+      SetIsStartAddressBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -200,8 +184,9 @@ class _$SetIsStartAddress extends SetIsStartAddress {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SetIsStartAddress')
-      ..add('isStartAddress', isStartAddress)).toString();
+    return (newBuiltValueToStringHelper(
+      r'SetIsStartAddress',
+    )..add('isStartAddress', isStartAddress)).toString();
   }
 }
 
@@ -227,7 +212,6 @@ class SetIsStartAddressBuilder
 
   @override
   void replace(SetIsStartAddress other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SetIsStartAddress;
   }
 
@@ -242,7 +226,7 @@ class SetIsStartAddressBuilder
   _$SetIsStartAddress _build() {
     final _$result =
         _$v ??
-        new _$SetIsStartAddress._(
+        _$SetIsStartAddress._(
           isStartAddress: BuiltValueNullFieldError.checkNotNull(
             isStartAddress,
             r'SetIsStartAddress',
@@ -259,23 +243,15 @@ class _$SetHintMessage extends SetHintMessage {
   final String message;
 
   factory _$SetHintMessage([void Function(SetHintMessageBuilder)? updates]) =>
-      (new SetHintMessageBuilder()..update(updates))._build();
+      (SetHintMessageBuilder()..update(updates))._build();
 
-  _$SetHintMessage._({required this.message}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-      message,
-      r'SetHintMessage',
-      'message',
-    );
-  }
-
+  _$SetHintMessage._({required this.message}) : super._();
   @override
   SetHintMessage rebuild(void Function(SetHintMessageBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SetHintMessageBuilder toBuilder() =>
-      new SetHintMessageBuilder()..replace(this);
+  SetHintMessageBuilder toBuilder() => SetHintMessageBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -293,8 +269,9 @@ class _$SetHintMessage extends SetHintMessage {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SetHintMessage')
-      ..add('message', message)).toString();
+    return (newBuiltValueToStringHelper(
+      r'SetHintMessage',
+    )..add('message', message)).toString();
   }
 }
 
@@ -319,7 +296,6 @@ class SetHintMessageBuilder
 
   @override
   void replace(SetHintMessage other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SetHintMessage;
   }
 
@@ -334,7 +310,7 @@ class SetHintMessageBuilder
   _$SetHintMessage _build() {
     final _$result =
         _$v ??
-        new _$SetHintMessage._(
+        _$SetHintMessage._(
           message: BuiltValueNullFieldError.checkNotNull(
             message,
             r'SetHintMessage',
@@ -351,23 +327,15 @@ class _$SetStartAddress extends SetStartAddress {
   final Address address;
 
   factory _$SetStartAddress([void Function(SetStartAddressBuilder)? updates]) =>
-      (new SetStartAddressBuilder()..update(updates))._build();
+      (SetStartAddressBuilder()..update(updates))._build();
 
-  _$SetStartAddress._({required this.address}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-      address,
-      r'SetStartAddress',
-      'address',
-    );
-  }
-
+  _$SetStartAddress._({required this.address}) : super._();
   @override
   SetStartAddress rebuild(void Function(SetStartAddressBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SetStartAddressBuilder toBuilder() =>
-      new SetStartAddressBuilder()..replace(this);
+  SetStartAddressBuilder toBuilder() => SetStartAddressBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -385,8 +353,9 @@ class _$SetStartAddress extends SetStartAddress {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SetStartAddress')
-      ..add('address', address)).toString();
+    return (newBuiltValueToStringHelper(
+      r'SetStartAddress',
+    )..add('address', address)).toString();
   }
 }
 
@@ -411,7 +380,6 @@ class SetStartAddressBuilder
 
   @override
   void replace(SetStartAddress other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SetStartAddress;
   }
 
@@ -426,7 +394,7 @@ class SetStartAddressBuilder
   _$SetStartAddress _build() {
     final _$result =
         _$v ??
-        new _$SetStartAddress._(
+        _$SetStartAddress._(
           address: BuiltValueNullFieldError.checkNotNull(
             address,
             r'SetStartAddress',
@@ -443,18 +411,15 @@ class _$SetEndAddress extends SetEndAddress {
   final Address address;
 
   factory _$SetEndAddress([void Function(SetEndAddressBuilder)? updates]) =>
-      (new SetEndAddressBuilder()..update(updates))._build();
+      (SetEndAddressBuilder()..update(updates))._build();
 
-  _$SetEndAddress._({required this.address}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(address, r'SetEndAddress', 'address');
-  }
-
+  _$SetEndAddress._({required this.address}) : super._();
   @override
   SetEndAddress rebuild(void Function(SetEndAddressBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SetEndAddressBuilder toBuilder() => new SetEndAddressBuilder()..replace(this);
+  SetEndAddressBuilder toBuilder() => SetEndAddressBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -472,8 +437,9 @@ class _$SetEndAddress extends SetEndAddress {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SetEndAddress')
-      ..add('address', address)).toString();
+    return (newBuiltValueToStringHelper(
+      r'SetEndAddress',
+    )..add('address', address)).toString();
   }
 }
 
@@ -498,7 +464,6 @@ class SetEndAddressBuilder
 
   @override
   void replace(SetEndAddress other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SetEndAddress;
   }
 
@@ -513,7 +478,7 @@ class SetEndAddressBuilder
   _$SetEndAddress _build() {
     final _$result =
         _$v ??
-        new _$SetEndAddress._(
+        _$SetEndAddress._(
           address: BuiltValueNullFieldError.checkNotNull(
             address,
             r'SetEndAddress',
@@ -528,17 +493,16 @@ class SetEndAddressBuilder
 class _$CalculateDistance extends CalculateDistance {
   factory _$CalculateDistance([
     void Function(CalculateDistanceBuilder)? updates,
-  ]) => (new CalculateDistanceBuilder()..update(updates))._build();
+  ]) => (CalculateDistanceBuilder()..update(updates))._build();
 
   _$CalculateDistance._() : super._();
-
   @override
   CalculateDistance rebuild(void Function(CalculateDistanceBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   CalculateDistanceBuilder toBuilder() =>
-      new CalculateDistanceBuilder()..replace(this);
+      CalculateDistanceBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -565,7 +529,6 @@ class CalculateDistanceBuilder
 
   @override
   void replace(CalculateDistance other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CalculateDistance;
   }
 
@@ -578,7 +541,7 @@ class CalculateDistanceBuilder
   CalculateDistance build() => _build();
 
   _$CalculateDistance _build() {
-    final _$result = _$v ?? new _$CalculateDistance._();
+    final _$result = _$v ?? _$CalculateDistance._();
     replace(_$result);
     return _$result;
   }
@@ -586,16 +549,15 @@ class CalculateDistanceBuilder
 
 class _$CreateNewTrip extends CreateNewTrip {
   factory _$CreateNewTrip([void Function(CreateNewTripBuilder)? updates]) =>
-      (new CreateNewTripBuilder()..update(updates))._build();
+      (CreateNewTripBuilder()..update(updates))._build();
 
   _$CreateNewTrip._() : super._();
-
   @override
   CreateNewTrip rebuild(void Function(CreateNewTripBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  CreateNewTripBuilder toBuilder() => new CreateNewTripBuilder()..replace(this);
+  CreateNewTripBuilder toBuilder() => CreateNewTripBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -622,7 +584,6 @@ class CreateNewTripBuilder
 
   @override
   void replace(CreateNewTrip other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$CreateNewTrip;
   }
 
@@ -635,7 +596,7 @@ class CreateNewTripBuilder
   CreateNewTrip build() => _build();
 
   _$CreateNewTrip _build() {
-    final _$result = _$v ?? new _$CreateNewTrip._();
+    final _$result = _$v ?? _$CreateNewTrip._();
     replace(_$result);
     return _$result;
   }
@@ -646,19 +607,15 @@ class _$SetCurrentTrip extends SetCurrentTrip {
   final Trip trip;
 
   factory _$SetCurrentTrip([void Function(SetCurrentTripBuilder)? updates]) =>
-      (new SetCurrentTripBuilder()..update(updates))._build();
+      (SetCurrentTripBuilder()..update(updates))._build();
 
-  _$SetCurrentTrip._({required this.trip}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(trip, r'SetCurrentTrip', 'trip');
-  }
-
+  _$SetCurrentTrip._({required this.trip}) : super._();
   @override
   SetCurrentTrip rebuild(void Function(SetCurrentTripBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SetCurrentTripBuilder toBuilder() =>
-      new SetCurrentTripBuilder()..replace(this);
+  SetCurrentTripBuilder toBuilder() => SetCurrentTripBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -676,8 +633,9 @@ class _$SetCurrentTrip extends SetCurrentTrip {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'SetCurrentTrip')
-      ..add('trip', trip)).toString();
+    return (newBuiltValueToStringHelper(
+      r'SetCurrentTrip',
+    )..add('trip', trip)).toString();
   }
 }
 
@@ -702,7 +660,6 @@ class SetCurrentTripBuilder
 
   @override
   void replace(SetCurrentTrip other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SetCurrentTrip;
   }
 
@@ -717,7 +674,7 @@ class SetCurrentTripBuilder
   _$SetCurrentTrip _build() {
     final _$result =
         _$v ??
-        new _$SetCurrentTrip._(
+        _$SetCurrentTrip._(
           trip: BuiltValueNullFieldError.checkNotNull(
             trip,
             r'SetCurrentTrip',
@@ -732,17 +689,16 @@ class SetCurrentTripBuilder
 class _$DeleteCurrentTrip extends DeleteCurrentTrip {
   factory _$DeleteCurrentTrip([
     void Function(DeleteCurrentTripBuilder)? updates,
-  ]) => (new DeleteCurrentTripBuilder()..update(updates))._build();
+  ]) => (DeleteCurrentTripBuilder()..update(updates))._build();
 
   _$DeleteCurrentTrip._() : super._();
-
   @override
   DeleteCurrentTrip rebuild(void Function(DeleteCurrentTripBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   DeleteCurrentTripBuilder toBuilder() =>
-      new DeleteCurrentTripBuilder()..replace(this);
+      DeleteCurrentTripBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -769,7 +725,6 @@ class DeleteCurrentTripBuilder
 
   @override
   void replace(DeleteCurrentTrip other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$DeleteCurrentTrip;
   }
 
@@ -782,7 +737,7 @@ class DeleteCurrentTripBuilder
   DeleteCurrentTrip build() => _build();
 
   _$DeleteCurrentTrip _build() {
-    final _$result = _$v ?? new _$DeleteCurrentTrip._();
+    final _$result = _$v ?? _$DeleteCurrentTrip._();
     replace(_$result);
     return _$result;
   }

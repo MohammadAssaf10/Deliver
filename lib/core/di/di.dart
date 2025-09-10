@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:device_info_plus/device_info_plus.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -42,7 +43,10 @@ abstract class RegisterModule {
   FirebaseStorage get firebaseStorage => FirebaseStorage.instance;
 
   @lazySingleton
-  FirebaseMessaging get firebaseException => FirebaseMessaging.instance;
+  FirebaseMessaging get firebaseMessaging => FirebaseMessaging.instance;
+
+  @lazySingleton
+  FirebaseFirestore get firebaseFirestore => FirebaseFirestore.instance;
 
   @lazySingleton
   DeviceInfoPlugin get deviceInfoPlugin => DeviceInfoPlugin();

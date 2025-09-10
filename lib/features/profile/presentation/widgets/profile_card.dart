@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../../core/theming/colors_manager.dart';
 import '../../../../core/widget/custom_app_image.dart';
 import '../../../../generated/l10n.dart';
-import '../../domain/entities/profile.dart';
+import '../../data/models/profile.dart';
 import 'profile_tile.dart';
 
 class ProfileCard extends StatelessWidget {

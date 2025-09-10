@@ -19,16 +19,16 @@ if (envFile.exists()) {
 android {
     namespace "com.example.deliver"
     compileSdk flutter.compileSdkVersion
-    ndkVersion "27.0.12077973"
+    ndkVersion flutter.ndkVersion
 
     compileOptions {
         coreLibraryDesugaringEnabled = true
-        sourceCompatibility = JavaVersion.VERSION_19
-        targetCompatibility = JavaVersion.VERSION_19
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
 
     kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_19
+        jvmTarget = JavaVersion.VERSION_11
     }
 
     defaultConfig {

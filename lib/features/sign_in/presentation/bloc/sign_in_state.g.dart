@@ -19,7 +19,7 @@ class _$SignInState extends SignInState {
   final bool isPhoneNumberVerified;
 
   factory _$SignInState([void Function(SignInStateBuilder)? updates]) =>
-      (new SignInStateBuilder()..update(updates))._build();
+      (SignInStateBuilder()..update(updates))._build();
 
   _$SignInState._({
     required this.passwordVisible,
@@ -27,36 +27,13 @@ class _$SignInState extends SignInState {
     required this.isSuccess,
     required this.isError,
     required this.isPhoneNumberVerified,
-  }) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-      passwordVisible,
-      r'SignInState',
-      'passwordVisible',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      isLoading,
-      r'SignInState',
-      'isLoading',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      isSuccess,
-      r'SignInState',
-      'isSuccess',
-    );
-    BuiltValueNullFieldError.checkNotNull(isError, r'SignInState', 'isError');
-    BuiltValueNullFieldError.checkNotNull(
-      isPhoneNumberVerified,
-      r'SignInState',
-      'isPhoneNumberVerified',
-    );
-  }
-
+  }) : super._();
   @override
   SignInState rebuild(void Function(SignInStateBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SignInStateBuilder toBuilder() => new SignInStateBuilder()..replace(this);
+  SignInStateBuilder toBuilder() => SignInStateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -135,7 +112,6 @@ class SignInStateBuilder implements Builder<SignInState, SignInStateBuilder> {
 
   @override
   void replace(SignInState other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SignInState;
   }
 
@@ -150,7 +126,7 @@ class SignInStateBuilder implements Builder<SignInState, SignInStateBuilder> {
   _$SignInState _build() {
     final _$result =
         _$v ??
-        new _$SignInState._(
+        _$SignInState._(
           passwordVisible: BuiltValueNullFieldError.checkNotNull(
             passwordVisible,
             r'SignInState',

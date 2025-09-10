@@ -17,43 +17,20 @@ class _$ActivitiesState extends ActivitiesState {
   final PaginationStateData<TripHistory> tripHistories;
 
   factory _$ActivitiesState([void Function(ActivitiesStateBuilder)? updates]) =>
-      (new ActivitiesStateBuilder()..update(updates))._build();
+      (ActivitiesStateBuilder()..update(updates))._build();
 
   _$ActivitiesState._({
     required this.isLoading,
     required this.isError,
     required this.isListenerAdded,
     required this.tripHistories,
-  }) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-      isLoading,
-      r'ActivitiesState',
-      'isLoading',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      isError,
-      r'ActivitiesState',
-      'isError',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      isListenerAdded,
-      r'ActivitiesState',
-      'isListenerAdded',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      tripHistories,
-      r'ActivitiesState',
-      'tripHistories',
-    );
-  }
-
+  }) : super._();
   @override
   ActivitiesState rebuild(void Function(ActivitiesStateBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ActivitiesStateBuilder toBuilder() =>
-      new ActivitiesStateBuilder()..replace(this);
+  ActivitiesStateBuilder toBuilder() => ActivitiesStateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -106,7 +83,7 @@ class ActivitiesStateBuilder
 
   PaginationStateDataBuilder<TripHistory>? _tripHistories;
   PaginationStateDataBuilder<TripHistory> get tripHistories =>
-      _$this._tripHistories ??= new PaginationStateDataBuilder<TripHistory>();
+      _$this._tripHistories ??= PaginationStateDataBuilder<TripHistory>();
   set tripHistories(PaginationStateDataBuilder<TripHistory>? tripHistories) =>
       _$this._tripHistories = tripHistories;
 
@@ -126,7 +103,6 @@ class ActivitiesStateBuilder
 
   @override
   void replace(ActivitiesState other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ActivitiesState;
   }
 
@@ -143,7 +119,7 @@ class ActivitiesStateBuilder
     try {
       _$result =
           _$v ??
-          new _$ActivitiesState._(
+          _$ActivitiesState._(
             isLoading: BuiltValueNullFieldError.checkNotNull(
               isLoading,
               r'ActivitiesState',
@@ -167,7 +143,7 @@ class ActivitiesStateBuilder
         _$failedField = 'tripHistories';
         tripHistories.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
           r'ActivitiesState',
           _$failedField,
           e.toString(),

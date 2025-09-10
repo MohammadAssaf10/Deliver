@@ -6,8 +6,8 @@ import '../../../../core/di/di.dart';
 import '../../../../core/utils/app_enums.dart';
 import '../../../../core/utils/app_functions.dart';
 import '../../../activities/presentation/bloc/activities_bloc.dart';
+import '../../../activities/presentation/bloc/activities_event.dart';
 import '../../../activities/presentation/pages/activities_page.dart';
-import '../../../profile/presentation/bloc/profile_bloc.dart';
 import '../../../profile/presentation/pages/profile_page.dart';
 import '../../data/repositories/main_repository.dart';
 import '../pages/home_body.dart';
@@ -20,13 +20,10 @@ class MainBloc extends Bloc<MainEvent, MainState> {
   final List<Widget> pages = [
     const HomeBody(),
     BlocProvider<ActivitiesBloc>(
-      create: (context) => getIt<ActivitiesBloc>()..getTripHistories(),
+      create: (context) => getIt<ActivitiesBloc>()..add(GetTripHistories()),
       child: const ActivitiesPage(),
     ),
-    BlocProvider(
-      create: (context) => getIt<ProfileBloc>()..getProfile(),
-      child: const ProfilePage(),
-    ),
+    const ProfilePage(),
   ];
   final MainRepository _mainRepository;
 
@@ -52,10 +49,9 @@ class MainBloc extends Bloc<MainEvent, MainState> {
         (data) {
           emit(
             state.rebuild(
-              (b) =>
-                  b
-                    ..isLoading = false
-                    ..trip = data,
+              (b) => b
+                ..isLoading = false
+                ..trip = data,
             ),
           );
         },

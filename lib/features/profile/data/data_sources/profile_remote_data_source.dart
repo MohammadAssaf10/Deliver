@@ -1,6 +1,7 @@
 import '../../../../core/data_source/remote/base_remote_data_source.dart';
-import '../models/profile_model.dart';
+import '../models/profile.dart';
 
 abstract class ProfileRemoteDataSource extends BaseRemoteDataSource{
-  Future<ProfileModel> getProfile();
+  Future<Profile> getProfile();
+  Future<String?> logout();
 }

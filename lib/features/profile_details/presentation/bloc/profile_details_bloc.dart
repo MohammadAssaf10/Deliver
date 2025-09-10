@@ -4,8 +4,10 @@ import 'package:image_picker/image_picker.dart';
 import 'package:injectable/injectable.dart';
 import 'package:pinput/pinput.dart';
 
+import '../../../../app/presentation/cubit/app_cubit.dart';
+import '../../../../core/di/di.dart';
 import '../../../../core/utils/app_functions.dart';
-import '../../../profile/domain/entities/profile.dart';
+import '../../../profile/data/models/profile.dart';
 import '../../data/repositories/profile_details_repository.dart';
 import 'profile_details_event.dart';
 import 'profile_details_state.dart';
@@ -22,20 +24,19 @@ class ProfileDetailsBloc
   void selectProfileImage(ImageSource imageSource) =>
       add(SelectProfileImage((b) => b..imageSource = imageSource));
 
-  void setProfileData(Profile profile) =>
-      add(SetProfileData((b) => b..profile = profile));
+  void setProfileData() => add(SetProfileData());
 
   void updateProfileData() => add(UpdateProfileData());
 
   ProfileDetailsBloc(this._imagePicker, this._profileDetailsRepository)
     : super(ProfileDetailsState.initial()) {
     on<SetProfileData>((event, emit) {
-      usernameController.setText(event.profile.name);
-      mobileNumberController.setText(event.profile.phone);
-      if (event.profile.profileImage != null) {
-        emit(
-          state.rebuild((b) => b..profileImage = event.profile.profileImage),
-        );
+      final Profile? profile = getIt<AppCubit>().state.profile;
+      if (profile == null) return;
+      usernameController.setText(profile.name);
+      mobileNumberController.setText(profile.phone);
+      if (profile.profileImage != null) {
+        emit(state.rebuild((b) => b..profileImage = profile.profileImage));
       }
     });
     on<SelectProfileImage>((event, emit) async {
@@ -45,10 +46,9 @@ class ProfileDetailsBloc
       if (profileImageFile != null) {
         emit(
           state.rebuild(
-            (b) =>
-                b
-                  ..profileImageFile = profileImageFile
-                  ..profileImage = '',
+            (b) => b
+              ..profileImageFile = profileImageFile
+              ..profileImage = '',
           ),
         );
       }
@@ -67,6 +67,7 @@ class ProfileDetailsBloc
           emit(state.rebuild((b) => b..isLoading = false));
         },
         (message) {
+          getIt<AppCubit>().getProfile();
           showToastMessage(message);
           emit(state.rebuild((b) => b..isLoading = false));
         },

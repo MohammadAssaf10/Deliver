@@ -15,27 +15,19 @@ class _$SplashState extends SplashState {
   final String errorMessage;
 
   factory _$SplashState([void Function(SplashStateBuilder)? updates]) =>
-      (new SplashStateBuilder()..update(updates))._build();
+      (SplashStateBuilder()..update(updates))._build();
 
   _$SplashState._({
     this.isAuth,
     required this.isError,
     required this.errorMessage,
-  }) : super._() {
-    BuiltValueNullFieldError.checkNotNull(isError, r'SplashState', 'isError');
-    BuiltValueNullFieldError.checkNotNull(
-      errorMessage,
-      r'SplashState',
-      'errorMessage',
-    );
-  }
-
+  }) : super._();
   @override
   SplashState rebuild(void Function(SplashStateBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SplashStateBuilder toBuilder() => new SplashStateBuilder()..replace(this);
+  SplashStateBuilder toBuilder() => SplashStateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -96,7 +88,6 @@ class SplashStateBuilder implements Builder<SplashState, SplashStateBuilder> {
 
   @override
   void replace(SplashState other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SplashState;
   }
 
@@ -111,7 +102,7 @@ class SplashStateBuilder implements Builder<SplashState, SplashStateBuilder> {
   _$SplashState _build() {
     final _$result =
         _$v ??
-        new _$SplashState._(
+        _$SplashState._(
           isAuth: isAuth,
           isError: BuiltValueNullFieldError.checkNotNull(
             isError,

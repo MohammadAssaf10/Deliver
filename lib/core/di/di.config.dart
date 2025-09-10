@@ -9,6 +9,7 @@
 // coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
+import 'package:cloud_firestore/cloud_firestore.dart' as _i974;
 import 'package:connectivity_plus/connectivity_plus.dart' as _i895;
 import 'package:device_info_plus/device_info_plus.dart' as _i833;
 import 'package:firebase_messaging/firebase_messaging.dart' as _i892;
@@ -24,7 +25,7 @@ import '../../app/data/data_sources/local/app_local_data_source.dart' as _i212;
 import '../../app/data/data_sources/local/app_local_data_source_impl.dart'
     as _i746;
 import '../../app/data/repositories/app_repository.dart' as _i245;
-import '../../app/presentation/bloc/app_cubit.dart' as _i571;
+import '../../app/presentation/cubit/app_cubit.dart' as _i406;
 import '../../features/activities/data/data_sources/activities_remote_data_source.dart'
     as _i330;
 import '../../features/activities/data/data_sources/activities_remote_data_source_impl.dart'
@@ -35,6 +36,14 @@ import '../../features/activities/domain/repositories/activities_repository.dart
     as _i415;
 import '../../features/activities/presentation/bloc/activities_bloc.dart'
     as _i880;
+import '../../features/conversation/data/data_sources/conversation_remote_data_source.dart'
+    as _i935;
+import '../../features/conversation/data/data_sources/conversation_remote_data_source_impl.dart'
+    as _i952;
+import '../../features/conversation/data/repositories/conversation_repository.dart'
+    as _i892;
+import '../../features/conversation/presentation/bloc/conversation_bloc.dart'
+    as _i943;
 import '../../features/main/data/data_sources/remote/main_remote_data_source.dart'
     as _i1003;
 import '../../features/main/data/data_sources/remote/main_remote_data_source_impl.dart'
@@ -47,13 +56,20 @@ import '../../features/map/data/data_sources/remote/map_remote_data_source_impl.
     as _i935;
 import '../../features/map/data/repositories/map_repository.dart' as _i126;
 import '../../features/map/presentation/bloc/map_bloc.dart' as _i437;
+import '../../features/my_conversations/data/data_sources/my_conversations_remote_data_source.dart'
+    as _i307;
+import '../../features/my_conversations/data/data_sources/my_conversations_remote_data_source_impl.dart'
+    as _i380;
+import '../../features/my_conversations/data/repositories/my_conversations_repository.dart'
+    as _i222;
+import '../../features/my_conversations/presentation/bloc/my_conversations_bloc.dart'
+    as _i846;
 import '../../features/profile/data/data_sources/profile_remote_data_source.dart'
     as _i1012;
 import '../../features/profile/data/data_sources/profile_remote_data_source_impl.dart'
     as _i491;
 import '../../features/profile/data/repositories/profile_repository.dart'
     as _i361;
-import '../../features/profile/presentation/bloc/profile_bloc.dart' as _i469;
 import '../../features/profile_details/data/data_sources/profile_details_remote_data_source.dart'
     as _i1022;
 import '../../features/profile_details/data/data_sources/profile_details_remote_data_source_impl.dart'
@@ -112,7 +128,10 @@ Future<_i174.GetIt> $initGetIt(
   gh.lazySingleton<_i183.ImagePicker>(() => registerModule.picker);
   gh.lazySingleton<_i457.FirebaseStorage>(() => registerModule.firebaseStorage);
   gh.lazySingleton<_i892.FirebaseMessaging>(
-    () => registerModule.firebaseException,
+    () => registerModule.firebaseMessaging,
+  );
+  gh.lazySingleton<_i974.FirebaseFirestore>(
+    () => registerModule.firebaseFirestore,
   );
   gh.lazySingleton<_i833.DeviceInfoPlugin>(
     () => registerModule.deviceInfoPlugin,
@@ -126,11 +145,19 @@ Future<_i174.GetIt> $initGetIt(
   gh.lazySingleton<_i1022.ProfileDetailsRemoteDataSource>(
     () => _i1069.ProfileDetailsRemoteDataSourceImpl(),
   );
+  gh.lazySingleton<_i307.MyConversationsRemoteDataSource>(
+    () => _i380.MyConversationsRemoteDataSourceImpl(
+      gh<_i974.FirebaseFirestore>(),
+    ),
+  );
   gh.lazySingleton<_i533.SignInRemoteDataSource>(
     () => _i1024.SignInRemoteDataSourceImpl(),
   );
   gh.lazySingleton<_i1003.MainRemoteDataSource>(
     () => _i724.MainRemoteDataSourceImpl(),
+  );
+  gh.lazySingleton<_i935.ConversationRemoteDataSource>(
+    () => _i952.ConversationRemoteDataSourceImpl(gh<_i974.FirebaseFirestore>()),
   );
   gh.lazySingleton<_i212.AppLocalDataSource>(
     () => _i746.AppLocalDataSourceImpl(),
@@ -167,8 +194,11 @@ Future<_i174.GetIt> $initGetIt(
       gh<_i932.NetworkInfo>(),
     ),
   );
-  gh.factory<_i469.ProfileBloc>(
-    () => _i469.ProfileBloc(gh<_i361.ProfileRepository>()),
+  gh.lazySingleton<_i892.ConversationRepository>(
+    () => _i892.ConversationRepository(
+      gh<_i932.NetworkInfo>(),
+      gh<_i935.ConversationRemoteDataSource>(),
+    ),
   );
   gh.lazySingleton<_i126.MapRepository>(
     () => _i126.MapRepository(
@@ -192,11 +222,23 @@ Future<_i174.GetIt> $initGetIt(
       gh<_i932.NetworkInfo>(),
     ),
   );
-  gh.lazySingleton<_i571.AppCubit>(
-    () => _i571.AppCubit(gh<_i245.AppRepository>()),
+  gh.lazySingleton<_i222.MyConversationsRepository>(
+    () => _i222.MyConversationsRepository(
+      gh<_i932.NetworkInfo>(),
+      gh<_i307.MyConversationsRemoteDataSource>(),
+    ),
+  );
+  gh.factory<_i846.MyConversationsBloc>(
+    () => _i846.MyConversationsBloc(gh<_i222.MyConversationsRepository>()),
   );
   gh.factory<_i442.SplashBloc>(
     () => _i442.SplashBloc(gh<_i120.SplashRepository>()),
+  );
+  gh.lazySingleton<_i406.AppCubit>(
+    () => _i406.AppCubit(
+      gh<_i245.AppRepository>(),
+      gh<_i361.ProfileRepository>(),
+    ),
   );
   gh.factory<_i1014.MainBloc>(
     () => _i1014.MainBloc(gh<_i1027.MainRepository>()),
@@ -218,6 +260,9 @@ Future<_i174.GetIt> $initGetIt(
       gh<_i964.SignUpRemoteDataSource>(),
       gh<_i932.NetworkInfo>(),
     ),
+  );
+  gh.factory<_i943.ConversationBloc>(
+    () => _i943.ConversationBloc(gh<_i892.ConversationRepository>()),
   );
   gh.factory<_i59.VerificationCodeBloc>(
     () => _i59.VerificationCodeBloc(gh<_i61.VerificationCodeRepository>()),

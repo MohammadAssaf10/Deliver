@@ -9,17 +9,16 @@ part of 'activities_event.dart';
 class _$GetTripHistories extends GetTripHistories {
   factory _$GetTripHistories([
     void Function(GetTripHistoriesBuilder)? updates,
-  ]) => (new GetTripHistoriesBuilder()..update(updates))._build();
+  ]) => (GetTripHistoriesBuilder()..update(updates))._build();
 
   _$GetTripHistories._() : super._();
-
   @override
   GetTripHistories rebuild(void Function(GetTripHistoriesBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
   GetTripHistoriesBuilder toBuilder() =>
-      new GetTripHistoriesBuilder()..replace(this);
+      GetTripHistoriesBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -46,7 +45,6 @@ class GetTripHistoriesBuilder
 
   @override
   void replace(GetTripHistories other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$GetTripHistories;
   }
 
@@ -59,7 +57,7 @@ class GetTripHistoriesBuilder
   GetTripHistories build() => _build();
 
   _$GetTripHistories _build() {
-    final _$result = _$v ?? new _$GetTripHistories._();
+    final _$result = _$v ?? _$GetTripHistories._();
     replace(_$result);
     return _$result;
   }

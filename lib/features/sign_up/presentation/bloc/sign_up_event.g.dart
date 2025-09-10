@@ -9,10 +9,9 @@ part of 'sign_up_event.dart';
 class _$ChangePasswordState extends ChangePasswordState {
   factory _$ChangePasswordState([
     void Function(ChangePasswordStateBuilder)? updates,
-  ]) => (new ChangePasswordStateBuilder()..update(updates))._build();
+  ]) => (ChangePasswordStateBuilder()..update(updates))._build();
 
   _$ChangePasswordState._() : super._();
-
   @override
   ChangePasswordState rebuild(
     void Function(ChangePasswordStateBuilder) updates,
@@ -20,7 +19,7 @@ class _$ChangePasswordState extends ChangePasswordState {
 
   @override
   ChangePasswordStateBuilder toBuilder() =>
-      new ChangePasswordStateBuilder()..replace(this);
+      ChangePasswordStateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -47,7 +46,6 @@ class ChangePasswordStateBuilder
 
   @override
   void replace(ChangePasswordState other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ChangePasswordState;
   }
 
@@ -60,7 +58,7 @@ class ChangePasswordStateBuilder
   ChangePasswordState build() => _build();
 
   _$ChangePasswordState _build() {
-    final _$result = _$v ?? new _$ChangePasswordState._();
+    final _$result = _$v ?? _$ChangePasswordState._();
     replace(_$result);
     return _$result;
   }
@@ -68,16 +66,15 @@ class ChangePasswordStateBuilder
 
 class _$SignUp extends SignUp {
   factory _$SignUp([void Function(SignUpBuilder)? updates]) =>
-      (new SignUpBuilder()..update(updates))._build();
+      (SignUpBuilder()..update(updates))._build();
 
   _$SignUp._() : super._();
-
   @override
   SignUp rebuild(void Function(SignUpBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SignUpBuilder toBuilder() => new SignUpBuilder()..replace(this);
+  SignUpBuilder toBuilder() => SignUpBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -103,7 +100,6 @@ class SignUpBuilder implements Builder<SignUp, SignUpBuilder> {
 
   @override
   void replace(SignUp other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SignUp;
   }
 
@@ -116,7 +112,7 @@ class SignUpBuilder implements Builder<SignUp, SignUpBuilder> {
   SignUp build() => _build();
 
   _$SignUp _build() {
-    final _$result = _$v ?? new _$SignUp._();
+    final _$result = _$v ?? _$SignUp._();
     replace(_$result);
     return _$result;
   }

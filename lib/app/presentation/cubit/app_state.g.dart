@@ -10,40 +10,45 @@ class _$AppState extends AppState {
   @override
   final Language appLanguage;
   @override
-  final bool isAuth;
+  final BlocStatus profileStatus;
+  @override
+  final Profile? profile;
+  @override
+  final BlocStatus logoutStatus;
 
   factory _$AppState([void Function(AppStateBuilder)? updates]) =>
-      (new AppStateBuilder()..update(updates))._build();
+      (AppStateBuilder()..update(updates))._build();
 
-  _$AppState._({required this.appLanguage, required this.isAuth}) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-      appLanguage,
-      r'AppState',
-      'appLanguage',
-    );
-    BuiltValueNullFieldError.checkNotNull(isAuth, r'AppState', 'isAuth');
-  }
-
+  _$AppState._({
+    required this.appLanguage,
+    required this.profileStatus,
+    this.profile,
+    required this.logoutStatus,
+  }) : super._();
   @override
   AppState rebuild(void Function(AppStateBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  AppStateBuilder toBuilder() => new AppStateBuilder()..replace(this);
+  AppStateBuilder toBuilder() => AppStateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is AppState &&
         appLanguage == other.appLanguage &&
-        isAuth == other.isAuth;
+        profileStatus == other.profileStatus &&
+        profile == other.profile &&
+        logoutStatus == other.logoutStatus;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, appLanguage.hashCode);
-    _$hash = $jc(_$hash, isAuth.hashCode);
+    _$hash = $jc(_$hash, profileStatus.hashCode);
+    _$hash = $jc(_$hash, profile.hashCode);
+    _$hash = $jc(_$hash, logoutStatus.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -52,7 +57,9 @@ class _$AppState extends AppState {
   String toString() {
     return (newBuiltValueToStringHelper(r'AppState')
           ..add('appLanguage', appLanguage)
-          ..add('isAuth', isAuth))
+          ..add('profileStatus', profileStatus)
+          ..add('profile', profile)
+          ..add('logoutStatus', logoutStatus))
         .toString();
   }
 }
@@ -64,9 +71,19 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
   Language? get appLanguage => _$this._appLanguage;
   set appLanguage(Language? appLanguage) => _$this._appLanguage = appLanguage;
 
-  bool? _isAuth;
-  bool? get isAuth => _$this._isAuth;
-  set isAuth(bool? isAuth) => _$this._isAuth = isAuth;
+  BlocStatus? _profileStatus;
+  BlocStatus? get profileStatus => _$this._profileStatus;
+  set profileStatus(BlocStatus? profileStatus) =>
+      _$this._profileStatus = profileStatus;
+
+  Profile? _profile;
+  Profile? get profile => _$this._profile;
+  set profile(Profile? profile) => _$this._profile = profile;
+
+  BlocStatus? _logoutStatus;
+  BlocStatus? get logoutStatus => _$this._logoutStatus;
+  set logoutStatus(BlocStatus? logoutStatus) =>
+      _$this._logoutStatus = logoutStatus;
 
   AppStateBuilder();
 
@@ -74,7 +91,9 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
     final $v = _$v;
     if ($v != null) {
       _appLanguage = $v.appLanguage;
-      _isAuth = $v.isAuth;
+      _profileStatus = $v.profileStatus;
+      _profile = $v.profile;
+      _logoutStatus = $v.logoutStatus;
       _$v = null;
     }
     return this;
@@ -82,7 +101,6 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
 
   @override
   void replace(AppState other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$AppState;
   }
 
@@ -97,16 +115,22 @@ class AppStateBuilder implements Builder<AppState, AppStateBuilder> {
   _$AppState _build() {
     final _$result =
         _$v ??
-        new _$AppState._(
+        _$AppState._(
           appLanguage: BuiltValueNullFieldError.checkNotNull(
             appLanguage,
             r'AppState',
             'appLanguage',
           ),
-          isAuth: BuiltValueNullFieldError.checkNotNull(
-            isAuth,
+          profileStatus: BuiltValueNullFieldError.checkNotNull(
+            profileStatus,
             r'AppState',
-            'isAuth',
+            'profileStatus',
+          ),
+          profile: profile,
+          logoutStatus: BuiltValueNullFieldError.checkNotNull(
+            logoutStatus,
+            r'AppState',
+            'logoutStatus',
           ),
         );
     replace(_$result);

@@ -15,20 +15,16 @@ class _$MainState extends MainState {
   final Trip? trip;
 
   factory _$MainState([void Function(MainStateBuilder)? updates]) =>
-      (new MainStateBuilder()..update(updates))._build();
+      (MainStateBuilder()..update(updates))._build();
 
   _$MainState._({required this.isLoading, required this.pageIndex, this.trip})
-    : super._() {
-    BuiltValueNullFieldError.checkNotNull(isLoading, r'MainState', 'isLoading');
-    BuiltValueNullFieldError.checkNotNull(pageIndex, r'MainState', 'pageIndex');
-  }
-
+    : super._();
   @override
   MainState rebuild(void Function(MainStateBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  MainStateBuilder toBuilder() => new MainStateBuilder()..replace(this);
+  MainStateBuilder toBuilder() => MainStateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -89,7 +85,6 @@ class MainStateBuilder implements Builder<MainState, MainStateBuilder> {
 
   @override
   void replace(MainState other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$MainState;
   }
 
@@ -104,7 +99,7 @@ class MainStateBuilder implements Builder<MainState, MainStateBuilder> {
   _$MainState _build() {
     final _$result =
         _$v ??
-        new _$MainState._(
+        _$MainState._(
           isLoading: BuiltValueNullFieldError.checkNotNull(
             isLoading,
             r'MainState',

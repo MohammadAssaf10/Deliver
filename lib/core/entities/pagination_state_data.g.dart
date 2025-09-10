@@ -18,39 +18,14 @@ class _$PaginationStateData<T> extends PaginationStateData<T> {
 
   factory _$PaginationStateData([
     void Function(PaginationStateDataBuilder<T>)? updates,
-  ]) => (new PaginationStateDataBuilder<T>()..update(updates))._build();
+  ]) => (PaginationStateDataBuilder<T>()..update(updates))._build();
 
   _$PaginationStateData._({
     required this.items,
     required this.isLoading,
     required this.isFinished,
     required this.currentPage,
-  }) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-      items,
-      r'PaginationStateData',
-      'items',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      isLoading,
-      r'PaginationStateData',
-      'isLoading',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      isFinished,
-      r'PaginationStateData',
-      'isFinished',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      currentPage,
-      r'PaginationStateData',
-      'currentPage',
-    );
-    if (T == dynamic) {
-      throw new BuiltValueMissingGenericsError(r'PaginationStateData', 'T');
-    }
-  }
-
+  }) : super._();
   @override
   PaginationStateData<T> rebuild(
     void Function(PaginationStateDataBuilder<T>) updates,
@@ -58,7 +33,7 @@ class _$PaginationStateData<T> extends PaginationStateData<T> {
 
   @override
   PaginationStateDataBuilder<T> toBuilder() =>
-      new PaginationStateDataBuilder<T>()..replace(this);
+      PaginationStateDataBuilder<T>()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -97,7 +72,7 @@ class PaginationStateDataBuilder<T>
   _$PaginationStateData<T>? _$v;
 
   ListBuilder<T>? _items;
-  ListBuilder<T> get items => _$this._items ??= new ListBuilder<T>();
+  ListBuilder<T> get items => _$this._items ??= ListBuilder<T>();
   set items(ListBuilder<T>? items) => _$this._items = items;
 
   bool? _isLoading;
@@ -128,7 +103,6 @@ class PaginationStateDataBuilder<T>
 
   @override
   void replace(PaginationStateData<T> other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$PaginationStateData<T>;
   }
 
@@ -145,7 +119,7 @@ class PaginationStateDataBuilder<T>
     try {
       _$result =
           _$v ??
-          new _$PaginationStateData<T>._(
+          _$PaginationStateData<T>._(
             items: items.build(),
             isLoading: BuiltValueNullFieldError.checkNotNull(
               isLoading,
@@ -169,7 +143,7 @@ class PaginationStateDataBuilder<T>
         _$failedField = 'items';
         items.build();
       } catch (e) {
-        throw new BuiltValueNestedFieldError(
+        throw BuiltValueNestedFieldError(
           r'PaginationStateData',
           _$failedField,
           e.toString(),

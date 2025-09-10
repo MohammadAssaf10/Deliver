@@ -37,6 +37,7 @@ class VerificationCodeBloc
       final result =
           await _verificationCodeRepository.generateVerificationCode();
       result.fold((failure) {
+        
         showToastMessage(
           failure.errorMessage,
           isError: true,

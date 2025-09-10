@@ -16,25 +16,13 @@ class _$ProfileDetailsState extends ProfileDetailsState {
 
   factory _$ProfileDetailsState([
     void Function(ProfileDetailsStateBuilder)? updates,
-  ]) => (new ProfileDetailsStateBuilder()..update(updates))._build();
+  ]) => (ProfileDetailsStateBuilder()..update(updates))._build();
 
   _$ProfileDetailsState._({
     required this.isLoading,
     this.profileImageFile,
     required this.profileImage,
-  }) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-      isLoading,
-      r'ProfileDetailsState',
-      'isLoading',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      profileImage,
-      r'ProfileDetailsState',
-      'profileImage',
-    );
-  }
-
+  }) : super._();
   @override
   ProfileDetailsState rebuild(
     void Function(ProfileDetailsStateBuilder) updates,
@@ -42,7 +30,7 @@ class _$ProfileDetailsState extends ProfileDetailsState {
 
   @override
   ProfileDetailsStateBuilder toBuilder() =>
-      new ProfileDetailsStateBuilder()..replace(this);
+      ProfileDetailsStateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -105,7 +93,6 @@ class ProfileDetailsStateBuilder
 
   @override
   void replace(ProfileDetailsState other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ProfileDetailsState;
   }
 
@@ -120,7 +107,7 @@ class ProfileDetailsStateBuilder
   _$ProfileDetailsState _build() {
     final _$result =
         _$v ??
-        new _$ProfileDetailsState._(
+        _$ProfileDetailsState._(
           isLoading: BuiltValueNullFieldError.checkNotNull(
             isLoading,
             r'ProfileDetailsState',

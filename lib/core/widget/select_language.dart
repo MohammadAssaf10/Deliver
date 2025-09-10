@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../app/presentation/bloc/app_cubit.dart';
-import '../../app/presentation/bloc/app_state.dart';
+import '../../app/presentation/cubit/app_cubit.dart';
+import '../../app/presentation/cubit/app_state.dart';
 import '../../generated/l10n.dart';
 import '../theming/colors_manager.dart';
 import '../theming/font_manager.dart';

@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../features/conversation/presentation/bloc/conversation_bloc.dart';
+import '../../features/conversation/presentation/pages/conversation_page.dart';
 import '../../features/main/presentation/bloc/main_bloc.dart';
 import '../../features/main/presentation/pages/main_page.dart';
 import '../../features/map/presentation/bloc/map_bloc.dart';
 import '../../features/map/presentation/pages/map_page.dart';
 import '../../features/on_boarding/presentation/pages/on_boarding_page.dart';
-import '../../features/profile/domain/entities/profile.dart';
 import '../../features/profile_details/presentation/bloc/profile_details_bloc.dart';
 import '../../features/profile_details/presentation/pages/profile_details_page.dart';
 import '../../features/sign_in/presentation/bloc/sign_in_bloc.dart';
@@ -37,7 +38,9 @@ class AppRouter {
       case Routes.mainPage:
         return MaterialPageRoute(
           builder: (_) => BlocProvider<MainBloc>(
-            create: (_) => getIt<MainBloc>()..getCurrentTrip()..refreshFCMToken(),
+            create: (_) => getIt<MainBloc>()
+              ..getCurrentTrip()
+              ..refreshFCMToken(),
             child: const MainPage(),
           ),
         );
@@ -79,14 +82,20 @@ class AppRouter {
           ),
         );
       case Routes.onBoardingPage:
-        return MaterialPageRoute(
-          builder: (_) => const OnBoardingPage(),
-        );
+        return MaterialPageRoute(builder: (_) => const OnBoardingPage());
       case Routes.profileDetailsPage:
         return MaterialPageRoute(
           builder: (_) => BlocProvider<ProfileDetailsBloc>(
-            create: (context) => getIt<ProfileDetailsBloc>()..setProfileData(arguments as Profile),
+            create: (context) => getIt<ProfileDetailsBloc>()..setProfileData(),
             child: const ProfileDetailsPage(),
+          ),
+        );
+      case Routes.conversationPage:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider<ConversationBloc>(
+            create: (context) =>
+                getIt<ConversationBloc>()..getConversation(arguments),
+            child: ConversationPage(tripId: arguments as int),
           ),
         );
       default:

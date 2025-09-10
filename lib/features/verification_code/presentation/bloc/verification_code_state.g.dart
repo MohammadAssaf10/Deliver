@@ -16,30 +16,13 @@ class _$VerificationCodeState extends VerificationCodeState {
 
   factory _$VerificationCodeState([
     void Function(VerificationCodeStateBuilder)? updates,
-  ]) => (new VerificationCodeStateBuilder()..update(updates))._build();
+  ]) => (VerificationCodeStateBuilder()..update(updates))._build();
 
   _$VerificationCodeState._({
     required this.isLoading,
     required this.isSuccess,
     required this.isError,
-  }) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-      isLoading,
-      r'VerificationCodeState',
-      'isLoading',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      isSuccess,
-      r'VerificationCodeState',
-      'isSuccess',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      isError,
-      r'VerificationCodeState',
-      'isError',
-    );
-  }
-
+  }) : super._();
   @override
   VerificationCodeState rebuild(
     void Function(VerificationCodeStateBuilder) updates,
@@ -47,7 +30,7 @@ class _$VerificationCodeState extends VerificationCodeState {
 
   @override
   VerificationCodeStateBuilder toBuilder() =>
-      new VerificationCodeStateBuilder()..replace(this);
+      VerificationCodeStateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -109,7 +92,6 @@ class VerificationCodeStateBuilder
 
   @override
   void replace(VerificationCodeState other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$VerificationCodeState;
   }
 
@@ -124,7 +106,7 @@ class VerificationCodeStateBuilder
   _$VerificationCodeState _build() {
     final _$result =
         _$v ??
-        new _$VerificationCodeState._(
+        _$VerificationCodeState._(
           isLoading: BuiltValueNullFieldError.checkNotNull(
             isLoading,
             r'VerificationCodeState',

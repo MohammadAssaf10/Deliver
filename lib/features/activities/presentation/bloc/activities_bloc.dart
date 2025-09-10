@@ -13,8 +13,6 @@ class ActivitiesBloc extends Bloc<ActivitiesEvent, ActivitiesState> {
   final ActivitiesRepository _activitiesRepository;
   final ScrollController controller = ScrollController();
 
-  void getTripHistories() => add(GetTripHistories());
-
   ActivitiesBloc(
     this._activitiesRepository,
   ) : super(ActivitiesState.initial()) {
@@ -56,7 +54,7 @@ class ActivitiesBloc extends Bloc<ActivitiesEvent, ActivitiesState> {
         if (!state.isListenerAdded) {
           controller.addListener(() {
             if (state.tripHistories.shouldGetMoreData(controller)) {
-              getTripHistories();
+              add(GetTripHistories());
             }
           });
           emit(state.rebuild((b) => b..isListenerAdded = true));

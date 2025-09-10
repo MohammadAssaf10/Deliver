@@ -17,38 +17,20 @@ class _$SignUpState extends SignUpState {
   final bool isSuccess;
 
   factory _$SignUpState([void Function(SignUpStateBuilder)? updates]) =>
-      (new SignUpStateBuilder()..update(updates))._build();
+      (SignUpStateBuilder()..update(updates))._build();
 
   _$SignUpState._({
     required this.passwordVisible,
     required this.isLoading,
     required this.isError,
     required this.isSuccess,
-  }) : super._() {
-    BuiltValueNullFieldError.checkNotNull(
-      passwordVisible,
-      r'SignUpState',
-      'passwordVisible',
-    );
-    BuiltValueNullFieldError.checkNotNull(
-      isLoading,
-      r'SignUpState',
-      'isLoading',
-    );
-    BuiltValueNullFieldError.checkNotNull(isError, r'SignUpState', 'isError');
-    BuiltValueNullFieldError.checkNotNull(
-      isSuccess,
-      r'SignUpState',
-      'isSuccess',
-    );
-  }
-
+  }) : super._();
   @override
   SignUpState rebuild(void Function(SignUpStateBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SignUpStateBuilder toBuilder() => new SignUpStateBuilder()..replace(this);
+  SignUpStateBuilder toBuilder() => SignUpStateBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -118,7 +100,6 @@ class SignUpStateBuilder implements Builder<SignUpState, SignUpStateBuilder> {
 
   @override
   void replace(SignUpState other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SignUpState;
   }
 
@@ -133,7 +114,7 @@ class SignUpStateBuilder implements Builder<SignUpState, SignUpStateBuilder> {
   _$SignUpState _build() {
     final _$result =
         _$v ??
-        new _$SignUpState._(
+        _$SignUpState._(
           passwordVisible: BuiltValueNullFieldError.checkNotNull(
             passwordVisible,
             r'SignUpState',

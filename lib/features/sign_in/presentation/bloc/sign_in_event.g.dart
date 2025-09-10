@@ -9,10 +9,9 @@ part of 'sign_in_event.dart';
 class _$ChangePasswordVisibility extends ChangePasswordVisibility {
   factory _$ChangePasswordVisibility([
     void Function(ChangePasswordVisibilityBuilder)? updates,
-  ]) => (new ChangePasswordVisibilityBuilder()..update(updates))._build();
+  ]) => (ChangePasswordVisibilityBuilder()..update(updates))._build();
 
   _$ChangePasswordVisibility._() : super._();
-
   @override
   ChangePasswordVisibility rebuild(
     void Function(ChangePasswordVisibilityBuilder) updates,
@@ -20,7 +19,7 @@ class _$ChangePasswordVisibility extends ChangePasswordVisibility {
 
   @override
   ChangePasswordVisibilityBuilder toBuilder() =>
-      new ChangePasswordVisibilityBuilder()..replace(this);
+      ChangePasswordVisibilityBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -48,7 +47,6 @@ class ChangePasswordVisibilityBuilder
 
   @override
   void replace(ChangePasswordVisibility other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$ChangePasswordVisibility;
   }
 
@@ -61,7 +59,7 @@ class ChangePasswordVisibilityBuilder
   ChangePasswordVisibility build() => _build();
 
   _$ChangePasswordVisibility _build() {
-    final _$result = _$v ?? new _$ChangePasswordVisibility._();
+    final _$result = _$v ?? _$ChangePasswordVisibility._();
     replace(_$result);
     return _$result;
   }
@@ -69,16 +67,15 @@ class ChangePasswordVisibilityBuilder
 
 class _$SignIn extends SignIn {
   factory _$SignIn([void Function(SignInBuilder)? updates]) =>
-      (new SignInBuilder()..update(updates))._build();
+      (SignInBuilder()..update(updates))._build();
 
   _$SignIn._() : super._();
-
   @override
   SignIn rebuild(void Function(SignInBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  SignInBuilder toBuilder() => new SignInBuilder()..replace(this);
+  SignInBuilder toBuilder() => SignInBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
@@ -104,7 +101,6 @@ class SignInBuilder implements Builder<SignIn, SignInBuilder> {
 
   @override
   void replace(SignIn other) {
-    ArgumentError.checkNotNull(other, 'other');
     _$v = other as _$SignIn;
   }
 
@@ -117,7 +113,7 @@ class SignInBuilder implements Builder<SignIn, SignInBuilder> {
   SignIn build() => _build();
 
   _$SignIn _build() {
-    final _$result = _$v ?? new _$SignIn._();
+    final _$result = _$v ?? _$SignIn._();
     replace(_$result);
     return _$result;
   }
